@@ -1,4 +1,6 @@
 *.class
+.idea/
+gwt-three.iml
 
 # Package Files #
 *.jar
@@ -23,6 +25,6 @@ gwt-unitCache/
 
 #gwt junit compilation files
 www-test/
-
+target/
 #old GWT (1.5) created this dir
 .gwt-tmp/
