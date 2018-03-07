@@ -3,12 +3,19 @@ package org.treblereel.gwt.three4g.core;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.cameras.Camera;
+import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Euler;
 import org.treblereel.gwt.three4g.math.Matrix3;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.math.Quaternion;
 import org.treblereel.gwt.three4g.math.Vector3;
+import org.treblereel.gwt.three4g.objects.Group;
+import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
+import org.treblereel.gwt.three4g.scenes.Scene;
 
 /**
  *
