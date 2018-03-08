@@ -325,7 +325,7 @@ public class Object3D extends EventDispatcher{
      * @param intersects
      * @return
      */
-    public native Object raycast(Raycaster raycaster, Object intersects); //TODO
+    public native void raycast(Raycaster raycaster, Object intersects); //TODO
 
     /**
      * Removes object as child of this object. An arbitrary number of objects may be removed.
