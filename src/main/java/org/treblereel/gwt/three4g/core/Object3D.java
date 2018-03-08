@@ -56,7 +56,7 @@ public class Object3D extends EventDispatcher{
     /**
      * The layer membership of the object. The object is only visible if it has at least one layer in common with the Camera in use.
      */
-    public Object layers;
+    public Layers layers;
 
     /**
      * The local transform matrix.
