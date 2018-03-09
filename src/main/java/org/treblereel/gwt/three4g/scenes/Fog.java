@@ -33,6 +33,11 @@ public class Fog {
      */
     public float far;
 
+    @JsConstructor
+    public Fog(){
+
+    }
+
     /**
      * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
      * @param color
