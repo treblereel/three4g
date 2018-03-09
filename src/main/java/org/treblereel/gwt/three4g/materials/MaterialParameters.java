@@ -1,16 +1,15 @@
 package org.treblereel.gwt.three4g.materials;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.EventDispatcher;
 import org.treblereel.gwt.three4g.math.Plane;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
- * Created by treblereel on 2/27/18.
+ * Created by treblereel on 3/7/18.
  */
-@JsType(isNative = true, namespace = "THREE")
-public class Material extends EventDispatcher {
+@JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")
+public class MaterialParameters {
 
     /**
      * Sets the alpha value to be used when running an alpha test. The material will not be renderered if the opacity is lower than this value. Default is 0.
@@ -243,55 +242,4 @@ public class Material extends EventDispatcher {
      * An object that can be used to store custom data about the Material. It should not hold references to functions as these will not be cloned.
      */
     public Object userData;
-
-    @JsConstructor
-    public Material() {
-
-    }
-
-    //TODO check
-    @JsConstructor
-    public Material(MaterialParameters materialParameters) {
-
-    }
-
-
-    /**
-     * Return a new material with the same parameters as this material.
-     */
-    public native Material clone();
-
-    /**
-     * Copy the parameters from the passed material into this material.
-     *
-     * @param material
-     */
-    public native Material copy(Material material);
-
-    /**
-     * This disposes the material. Textures of a material don't get disposed. These needs to be disposed by Texture.
-     */
-    public native void dispose();
-
-    /**
-     * Sets the properties based on the values.
-     *
-     * @param values -- a container with parameters.
-     */
-    public native void setValues(Object values);
-
-    /**
-     * meta -- object containing metadata such as textures or images for the material.
-     * Convert the material to three.js JSON format.
-     *
-     * @param meta
-     * @return
-     */
-    public native Object toJSON(Object meta);
-
-    /**
-     * Call # .dispatchEvent ( { type: 'update' }) on the material.
-     */
-    public native void update();
-
 }

@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 
 /**
@@ -10,6 +11,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 3/1/18.
  */
+@JsType(isNative = true, namespace = "THREE")
 public class Group extends Object3D {
 
     /**
