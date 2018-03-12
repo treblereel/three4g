@@ -6,10 +6,10 @@ import org.treblereel.gwt.three4g.core.Geometry;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
- * Created by treblereel on 3/9/18.
+ * Created by treblereel on 3/12/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class PlaneGeometry extends Geometry {
+public class PlaneBufferGeometry extends Geometry {
 
     public int width; // — Width along the X axis. Default is 1.
 
@@ -24,7 +24,7 @@ public class PlaneGeometry extends Geometry {
      * @param height — Height along the Y axis. Default is 1.
      */
     @JsConstructor
-    public PlaneGeometry(int width, int height) {
+    public PlaneBufferGeometry(int width, int height) {
     }
 
     /**
@@ -33,7 +33,7 @@ public class PlaneGeometry extends Geometry {
      * @param widthSegments — Default is 1.
      */
     @JsConstructor
-    public PlaneGeometry(int width, int height, int widthSegments) {
+    public PlaneBufferGeometry(int width, int height, int widthSegments) {
     }
 
     /**
@@ -43,6 +43,7 @@ public class PlaneGeometry extends Geometry {
      * @param heightSegments — Default is 1.
      */
     @JsConstructor
-    public PlaneGeometry(int width, int height, int widthSegments, int heightSegments) {
+    public PlaneBufferGeometry(int width, int height, int widthSegments, int heightSegments) {
     }
+
 }
