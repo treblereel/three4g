@@ -75,7 +75,7 @@ public class TextureLoader {
      *                   <p>
      * @return Texture
      */
-    public native Texture load(String url, LoadCallback<Texture> onLoad, ProgressCallback onProgress, ErrorCallback onError);
+    public native Texture load(String url, OnLoadCallback<Texture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Set the .crossOrigin attribute.

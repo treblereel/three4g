@@ -8,6 +8,6 @@ import jsinterop.annotations.JsFunction;
  */
 @JsFunction
 @FunctionalInterface
-public interface ErrorCallback {
+public interface OnErrorCallback {
     void onError();
 }
