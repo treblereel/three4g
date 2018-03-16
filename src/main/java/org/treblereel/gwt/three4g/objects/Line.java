@@ -19,7 +19,7 @@ import org.treblereel.gwt.three4g.materials.Material;
 public class Line extends Object3D {
 
     /**
-     *
+     * Used to check whether this or derived classes are Line. Default is true.
      */
     public boolean isLine;
 
