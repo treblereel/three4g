@@ -86,6 +86,14 @@ public class ObjectLoader {
      *
      * @param url        — the path or URL to the file. This can also be a Data URI.
      * @param onLoad     — Will be called when load completes. The argument will be the loaded object.
+     */
+    public native Texture load(String url, OnLoadCallback<Object> onLoad);
+
+    /**
+     * Begin loading from url and call onLoad with the parsed response content.
+     *
+     * @param url        — the path or URL to the file. This can also be a Data URI.
+     * @param onLoad     — Will be called when load completes. The argument will be the loaded object.
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
      * @param onError    — Will be called when load errors.
      */
