@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.renderers;
+package org.treblereel.gwt.three4g.renderers.webgl;
 
 import jsinterop.annotations.JsType;
 
@@ -8,4 +8,10 @@ import jsinterop.annotations.JsType;
  */
 @JsType(isNative = true, namespace = "THREE")
 public class WebGlShadowMap {
+
+    public boolean enabled;
+
+    public boolean autoUpdate;
+
+    public boolean needsUpdate;
 }
