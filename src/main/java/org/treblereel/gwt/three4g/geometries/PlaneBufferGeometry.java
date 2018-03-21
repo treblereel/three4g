@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.core.Geometry;
 
 /**
@@ -9,7 +10,7 @@ import org.treblereel.gwt.three4g.core.Geometry;
  * Created by treblereel on 3/12/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class PlaneBufferGeometry extends Geometry {
+public class PlaneBufferGeometry extends BufferGeometry {
 
     public int width; // — Width along the X axis. Default is 1.
 

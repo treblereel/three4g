@@ -2,13 +2,49 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class SphereBufferGeometry extends SphereGeometry{
+public class SphereBufferGeometry extends BufferGeometry {
+
+    /**
+     * sphere radius. Default is 1.
+     */
+    public float radius;
+
+    /**
+     * number of horizontal segments. Minimum value is 3, and the default is 8.
+     */
+    public int widthSegments;
+
+    /**
+     * number of vertical segments. Minimum value is 2, and the default is 6.
+     */
+    public int heightSegments;
+
+    /**
+     * specify horizontal starting angle. Default is 0.
+     */
+    public float phiStart;
+
+    /**
+     * specify horizontal sweep angle size. Default is Math.PI * 2.
+     */
+    public float phiLength;
+
+    /**
+     * specify vertical starting angle. Default is 0.
+     */
+    public float thetaStart;
+
+    /**
+     * specify vertical sweep angle size. Default is Math.PI.
+     */
+    public float thetaLength;
 
     /**
      * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
