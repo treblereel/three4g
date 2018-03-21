@@ -510,6 +510,18 @@ public class Object3D extends EventDispatcher {
     public native void updateMatrix(boolean force);
 
     /**
+     * Update the local transform.
+     */
+    public native void updateMatrixWorld();
+
+    /**
+     * Update the global transform of the object and its children.
+     *
+     * @param force
+     */
+    public native void updateMatrixWorld(boolean force);
+
+    /**
      * vector - A world vector.
      * Updates the vector from world space to local space.
      *
