@@ -8,6 +8,7 @@ import org.treblereel.gwt.three4g.core.Color;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Plane;
 import org.treblereel.gwt.three4g.math.Vector2;
+import org.treblereel.gwt.three4g.renderers.webgl.WebGlShadowMap;
 import org.treblereel.gwt.three4g.scenes.Fog;
 import org.treblereel.gwt.three4g.scenes.Scene;
 import org.treblereel.gwt.three4g.textures.CubeTexture;

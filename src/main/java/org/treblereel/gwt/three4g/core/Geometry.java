@@ -239,7 +239,7 @@ public class Geometry extends EventDispatcher {
      * @param geometry
      * @return
      */
-    public native Geometry fromBufferGeometry(Geometry geometry);
+    public native Geometry fromBufferGeometry(BufferGeometry geometry);
 
     /**
      * vector - A world vector to look at.
