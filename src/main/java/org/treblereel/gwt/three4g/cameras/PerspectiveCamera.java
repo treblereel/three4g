@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.cameras;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.math.Vector4;
 
 /**
  * Camera that uses perspective projection.
@@ -23,6 +24,11 @@ public class PerspectiveCamera extends Camera {
      * Camera frustum aspect ratio, usually the canvas width / canvas height. Default is 1 (square canvas).
      */
     public float aspect;
+
+    /**
+     * bounds
+     */
+    public Vector4 bounds;
 
     /**
      * Camera frustum far plane. Default is 2000.
@@ -80,7 +86,9 @@ public class PerspectiveCamera extends Camera {
 
     //public Vector3 position;
 
-
+    @JsConstructor
+    protected PerspectiveCamera() {
+    }
     /**
      * @param fov    — Camera frustum vertical field of view.
      * @param aspect — Camera frustum aspect ratio.
