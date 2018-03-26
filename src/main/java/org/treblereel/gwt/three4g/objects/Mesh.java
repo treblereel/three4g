@@ -89,8 +89,23 @@ public class Mesh extends Object3D {
     public native Mesh clone();
 
     /**
+     * Custom depth material to be used by this material when rendering to the depth map. When shadow-casting with
+     * a DirectionalLight or SpotLight, if you are (a) modifying vertex positions in the vertex shader, (b) using
+     * a displacement map, (c) using an alpha map with alphaTest, or (d) using a transparent texture with alphaTest,
+     * you must specify a customDepthMaterial for proper shadows. Default is undefined.
+     */
+    public Material customDepthMaterial;
+
+    /**
+     * Same as customDepthMaterial, but used with PointLight. Default is undefined.
+     */
+    public Material customDistanceMaterial;
+
+    /**
      * Updates the morphTargets to have no influence on the object. Resets the morphTargetInfluences
      * and morphTargetDictionary properties.
      */
     public native void updateMorphTargets();
+
+
 }

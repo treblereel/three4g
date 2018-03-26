@@ -71,13 +71,6 @@ public class MeshLambertMaterialParameters extends MaterialParameters{
     public CubeTexture envMap;
 
     /**
-     * Used to check whether this or derived classes are mesh Lambert materials. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isMeshLambertMaterial;
-
-    /**
      * The light map. Default is null. The lightMap requires a second set of UVs, and consequently will ignore the repeat
      * and offset Texture properties.
      */

@@ -92,6 +92,11 @@ public class WebGLRenderer {
     public boolean gammaInput;
 
     /**
+     * If set, then it expects that all textures and colors need to be outputted in premultiplied gamma. Default is false.
+     */
+    public boolean gammaOutput;
+
+    /**
      * An object with a series of statistical information about the graphics board memory and the rendering process. Useful for debugging or just for the sake of curiosity. The object contains the following fields:
      * memory:
      * geometries
