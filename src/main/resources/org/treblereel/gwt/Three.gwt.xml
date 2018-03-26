@@ -5,11 +5,11 @@
   <inherits name="com.google.gwt.user.User"/>
   <inherits name="com.google.gwt.resources.Resources" />
 
-<!--
-  <entry-point claorg.treblereel.three4g4ghree.Three"/>
--->
-  <source path="three4g" />
-<!--  <source path="client" />
 
-  <source path="shared" />-->
+  <entry-point class="org.treblereel.gwt.three4g.Three"/>
+  <source path="three4g" />
+
+  <set-property name="gwt.logging.enabled" value="TRUE"/>
+  <set-property name="gwt.logging.logLevel" value="ALL"/>
+
 </module>
