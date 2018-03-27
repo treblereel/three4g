@@ -8,4 +8,8 @@ import jsinterop.annotations.JsType;
  */
 @JsType(isNative = true, namespace = "THREE")
 public class Matrix4 implements Matrix {
+
+
+
+    public native Matrix4 makeTranslation(float x, float y, float z);
 }

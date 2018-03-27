@@ -11,13 +11,25 @@ import org.treblereel.gwt.three4g.core.Geometry;
 @JsType(isNative = true, namespace = "THREE")
 public class PlaneGeometry extends Geometry {
 
-    public int width; // — Width along the X axis. Default is 1.
+    /**
+     * Width along the X axis. Default is 1
+     */
+    public int width;
 
-    public int  height; // — Height along the Y axis. Default is 1.
+    /**
+     * Height along the Y axis. Default is 1.
+     */
+    public int  height;
 
-    public int  widthSegments; // — Default is 1.
+    /**
+     * Default is 1.
+     */
+    public int  widthSegments;
 
-    public int  heightSegments; // — Default is 1.
+    /**
+     * Default is 1.
+     */
+    public int  heightSegments;
 
     /**
      * @param width  — Width along the X axis. Default is 1.
