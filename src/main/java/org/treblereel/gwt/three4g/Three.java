@@ -1,12 +1,8 @@
 package org.treblereel.gwt.three4g;
 
-import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.ScriptInjector;
-import org.treblereel.gwt.three4g.js.ThreeJsTextResource;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.treblereel.gwt.three4g.resources.ThreeJsTextResource;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>

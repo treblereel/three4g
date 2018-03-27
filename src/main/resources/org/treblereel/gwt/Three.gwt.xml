@@ -7,7 +7,9 @@
 
 
   <entry-point class="org.treblereel.gwt.three4g.Three"/>
+
   <source path="three4g" />
+  <resource path="three4g/resources" />
 
   <set-property name="gwt.logging.enabled" value="TRUE"/>
   <set-property name="gwt.logging.logLevel" value="ALL"/>
