@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.textures;
 
+import elemental2.dom.ImageData;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
@@ -28,7 +29,7 @@ public class Texture extends EventDispatcher {
      * To use video as a texture you need to have a playing HTML5 video element as a source for your texture image and
      * continuously update this texture as long as video is playing - the VideoTexture class handles this automatically.
      */
-    public Object image;
+    public ImageData image;
 
     /**
      * Array of user-specified mipmaps (optional).
