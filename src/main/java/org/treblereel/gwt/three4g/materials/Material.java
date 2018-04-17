@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.core.EventDispatcher;
 import org.treblereel.gwt.three4g.math.Plane;
 
@@ -93,7 +94,7 @@ public class Material extends EventDispatcher {
     /**
      * Custom defines to be injected into the shader. These are passed in form of an object literal, with key/value pairs. { MY_CUSTOM_DEFINE: '' , PI2: Math.PI * 2 }. The pairs are defined in both vertex and fragment shaders. Default is undefined.
      */
-    public Object defines;
+    public JsPropertyMap defines;
 
 
     /**

@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * Created by treblereel on 12/6/17.
  */
 @JsType(namespace = "THREE", isNative = true)
-public abstract class Camera extends Object3D {
+public class Camera extends Object3D {
 
     /**
      * Used to check whether this or derived classes are cameras. Default is true.
