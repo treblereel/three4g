@@ -1,5 +1,8 @@
 package org.treblereel.gwt.three4g;
 
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsType;
+
 /**
  Material Constants
  These constants define properties common to all material types, with the exception of Texture Combine Operations which
@@ -8,6 +11,7 @@ package org.treblereel.gwt.three4g;
  @author Dmitrii Tikhomirov <chani@me.com>
  Created by treblereel on 3/5/18.
  */
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "THREE")
 public class Constants {
 
     public static int REVISION;
