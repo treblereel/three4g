@@ -26,11 +26,6 @@ public class LineDashedMaterialParameters extends MaterialParameters{
     public int gapSize;
 
     /**
-     * Used to check whether this or derived classes are line dashed materials. Default is true.
-     */
-    public boolean isLineDashedMaterial;
-
-    /**
      * Whether the material is affected by lights. Default is false.
      */
     public boolean lights;

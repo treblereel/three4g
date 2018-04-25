@@ -16,12 +16,6 @@ public class LineBasicMaterialParameters extends MaterialParameters{
     public Color color;
 
     /**
-     * Used to check whether this or derived classes are line basic materials. Default is true.
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isLineBasicMaterial;
-
-    /**
      * Whether the material is affected by lights. Default is false.
      */
     public boolean lights;

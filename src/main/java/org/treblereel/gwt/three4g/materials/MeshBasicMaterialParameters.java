@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.materials;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Color;
+import org.treblereel.gwt.three4g.textures.CubeTexture;
 import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
@@ -53,19 +54,10 @@ public class MeshBasicMaterialParameters extends MaterialParameters {
     public int combine;
 
     /**
-     * How to combine the result of the surface's color with the environment map, if any.
-     * <p>
-     * Options are Multiply (default), MixOperation, AddOperation. If mix is chosen, the .reflectivity is used to blend
-     * between the two colors.
-     */
-    public boolean isMeshBasicMaterial;
-
-    /**
      * The environment map. Default is null.
      */
-/*
-    public TextureCube envMap; //TODO there is no TextureCube
-*/
+
+    public CubeTexture envMap;
 
     /**
      * The light map. Default is null. The lightMap requires a second set of UVs, and consequently will ignore the repeat
