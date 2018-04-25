@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.lights;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.lights.shadows.DirectionalLightShadow;
 import org.treblereel.gwt.three4g.math.Vector3;
 
 /**
