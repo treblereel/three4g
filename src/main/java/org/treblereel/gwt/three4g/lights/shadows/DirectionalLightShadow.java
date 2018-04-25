@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.lights;
+package org.treblereel.gwt.three4g.lights.shadows;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
