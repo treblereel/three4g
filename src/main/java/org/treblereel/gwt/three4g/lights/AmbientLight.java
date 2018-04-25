@@ -30,7 +30,7 @@ public class AmbientLight extends Light {
      * @param color Numeric value of the RGB component of the color.
      */
     @JsConstructor
-    public AmbientLight(Integer color){
+    public AmbientLight(int color){
 
     }
 
@@ -51,7 +51,7 @@ public class AmbientLight extends Light {
      * @param intensity -- Numeric value of the light's strength/intensity.
      */
     @JsConstructor
-    public AmbientLight(Integer color, float intensity){
+    public AmbientLight(int color, float intensity){
 
     }
 
