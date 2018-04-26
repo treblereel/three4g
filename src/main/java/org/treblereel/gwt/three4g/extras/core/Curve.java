@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.core;
+package org.treblereel.gwt.three4g.extras.core;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;

@@ -3,7 +3,7 @@ package org.treblereel.gwt.three4g.geometries;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
-import org.treblereel.gwt.three4g.core.Curve;
+import org.treblereel.gwt.three4g.extras.core.Curve;
 import org.treblereel.gwt.three4g.core.Geometry;
 import org.treblereel.gwt.three4g.math.Vector3;
 
