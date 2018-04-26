@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Color;
+import org.treblereel.gwt.three4g.math.Color;
 
 /**
  * A material for drawing wireframe-style geometries.

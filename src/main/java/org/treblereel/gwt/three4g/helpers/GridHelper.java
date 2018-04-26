@@ -1,7 +1,7 @@
 package org.treblereel.gwt.three4g.helpers;
 
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Color;
+import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.objects.LineSegments;
 
 /**
