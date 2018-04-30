@@ -1,0 +1,79 @@
+package org.treblereel.gwt.three4g.objects;
+
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.cameras.Camera;
+import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.core.Raycaster;
+
+/**
+ * Level of Detail - show meshes with more or less geometry based on distance from the camera.
+ * <p>
+ * Every level is associated with an object, and rendering can be switched between them at the distances specified. Typically you would create, say, three meshes, one for far away (low detail), one for mid range (medium detail) and one for close up (high detail).
+ *
+ * @author Dmitrii Tikhomirov <chani@me.com>
+ * Created by treblereel on 4/30/18.
+ */
+@JsType(isNative = true, namespace = "THREE")
+public class LOD extends Object3D {
+
+    /**
+     * An array of level objects
+     * <p>
+     * Each level is an object with two properties:
+     * object - The Object3D to display at this level.
+     * distance - The distance at which to display this level of detail.
+     */
+    public LODLevel[] levels;
+
+    @JsConstructor
+    public LOD() {
+
+    }
+
+    /**
+     * Adds a mesh that will display at a certain distance and greater. Typically the further away the distance, the lower the detail on the mesh.
+     *
+     * @param object   - The Object3D to display at this level.
+     * @param distance - The distance at which to display this level of detail.
+     */
+    public native void addLevel(Object3D object, float distance);
+
+    /**
+     * Returns a clone of this LOD object and its associated distance specific objects.
+     *
+     * @return
+     */
+    public native LOD clone();
+
+    /**
+     * Get a reference to the first Object3D (mesh) that is greater than distance.
+     *
+     * @param distance
+     * @return
+     */
+    public native Object3D getObjectForDistance(float distance);
+
+    /**
+     * Get intersections between a casted Ray and this LOD. Raycaster.intersectObject will call this method.
+     *
+     * @param raycaster
+     * @param intersects
+     * @return
+     */
+    public native Object[] raycast(Raycaster raycaster, Object[] intersects); //TODO fix method signature
+
+    /**
+     * Create a JSON structure with details of this LOD object.
+     *
+     * @return
+     */
+    public native String toJSON();
+
+    /**
+     * Set the visibility of each level's object based on distance from the camera. This needs to be called in the render loop for levels of detail to be updated dynamically.
+     *
+     * @param camera
+     */
+    public native void update(Camera camera);
+}
