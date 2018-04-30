@@ -1,44 +1,44 @@
 package org.treblereel.gwt.three4g.textures;
 
-import elemental2.dom.HTMLElement;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Bocharov <bdshadow@gmail.com>
- * @author Dmitrii Tikhomirov <chani@me.com>
- * Creates a texture from a canvas element.
+ * Creates a texture based on data in compressed form, for example from a DDS file.
  * <p>
- * This is almost the same as the base Texture class, except that it sets needsUpdate to true immediately.
+ * For use with the CompressedTextureLoader.
  *
+ * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class CanvasTexture extends Texture {
+public class CompressedTexture extends Texture {
 
     /**
-     * True by default. This is required so that the canvas data is loaded.
+     * False by default. Flipping textures does not work for compressed textures.
      */
-    public boolean needsUpdate;
-
-    @JsConstructor
-    public CanvasTexture(HTMLElement canvas) {
-
-    }
+    public boolean flipY;
 
     /**
-     * @param canvas     -- The HTML canvas element from which to load the texture.
+     * False by default. Mipmaps can't be generated for compressed textures
+     */
+    public boolean generateMipmaps;
+
+    /**
+     * @param mipmaps    -- The mipmaps array should contain objects with data, width and height. The mipmaps should be of the correct format and type.
+     * @param width      -- The width of the biggest mipmap.
+     * @param height     -- The height of the biggest mipmap.
+     * @param format     -- The format used in the mipmaps. See ST3C Compressed Texture Formats, PVRTC Compressed Texture Formats and ETC Compressed Texture Format for other choices.
+     * @param type       -- Default is THREE.UnsignedByteType. See type constants for other choices.
      * @param mapping    -- How the image is applied to the object. An object type of THREE.UVMapping. See mapping constants for other choices.
      * @param wrapS      -- The default is THREE.ClampToEdgeWrapping. See wrap mode constants for other choices.
      * @param wrapT      -- The default is THREE.ClampToEdgeWrapping. See wrap mode constants for other choices.
      * @param magFilter  -- How the texture is sampled when a texel covers more than one pixel. The default is THREE.LinearFilter. See magnification filter constants for other choices.
      * @param minFilter  -- How the texture is sampled when a texel covers less than one pixel. The default is THREE.LinearMipMapLinearFilter. See minification filter constants for other choices.
-     * @param format     -- The format used in the texture. See format constants for other choices.
      * @param anisotropy -- The number of samples taken along the axis through the pixel that has the highest density of texels. By default, this value is 1. A higher value gives a less blurry result than a basic mipmap, at the cost of more texture samples being used. Use renderer.getMaxAnisotropy() to find the maximum valid anisotropy value for the GPU; this value is usually a power of 2.
-     * @paramtype -- Default is THREE.UnsignedByteType. See type constants for other choices.
      */
     @JsConstructor
-    public CanvasTexture(HTMLElement canvas, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy) {
+    public CompressedTexture(Object mipmaps, float width, float height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int anisotropy) {
 
     }
 }
