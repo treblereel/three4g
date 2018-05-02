@@ -2,14 +2,14 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.BufferGeometry;
+import org.treblereel.gwt.three4g.core.Geometry;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class CylinderGeometry extends BufferGeometry {
+public class CylinderGeometry extends Geometry {
 
     /**
      * Radius of the cylinder at the top. Default is 1.

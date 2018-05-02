@@ -2,8 +2,7 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.BufferGeometry;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.materials.Material;
 
@@ -32,7 +31,7 @@ public class Mesh extends Object3D {
      * <p>
      * It's recommended to always use a BufferGeometry if possible for best performance.
      */
-    public Geometry geometry;
+    public AbstractGeometry geometry;
 
     /**
      * An instance of material derived from the Material base class or an array of materials, defining the object's
@@ -61,16 +60,7 @@ public class Mesh extends Object3D {
      * @param material —  a Material. Default is a new MeshBasicMaterial with a random color.
      */
     @JsConstructor
-    public Mesh(Geometry geometry, Material material) {
-
-    }
-
-    /**
-     * @param geometry —  an instance of Geometry or BufferGeometry. Default is a new BufferGeometry.
-     * @param material —  a Material. Default is a new MeshBasicMaterial with a random color.
-     */
-    @JsConstructor
-    public Mesh(BufferGeometry geometry, Material material) {
+    public Mesh(AbstractGeometry geometry, Material material) {
 
     }
 

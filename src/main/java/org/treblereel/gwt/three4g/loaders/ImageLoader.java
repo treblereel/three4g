@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import com.google.gwt.json.client.JSONObject;
 import elemental2.dom.Image;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;

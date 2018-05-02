@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.core.Raycaster;
 import org.treblereel.gwt.three4g.materials.Material;
@@ -21,7 +21,7 @@ public class Points extends Object3D {
      * <p>
      * Its recommended to always use a BufferGeometry if possible for best performance.
      */
-    public Geometry geometry;
+    public AbstractGeometry geometry;
 
     /**
      * Used to check whether this or derived classes are points. Default is true.
@@ -42,15 +42,15 @@ public class Points extends Object3D {
     }
 
     /**
-     * @param geometry — (optional) an instance of Geometry or BufferGeometry. Default is a new BufferGeometry.
+     * @param geometry — an instance of Geometry or BufferGeometry. Default is a new BufferGeometry.
      */
     @JsConstructor
-    public Points(Geometry geometry) {
+    public Points(AbstractGeometry geometry) {
 
     }
 
     /**
-     * @param material — (optional) a Material. Default is a new PointsMaterial with a random color.
+     * @param material — a Material. Default is a new PointsMaterial with a random color.
      */
     @JsConstructor
     public Points(Material material) {
@@ -58,11 +58,11 @@ public class Points extends Object3D {
     }
 
     /**
-     * @param geometry — (optional) an instance of Geometry or BufferGeometry. Default is a new BufferGeometry.
-     * @param material — (optional) a Material. Default is a new PointsMaterial with a random color.
+     * @param geometry — an instance of Geometry or BufferGeometry. Default is a new BufferGeometry.
+     * @param material — a Material. Default is a new PointsMaterial with a random color.
      */
     @JsConstructor
-    public Points(Geometry geometry, Material material) {
+    public Points(AbstractGeometry geometry, Material material) {
 
     }
 

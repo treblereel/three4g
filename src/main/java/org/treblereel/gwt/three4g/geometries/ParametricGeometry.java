@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.geometries;
 
-import elemental2.core.Function;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;

@@ -2,7 +2,6 @@ package org.treblereel.gwt.three4g.extras.core;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.extras.core.Curve;
 
 /**
  * An abstract base class extending Curve. A CurvePath is simply an array of connected curves, but retains the api of a curve.

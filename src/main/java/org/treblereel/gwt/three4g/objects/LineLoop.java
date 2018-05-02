@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.materials.Material;
 
 /**
@@ -31,7 +31,7 @@ public class LineLoop extends Line {
      * @param material — Material for the line. Default is LineBasicMaterial.
      */
     @JsConstructor
-    public LineLoop(Geometry geometry, Material material) {
+    public LineLoop(AbstractGeometry geometry, Material material) {
 
     }
 }

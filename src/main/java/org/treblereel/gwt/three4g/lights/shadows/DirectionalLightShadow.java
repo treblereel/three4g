@@ -3,7 +3,6 @@ package org.treblereel.gwt.three4g.lights.shadows;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.Camera;
-import org.treblereel.gwt.three4g.lights.shadows.LightShadow;
 
 /**
  * This is used internally by DirectionalLights for calculating shadows.

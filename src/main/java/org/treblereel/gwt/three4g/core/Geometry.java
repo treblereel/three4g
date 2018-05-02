@@ -20,7 +20,7 @@ import org.treblereel.gwt.three4g.objects.Mesh;
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class Geometry extends EventDispatcher {
+public class Geometry extends AbstractGeometry<Geometry> {
 
     /**
      * Bounding sphere for the Geometry, which can be calculated with .computeBoundingSphere(). Default is null.
@@ -53,11 +53,6 @@ public class Geometry extends EventDispatcher {
     public Object[] faceVertexUvs;//TODO
 
     /**
-     * Unique number for this geometry instance.
-     */
-    public int id;
-
-    /**
      * Used to check whether this or derived classes are Geometries. Default is true.
      * <p>
      * You should not change this, as it used internally for optimisation.
@@ -80,11 +75,6 @@ public class Geometry extends EventDispatcher {
      * morphNormal = { name: "NormalName", normals: [ new THREE.Vector3(), ... ] } See the WebGL / morphNormals example.
      */
     public Object[] morphNormals;//TODO
-
-    /**
-     * Optional name for this geometry. Default is an empty string.
-     */
-    public String name;
 
     /**
      * When working with a SkinnedMesh, each vertex can have up to 4 bones affecting it. The skinWeights property is an
@@ -115,11 +105,6 @@ public class Geometry extends EventDispatcher {
      * skeleton.bones[10]; // weight of 0
      */
     public Object[] skinIndices;//TODO
-
-    /**
-     * UUID of this object instance. This gets automatically assigned and shouldn't be edited.
-     */
-    public String uuid;
 
     /**
      * Array of vertices.
@@ -170,39 +155,6 @@ public class Geometry extends EventDispatcher {
     }
 
     /**
-     * Bakes matrix transform directly into vertex coordinates.
-     *
-     * @param matrix
-     */
-    public native void applyMatrix(Matrix4 matrix);
-
-    /**
-     * Center the geometry based on the bounding box.
-     */
-    public native void center();
-
-    /**
-     * Creates a new clone of the Geometry.
-     * <p>
-     * This method copies only vertices, faces and uvs. It does not copy any other properties of the geometry.
-     *
-     * @return Geometry
-     */
-    public native Geometry clone();
-
-    /**
-     * Computes bounding box of the geometry, updating Geometry.boundingBox attribute.
-     */
-    public native void computeBoundingBox();
-
-    /**
-     * Computes bounding sphere of the geometry, updating Geometry.boundingSphere attribute.
-     * Neither bounding boxes or bounding spheres are computed by default. They need to be explicitly computed, otherwise
-     * they are null.
-     */
-    public native void computeBoundingSphere();
-
-    /**
      * Computes face normals.
      */
     public native void computeFaceNormals();
@@ -217,24 +169,6 @@ public class Geometry extends EventDispatcher {
      */
     public native void computeMorphNormals();
 
-    /**
-     * areaWeighted - If true the contribution of each face normal to the vertex normal is weighted by the area of the face. Default is true.
-     * <p>
-     * Computes vertex normals by averaging face normals.
-     */
-    public native void computeVertexNormals(boolean areaWeighted);
-
-    /**
-     * Copies vertices, faces and uvs into this geometry. It does not copy any other properties of the geometry.
-     */
-    public native Geometry copy(Geometry geometry);
-
-    /**
-     * Removes The object from memory.
-     * Don't forget to call this method when you remove a geometry because it can cause memory leaks.
-     */
-    public native void dispose();
-
     @JsProperty
     public native String getType();
 
@@ -245,17 +179,6 @@ public class Geometry extends EventDispatcher {
      * @return
      */
     public native Geometry fromBufferGeometry(BufferGeometry geometry);
-
-    /**
-     * vector - A world vector to look at.
-     * <p>
-     * Rotates the geometry to face point in space. This is typically done as a one time operation but not during the render loop.
-     * Use Object3D.lookAt for typical real-time mesh usage.
-     *
-     * @param vector
-     * @return
-     */
-    public native Geometry lookAt(Vector3 vector);
 
     /**
      * Merge two geometries or geometry and geometry from object (using object's transform)
@@ -286,70 +209,9 @@ public class Geometry extends EventDispatcher {
     public native void normalize();
 
     /**
-     * Rotate the geometry about the X axis. This is typically done as a one time operation but not during the render loop.
-     * Use Object3D.rotation for typical real-time mesh rotation.
-     *
-     * @param radians
-     */
-    public native Geometry rotateX(float radians);
-
-    /**
-     * Rotate the geometry about the Y axis. This is typically done as a one time operation but not during the render loop.
-     * Use Object3D.rotation for typical real-time mesh rotation.
-     *
-     * @param radians
-     */
-    public native Geometry rotateY(float radians);
-
-    /**
-     * Rotate the geometry about the Z axis. This is typically done as a one time operation but not during the render loop.
-     * Use Object3D.rotation for typical real-time mesh rotation.
-     *
-     * @param radians
-     */
-    public native Geometry rotateZ(float radians);
-
-    /**
-     * Sets the vertices for this Geometry from an array of points.
-     *
-     * @param points
-     */
-    public native Geometry setFromPoints(Object[] points);
-
-    /**
      * Sorts the faces array according to material index. For complex geometries with several materials, this can result
      * in reduced draw calls and improved performance.
      */
     public native void sortFacesByMaterialIndex();
-
-    /**
-     * Scale the geometry data. This is typically done as a one time operation but not during the render loop.
-     * Use Object3D.scale for typical real-time mesh scaling.
-     *
-     * @param x
-     * @param y
-     * @param z
-     * @return
-     */
-    public native Geometry scale(float x, float y, float z);
-
-    /**
-     * Convert the geometry to JSON format.
-     *
-     * @return String
-     */
-    public native String toJSON();
-
-    /**
-     * Translate the geometry. This is typically done as a one time operation but not during the render loop.
-     * Use Object3D.position for typical real-time mesh translation.
-     *
-     * @param x
-     * @param y
-     * @param z
-     * @return
-     */
-    public native Geometry translate(float x, float y, float z);
-
 
 }

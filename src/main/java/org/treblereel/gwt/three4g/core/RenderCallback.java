@@ -14,5 +14,5 @@ import org.treblereel.gwt.three4g.scenes.Scene;
 @JsFunction
 @FunctionalInterface
 public interface RenderCallback {
-    void onEvent(WebGLRenderer renderer, Scene scene, Camera camera, Geometry geometry, Material material, Group group);
+    void onEvent(WebGLRenderer renderer, Scene scene, Camera camera, AbstractGeometry geometry, Material material, Group group);
 }

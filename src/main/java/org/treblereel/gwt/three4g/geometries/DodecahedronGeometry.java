@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.BufferGeometry;
+import org.treblereel.gwt.three4g.core.Geometry;
 import org.treblereel.gwt.three4g.geometries.parameters.DodecahedronGeometryParameters;
 
 /**
@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.DodecahedronGeometryPara
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class DodecahedronGeometry extends BufferGeometry {
+public class DodecahedronGeometry extends Geometry {
 
     public DodecahedronGeometryParameters parameters;
 
