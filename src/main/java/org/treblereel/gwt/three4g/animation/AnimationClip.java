@@ -1,8 +1,8 @@
 package org.treblereel.gwt.three4g.animation;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.animation.tracks.KeyframeTrack;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
@@ -61,6 +61,7 @@ public class AnimationClip {
      * @param noLoop
      * @return
      */
+    @JsMethod(name = "CreateClipsFromMorphTargetSequences")
     public native static AnimationClip[] createClipsFromMorphTargetSequences(String name, Object[] morphTargetSequence, int fps, boolean noLoop);
 
     /**
@@ -74,7 +75,8 @@ public class AnimationClip {
      * @param noLoop
      * @return
      */
-    public native static AnimationClip[] CreateFromMorphTargetSequence(String name, Object[] morphTargetSequence, int fps, boolean noLoop);
+    @JsMethod(name = "CreateFromMorphTargetSequence")
+    public native static AnimationClip[] createFromMorphTargetSequence(String name, Object[] morphTargetSequence, int fps, boolean noLoop);
 
     /**
      * Searches for an AnimationClip by name, taking as its first parameter either an array of AnimationClips, or a mesh or geometry that contains an array named "animations".

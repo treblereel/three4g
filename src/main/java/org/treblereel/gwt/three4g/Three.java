@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.resources.ThreeJsTextResource;
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 3/26/18.
  */
-public class Three implements EntryPoint {
+public class Three extends Constants implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
