@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.core;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Box3;
 import org.treblereel.gwt.three4g.math.Color;
@@ -233,6 +234,9 @@ public class Geometry extends EventDispatcher {
      * Don't forget to call this method when you remove a geometry because it can cause memory leaks.
      */
     public native void dispose();
+
+    @JsProperty
+    public native String getType();
 
     /**
      * Convert a BufferGeometry to a Geometry.
