@@ -129,13 +129,6 @@ public class MaterialParameters {
     public int id;
 
     /**
-     * Used to check whether this or derived classes are materials. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isMaterial;
-
-    /**
      * Whether the material is affected by lights. Default is true.
      */
     public boolean lights;
