@@ -4,6 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.materials.parameters.ShaderMaterialParameters;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;
 
 /**

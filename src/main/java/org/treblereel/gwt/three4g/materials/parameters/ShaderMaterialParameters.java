@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.materials;
+package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;
  * Created by treblereel on 4/12/18.
  */
 @JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")
-public class ShaderMaterialParameters extends MaterialParameters{
+public class ShaderMaterialParameters extends MaterialParameters {
 
     /**
      * Define whether the material color is affected by global fog settings; true to pass fog uniforms to the shader.

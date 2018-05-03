@@ -4,6 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.core.EventDispatcher;
+import org.treblereel.gwt.three4g.materials.parameters.MaterialParameters;
 import org.treblereel.gwt.three4g.math.Plane;
 
 /**

@@ -1,7 +1,8 @@
-package org.treblereel.gwt.three4g.materials;
+package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Plane;
 
 /**

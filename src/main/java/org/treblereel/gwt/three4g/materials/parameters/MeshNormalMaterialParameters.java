@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.materials;
+package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -8,7 +8,7 @@ import jsinterop.annotations.JsType;
  * Created by treblereel on 4/25/18.
  */
 @JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")
-public class MeshNormalMaterialParameters extends MaterialParameters{
+public class MeshNormalMaterialParameters extends MaterialParameters {
 
     /**
      * Whether the material is affected by fog. Default is false.
