@@ -5,6 +5,8 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferGeometry;
 
 /**
+ * This is the BufferGeometry port of SphereGeometry.
+ *
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 3/19/18.
  */
@@ -63,7 +65,7 @@ public class SphereBufferGeometry extends BufferGeometry {
      * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
      * calculating those vertices.
      *
-     * @param radius         — sphere radius. Default is 1.
+     * @param radius — sphere radius. Default is 1.
      */
     @JsConstructor
     public SphereBufferGeometry(float radius) {
@@ -76,8 +78,8 @@ public class SphereBufferGeometry extends BufferGeometry {
      * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
      * calculating those vertices.
      *
-     * @param radius         — sphere radius. Default is 1.
-     * @param widthSegments  — number of horizontal segments. Minimum value is 3, and the default is 8.
+     * @param radius        — sphere radius. Default is 1.
+     * @param widthSegments — number of horizontal segments. Minimum value is 3, and the default is 8.
      */
     @JsConstructor
     public SphereBufferGeometry(float radius, int widthSegments) {

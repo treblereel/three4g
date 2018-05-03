@@ -38,6 +38,9 @@ public class AbstractGeometry<T> extends EventDispatcher {
     @JsProperty
     public native String getUuid();
 
+    @JsProperty
+    public native String getType();
+
     /**
      * Bakes matrix transform directly into vertex coordinates.
      *

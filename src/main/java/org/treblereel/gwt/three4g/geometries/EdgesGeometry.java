@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.core.Geometry;
 
 /**
@@ -17,7 +18,7 @@ public class EdgesGeometry extends Geometry {
      * @param geometry — Any geometry object.
      */
     @JsConstructor
-    public EdgesGeometry(Geometry geometry) {
+    public EdgesGeometry(AbstractGeometry geometry) {
 
     }
 
@@ -26,7 +27,7 @@ public class EdgesGeometry extends Geometry {
      * @param thresholdAngle — An edge is only rendered if the angle (in degrees) between the face normals of the adjoining faces exceeds this value. default = 1 degree.
      */
     @JsConstructor
-    public EdgesGeometry(Geometry geometry, int thresholdAngle) {
+    public EdgesGeometry(AbstractGeometry geometry, int thresholdAngle) {
 
     }
 }

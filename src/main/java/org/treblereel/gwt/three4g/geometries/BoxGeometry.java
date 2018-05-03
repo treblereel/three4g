@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.geometries;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.geometries.parameters.BoxGeometryParameters;
 
 /**
  * BoxGeometry is the quadrilateral primitive geometry class. It is typically used for creating a cube or irregular
@@ -13,6 +14,8 @@ import org.treblereel.gwt.three4g.core.Geometry;
  */
 @JsType(isNative = true, namespace = "THREE")
 public class BoxGeometry extends Geometry {
+
+    public BoxGeometryParameters parameters;
 
     @JsConstructor
     public BoxGeometry() {
