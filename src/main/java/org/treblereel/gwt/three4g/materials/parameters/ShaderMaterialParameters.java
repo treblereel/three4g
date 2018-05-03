@@ -32,12 +32,6 @@ public class ShaderMaterialParameters extends MaterialParameters {
     public String index0AttributeName;
 
     /**
-     * You should not change this, as it used internally for optimisation.
-     * Used to check whether this or derived classes are shader materials. Default is true.
-     */
-    public boolean isShaderMaterial;
-
-    /**
      * Defines whether this material uses lighting; true to pass uniform data related to lighting to this shader. Default is false.
      */
     public boolean lights;

@@ -114,6 +114,10 @@ public class ShaderMaterial extends Material {
      */
     public float wireframeLinewidth;
 
+    public ShaderMaterial() {
+
+    }
+
     @JsConstructor
     public ShaderMaterial(ShaderMaterialParameters shaderMaterialParameters) {
 
