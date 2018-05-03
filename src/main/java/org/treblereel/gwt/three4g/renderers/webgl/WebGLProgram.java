@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
-import org.treblereel.gwt.three4g.renderers.WebGLRendererParameters;
+import org.treblereel.gwt.three4g.renderers.parameters.WebGLRendererParameters;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>

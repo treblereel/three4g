@@ -1,8 +1,9 @@
-package org.treblereel.gwt.three4g.renderers;
+package org.treblereel.gwt.three4g.renderers.parameters;
 
 import elemental2.dom.HTMLElement;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.renderers.WebGLRenderingContext;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
