@@ -3,7 +3,6 @@ package org.treblereel.gwt.three4g.geometries;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferGeometry;
-import org.treblereel.gwt.three4g.core.Geometry;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>

@@ -2,8 +2,7 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.extras.core.Curve;
 import org.treblereel.gwt.three4g.geometries.parameters.TubeGeometryParameters;
 import org.treblereel.gwt.three4g.math.Vector3;
@@ -12,13 +11,14 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * Creates a tube that extrudes along a 3d curve.
  *
  * @author Dmitrii Tikhomirov <chani@me.com>
- * Created by treblereel on 4/11/18.
+ * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class TubeGeometry extends Geometry {
+public class TubeBufferGeometry extends BufferGeometry {
 
     /**
      * An object with all of the parameters that were used to generate the geometry
+     *
      * @return
      */
     public TubeGeometryParameters parameters;
@@ -50,8 +50,7 @@ public class TubeGeometry extends Geometry {
      * @param closed          — Boolean Is the tube open or closed, default is false
      */
     @JsConstructor
-    public TubeGeometry(Curve path, int tubularSegments, float radius, int radialSegments, boolean closed) {
+    public TubeBufferGeometry(Curve path, int tubularSegments, float radius, int radialSegments, boolean closed) {
 
     }
-
 }

@@ -2,13 +2,17 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
+import org.treblereel.gwt.three4g.geometries.parameters.BoxGeometryParameters;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
  * Created by treblereel on 3/7/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class BoxBufferGeometry extends BoxGeometry {
+public class BoxBufferGeometry extends BufferGeometry {
+
+    public BoxGeometryParameters parameters;
 
     /**
      * @param width  — Width of the sides on the X axis. Default is 1.

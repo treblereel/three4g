@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
 /**
  * This is the BufferGeometry port of CircleGeometry.
@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.Geometry;
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class CircleBufferGeometry extends Geometry {
+public class CircleBufferGeometry extends BufferGeometry {
 
     /**
      * @param radius      — Radius of the circle, default = 1.

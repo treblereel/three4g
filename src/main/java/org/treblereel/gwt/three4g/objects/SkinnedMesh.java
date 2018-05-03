@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Matrix4;
 
@@ -46,7 +46,7 @@ public class SkinnedMesh extends Mesh {
      * @param material - (optional) an instance of Material. Default is a new MeshBasicMaterial.
      */
     @JsConstructor
-    public SkinnedMesh(Geometry geometry, Material material) {
+    public SkinnedMesh(AbstractGeometry geometry, Material material) {
 
     }
 

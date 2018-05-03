@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.core.Raycaster;
 import org.treblereel.gwt.three4g.materials.Material;
@@ -26,7 +26,7 @@ public class Line extends Object3D {
     /**
      * vertices representing the line segment(s). Default is a new BufferGeometry.
      */
-    public Geometry geometry;
+    public AbstractGeometry geometry;
 
     /**
      * material for the line. Default is a new LineBasicMaterial with random color.
@@ -45,7 +45,7 @@ public class Line extends Object3D {
      * @param material — material for the line. Default is a new LineBasicMaterial with random color.
      */
     @JsConstructor
-    public Line(Geometry geometry, Material material) {
+    public Line(AbstractGeometry geometry, Material material) {
 
     }
 

@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.materials.Material;
 
 /**
@@ -33,7 +33,7 @@ public class LineSegments extends Line {
      * @param material — material for the line. Default is a new LineBasicMaterial with random color.
      */
     @JsConstructor
-    public LineSegments(Geometry geometry, Material material) {
+    public LineSegments(AbstractGeometry geometry, Material material) {
 
     }
 

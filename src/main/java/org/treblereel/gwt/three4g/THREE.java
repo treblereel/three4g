@@ -4,15 +4,15 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
- Material Constants
- These constants define properties common to all material types, with the exception of Texture Combine Operations which
- only apply to MeshBasicMaterial, MeshLambertMaterial and MeshPhongMaterial.
+ * Material Constants
+ * These constants define properties common to all material types, with the exception of Texture Combine Operations which
+ * only apply to MeshBasicMaterial, MeshLambertMaterial and MeshPhongMaterial.
  *
- @author Dmitrii Tikhomirov <chani@me.com>
- Created by treblereel on 3/5/18.
+ * @author Dmitrii Tikhomirov <chani@me.com>
+ * Created by treblereel on 3/5/18.
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "THREE")
-public class Constants {
+public class THREE {
 
     public static int REVISION;
     //public static int MOUSE={LEFT:0,MIDDLE:1,RIGHT:2};
