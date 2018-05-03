@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.materials;
+package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * Created by treblereel on 3/27/18.
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public class LineBasicMaterialParameters extends MaterialParameters{
+public class LineBasicMaterialParameters extends MaterialParameters {
     /**
      * Color of the material, by default set to white (0xffffff).
      */

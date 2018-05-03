@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.materials;
+package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -7,17 +7,13 @@ import org.treblereel.gwt.three4g.textures.CubeTexture;
 import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
- * parameters - an object with one or more properties defining the material's appearance. Any property of the
- * material (including any property inherited from Material) can be passed in here.
- * <p>
- * The exception is the property color, which can be passed in as a hexadecimal string and is 0xffffff (white) by default.
- * Color.set( color ) is called internally.
- *
  * @author Dmitrii Tikhomirov <chani@me.com>
- * Created by treblereel on 3/7/18.
+ * Created by treblereel on 3/22/18.
  */
-@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public class MeshBasicMaterialParameters extends MaterialParameters {
+@JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")
+public class MeshLambertMaterialParameters extends MaterialParameters {
+
+
     /**
      * The alpha map is a grayscale texture that controls the opacity across the surface (black: fully transparent;
      * white: fully opaque). Default is null.
@@ -54,9 +50,24 @@ public class MeshBasicMaterialParameters extends MaterialParameters {
     public int combine;
 
     /**
+     * Emissive (light) color of the material, essentially a solid color unaffected by other lighting. Default is black..
+     */
+    public Color emissive;
+
+    /**
+     * Set emisssive (glow) map. Default is null. The emissive map color is modulated by the emissive color and the emissive
+     * intensity. If you have an emissive map, be sure to set the emissive color to something other than black.
+     */
+    public Texture emissiveMap;
+
+    /**
+     * Intensity of the emissive light. Modulates the emissive color. Default is 1.
+     */
+    public float emissiveIntensity;
+
+    /**
      * The environment map. Default is null.
      */
-
     public CubeTexture envMap;
 
     /**
@@ -71,14 +82,15 @@ public class MeshBasicMaterialParameters extends MaterialParameters {
     public float lightMapIntensity;
 
     /**
-     * Whether the material is affected by lights. Default is false.
-     */
-    public boolean lights;
-
-    /**
-     * The color map. Default is null.
+     * Sets the color of the points using data from a Texture.
      */
     public Texture map;
+
+    /**
+     * Defines whether the material uses morphNormals. Set as true to pass morphNormal attributes from the Geometry to
+     * the shader. Default is false.
+     */
+    public boolean morphNormals;
 
     /**
      * Define whether the material uses morphTargets. Default is false.
@@ -86,9 +98,7 @@ public class MeshBasicMaterialParameters extends MaterialParameters {
     public boolean morphTargets;
 
     /**
-     * The index of refraction (IOR) of air (approximately 1) divided by the index of refraction of the material. It is
-     * used with environment mapping modes THREE.CubeRefractionMapping and THREE.EquirectangularRefractionMapping.
-     * The refraction ratio should not exceed 1. Default is 0.98.
+     * How much the environment map affects the surface; also see .combine.
      */
     public float reflectivity;
 

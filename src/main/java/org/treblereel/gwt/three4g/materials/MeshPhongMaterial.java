@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.materials.parameters.MeshPhongMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Vector2;
 import org.treblereel.gwt.three4g.textures.CubeTexture;

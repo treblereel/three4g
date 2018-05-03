@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.materials.parameters.LineBasicMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
 
 /**
