@@ -17,6 +17,11 @@ import org.treblereel.gwt.three4g.core.Object3D;
 public class AudioListener extends Object3D {
 
     /**
+     * The AudioContext of the listener given in the constructor.
+     */
+    public AudioContext context;
+
+    /**
      * A GainNode created using AudioContext.createGain().
      */
     public GainNode gain;

@@ -1,7 +1,6 @@
 package org.treblereel.gwt.three4g.audio;
 
 import elemental2.media.AudioBuffer;
-import elemental2.media.AudioContext;
 import elemental2.media.AudioNode;
 import elemental2.media.BiquadFilterNode;
 import elemental2.media.GainNode;
