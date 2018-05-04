@@ -1,8 +1,8 @@
 package org.treblereel.gwt.three4g.loaders;
 
+import elemental2.media.AudioBuffer;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.audio.AudioBuffer;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
 /**
