@@ -1,9 +1,9 @@
 package org.treblereel.gwt.three4g.renderers.parameters;
 
-import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLCanvasElement;
+import elemental2.webgl.WebGLRenderingContext;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.renderers.WebGLRenderingContext;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.renderers.WebGLRenderingContext;
 @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
 public class WebGLRendererParameters {
 
-    public HTMLElement canvas;
+    public HTMLCanvasElement canvas;
     public WebGLRenderingContext context;
     public String precision; // Can be "highp", "mediump" or "lowp". Defaults to "highp" if supported by the device
     public boolean alpha;
