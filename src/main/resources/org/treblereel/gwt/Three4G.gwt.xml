@@ -5,6 +5,8 @@
   <inherits name="com.google.gwt.user.User"/>
   <inherits name="com.google.gwt.resources.Resources" />
   <inherits name="elemental2.dom.Dom"/>
+  <inherits name="elemental2.media.Media"/>
+  <inherits name="elemental2.webgl.WebGl"/>
 
   <entry-point class="org.treblereel.gwt.three4g.Three4G"/>
 

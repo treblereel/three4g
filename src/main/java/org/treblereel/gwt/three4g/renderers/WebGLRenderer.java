@@ -1,6 +1,8 @@
 package org.treblereel.gwt.three4g.renderers;
 
+import elemental2.core.Uint8Array;
 import elemental2.dom.HTMLElement;
+import elemental2.webgl.WebGLRenderingContext;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.Camera;
@@ -343,7 +345,7 @@ public class WebGLRenderer {
      * @param height
      * @param buffer
      */
-    //public native void readRenderTargetPixels (WebGLRenderTarget renderTarget, float x, float y, float width, float height, Uint8Array buffer);
+    public native void readRenderTargetPixels (WebGLRenderTarget renderTarget, float x, float y, float width, float height, Uint8Array buffer);
 
     /**
      * Render a scene using a camera.

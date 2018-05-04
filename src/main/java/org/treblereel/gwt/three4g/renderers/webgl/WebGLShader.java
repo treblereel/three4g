@@ -1,8 +1,8 @@
 package org.treblereel.gwt.three4g.renderers.webgl;
 
+import elemental2.webgl.WebGLRenderingContext;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.renderers.WebGLRenderingContext;
 
 /**
  * A lower level function to compile either a vertex or fragment shader.
