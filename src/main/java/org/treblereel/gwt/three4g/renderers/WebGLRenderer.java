@@ -27,11 +27,6 @@ import org.treblereel.gwt.three4g.textures.Texture;
 public class WebGLRenderer {
 
 
-    // public native void render( Scene scene, PerspectiveCamera camera );
-
-    // public native void render( Scene scene, PerspectiveCamera camera, Object renderTarget );
-
-
     /**
      * Defines whether the renderer should automatically clear its output before rendering a frame.
      */
