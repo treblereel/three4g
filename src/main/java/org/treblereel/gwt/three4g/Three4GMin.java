@@ -6,9 +6,9 @@ import org.treblereel.gwt.three4g.resources.ThreeJsTextResource;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
- * Created by treblereel on 3/26/18.
+ * Created by treblereel on 5/11/18.
  */
-public class Three4G implements EntryPoint {
+public class Three4GMin implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
@@ -16,7 +16,7 @@ public class Three4G implements EntryPoint {
     }
 
     private static void load() {
-        ScriptInjector.fromString(ThreeJsTextResource.IMPL.getThreeJS().getText())
+        ScriptInjector.fromString(ThreeJsTextResource.IMPL.getThreeJSMin().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW).inject();
 
     }
