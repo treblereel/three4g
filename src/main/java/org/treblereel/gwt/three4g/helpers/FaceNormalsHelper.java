@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.objects.LineSegments;
  * <p>
  * Note that this only works with the objects whose geometry is an instance of Geometry. For BufferGeometry use a VertexNormalsHelper instead.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

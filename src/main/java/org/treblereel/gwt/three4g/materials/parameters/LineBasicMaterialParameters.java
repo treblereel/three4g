@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/27/18.
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")

@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")

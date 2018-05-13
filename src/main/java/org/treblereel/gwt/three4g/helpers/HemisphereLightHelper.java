@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.math.Matrix4;
 
 /**
  * Creates a visual aid consisting of a spherical Mesh for a HemisphereLight.
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/25/18.
  */
 @JsType(isNative = true, namespace = "THREE")

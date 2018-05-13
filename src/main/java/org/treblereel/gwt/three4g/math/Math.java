@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 /**
  * An object with several math utility functions.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -17,15 +17,15 @@ public class Math {
      * @param value — Value to be clamped.
      * @param min   — Minimum value.
      * @param max   — Maximum value.
-     * @return
+     * @return float
      */
     public static native float clamp(float value, float min, float max);
 
     /**
      * Converts degrees to radians.
      *
-     * @param degrees
-     * @return
+     * @param degrees - degrees
+     * @return float Rad
      */
     public static native float degToRad(float degrees);
 
@@ -33,8 +33,9 @@ public class Math {
      * Computes the Euclidean modulo of m % n, that is:
      * ( ( n % m ) + m ) % m
      *
-     * @param n, m - Integers
-     * @return
+     * @param n - Integers
+     * @param m - Integers
+     * @return euclidean modulo
      */
     public static native int euclideanModulo(int n, int m);
 
@@ -47,7 +48,7 @@ public class Math {
 
     /**
      * Return true if n is a power of 2.
-     *
+     * @param n - candidate
      * @return boolean
      */
     public static native boolean isPowerOfTwo(Number n);
@@ -58,7 +59,7 @@ public class Math {
      * @param x - Start point.
      * @param y - End point.
      * @param t - interpolation factor in the closed interval [0, 1].
-     * @return
+     * @return float
      */
     public static native float lerp(float x, float y, float t);
 
@@ -77,47 +78,47 @@ public class Math {
     /**
      * Returns the smallest power of 2 that is greater than or equal to n.
      *
-     * @param n
-     * @return
+     * @param n Number
+     * @return int ceilPowerOfTwo
      */
     public static native int ceilPowerOfTwo(Number n);
 
     /**
      * Returns the largest power of 2 that is less than or equal to n.
      *
-     * @param n
-     * @return
+     * @param n Number
+     * @return int
      */
     public static native int floorPowerOfTwo(Number n);
 
     /**
      * Converts radians to degrees.
      *
-     * @param n
-     * @return
+     * @param n float
+     * @return int
      */
     public static native int radToDeg(float n);
 
     /**
      * Random float in the interval low to high.
-     * @param low
-     * @param high
-     * @return
+     * @param low float low
+     * @param high high low
+     * @return float
      */
     public static native float randFloat(float low,float high);
 
     /**
      * Random float in the interval *- range / 2* to *range / 2*.
-     * @param range
-     * @return
+     * @param range float range
+     * @return float
      */
     public static native float randFloatSpread (float range);
 
     /**
      * Random integer in the interval low to high.
-     * @param low
-     * @param high
-     * @return
+     * @param low int low
+     * @param high int high
+     * @return int
      */
     public static native int randInt(int low, int high);
 

@@ -11,10 +11,11 @@ import jsinterop.annotations.JsType;
  */
 @JsType(isNative = true, namespace = "THREE")
 public class EventDispatcher {
+
     @JsType
     @FunctionalInterface
-    public static interface EventListener<T> {
-        public void call(Object sender, T event);
+    public interface EventListener<T> {
+        void call(Object sender, T event);
     }
 
     /**
@@ -37,7 +38,7 @@ public class EventDispatcher {
      *
      * @param type     The type of event to listen to.
      * @param listener The function that gets called when the event is fired.
-     * @return
+     * @return isAdded
      */
     @SuppressWarnings("rawtypes")
     public native boolean hasEventListener(Object type, EventListener listener);
@@ -55,6 +56,7 @@ public class EventDispatcher {
     /**
      * Fire an event type.
      *
+     * @param <T>   This is the type parameter
      * @param event The event that gets fired.
      */
     public native <T> void dispatchEvent(T event);

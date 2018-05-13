@@ -4,7 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -44,7 +44,7 @@ public class Euler {
     /**
      * Copies value of euler to this euler.
      *
-     * @param euler
+     * @param euler Euler
      * @return Euler
      */
     public native Euler copy(Euler euler);
@@ -52,7 +52,7 @@ public class Euler {
     /**
      * Checks for strict equality of this Euler and euler.
      *
-     * @param euler
+     * @param euler Euler
      * @return boolean
      */
     public native boolean equals(Euler euler);
@@ -62,13 +62,22 @@ public class Euler {
      * Assigns this euler's x angle to array[0].
      * Assigns this euler's y angle to array[1].
      * Assigns this euler's z angle to array[2].
-     * Optionally assigns this euler's order to array[3].
      *
-     * @param array
-     * @param offset
+     * @param array float[] array
      * @return Euler
      */
-    public native Euler fromArray(float[] array, float offset);
+    public native Euler fromArray(float[] array);
+
+    /**
+     * Assigns this euler's x angle to array[0].
+     * Assigns this euler's y angle to array[1].
+     * Assigns this euler's z angle to array[2].
+     *
+     * @param array of length 3 or 4. The optional 4th argument corresponds to the order.
+     * @param order a string representing the order that the rotations are applied.
+     * @return Euler
+     */
+    public native Euler fromArray(float[] array, String order);
 
     /**
      * By default this is an empty function, however it can be set via onChange().
@@ -81,7 +90,7 @@ public class Euler {
     /**
      * onChangeCallback - set the value of the onChangeCallback() function.
      *
-     * @param onChangeCallback
+     * @param onChangeCallback Callback
      * @return Euler
      */
     public native Euler onChange(OnChangeCallback onChangeCallback);
@@ -91,7 +100,7 @@ public class Euler {
      * <p>
      * WARNING: this discards revolution information.
      *
-     * @param newOrder
+     * @param newOrder new order
      * @return Euler
      */
     public native Euler reorder(String newOrder);
@@ -107,8 +116,6 @@ public class Euler {
     public native Euler set(float x, float y, float z);
 
     /**
-     * order - a string representing the order that the rotations are applied.
-     * <p>
      * Sets the angles of this euler transform and optionally the order and then call onChangeCallback().
      *
      * @param x - the angle of the x axis in radians.

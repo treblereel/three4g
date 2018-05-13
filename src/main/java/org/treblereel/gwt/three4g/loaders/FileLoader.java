@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * FileLoader internally. Cache is a cache module that holds the response from each request made through this loader,
  * so each file is requested once.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -96,16 +96,16 @@ public class FileLoader {
     /**
      * Set the expected mimeType of the file being loaded. Note that in many cases this will be determined automatically, so by default it is undefined.
      *
-     * @param mimeType
-     * @return
+     * @param mimeType as String value
+     * @return instance of FileLoader
      */
     public native FileLoader setMimeType(String mimeType);
 
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
      *
-     * @param path
-     * @return
+     * @param path base path or URL
+     * @return instance of FileLoader
      */
     public native FileLoader setPath(String path);
 
@@ -113,7 +113,7 @@ public class FileLoader {
      * Set the request header used in HTTP request.
      *
      * @param requestHeader - key: The name of the header whose value is to be set. value: The value to set as the body of the header.
-     * @return
+     * @return instance of FileLoader
      */
     public native FileLoader setRequestHeader(Object requestHeader);
 
@@ -125,7 +125,8 @@ public class FileLoader {
      * document - parses the file using the DOMParser.
      * json - parses the file using JSON.parse.
      *
-     * @return
+     * @param responseType type of type
+     * @return instance of FileLoader
      */
     public native FileLoader setResponseType(String responseType);
 
@@ -133,7 +134,8 @@ public class FileLoader {
      * Whether the XMLHttpRequest uses credentials such as cookies, authorization headers or TLS client certificates. See XMLHttpRequest.withCredentials.
      * Note that this has no effect if you are loading files locally or from the same domain.
      *
-     * @return
+     * @param value if true, use credentials
+     * @return instance of FileLoader
      */
     public native FileLoader setWithCredentials(boolean value);
 

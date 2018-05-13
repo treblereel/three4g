@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
 /**
  * Create a texture to apply to a surface or as a reflection or refraction map.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -192,7 +192,7 @@ public class Texture extends EventDispatcher {
     /**
      * Readonly - unique number for this texture instance.
      *
-     * @return id
+     * @return id - unique number for this texture instance.
      */
     @JsProperty
     public native int getId();
@@ -200,7 +200,7 @@ public class Texture extends EventDispatcher {
     /**
      * UUID of this object instance. This gets automatically assigned, so this shouldn't be edited.
      *
-     * @return uuid
+     * @return uuid of this object instance
      */
     @JsProperty
     public native int getUuid();
@@ -208,7 +208,7 @@ public class Texture extends EventDispatcher {
     /**
      * This starts at 0 and counts how many times # .needsUpdate is set to true.
      *
-     * @return version
+     * @return version of this object instance
      */
     @JsProperty
     public native int getVersion();
@@ -216,14 +216,14 @@ public class Texture extends EventDispatcher {
     /**
      * Make copy of the texture. Note this is not a "deep copy", the image is shared.
      *
-     * @return
+     * @return instance of texture
      */
     public native Texture clone();
 
     /**
      * Convert the material to three.js JSON format.
      *
-     * @return
+     * @return JSON String
      */
     public native String toJSON();
 
@@ -231,7 +231,7 @@ public class Texture extends EventDispatcher {
      * Convert the material to three.js JSON format.
      *
      * @param meta -- optional object containing metadata.
-     * @return
+     * @return JSON String
      */
     public native String toJSON(Object meta);
 
@@ -242,7 +242,7 @@ public class Texture extends EventDispatcher {
 
     /**
      *
-     * @param uv
+     * @param uv instance of Vector2
      */
     public native void  transformUv(Vector2 uv);
 

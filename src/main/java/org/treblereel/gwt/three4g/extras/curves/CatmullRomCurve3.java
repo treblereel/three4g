@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
 /**
  * Create a smooth 3d spline curve from a series of points using the Catmull-Rom algorithm.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -4,7 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/28/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -75,7 +75,7 @@ public class Color {
     /**
      * Adds the RGB values of color to the RGB values of this color.
      *
-     * @param color
+     * @param color Color
      * @return Color
      */
     public native Color add(Color color);
@@ -83,8 +83,8 @@ public class Color {
     /**
      * Sets this color's RGB values to the sum of the RGB values of color1 and color2.
      *
-     * @param color1
-     * @param color2
+     * @param color1 Color1
+     * @param color2 Color2
      * @return Color
      */
     public native Color adds(Color color1, Color color2);
@@ -92,7 +92,7 @@ public class Color {
     /**
      * Adds s to the RGB values of this color.
      *
-     * @param s
+     * @param s number
      * @return Color
      */
     public native Color addScalar(Number s);
@@ -107,7 +107,7 @@ public class Color {
     /**
      * Copies the r, g and b parameters from color in to this color.
      *
-     * @param color
+     * @param color Color
      * @return Color
      */
     public native Color copy(Color color);
@@ -127,47 +127,37 @@ public class Color {
     public native Color convertLinearToGamma();
 
     /**
-     * color — Color to copy.
-     * <p>
      * Copies the given color into this color while converting it from gamma to linear space by
      * taking r, g and b to the power of gammaFactor.
      *
-     * @param color
+     * @param color — Color to copy.
      * @return Color
      */
     public native Color copyGammaToLinear(Color color);
 
     /**
-     * color — Color to copy.
-     * gammaFactor - Default is 2.0.
-     * <p>
      * Copies the given color into this color while converting it from gamma to linear space by
      * taking r, g and b to the power of gammaFactor.
      *
-     * @param color
-     * @param gammaFactor
+     * @param color — Color to copy.
+     * @param gammaFactor - Default is 2.0.
      * @return Color
      */
     public native Color copyGammaToLinear(Color color, float gammaFactor);
 
     /**
-     * color — Color to copy.
-     * <p>
      * Copies the given color into this color while converting it from linear to gamma space by taking r, g and b to the power of 1 / gammaFactor.
      *
-     * @param color
+     * @param color — Color to copy.
      * @return Color
      */
     public native Color copyLinearToGamma(Color color);
 
     /**
-     * color — Color to copy.
-     * gammaFactor - Default is 2.0.
-     * <p>
      * Copies the given color into this color while converting it from linear to gamma space by taking r, g and b to the power of 1 / gammaFactor.
      *
-     * @param color
-     * @param gammaFactor
+     * @param color — Color to copy.
+     * @param gammaFactor - Default is 2.0.
      * @return Color
      */
     public native Color copyLinearToGamma(Color color, float gammaFactor);
@@ -175,29 +165,24 @@ public class Color {
     /**
      * Compares the RGB values of color with those of this object. Returns true if they are the same, false otherwise.
      *
-     * @param color
+     * @param color Colot to compare
      * @return boolean
      */
     public native boolean equals(Color color);
 
     /**
-     * array - Array of floats in the form [ r, g, b ].
-     * <p>
      * Sets this color's components based on an array formatted like [ r, g, b ].
      *
-     * @param array
+     * @param  array - Array of floats in the form [ r, g, b ].
      * @return Color
      */
     public native Color fromArray(float[] array);
 
     /**
-     * array - Array of floats in the form [ r, g, b ].
-     * offset - An optional offset into the array.
-     * <p>
      * Sets this color's components based on an array formatted like [ r, g, b ].
      *
-     * @param array
-     * @param offset
+     * @param array - Array of floats in the form [ r, g, b ].
+     * @param offset - An optional offset into the array.
      * @return Color
      */
     public native Color fromArray(float[] array, int offset);
@@ -220,7 +205,7 @@ public class Color {
      * Convert this Color's r, g and b values to HSL format and returns an object of the form:
      * { h: 0, s: 0, l: 0 }
      *
-     * @param obj
+     * @param obj Object
      * @return Object
      */
     public native Object getHSL(Object obj); //TODO
@@ -228,36 +213,34 @@ public class Color {
     /**
      * Returns the value of this color as a CSS style string. Example: 'rgb(255,0,0)'.
      *
-     * @return String
+     * @return CSS style string
      */
     public native String getStyle();
 
 
     /**
-     * color - color to converge on.
-     * alpha - interpolation factor in the closed interval [0, 1].
      * Linearly interpolates this color's RGB values toward the RGB values of the passed argument.
      * The alpha argument can be thought of as the ratio between the two colors, where 0.0 is this color
      * and 1.0 is the first argument.
      *
-     * @param color
-     * @param alfa
+     * @param color - color to converge on.
+     * @param alpha - interpolation factor in the closed interval [0, 1].
      * @return Color
      */
-    public native Color lerp(Color color, float alfa);
+    public native Color lerp(Color color, float alpha);
 
     /**
      * Multiplies this color's RGB values by the given color's RGB values.
      *
-     * @param color
-     * @return
+     * @param color Color
+     * @return Color
      */
     public native Color multiply(Color color);
 
     /**
      * Multiplies this color's RGB values by s.
      *
-     * @param scalar
+     * @param scalar Scalar
      * @return Color
      */
     public native Color multiplyScalar(Number scalar);
@@ -266,69 +249,59 @@ public class Color {
      * Adds the given h, s, and l to this color's values. Internally, this converts the color's r, g and b values to
      * HSL, adds h, s, and l, and then converts the color back to RGB.
      *
-     * @param h
-     * @param s
-     * @param l
+     * @param h hue
+     * @param s saturation
+     * @param l lightness
      * @return Color
      */
     public native Color offsetHSL(float h, float s, float l);
 
     /**
-     * value - Value to set this color to.
-     * <p>
      * Color, Hex or String
      * <p>
      * See the Constructor above for full details of what value can be. Delegates to .copy,
      * .setStyle, or .setHex depending on input type.
      *
-     * @param value
+     * @param value - Value to set this color to.
      * @return Color
      */
     public native Color set(Object value);
 
     /**
-     * hex — hexadecimal triplet format.
-     * <p>
      * Sets this color from a hexadecimal value.
      *
-     * @param value
+     * @param hex — hexadecimal triplet format.
      * @return Color
      */
-    public native Color setHex(int value);
+    public native Color setHex(int hex);
 
     /**
      * Sets color from HSL values.
      *
-     * @param h
-     * @param s
-     * @param l
+     * @param h hue
+     * @param s saturation
+     * @param l lightness
      * @return Color
      */
     public native Color setHSL(float h, float s, float l);
 
     /**
-     * r — Red channel value between 0.0 and 1.0.
-     * g — Green channel value between 0.0 and 1.0.
-     * b — Blue channel value between 0.0 and 1.0.
-     * <p>
      * Sets this color from RGB values.
      *
-     * @param r
-     * @param g
-     * @param b
+     * @param r — Red channel value between 0.0 and 1.0.
+     * @param g — Green channel value between 0.0 and 1.0.
+     * @param b — Blue channel value between 0.0 and 1.0.
      * @return Color
      */
     public native Color setRGB(float r, float g, float b);
 
     /**
-     * style — color as a CSS-style string.
-     * <p>
      * Sets this color from a CSS-style string. For example, "rgb(250, 0,0)", "rgb(100%, 0%, 0%)", "hsl(0, 100%, 50%)", "#ff0000", "#f00", or "red" ( or any X11 color name - all 140 color names are supported ).
      * Translucent colors such as "rgba(255, 0, 0, 0.5)" and "hsla(0, 100%, 50%, 0.5)" are also accepted, but the alpha-channel coordinate will be discarded.
      * <p>
      * Note that for X11 color names, multiple words such as Dark Orange become the string 'darkorange' (all lowercase).
      *
-     * @param style
+     * @param style — color as a CSS-style string.
      * @return Color
      */
     public native Color setStyle(String style);
@@ -336,29 +309,31 @@ public class Color {
     /**
      * Subtracts the RGB components of the given color from the RGB components of this color. If this results in a negative component, that component is set to zero.
      *
-     * @param color
+     * @param color input Color
      * @return Color
      */
     public native Color sub(Color color);
 
     /**
-     * array - An optional array to store the color to.
-     * <p>
      * Returns an array of the form [ r, g, b ].
      *
-     * @param array
+     * @return Color
+     */
+    public native float[] toArray();
+
+    /**
+     * Returns an array of the form [ r, g, b ].
+     *
+     * @param array - An optional array to store the color to.
      * @return Color
      */
     public native float[] toArray(float[] array);
 
     /**
-     * array - An optional array to store the color to.
-     * offset - An optional offset into the array.
-     * <p>
      * Returns an array of the form [ r, g, b ].
      *
-     * @param array
-     * @param offset
+     * @param array - An optional array to store the color to.
+     * @param offset - An optional offset into the array.
      * @return Color
      */
     public native float[] toArray(float[] array, int offset);

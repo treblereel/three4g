@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.animation.KeyframeTrack;
 
 /**
  * A Track of numeric keyframe values.
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(namespace = "THREE", isNative = true)

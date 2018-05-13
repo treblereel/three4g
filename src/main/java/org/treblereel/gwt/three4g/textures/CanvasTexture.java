@@ -5,8 +5,8 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Bocharov <bdshadow@gmail.com>
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Bocharov
+ * @author Dmitrii Tikhomirov
  * Creates a texture from a canvas element.
  * <p>
  * This is almost the same as the base Texture class, except that it sets needsUpdate to true immediately.
@@ -35,7 +35,7 @@ public class CanvasTexture extends Texture {
      * @param minFilter  -- How the texture is sampled when a texel covers less than one pixel. The default is THREE.LinearMipMapLinearFilter. See minification filter constants for other choices.
      * @param format     -- The format used in the texture. See format constants for other choices.
      * @param anisotropy -- The number of samples taken along the axis through the pixel that has the highest density of texels. By default, this value is 1. A higher value gives a less blurry result than a basic mipmap, at the cost of more texture samples being used. Use renderer.getMaxAnisotropy() to find the maximum valid anisotropy value for the GPU; this value is usually a power of 2.
-     * @paramtype -- Default is THREE.UnsignedByteType. See type constants for other choices.
+     * @param type -- Default is THREE.UnsignedByteType. See type constants for other choices.
      */
     @JsConstructor
     public CanvasTexture(HTMLElement canvas, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy) {

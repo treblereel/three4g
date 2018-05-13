@@ -3,9 +3,10 @@ package org.treblereel.gwt.three4g.animation;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.objects.Bone;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -34,7 +35,7 @@ public class AnimationClip {
     /**
      * Optimizes each track by removing equivalent sequential keys (which are common in morph target sequences).
      *
-     * @return
+     * @return instance of AnimationClip
      */
     public native AnimationClip optimize();
 
@@ -46,7 +47,7 @@ public class AnimationClip {
     /**
      * Trims all tracks to the clip's duration.
      *
-     * @return
+     * @return instance of AnimationClip
      */
     public native AnimationClip trim();
 
@@ -55,11 +56,11 @@ public class AnimationClip {
      * morph target names into animation-group-based patterns like "Walk_001, Walk_002, Run_001, Run_002 ..."
      * This method is called by the JSONLoader internally, and it uses CreateFromMorphTargetSequence.
      *
-     * @param name
-     * @param morphTargetSequence
-     * @param fps
-     * @param noLoop
-     * @return
+     * @param name as String value
+     * @param morphTargetSequence array of morphTargetSequences
+     * @param fps as int value
+     * @param noLoop true, if noLoop required
+     * @return instance of array of AnimationClips
      */
     @JsMethod(name = "CreateClipsFromMorphTargetSequences")
     public native static AnimationClip[] createClipsFromMorphTargetSequences(String name, Object[] morphTargetSequence, int fps, boolean noLoop);
@@ -69,42 +70,42 @@ public class AnimationClip {
      * <p>
      * Note: The fps parameter is required, but the animation speed can be overridden in an AnimationAction via animationAction.setDuration.
      *
-     * @param name
-     * @param morphTargetSequence
-     * @param fps
-     * @param noLoop
-     * @return
+     * @param name as String value
+     * @param morphTargetSequence array of morphTargetSequences
+     * @param fps as int value
+     * @param noLoop true, if noLoop required
+     * @return instance of array of AnimationClips
      */
     @JsMethod(name = "CreateFromMorphTargetSequence")
     public native static AnimationClip[] createFromMorphTargetSequence(String name, Object[] morphTargetSequence, int fps, boolean noLoop);
 
     /**
      * Searches for an AnimationClip by name, taking as its first parameter either an array of AnimationClips, or a mesh or geometry that contains an array named "animations".
-     * @param objectOrClipArray
-     * @param name
-     * @return
+     * @param objectOrClipArray could array or object
+     * @param name the name of
+     * @return instance of AnimationClip
      */
     public native static AnimationClip findByName(Object objectOrClipArray, String name);
 
     /**
      * Parses a JSON representation of a clip and returns an AnimationClip.
-     * @param json
+     * @param json as String value
      * @return AnimationClip
      */
     public native static AnimationClip parse(Object json);
 
     /**
      *Parses the animation.hierarchy format and returns an AnimationClip.
-     * @param json
-     * @param bones
+     * @param json as String value
+     * @param bones array of bones
      * @return AnimationClip
      */
-    public native static AnimationClip parseAnimation(Object json, Object[] bones);
+    public native static AnimationClip parseAnimation(Object json, Bone[] bones);
 
     /**
      * Takes an AnimationClip and returns a JSON object.
-     * @param clip
-     * @return
+     * @param clip instance of AnimationClip
+     * @return JSON
      */
     public native static String toJSON (AnimationClip clip);
 

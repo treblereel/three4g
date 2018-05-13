@@ -10,7 +10,7 @@ import jsinterop.annotations.JsType;
  * This is almost the same as the base Texture class, except that it continuosly sets needsUpdate to true so that the
  * texture is updated as the video plays. Automatic creation of mipmaps is also disabled.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")

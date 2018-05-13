@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
 /**
  * A loader for loading a Material in JSON format. This uses the FileLoader internally for loading files.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -74,7 +74,7 @@ public class MaterialLoader {
      * Parse a JSON structure and create a new Material of the type json.type with parameters defined in the json object.
      *
      * @param json — The json object containing the parameters of the Material.
-     * @return
+     * @return instance of Material
      */
     public native Material parse(JSONObject json);
 

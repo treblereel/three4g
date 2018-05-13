@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
 /**
  * Creates a new Camera. Note that this class is not intended to be called directly; you probably want a PerspectiveCamera or OrthographicCamera instead.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 12/6/17.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -40,8 +40,8 @@ public class Camera extends Object3D {
     /**
      * Copy the properties from the source camera into this one.
      *
-     * @param camera
-     * @return
+     * @param camera instance of Camera
+     * @return instance of Camera
      */
     public native Camera copy(Camera camera);
 

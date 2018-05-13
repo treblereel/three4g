@@ -4,7 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -31,32 +31,32 @@ public class Spherical {
     /**
      * Returns a new plane with the same radius, phi and theta properties as this one.
      *
-     * @return
+     * @return instance of Spherical
      */
     public native Spherical clone();
 
     /**
      * Copies the values of the passed Spherical's radius, phi and theta properties to this spherical.
      *
-     * @param s
-     * @return
+     * @param s targeting Spherical
+     * @return instance of Spherical
      */
     public native Spherical copy(Spherical s);
 
     /**
      * Restricts the polar angle phi to be between 0.000001 and pi - 0.000001.
      *
-     * @return
+     * @return instance of Spherical
      */
     public native Spherical makeSafe();
 
     /**
      * Sets values of this spherical's radius, phi and theta properties.
      *
-     * @param radius
-     * @param phi
-     * @param theta
-     * @return
+     * @param radius as float
+     * @param phi    as float
+     * @param theta  as float
+     * @return instance of Spherical
      */
     public native Spherical set(float radius, float phi, float theta);
 
@@ -64,7 +64,8 @@ public class Spherical {
      * Sets values of this spherical's radius, phi and theta properties from the Vector3.
      * The radius is set the vector's Vector3.length, while the phi and theta properties are set from its direction.
      *
-     * @param vec3
+     * @param vec3 source Vector3
+     * @return instance of Spherical
      */
     public native Spherical setFromVector3(Vector3 vec3);
 

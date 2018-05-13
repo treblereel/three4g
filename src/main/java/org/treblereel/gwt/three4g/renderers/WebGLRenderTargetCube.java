@@ -6,7 +6,7 @@ import org.treblereel.gwt.three4g.renderers.parameters.WebGLRenderTargetCubePara
 /**
  * Used by the CubeCamera as its WebGLRenderTarget.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

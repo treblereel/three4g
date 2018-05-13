@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * For an overview of the different elements of the three.js animation system see the "Animation System" article in the
  * "Next Steps" section of the manual.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -114,10 +114,10 @@ public class AnimationAction {
      * <p>
      * Note: Like with fadeIn/fadeOut, the fading starts/ends with a weight of 1.
      *
-     * @param fadeOutAction
-     * @param durationInSeconds
-     * @param warpBoolean
-     * @return
+     * @param fadeOutAction     instance of AnimationAction
+     * @param durationInSeconds as double value
+     * @param warpBoolean       as boolean value
+     * @return instance of AnimationAction
      */
     public native AnimationAction crossFadeFrom(AnimationAction fadeOutAction, double durationInSeconds, boolean warpBoolean);
 
@@ -128,68 +128,69 @@ public class AnimationAction {
      * <p>
      * Note: Like with fadeIn/fadeOut, the fading starts/ends with a weight of 1.
      *
-     * @param fadeInAction
-     * @param durationInSeconds
-     * @param warpBoolean
-     * @return
+     * @param fadeInAction      instance of AnimationAction
+     * @param durationInSeconds as double value
+     * @param warpBoolean       as boolean value
+     * @return instance of AnimationAction
      */
     public native AnimationAction crossFadeTo(AnimationAction fadeInAction, double durationInSeconds, boolean warpBoolean);
 
     /**
      * Increases the weight of this action gradually from 0 to 1, within the passed time interval. This method can be chained.
      *
-     * @return
+     * @param durationInSeconds as double value
+     * @return instance of AnimationAction
      */
     public native AnimationAction fadeIn(double durationInSeconds);
 
     /**
      * Decreases the weight of this action gradually from 1 to 0, within the passed time interval. This method can be chained.
      *
-     * @param durationInSeconds
-     * @return
+     * @param durationInSeconds as double value
+     * @return instance of AnimationAction
      */
     public native AnimationAction fadeOut(double durationInSeconds);
 
     /**
      * Returns the effective time scale (considering the current states of warping and paused).
      *
-     * @return
+     * @return effective time scale
      */
     public native double getEffectiveTimeScale();
 
     /**
      * Returns the effective weight (considering the current states of fading and enabled).
      *
-     * @return
+     * @return effective weight
      */
     public native double getEffectiveWeight();
 
     /**
      * Returns the clip which holds the animation data for this action.
      *
-     * @return
+     * @return instance of AnimationClip
      */
     public native AnimationClip getClip();
 
     /**
      * Returns the mixer which is responsible for playing this action.
      *
-     * @return
+     * @return instance of AnimationMixer
      */
     public native AnimationMixer getMixer();
 
     /**
      * Returns the root object on which this action is performed.
      *
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D getRoot();
 
     /**
      * Decelerates this animation's speed to 0 by decreasing timeScale gradually (starting from its current value), within the passed time interval. This method can be chained.
      *
-     * @param durationInSeconds
-     * @return
+     * @param durationInSeconds as double value
+     * @return instance of AnimationAction
      */
     public native AnimationAction halt(double durationInSeconds);
 
@@ -200,7 +201,7 @@ public class AnimationAction {
      * <p>
      * Note: isRunning being true doesn’t necessarily mean that the animation can actually be seen. This is only the case, if weight is additionally set to a non-zero value.
      *
-     * @return
+     * @return true if running
      */
     public native boolean isRunning();
 
@@ -209,7 +210,7 @@ public class AnimationAction {
      * <p>
      * Note: This doesn’t necessarily mean that the animation is actually running (compare the additional conditions for isRunning).
      *
-     * @return
+     * @return true if scheduled
      */
     public native boolean isScheduled();
 
@@ -221,7 +222,7 @@ public class AnimationAction {
      * (via startAt), a reset must be executed first. Some other settings (paused=true, enabled=false, weight=0, timeScale=0)
      * can prevent the animation from playing, too.
      *
-     * @return
+     * @return instance of AnimationAction
      */
     public native AnimationAction play();
 
@@ -233,15 +234,15 @@ public class AnimationAction {
      * <p>
      * Note: .reset is always called by stop, but .reset doesn’t call .stop itself. This means: If you want both, resetting and stopping, don’t call .reset; call .stop instead.
      *
-     * @return
+     * @return instance of AnimationAction
      */
     public native AnimationAction reset();
 
     /**
      * Sets the duration for a single loop of this action (by adjusting timeScale and stopping any scheduled warping). This method can be chained.
      *
-     * @param durationInSeconds
-     * @return
+     * @param durationInSeconds as double value
+     * @return instance of AnimationAction
      */
     public native AnimationAction setDuration(double durationInSeconds);
 
@@ -252,8 +253,8 @@ public class AnimationAction {
      * <p>
      * Note: .paused will not be switched to true automatically, if .timeScale is set to 0 by this method.
      *
-     * @param timeScale
-     * @return
+     * @param timeScale as double value
+     * @return instance of AnimationAction
      */
     public native AnimationAction setEffectiveTimeScale(double timeScale);
 
@@ -264,17 +265,17 @@ public class AnimationAction {
      * <p>
      * Note: .enabled will not be switched to false automatically, if .weight is set to 0 by this method.
      *
-     * @param weight
-     * @return
+     * @param weight as float value
+     * @return instance of AnimationAction
      */
     public native AnimationAction setEffectiveWeight(float weight);
 
     /**
      * Sets the loop mode and the number of repetitions. This method can be chained.
      *
-     * @param loopMode
-     * @param repetitions
-     * @return
+     * @param loopMode    as int value
+     * @param repetitions as int value
+     * @return instance of AnimationAction
      */
     public native AnimationAction setLoop(int loopMode, int repetitions);
 
@@ -283,8 +284,8 @@ public class AnimationAction {
      * <p>
      * Note: The animation will only start at the given time, if .startAt is chained with play, or if the action has already been activated in the mixer (by a previous call of .play, without stopping or resetting it in the meantime).
      *
-     * @param startTimeInSeconds
-     * @return
+     * @param startTimeInSeconds as double value
+     * @return instance of AnimationAction
      */
     public native AnimationAction startAt(double startTimeInSeconds);
 
@@ -294,20 +295,22 @@ public class AnimationAction {
      * The action will be immediately stopped and completely reset.
      * <p>
      * Note: You can stop all active actions on the same mixer in one go via mixer.stopAllAction.
+     *
+     * @return instance of AnimationAction
      */
     public native AnimationAction stop();
 
     /**
      * Stops any scheduled fading which is applied to this action. This method can be chained.
      *
-     * @return
+     * @return instance of AnimationAction
      */
     public native AnimationAction stopFading();
 
     /**
      * Stops any scheduled warping which is applied to this action. This method can be chained.
      *
-     * @return
+     * @return instance of AnimationAction
      */
     public native AnimationAction stopWarping();
 
@@ -318,20 +321,19 @@ public class AnimationAction {
      * <p>
      * Note: Future changes of the other action's time and timeScale will not be detected.
      *
-     * @param otherAction
-     * @return
+     * @param otherAction instance of AnimationAction
+     * @return instance of AnimationAction
      */
     public native AnimationAction syncWith(AnimationAction otherAction);
 
     /**
      * Changes the playback speed, within the passed time interval, by modifying timeScale gradually from startTimeScale to endTimeScale. This method can be chained.
      *
-     * @param startTimeScale
-     * @param endTimeScale
-     * @param durationInSeconds
-     * @return
+     * @param startTimeScale    as double value
+     * @param endTimeScale      as double value
+     * @param durationInSeconds as double value
+     * @return instance of AnimationAction
      */
     public native AnimationAction warp(double startTimeScale, double endTimeScale, double durationInSeconds);
-
 
 }

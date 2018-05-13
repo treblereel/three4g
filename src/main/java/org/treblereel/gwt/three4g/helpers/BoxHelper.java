@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.objects.LineSegments;
  * Helper object to show the world-axis-aligned bounding box around an object. Note that the object must have a Geometry
  * or BufferGeometry for this to work, so it won't work with Sprites.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -59,7 +59,7 @@ public class BoxHelper extends LineSegments {
      * Updates the wireframe box for the passed object.
      *
      * @param object - Object3D to create the helper of.
-     * @return
+     * @return BoxHelper
      */
     public native BoxHelper setFromObject(Object3D object);
 

@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Color;
 /**
  * Creates a visual aid for a RectAreaLight.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

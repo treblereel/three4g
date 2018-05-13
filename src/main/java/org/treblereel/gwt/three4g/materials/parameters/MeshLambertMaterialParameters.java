@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.textures.CubeTexture;
 import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/22/18.
  */
 @JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")

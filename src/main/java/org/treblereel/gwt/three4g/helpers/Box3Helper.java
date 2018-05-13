@@ -6,7 +6,7 @@ import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.objects.LineSegments;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -38,8 +38,6 @@ public class Box3Helper extends LineSegments {
 
     /**
      * This overrides the method in the base Object3D class so that it also updates the wireframe box to the extent of the .box property.
-     *
-     * @param force
      */
     public native void updateMatrixWorld(boolean force);
 }

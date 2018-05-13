@@ -6,7 +6,7 @@ import org.treblereel.gwt.three4g.materials.parameters.RawShaderMaterialParamete
 /**
  * This class works just like ShaderMaterial, except that definitions of built-in uniforms and attributes are not automatically prepended to the GLSL shader code.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

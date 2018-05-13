@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * <p>
  * This uses the Web Audio API.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -103,21 +103,21 @@ public class Audio extends Object3D {
     /**
      * Returns the first element of the filters array.
      *
-     * @return
+     * @return BiquadFilterNode
      */
     public native BiquadFilterNode getFilter();
 
     /**
      * Returns the filters array.
      *
-     * @return
+     * @return array of BiquadFilterNode
      */
     public native BiquadFilterNode[] getFilters();
 
     /**
      * Return the value of source.loop (whether playback should loop).
      *
-     * @return
+     * @return isLoop
      */
     public native boolean getLoop();
 
@@ -125,21 +125,21 @@ public class Audio extends Object3D {
      * Return the gainNode.
      * Cast to GainNode
      *
-     * @return
+     * @return AudioNode
      */
     public native AudioNode getOutput();
 
     /**
      * Return the value of playbackRate.
      *
-     * @return
+     * @return playback rate
      */
     public native Number getPlaybackRate();
 
     /**
      * Return the current volume.
      *
-     * @return
+     * @return current volume
      */
     public native Number getVolume();
 
@@ -157,15 +157,15 @@ public class Audio extends Object3D {
      * Setup the source to the audioBuffer, and sets sourceType to 'buffer'.
      * If autoplay, also starts playback.
      *
-     * @param audioBuffer
-     * @return
+     * @param audioBuffer source to the audioBuffer
+     * @return Audio
      */
     public native Audio setBuffer(AudioBuffer audioBuffer);
 
     /**
      * Applies a single BiquadFilterNode to the audio.
      *
-     * @param filter
+     * @param filter BiquadFilterNode
      */
     public native void setFilter(BiquadFilterNode filter);
 
@@ -173,33 +173,35 @@ public class Audio extends Object3D {
      * Applies an array of BiquadFilterNodes to the audio.
      *
      * @param value - arrays of filters.
+     * @return this Audio instance
      */
     public native Audio setFilters(BiquadFilterNode[] value);
 
     /**
      * Set source.loop to value (whether playback should loop).
      *
-     * @param value
+     * @param value boolean
      */
     public native void setLoop(boolean value);
 
     /**
      * Setup the source to the audioBuffer, and sets sourceType to 'audioNode'.
      * Also sets hasPlaybackControl to false.
+     * @param audioNode AudioNode
      */
     public native void setNodeSource(AudioNode audioNode);
 
     /**
      * If hasPlaybackControl is enabled, set the playbackRate to value.
      *
-     * @param value
+     * @param value playback rate
      */
     public native void setPlaybackRate(Number value);
 
     /**
      * Set the volume.
      *
-     * @param value
+     * @param value volume rate
      */
     public native void setVolume(Number value);
 

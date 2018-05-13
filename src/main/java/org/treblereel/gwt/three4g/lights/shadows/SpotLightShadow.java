@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.lights.SpotLight;
 /**
  * Used to check whether this or derived classes are spot light shadows. Default is true.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/25/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -29,8 +29,9 @@ public class SpotLightShadow extends LightShadow {
     public boolean isSpotLightShadow;
 
     /**
-     *     Updates the internal perspective camera based on the passed in light.
-     * @return
+     * Updates the internal perspective camera based on the passed in light.
+     * @param light instance of SpotLight
+     * @return instance of SpotLightShadow
      */
     public native SpotLightShadow update(SpotLight light);
 }

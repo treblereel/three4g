@@ -26,7 +26,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * Physically Based Rendering and You Can Too
  * Technical details of the approach used in three.js (and most other PBR systems) can be found is this paper from Disney (pdf), by Brent Burley.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

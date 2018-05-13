@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
 /**
  * Triangular face used in Geometry. These are created automatically for all standard geometry types, however if you are building a custom geometry you will have to create them manually.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/9/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -93,7 +93,7 @@ public class Face3 {
      * @param b             — Vertex B index.
      * @param c             — Vertex C index.
      * @param normal        — Face normal (Vector3) or array of vertex normals. If a single vector is passed in, this sets .normal, otherwise if an array of three vectors is passed in this sets .vertexNormals
-     * @param color         —  Face color or array of vertex colors. If a single vector is passed in, this sets .color, otherwise if an array of three vectors is passed in this sets .vertexColors
+     * @param color         — Face color or array of vertex colors. If a single vector is passed in, this sets .color, otherwise if an array of three vectors is passed in this sets .vertexColors
      * @param materialIndex — which index of an array of materials to associate with the face.
      */
     @JsConstructor
@@ -104,15 +104,15 @@ public class Face3 {
     /**
      * Creates a clone of this instance.
      *
-     * @return
+     * @return instance of Face3
      */
     public native Face3 clone();
 
     /**
      * Copies another Face3 object to this instance.
      *
-     * @param source
-     * @return
+     * @param source Face3
+     * @return instance of Face3
      */
     public native Face3 copy(Face3 source);
 

@@ -4,6 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.cameras.Camera;
+import org.treblereel.gwt.three4g.core.extra.Intersect;
 import org.treblereel.gwt.three4g.math.Ray;
 import org.treblereel.gwt.three4g.math.Vector2;
 import org.treblereel.gwt.three4g.math.Vector3;
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * This class is designed to assist with raycasting. Raycasting is used for mouse picking (working out what objects in
  * the 3d space the mouse is over) amongst other things.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -82,15 +83,6 @@ public class Raycaster {
      * @param recursive — If true, it also checks all descendants. Otherwise it only checks intersecton with the object. Default is false.
      * @return Checks all intersection between the ray and the object with or without the descendants. Intersections are
      * returned sorted by distance, closest first. An array of intersections is returned...
-     * <p>
-     * [ { distance, point, face, faceIndex, object }, ... ]
-     * distance – distance between the origin of the ray and the intersection
-     * point – point of intersection, in world coordinates
-     * face – intersected face
-     * faceIndex – index of the intersected face
-     * object – the intersected object
-     * uv - U,V coordinates at point of intersection
-     * <p>
      * Raycaster delegates to the raycast method of the passed object, when evaluating whether the ray intersects the
      * object or not. This allows meshes to respond differently to ray casting than lines and pointclouds.
      * <p>
@@ -98,7 +90,7 @@ public class Raycaster {
      * of the ray passing through the back of a face will not be detected. To raycast against both faces of an object,
      * you'll want to set the material's side property to THREE.DoubleSide.
      */
-    public native JsPropertyMap intersectObject(Object3D object, boolean recursive);
+    public native Intersect intersectObject(Object3D object, boolean recursive);
 
     /**
      * @param object         — The object to check for intersection with the ray.
@@ -107,15 +99,7 @@ public class Raycaster {
      *                       must clear this array prior to each call (i.e., array.length = 0;).
      * @return Checks all intersection between the ray and the object with or without the descendants. Intersections are
      * returned sorted by distance, closest first. An array of intersections is returned...
-     * <p>
-     * [ { distance, point, face, faceIndex, object }, ... ]
-     * distance – distance between the origin of the ray and the intersection
-     * point – point of intersection, in world coordinates
-     * face – intersected face
-     * faceIndex – index of the intersected face
-     * object – the intersected object
-     * uv - U,V coordinates at point of intersection
-     * <p>
+
      * Raycaster delegates to the raycast method of the passed object, when evaluating whether the ray intersects the
      * object or not. This allows meshes to respond differently to ray casting than lines and pointclouds.
      * <p>
@@ -123,16 +107,16 @@ public class Raycaster {
      * of the ray passing through the back of a face will not be detected. To raycast against both faces of an object,
      * you'll want to set the material's side property to THREE.DoubleSide.
      */
-    public native JsPropertyMap intersectObject(Object3D object, boolean recursive, Object[] optionalTarget);
+    public native Intersect intersectObject(Object3D object, boolean recursive, Object[] optionalTarget);
 
     /**
-     * @param objects        — The objects to check for intersection with the ray.
-     * @param recursive      — If true, it also checks all descendants of the objects. Otherwise it only checks intersecton with the objects. Default is false.
-     *                       Checks all intersection between the ray and the objects with or without the descendants.
-     *                       Intersections are returned sorted by distance, closest first. Intersections are of the same form as those returned by .intersectObject.
-     * @return
+     * @param objects   — The objects to check for intersection with the ray.
+     * @param recursive — If true, it also checks all descendants of the objects. Otherwise it only checks intersecton with the objects. Default is false.
+     *                  Checks all intersection between the ray and the objects with or without the descendants.
+     *                  Intersections are returned sorted by distance, closest first. Intersections are of the same form as those returned by .intersectObject.
+     * @return array of intersecting objects
      */
-    public native JsPropertyMap intersectObjects(Object3D[] objects, boolean recursive);
+    public native Intersect[] intersectObjects(Object3D[] objects, boolean recursive);
 
     /**
      * @param objects        — The objects to check for intersection with the ray.
@@ -142,8 +126,8 @@ public class Raycaster {
      *                       <p>
      *                       Checks all intersection between the ray and the objects with or without the descendants.
      *                       Intersections are returned sorted by distance, closest first. Intersections are of the same form as those returned by .intersectObject.
-     * @return
+     * @return array of intersecting objects
      */
-    public native JsPropertyMap intersectObjects(Object3D[] objects, boolean recursive, Object[] optionalTarget);
+    public native Intersect[] intersectObjects(Object3D[] objects, boolean recursive, Object[] optionalTarget);
 
 }

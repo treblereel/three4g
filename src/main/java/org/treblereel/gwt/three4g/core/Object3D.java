@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.core;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Euler;
 import org.treblereel.gwt.three4g.math.Matrix3;
@@ -9,7 +10,7 @@ import org.treblereel.gwt.three4g.math.Quaternion;
 import org.treblereel.gwt.three4g.math.Vector3;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 12/15/17.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -173,71 +174,64 @@ public class Object3D extends EventDispatcher {
     /**
      * Adds object as child of this object. An arbitrary number of objects may be added.
      *
-     * @param objects
+     * @param objects array of objects
      */
     public native void add(Object3D... objects);
 
     /**
      * Applies the matrix transform to the object and updates the object's position, rotation and scale.
      *
-     * @param matrix
+     * @param matrix Matrix4
      */
     public native void applyMatrix(Matrix4 matrix);
 
     /**
      * Applies the rotation represented by the quaternion to the object.
      *
-     * @param quaternion
+     * @param quaternion Quaternion
      */
     public native void applyQuaternion(Quaternion quaternion);
 
     /**
-     * recursive -- if true, descendants of the object are also cloned. Default is true.
      * Returns a clone of this object and optionally all descendants.
      *
-     * @param recursive
+     * @param recursive -- if true, descendants of the object are also cloned. Default is true.
      * @return Object3D
      */
     public native Object3D clone(boolean recursive);
 
     /**
-     * recursive -- if true, descendants of the object are also copied. Default is true.
      * Copy the given object into this object.
      *
-     * @param object3D
-     * @param recursive
-     * @return
+     * @param object3D  original object3d
+     * @param recursive -- if true, descendants of the object are also copied. Default is true.
+     * @return Object3D
      */
     public native Object3D copy(Object3D object3D, boolean recursive);
 
     /**
-     * id -- Unique number of the object instance
-     * <p>
      * Searches through the object's children and returns the first with a matching id.
      * Note that ids are assigned in chronological order: 1, 2, 3, ..., incrementing by one for each new object.
      *
-     * @param id
+     * @param id -- Unique number of the object instance
      * @return Object3D
      */
     public native Object3D getObjectById(int id);
 
     /**
-     * name -- String to match to the children's Object3D.name property.
      * Searches through the object's children and returns the first with a matching name.
      * Note that for most objects the # .name is an empty string by default. You will have to set it manually to make use of this method.
      *
-     * @param name
+     * @param name -- String to match to the children's Object3D.name property.
      * @return Object3D
      */
     public native Object3D getObjectByName(String name);
 
     /**
-     * name -- the property name to search for.
-     * value -- value of the given property.
      * Searches through the object's children and returns the first with a property that matches the value given.
      *
-     * @param name
-     * @param value
+     * @param name  -- the property name to search for.
+     * @param value -- value of the given property.
      * @return Object3D
      */
     public native Object3D getObjectByProperty(String name, float value);
@@ -245,32 +239,30 @@ public class Object3D extends EventDispatcher {
     /**
      * Returns a vector representing the position of the object in world space.
      *
-     * @return
+     * @return Vector3
      */
     public native Vector3 getWorldPosition();
 
     /**
-     * optionalTarget — target to set the result. Otherwise, a new Vector3 is instantiated.
      * Returns a vector representing the position of the object in world space.
      *
-     * @param optionalTarget
-     * @return
+     * @param optionalTarget — target to set the result. Otherwise, a new Vector3 is instantiated.
+     * @return Vector3
      */
     public native Vector3 getWorldPosition(Vector3 optionalTarget);
 
     /**
      * Returns a quaternion representing the rotation of the object in world space.
      *
-     * @return
+     * @return Quaternion
      */
     public native Quaternion getWorldQuaternion();
 
     /**
-     * optionalTarget — (optional) if specified, the result will be copied into this Quaternion, otherwise a new Quaternion will be created.
      * Returns a quaternion representing the rotation of the object in world space.
      *
-     * @param optionalTarget
-     * @return
+     * @param optionalTarget — if specified, the result will be copied into this Quaternion, otherwise a new Quaternion will be created.
+     * @return Quaternion
      */
     public native Quaternion getWorldQuaternion(Quaternion optionalTarget);
 
@@ -282,10 +274,9 @@ public class Object3D extends EventDispatcher {
     public native Euler getWorldRotation();
 
     /**
-     * optionalTarget — (optional) if specified, the result will be copied into this Euler, otherwise a new Euler will be created.
      * Returns the euler angles representing the rotation of the object in world space.
      *
-     * @param optionalTarget
+     * @param optionalTarget — if specified, the result will be copied into this Euler, otherwise a new Euler will be created.
      * @return Euler
      */
     public native Euler getWorldRotation(Euler optionalTarget);
@@ -298,16 +289,14 @@ public class Object3D extends EventDispatcher {
     public native Vector3 getWorldDirection();
 
     /**
-     * optionalTarget — (optional) if specified, the result will be copied into this Vector3, otherwise a new Vector3 will be created.
      * Returns a vector representing the direction of object's positive z-axis in world space.
      *
-     * @param optionalTarget
+     * @param optionalTarget — if specified, the result will be copied into this Vector3, otherwise a new Vector3 will be created.
      * @return Vector3
      */
     public native Vector3 getWorldDirection(Vector3 optionalTarget);
 
     /**
-     * vector - A vector representing a position in local (object) space.
      * Converts the vector from local space to world space.
      * .lookAt ( vector )
      * .lookAt ( x, y, z )
@@ -319,8 +308,8 @@ public class Object3D extends EventDispatcher {
      * <p>
      * This method does not support objects with rotated and/or translated parent(s).
      *
-     * @param vector
-     * @return
+     * @param vector - A vector representing a position in local (object) space.
+     * @return Vector3
      */
     public native Vector3 localToWorld(Vector3 vector);
 
@@ -338,7 +327,9 @@ public class Object3D extends EventDispatcher {
      * <p>
      * This method does not support objects with rotated and/or translated parent(s).
      *
-     * @param x, y and z components of the world space position.
+     * @param x component of the world space position.
+     * @param y component of the world space position.
+     * @param z component of the world space position.
      */
     public native void lookAt(float x, float y, float z);
 
@@ -346,26 +337,23 @@ public class Object3D extends EventDispatcher {
     /**
      * Abstract (empty) method to get intersections between a casted ray and this object. Subclasses such as Mesh, Line, and Points implement this method in order to use raycasting.
      *
-     * @param raycaster
-     * @param intersects
-     * @return
+     * @param raycaster  Raycaster
+     * @param intersects Object intersects
      */
-    public native void raycast(Raycaster raycaster, Object intersects); //TODO
+    public native void raycast(Raycaster raycaster, Object intersects);
 
     /**
      * Removes object as child of this object. An arbitrary number of objects may be removed.
      *
-     * @param objects
+     * @param objects array of Objects
      */
     public native void remove(Object3D... objects);
 
     /**
-     * axis -- A normalized vector in object space.
-     * angle -- The angle in radians.
      * Rotate an object along an axis in object space. The axis is assumed to be normalized.
      *
-     * @param axis
-     * @param angle
+     * @param axis  -- A normalized vector in object space.
+     * @param angle -- The angle in radians.
      * @return Object3D
      */
     public native Object3D rotateOnAxis(Vector3 axis, float angle);
@@ -387,36 +375,31 @@ public class Object3D extends EventDispatcher {
     public native void rotateX(float rad);
 
     /**
-     * rad - the angle to rotate in radians.
      * Rotates the object around y axis in local space.
      *
-     * @param rad
+     * @param rad - the angle to rotate in radians.
      */
     public native void rotateY(float rad);
 
     /**
-     * rad - the angle to rotate in radians.
      * Rotates the object around z axis in local space.
      *
-     * @param rad
+     * @param rad - the angle to rotate in radians.
      */
     public native void rotateZ(float rad);
 
     /**
-     * axis -- A normalized vector in object space.
-     * angle -- angle in radians
      * Calls setFromAxisAngle( axis, angle ) on the .quaternion.
      *
-     * @param axis
-     * @param angle
+     * @param axis  -- A normalized vector in object space.
+     * @param angle -- angle in radians
      */
     public native void setRotationFromAxisAngle(Vector3 axis, float angle);
 
     /**
-     * euler -- Euler angle specifying rotation amount.
      * Calls setRotationFromEuler( euler) on the .quaternion.
      *
-     * @param euler
+     * @param euler -- Euler angle specifying rotation amount.
      */
     public native void setRotationFromEuler(Euler euler);
 
@@ -435,67 +418,67 @@ public class Object3D extends EventDispatcher {
      */
     public native void setRotationFromQuaternion(Quaternion quaternion);
 
+    @JsProperty
+    public native String getType();
+
     /**
      * Convert the Object3D to three.js JSON format.
      *
-     * @param meta
-     * @return
+     * @param meta candidate
+     * @return JSON String
      */
-    public native Object toJSON(Object meta);
+    public native String toJSON(Object meta);
 
     /**
      * Translate an object by distance along an axis in object space. The axis is assumed to be normalized.
      *
      * @param axis     -- A normalized vector in object space.
      * @param distance -- The distance to translate.
-     * @return
+     * @return Object3D
      */
     public native Object3D translateOnAxis(Vector3 axis, float distance);
 
     /**
      * Translates object along x axis by distance units.
      *
-     * @param distance
+     * @param distance as float
      */
     public native void translateX(float distance);
 
     /**
      * Translates object along y axis by distance units.
      *
-     * @param distance
+     * @param distance distance as float
      */
     public native void translateY(float distance);
 
     /**
      * Translates object along Z axis by distance units.
      *
-     * @param distance
+     * @param distance distance as float
      */
     public native void translateZ(float distance);
 
     /**
-     * callback - A function with as first argument an object3D object.
      * Executes the callback on this object and all descendants.
      *
-     * @param traverseCallback
+     * @param callback - A function with as first argument an object3D object.
      */
-    public native void traverse(TraverseCallback traverseCallback);
+    public native void traverse(TraverseCallback callback);
 
     /**
-     * callback - A function with as first argument an object3D object.
      * Like traverse, but the callback will only be executed for visible objects. Descendants of invisible objects are not traversed.
      *
-     * @param traverseCallback
+     * @param callback - A function with as first argument an object3D object.
      */
-    public native void traverseVisible(TraverseCallback traverseCallback);
+    public native void traverseVisible(TraverseCallback callback);
 
     /**
-     * callback - A function with as first argument an object3D object.
      * Executes the callback on all ancestors.
      *
-     * @param traverseCallback
+     * @param callback - A function with as first argument an object3D object.
      */
-    public native void traverseAncestors(TraverseCallback traverseCallback);
+    public native void traverseAncestors(TraverseCallback callback);
 
     /**
      * Update the local transform.
@@ -505,7 +488,7 @@ public class Object3D extends EventDispatcher {
     /**
      * Update the global transform of the object and its children.
      *
-     * @param force
+     * @param force use the force
      */
     public native void updateMatrix(boolean force);
 
@@ -517,17 +500,16 @@ public class Object3D extends EventDispatcher {
     /**
      * Update the global transform of the object and its children.
      *
-     * @param force
+     * @param force the update
      */
     public native void updateMatrixWorld(boolean force);
 
     /**
-     * vector - A world vector.
      * Updates the vector from world space to local space.
      *
-     * @param vector3
-     * @return
+     * @param vector - A world vector.
+     * @return Vector3
      */
-    public native Vector3 worldToLocal(Vector3 vector3);
+    public native Vector3 worldToLocal(Vector3 vector);
 
 }

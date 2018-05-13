@@ -5,10 +5,10 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/27/18.
  */
-@JsType(isNative=true, namespace="THREE")
+@JsType(isNative = true, namespace = "THREE")
 public class Fog {
 
     /**
@@ -34,31 +34,33 @@ public class Fog {
     public float far;
 
     @JsConstructor
-    public Fog(){
+    public Fog() {
 
     }
 
     /**
      * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
-     * @param color
-     * @param near
-     * @param far
+     *
+     * @param color color code
+     * @param near as float value
+     * @param far as float value
      */
     @JsConstructor
-    public Fog(int color, float near,float far){
+    public Fog(int color, float near, float far) {
 
     }
 
     /**
      * Returns a new fog instance with the same parameters as this one.
-     * @return
+     *
+     * @return instance of Fog
      */
     public native Fog clone();
 
     /**
      * Convert the fog to three.js JSON format.
-     * @param meta
-     * @return
+     *
+     * @return JSON String
      */
-    public native Object toJSON( Object meta );
+    public native Object toJSON();
 }

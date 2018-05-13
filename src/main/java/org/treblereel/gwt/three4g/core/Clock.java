@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 /**
  * Object for keeping track of time. This uses performance.now() if it is available, otherwise it reverts to the less accurate Date.now().
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/9/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -7,7 +7,7 @@ import jsinterop.annotations.JsType;
  * A two dimensional surface that extends infinitely in 3d space, represented in Hessian normal form by a unit
  * length normal vector and a constant.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -36,8 +36,8 @@ public class Plane {
     /**
      * Apply a Matrix4 to the plane. The matrix must be an affine, homogeneous transform.
      *
-     * @param matrix - the Matrix4 to apply.ix
-     * @return
+     * @param matrix - the Matrix4 to apply.
+     * @return instance of Place
      */
 
     public native Plane applyMatrix4(Matrix4 matrix);
@@ -47,16 +47,16 @@ public class Plane {
      * If supplying an optionalNormalMatrix, it can be created like so:
      * Matrix3 optionalNormalMatrix = new Matrix3().getNormalMatrix( matrix );
      *
-     * @param matrix - the Matrix4 to apply.
-     * @param optionalNormalMatrix - (optional) pre-computed normal Matrix3 of the Matrix4 being applied.
-     * @return
+     * @param matrix               - the Matrix4 to apply.
+     * @param optionalNormalMatrix - pre-computed normal Matrix3 of the Matrix4 being applied.
+     * @return instance of Place
      */
     public native Plane applyMatrix4(Matrix4 matrix, Matrix3 optionalNormalMatrix);
 
     /**
      * Returns a new plane with the same normal and constant as this one.
      *
-     * @return Plane
+     * @return instance of Place
      */
     public native Plane clone();
 
@@ -71,40 +71,40 @@ public class Plane {
      * Returns a Vector3 coplanar to the plane, by calculating the projection of the normal vector at the origin onto the plane.
      * optionalTarget if specified, the result will be copied into this Vector3, otherwise a new Vector3 will be created.
      *
-     * @param optionalTarget
-     * @return Plane
+     * @param optionalTarget Vector3
+     * @return instance of Place
      */
     public native Vector3 coplanarPoint(Vector3 optionalTarget);
 
     /**
      * Copies the values of the passed plane's normal and constant properties to this plane.
      *
-     * @param plane
-     * @return Plane
+     * @param plane source Plane
+     * @return instance of Place
      */
     public native Plane clone(Plane plane);
 
     /**
      * Returns the signed distance from the point to the plane.
      *
-     * @param point
-     * @return float
+     * @param point target Place
+     * @return float distance
      */
     public native float distanceToPoint(Vector3 point);
 
     /**
      * Returns the signed distance from the sphere to the plane.
      *
-     * @param sphere
-     * @return float
+     * @param sphere target Sphere
+     * @return float distance
      */
     public native float distanceToPoint(Sphere sphere);
 
     /**
      * Checks to see if two planes are equal (their normal and constant properties match).
      *
-     * @param plane
-     * @return boolean
+     * @param plane target Plane
+     * @return boolean is equal
      */
     public native boolean equals(Plane plane);
 
@@ -139,7 +139,7 @@ public class Plane {
      * Tests whether a line segment intersects with (passes through) the plane.
      *
      * @param line - the Line3 to check for intersection.
-     * @return
+     * @return is intersects
      */
     public native boolean intersectsLine(Line3 line);
 
@@ -147,7 +147,7 @@ public class Plane {
      * Tests whether a line segment intersects with (passes through) the Sphere.
      *
      * @param sphere - the Sphere to check for intersection.
-     * @return
+     * @return is intersects
      */
     public native boolean intersectsSphere(Sphere sphere);
 
@@ -228,6 +228,6 @@ public class Plane {
      * @param offset - the amount to move the plane by.
      * @return Plane
      */
-    public native Plane translate (Vector3 offset);
+    public native Plane translate(Vector3 offset);
 }
 

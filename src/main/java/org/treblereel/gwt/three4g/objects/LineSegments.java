@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.materials.Material;
  * <p>
  * This is nearly the same	as Line; the only difference is that it is rendered using gl.LINES instead of gl.LINE_STRIP.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
 @JsType(isNative = true, namespace = "THREE")

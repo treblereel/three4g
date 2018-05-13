@@ -5,11 +5,12 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.animation.KeyframeTrack;
+import org.treblereel.gwt.three4g.math.interpolants.QuaternionLinearInterpolant;
 
 /**
  * A Track of boolean keyframe values.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -48,17 +49,5 @@ public class BooleanKeyframeTrack extends KeyframeTrack {
     public BooleanKeyframeTrack(String name, JsArray times, JsArray values) {
 
     }
-
-    /**
-     * Returns a new QuaternionLinearInterpolant based on the values, times and valueSize of the keyframes.
-     */
-    @JsMethod(name = "InterpolantFactoryMethodLinear")
-    public native void interpolantFactoryMethodLinear();
-
-    /**
-     * The value of this method here is 'undefined', as it does not make sense for discrete properties.
-     */
-    @JsMethod(name = "InterpolantFactoryMethodSmooth")
-    public native void interpolantFactoryMethodSmooth();
 
 }

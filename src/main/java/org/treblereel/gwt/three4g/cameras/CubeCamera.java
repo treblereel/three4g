@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.scenes.Scene;
 /**
  * Creates 6 cameras that render to a WebGLRenderTargetCube.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 public class CubeCamera extends Object3D {
@@ -40,10 +40,34 @@ public class CubeCamera extends Object3D {
     /**
      * Call this to clear the renderTarget color, depth, and/or stencil buffers. The color buffer is set to the renderer's current clear color. Arguments default to true.
      *
-     * @param renderer
-     * @param color
-     * @param depth
-     * @param stencil
+     * @param renderer instance of WebGLRenderer
+     */
+    public native void clear(WebGLRenderer renderer);
+
+    /**
+     * Call this to clear the renderTarget color, depth, and/or stencil buffers. The color buffer is set to the renderer's current clear color. Arguments default to true.
+     *
+     * @param renderer instance of WebGLRenderer
+     * @param color   clear the color buffer
+     */
+    public native void clear(WebGLRenderer renderer, boolean color);
+
+    /**
+     * Call this to clear the renderTarget color, depth, and/or stencil buffers. The color buffer is set to the renderer's current clear color. Arguments default to true.
+     *
+     * @param renderer instance of WebGLRenderer
+     * @param color   clear the color buffer
+     * @param depth   clear the depth buffer
+     */
+    public native void clear(WebGLRenderer renderer, boolean color, boolean depth);
+
+    /**
+     * Call this to clear the renderTarget color, depth, and/or stencil buffers. The color buffer is set to the renderer's current clear color. Arguments default to true.
+     *
+     * @param renderer instance of WebGLRenderer
+     * @param color   clear the color buffer
+     * @param depth   clear the depth buffer
+     * @param stencil clear the stencil buffer
      */
     public native void clear(WebGLRenderer renderer, boolean color, boolean depth, boolean stencil);
 }

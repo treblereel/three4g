@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 /**
  * An array of Cameras
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/21/18.
  */
 @JsType(namespace = "THREE", isNative = true)

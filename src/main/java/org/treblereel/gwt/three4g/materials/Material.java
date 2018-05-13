@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.materials.parameters.MaterialParameters;
 import org.treblereel.gwt.three4g.math.Plane;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/27/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -252,14 +252,15 @@ public class Material extends EventDispatcher {
 
 
     /**
-     * Return a new material with the same parameters as this material.
+     * @return a new material with the same parameters as this material.
      */
     public native Material clone();
 
     /**
      * Copy the parameters from the passed material into this material.
      *
-     * @param material
+     * @param material instance of Material
+     * @return instance of Material
      */
     public native Material copy(Material material);
 
@@ -276,13 +277,19 @@ public class Material extends EventDispatcher {
     public native void setValues(Object values);
 
     /**
-     * meta -- object containing metadata such as textures or images for the material.
      * Convert the material to three.js JSON format.
      *
-     * @param meta
-     * @return
+     * @return String
      */
-    public native Object toJSON(Object meta);
+    public native String toJSON();
+
+    /**
+     * Convert the material to three.js JSON format.
+     *
+     * @param meta -- object containing metadata such as textures or images for the material.
+     * @return String
+     */
+    public native String toJSON(String meta);
 
     /**
      * Call # .dispatchEvent ( { type: 'update' }) on the material.

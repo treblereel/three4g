@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.objects.LineSegments;
 /**
  * This displays a cone shaped helper object for a SpotLight.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

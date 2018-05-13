@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.objects.Mesh;
 /**
  * This displays a helper object consisting of a spherical Mesh for visualizing a PointLight.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * A three.js application usually creates a single instance of AudioListener. It is a mandatory construtor parameter for audios entities like Audio and PositionalAudio.
  * In most cases, the listener object is a child of the camera. So the 3D transformation of the camera represents the 3D transformation of the listener.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -39,9 +39,7 @@ public class AudioListener extends Object3D {
     }
 
     /**
-     * Return the gainNode.
-     *
-     * @return
+     * @return the gainNode.
      */
     public native GainNode getInput();
 
@@ -51,30 +49,24 @@ public class AudioListener extends Object3D {
     public native void removeFilter();
 
     /**
-     * Returns the value of the filter property.
-     *
-     * @return
+     * @return the value of the filter property.
      */
     public native AudioNode getFilter();
 
     /**
      * Set the filter property to value.
      *
-     * @param value
+     * @param value - filter
      */
     public native void setFilter(AudioNode value);
 
     /**
-     * Return the volume.
-     *
-     * @return
+     * @return the volume.
      */
     public native Number getMasterVolume();
 
     /**
-     * Set the volume.
-     *
-     * @param value
+     * @param value Set the volume.
      */
     public native void setMasterVolume(Number value);
 }

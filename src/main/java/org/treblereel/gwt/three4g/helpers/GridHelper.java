@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.objects.LineSegments;
 /**
  * The GridHelper is an object to define grids. Grids are two-dimensional arrays of lines.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
 @JsType(isNative = true, namespace = "THREE")

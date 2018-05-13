@@ -4,7 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -48,8 +48,8 @@ public class Quaternion {
     /**
      * Copies the x, y,	z and w properties of q into this quaternion.
      *
-     * @param quaternion
-     * @return Quaternion
+     * @param quaternion target Quaternion
+     * @return instance of Quaternion
      */
     public native Quaternion copy(Quaternion quaternion);
 
@@ -62,7 +62,7 @@ public class Quaternion {
     /**
      * Calculates the dot product of quaternions v and this one.
      *
-     * @param quaternion
+     * @param quaternion Quaternion
      * @return float
      */
     public native float dot(Quaternion quaternion);
@@ -78,7 +78,7 @@ public class Quaternion {
     /**
      * Sets this quaternion's x, y,	z and w properties from an array.
      *
-     * @param array - array of format (x, y, z, w) used to construct the quaternion.
+     * @param array  - array of format (x, y, z, w) used to construct the quaternion.
      * @param offset - (optional) offset into the array. Default is 0.
      * @return Quaternion
      */
@@ -111,15 +111,15 @@ public class Quaternion {
      * Normalizes this quaternion - that is, calculated the quaternion that performs the same rotation as this one,
      * but has length equal to 1.
      *
-     * @return Quaternion
+     * @return instance of Quaternion
      */
     public native Quaternion normalize();
 
     /**
      * Multiplies this quaternion by q.
      *
-     * @param quaternion
-     * @return Quaternion
+     * @param quaternion Quaternion
+     * @return instance of Quaternion
      */
     public native Quaternion multiply(Quaternion quaternion);
 
@@ -127,19 +127,11 @@ public class Quaternion {
      * Sets this quaternion to a x b.
      * Adapted from the method outlined here.
      *
-     * @param quaternion1
-     * @param quaternion2
-     * @return Quaternion
+     * @param quaternion1 Quaternion
+     * @param quaternion2 Quaternion
+     * @return instance of Quaternion
      */
     public native Quaternion multiplyQuaternions(Quaternion quaternion1, Quaternion quaternion2);
-
-    /**
-     * Sets the onChangeCallback() method.
-     *
-     * @param onChangeCallback
-     * @return
-     */
-    public native Quaternion multiplyQuaternions(OnChangeCallback onChangeCallback);
 
     /**
      * This function is called whenever any of the following occurs:
@@ -148,8 +140,8 @@ public class Quaternion {
      * setFromEuler() function is called with its update argument set to true.
      * By default it is the empty function, however you can change it if needed using onChange( onChangeCallback ).
      *
-     * @param onChangeCallback
-     * @return
+     * @param onChangeCallback onChangeCallback
+     * @return instance of Quaternion
      */
     public native Quaternion onChange(OnChangeCallback onChangeCallback);
 
@@ -162,40 +154,37 @@ public class Quaternion {
      * setFromEuler() function is called with its update argument set to true.
      * By default it is the empty function, however you can change it if needed using onChange( onChangeCallback ).
      *
-     * @return
+     * @return instance of Quaternion
      */
     public native Quaternion onChangeCallback();
 
     /**
      * Pre-multiplies this quaternion by quaternion.
      *
-     * @param quaternion
-     * @return Quaternion
+     * @param quaternion Quaternion
+     * @return instance of Quaternion
      */
     public native Quaternion premultiply(Quaternion quaternion);
 
     /**
-     * qb - The other quaternion rotation
-     * t - interpolation factor in the closed interval [0, 1].
-     * <p>
      * Handles the spherical linear interpolation between quaternions. t represents the amount of rotation between this quaternion (where t is 0) and qb (where t is 1). This quaternion is set to the result. Also see the static version of the slerp below.
      * // rotate a mesh towards a target quaternion
      * mesh.quaternion.slerp( endQuaternion, 0.01 );
      *
-     * @param qb
-     * @param t
-     * @return Quaternion
+     * @param qb - The other quaternion rotation
+     * @param t  - interpolation factor in the closed interval [0, 1].
+     * @return instance of Quaternion
      */
     public native Quaternion slerp(Quaternion qb, float t);
 
     /**
      * Sets the x, y and z components of this quaternion.
      *
-     * @param x
-     * @param y
-     * @param z
-     * @param w
-     * @return Quaternion
+     * @param x components
+     * @param y components
+     * @param z components
+     * @param w components
+     * @return instance of Quaternion
      */
     public native Quaternion set(float x, float y, float z, float w);
 
@@ -205,17 +194,17 @@ public class Quaternion {
      * Adapted from the method here.
      * Axis is assumed to be normalized, angle is in radians.
      *
-     * @param axis
-     * @param w
-     * @return Quaternion
+     * @param axis  Vector3
+     * @param angle is in radians
+     * @return instance of Quaternion
      */
-    public native Quaternion setFromAxisAngle(Vector3 axis, float w);
+    public native Quaternion setFromAxisAngle(Vector3 axis, float angle);
 
     /**
      * Applies euler transform to this vector by converting the Euler object to a Quaternion and applying.
      *
-     * @param euler
-     * @return Quaternion
+     * @param euler source Euler
+     * @return instance of Quaternion
      */
     public native Quaternion setFromEuler(Euler euler);
 
@@ -223,8 +212,8 @@ public class Quaternion {
      * Sets this quaternion from rotation component of m.
      * Adapted from the method here.
      *
-     * @param m
-     * @return Quaternion
+     * @param m source Matrix4
+     * @return instance of Quaternion
      */
     public native Quaternion setFromRotationMatrix(Matrix4 m);
 
@@ -233,22 +222,28 @@ public class Quaternion {
      * Adapted from the method here.
      * vFrom and vTo are assumed to be normalized.
      *
-     * @param vFrom
-     * @param vTo
-     * @return
+     * @param vFrom Vector3
+     * @param vTo   Vector3
+     * @return instance of Quaternion
      */
     public native Quaternion setFromUnitVectors(Vector3 vFrom, Vector3 vTo);
 
     /**
-     * array - An optional array to store the quaternion. If not specified, a new array will be created.
-     * offset - (optional) optional offset into the array.
      * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
      *
-     * @param array
-     * @param index
+     * @param array - An optional array to store the quaternion. If not specified, a new array will be created.
      * @return float[]
      */
-    public native float[] toArray(float[] array, int index);
+    public native float[] toArray(float[] array);
+
+    /**
+     * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
+     *
+     * @param array  - An optional array to store the quaternion. If not specified, a new array will be created.
+     * @param offset - optional offset into the array.
+     * @return float[]
+     */
+    public native float[] toArray(float[] array, int offset);
 
 
     /**
@@ -262,24 +257,24 @@ public class Quaternion {
      * t = ( t + 0.01 ) % 1; // constant angular momentum
      * Quaternion.slerp( startQuaternion, endQuaternion, mesh.quaternion, t );
      *
-     * @param qStart - The starting quaternion (where t is 0)
-     * @param qEnd - The ending quaternion (where t is 1)
+     * @param qStart  - The starting quaternion (where t is 0)
+     * @param qEnd    - The ending quaternion (where t is 1)
      * @param qTarget - The target quaternion that gets set with the result
-     * @param t - interpolation factor in the closed interval [0, 1].
-     * @return Quaternion
+     * @param t       - interpolation factor in the closed interval [0, 1].
+     * @return instance of Quaternion
      */
     public native Quaternion slerp(Quaternion qStart, Quaternion qEnd, Quaternion qTarget, float t);
 
     /**
      * Like the static slerp method above, but operates directly on flat arrays of numbers.
      *
-     * @param dst - The output array.
-     * @param dstOffset - An offset into the output array.
-     * @param src0 - The source array of the starting quaternion.
+     * @param dst        - The output array.
+     * @param dstOffset  - An offset into the output array.
+     * @param src0       - The source array of the starting quaternion.
      * @param srcOffset0 - An offset into the array src0.
-     * @param src1 - The source array of the target quatnerion.
+     * @param src1       - The source array of the target quatnerion.
      * @param srcOffset1 - An offset into the array src1.
-     * @param t - Normalized interpolation factor (between 0 and 1).
+     * @param t          - Normalized interpolation factor (between 0 and 1).
      */
     public native void slerpFlat(float[] dst, int dstOffset, float[] src0, int srcOffset0, float[] src1, int srcOffset1, float t);
 

@@ -6,10 +6,12 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.math.interpolants.CubicInterpolant;
 import org.treblereel.gwt.three4g.math.interpolants.DiscreteInterpolant;
+import org.treblereel.gwt.three4g.math.interpolants.LinearInterpolant;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -62,9 +64,9 @@ public class KeyframeTrack {  //TODO check it
     }
 
     /**
-     * @param name          - the identifier for the KeyframeTrack.
-     * @param times         - an array of keyframe times, converted internally to a Float32Array.
-     * @param values        - an array with the values related to the times array, converted internally to a Float32Array.
+     * @param name   - the identifier for the KeyframeTrack.
+     * @param times  - an array of keyframe times, converted internally to a Float32Array.
+     * @param values - an array with the values related to the times array, converted internally to a Float32Array.
      */
     @JsConstructor
     public KeyframeTrack(String name, JsArray times, JsArray values) {
@@ -89,21 +91,31 @@ public class KeyframeTrack {  //TODO check it
 
     /**
      * Returns the interpolation type.
+     *
+     * @return constant of InterpolateDiscrete, InterpolateLinear or InterpolateSmooth
      */
-    public native void getInterpolation();
+    public native int getInterpolation();
 
     /**
      * Returns the size of each value (that is the length of the values array divided by the length of the times array).
      *
-     * @return
+     * @return size of value
      */
     public native int getValueSize();
 
     /**
      * Creates a new DiscreteInterpolant from the times and values. A Float32Array can be passed which will receive the results. Otherwise a new array with the appropriate size will be created automatically.
      *
-     * @param result
-     * @return
+     * @return instance of DiscreteInterpolant
+     */
+    @JsMethod(name = "InterpolantFactoryMethodDiscrete")
+    public native DiscreteInterpolant interpolantFactoryMethodDiscrete();
+
+    /**
+     * Creates a new DiscreteInterpolant from the times and values. A Float32Array can be passed which will receive the results. Otherwise a new array with the appropriate size will be created automatically.
+     *
+     * @param result buffer to store the interpolation results
+     * @return instance of DiscreteInterpolant
      */
     @JsMethod(name = "InterpolantFactoryMethodDiscrete")
     public native DiscreteInterpolant interpolantFactoryMethodDiscrete(Float32Array result);
@@ -111,18 +123,36 @@ public class KeyframeTrack {  //TODO check it
     /**
      * Creates a new LinearInterpolant from the times and values. A Float32Array can be passed which will receive the results. Otherwise a new array with the appropriate size will be created automatically.
      *
-     * @param result
+     * @return instance of DiscreteInterpolant
      */
     @JsMethod(name = "InterpolantFactoryMethodLinear")
-    public native void interpolantFactoryMethodLinear(Float32Array result);
+    public native LinearInterpolant interpolantFactoryMethodLinear();
+
+    /**
+     * Creates a new LinearInterpolant from the times and values. A Float32Array can be passed which will receive the results. Otherwise a new array with the appropriate size will be created automatically.
+     *
+     * @param result buffer to store the interpolation results
+     * @return instance of LinearInterpolant
+     */
+    @JsMethod(name = "InterpolantFactoryMethodLinear")
+    public native LinearInterpolant interpolantFactoryMethodLinear(Float32Array result);
 
     /**
      * Create a new CubicInterpolant from the times and values. A Float32Array can be passed which will receive the results. Otherwise a new array with the appropriate size will be created automatically.
      *
-     * @param result
+     * @return instance of CubicInterpolant
      */
     @JsMethod(name = "InterpolantFactoryMethodSmooth")
-    public native void interpolantFactoryMethodSmooth(Float32Array result);
+    public native CubicInterpolant interpolantFactoryMethodSmooth();
+
+    /**
+     * Create a new CubicInterpolant from the times and values. A Float32Array can be passed which will receive the results. Otherwise a new array with the appropriate size will be created automatically.
+     *
+     * @param result buffer to store the interpolation results
+     * @return instance of CubicInterpolant
+     */
+    @JsMethod(name = "InterpolantFactoryMethodSmooth")
+    public native CubicInterpolant interpolantFactoryMethodSmooth(Float32Array result);
 
     /**
      * Removes equivalent sequential keys, which are common in morph target sequences. Called automatically by the constructor.
@@ -139,19 +169,21 @@ public class KeyframeTrack {  //TODO check it
     /**
      * Sets the interpolation type. See Animation Constants for choices.
      *
-     * @param interpolationType
+     * @param interpolationType - type of interpolation
      */
     public native void setInterpolation(int interpolationType);
 
     /**
      * Moves all keyframes either forward or backward in time.
      *
-     * @param timeOffsetInSeconds
+     * @param timeOffsetInSeconds as double value
      */
     public native void shift(double timeOffsetInSeconds);
 
     /**
      * Removes keyframes before startTime and after endTime, without changing any values within the range [startTime, endTime].
+     * @param startTimeInSeconds as double value
+     * @param endTimeInSeconds as double value
      */
     public native void trim(double startTimeInSeconds, double endTimeInSeconds);
 
@@ -165,16 +197,16 @@ public class KeyframeTrack {  //TODO check it
     /**
      * Parses a JSON object and returns a new keyframe track of the correct type.
      *
-     * @param json
-     * @return
+     * @param json JSON string
+     * @return instance of KeyframeTrack
      */
     public native static KeyframeTrack parse(String json);
 
     /**
      * Converts the track to JSON.
      *
-     * @param track
-     * @return
+     * @param track instance of KeyframeTrack
+     * @return JSON String
      */
     public native static String toJSON(KeyframeTrack track);
 

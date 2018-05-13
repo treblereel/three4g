@@ -14,7 +14,7 @@ import org.treblereel.gwt.three4g.math.Vector4;
  * Note that after making changes to most of these poperties you will have to call .updateProjectionMatrix for the changes
  * to take effect.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 12/6/17.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -84,17 +84,16 @@ public class PerspectiveCamera extends Camera {
      */
     public float zoom;
 
-    //public Vector3 position;
-
     @JsConstructor
     protected PerspectiveCamera() {
     }
+
     /**
      * @param fov    — Camera frustum vertical field of view.
      * @param aspect — Camera frustum aspect ratio.
      * @param near   — Camera frustum near plane.
      * @param far    — Camera frustum far plane.
-     * Together these define the camera's viewing frustum.
+     *               Together these define the camera's viewing frustum.
      */
     @JsConstructor
     public PerspectiveCamera(float fov, float aspect, float near, float far) {
@@ -107,30 +106,39 @@ public class PerspectiveCamera extends Camera {
 
     /**
      * Returns the current vertical field of view angle in degrees considering .zoom.
+     *
+     * @return as float value
      */
     public native float getEffectiveFOV();
 
     /**
      * Returns the height of the image on the film. If .aspect is less than or equal to one (portrait format),
      * the result equals .filmGauge.
+     *
+     * @return as float value
      */
     public native float getFilmHeight();
 
     /**
      * Returns the width of the image on the film. If .aspect is greater than or equal to one (landscape format),
      * the result equals .filmGauge.
+     *
+     * @return as float value
      */
     public native float getFilmWidth();
 
     /**
      * Returns the focal length of the current .fov in respect to .filmGauge.
+     *
+     * @return as float value
      */
     public native float getFocalLength();
 
     /**
      * Sets the FOV by focal length in respect to the current .filmGauge.
      * <p>
-     * By default, the focal length is specified for a 35mm (full frame) camera.
+     *
+     * @param focalLength By default, the focal length is specified for a 35mm (full frame) camera.
      */
     public native void setFocalLength(float focalLength);
 
@@ -169,7 +177,7 @@ public class PerspectiveCamera extends Camera {
      * @param width      — width of subcamera
      * @param height     — height of subcamera
      */
-    public native void setViewOffset(float fullWidth, float fullHeight, float x, float y, float width, float height );
+    public native void setViewOffset(float fullWidth, float fullHeight, float x, float y, float width, float height);
 
     /**
      * Updates the camera projection matrix. Must be called after any change of parameters.

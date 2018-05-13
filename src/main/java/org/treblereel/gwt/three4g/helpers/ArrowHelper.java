@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.objects.Mesh;
 /**
  * An 3D arrow object for visualizing directions.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

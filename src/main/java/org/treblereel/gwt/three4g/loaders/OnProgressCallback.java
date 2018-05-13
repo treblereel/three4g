@@ -4,7 +4,7 @@ import elemental2.dom.XMLHttpRequest;
 import jsinterop.annotations.JsFunction;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/5/18.
  */
 @JsFunction

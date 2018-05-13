@@ -9,7 +9,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * This uses the Web Audio API.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -33,8 +33,8 @@ public class AudioAnalyser {
     /**
      * Create a new AudioAnalyser.
      *
-     * @param audio
-     * @param fftSize
+     * @param audio Audio
+     * @param fftSize int
      */
     public AudioAnalyser(Audio audio, int fftSize) {
 
@@ -43,14 +43,14 @@ public class AudioAnalyser {
     /**
      * Uses the Web Audio's getByteFrequencyData method. See that page.
      *
-     * @return
+     * @return Uint8Array FrequencyData
      */
     public native Uint8Array getFrequencyData();
 
     /**
      * Get the average of the frequencies returned by the getFrequencyData method.
      *
-     * @return
+     * @return AverageFrequency
      */
     public native Number getAverageFrequency();
 }

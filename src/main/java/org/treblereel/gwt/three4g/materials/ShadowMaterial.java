@@ -4,7 +4,7 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.ShadowMaterialParameters;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

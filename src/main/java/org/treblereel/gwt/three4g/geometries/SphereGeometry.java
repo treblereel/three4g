@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.core.Geometry;
 /**
  * A class for generating sphere geometries
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")

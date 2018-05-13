@@ -8,7 +8,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * In general that should be sufficient, however there are times when it can be useful to have seperate loaders - for example if you want to show seperate loading bars for objects and textures.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/7/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -16,7 +16,6 @@ public class LoadingManager {
 
     /**
      * This function will be called when all loading is completed. By default this is undefined, unless passed in the constructor.
-     * <p>
      */
     public OnLoad onLoad;
 
@@ -67,7 +66,7 @@ public class LoadingManager {
      * the original URL.
      *
      * @param url — the url to load
-     * @return
+     * @return resulting url
      */
     public native String resolveURL(String url);
 }

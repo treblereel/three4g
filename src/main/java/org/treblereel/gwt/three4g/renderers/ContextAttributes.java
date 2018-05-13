@@ -4,7 +4,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/13/18.
  */
 @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")

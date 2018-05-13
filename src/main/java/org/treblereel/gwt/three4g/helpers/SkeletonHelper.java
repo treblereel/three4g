@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.objects.LineSegments;
 /**
  * A helper object to assist with visualizing a Skeleton. The helper is renderered using a LineBasicMaterial.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

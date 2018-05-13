@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * <p>
  * For an overview of the different elements of the three.js animation system see the "Animation System" article in the "Next Steps" section of the manual.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -37,23 +37,22 @@ public class AnimationObjectGroup {
     /**
      * Adds an arbitrary number of objects to this AnimationObjectGroup.
      *
-     * @param objs
+     * @param objs array of Object3Ds
      */
     public native void add(Object3D... objs);
 
     /**
      * Removes an arbitrary number of objects from this AnimationObjectGroup.
      *
-     * @param objs
+     * @param objs array of Object3Ds
      */
     public native void remove(Object3D... objs);
 
     /**
      * Deallocates all memory resources for the passed objects of this AnimationObjectGroup.
      *
-     * @param objs
+     * @param objs array of Object3Ds
      */
     public native void uncache(Object3D... objs);
-
 
 }

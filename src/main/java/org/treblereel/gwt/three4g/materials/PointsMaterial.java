@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
 /**
  * The default material used by Points.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")

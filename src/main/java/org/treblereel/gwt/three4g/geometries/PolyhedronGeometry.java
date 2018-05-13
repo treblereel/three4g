@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.PolyhedronGeometryParame
 /**
  * A polyhedron is a solid in three dimensions with flat faces. This class will take an array of vertices, project them
  * onto a sphere, and then divide them up to the desired level of detail.
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.renderers.WebGLRenderTarget;
 /**
  * This is used internally by PointLights for calculating shadows, and also serves as a base class for the other shadow classes.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -67,22 +67,22 @@ public class LightShadow {
     /**
      * Copies value of all the properties from the source to this SpotLight.
      *
-     * @param source
-     * @return
+     * @param source instance of LightShadow
+     * @return instance of LightShadow
      */
     public native LightShadow copy(LightShadow source);
 
     /**
      * Creates a new LightShadow with the same properties as this one.
      *
-     * @return LightShadow
+     * @return instance of LightShadow
      */
     public native LightShadow clone();
 
     /**
      * Serialize this LightShadow.
      *
-     * @return
+     * @return JSON String
      */
     public native String toJSON();
 }

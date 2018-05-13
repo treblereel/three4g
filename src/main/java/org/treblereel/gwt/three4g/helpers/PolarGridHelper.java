@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.objects.Line;
 /**
  * The PolarGridHelper is an object to define polar grids. Grids are two-dimensional arrays of lines.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

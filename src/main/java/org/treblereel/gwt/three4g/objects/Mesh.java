@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.materials.Material;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/8/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -66,15 +66,14 @@ public class Mesh extends Object3D {
 
     /**
      * Set the value of drawMode.
-     *
-     * @param drawMode
+     * @param drawMode - drawMode
      */
     public native void setDrawMode(int drawMode);
 
     /**
      * Returns a clone of this Mesh object and its descendants.
      *
-     * @return
+     * @return Mesh
      */
     public native Mesh clone();
 

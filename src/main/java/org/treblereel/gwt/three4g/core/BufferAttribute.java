@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.core;
 
 import elemental2.core.JsArray;
+import elemental2.core.JsObject;
 import elemental2.core.TypedArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
@@ -17,7 +18,7 @@ import org.treblereel.gwt.three4g.math.Vector4;
  * Data is stored as vectors of any length (defined by itemSize), and in general in the methods outlined below if passing
  * in an index, this is automatically multiplied by the vector length.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -126,7 +127,7 @@ public class BufferAttribute {
     /**
      * Return a copy of this bufferAttribute.
      *
-     * @return
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute clone();
 
@@ -135,80 +136,81 @@ public class BufferAttribute {
      * <p>
      * See TypedArray.set for notes on requirements if copying a TypedArray.
      *
-     * @param array
-     * @return
+     * @param array of TypedArray
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute copyArray(TypedArray array);
 
     /**
      * Copy the array given here (which can be a normal array or TypedArray) into array.
      *
-     * @param array
-     * @return
+     * @param array of JsArray
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute copyArray(JsArray array);
 
     /**
      * Copy a vector from bufferAttribute[index2] to array[index1].
      *
-     * @param index1
-     * @param bufferAttribute
-     * @param index2
+     * @param index1 as int value
+     * @param bufferAttribute source buffer
+     * @param index2  as int value
      */
     public native void copyAt(int index1, BufferAttribute bufferAttribute, int index2);
 
     /**
      * Copy an array representing RGB color values into array.
      *
-     * @param colors
+     * @param colors source array of colors
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute copyColorsArray(Color[] colors);
 
     /**
      * Copy an array representing Vector2s into array.
      *
-     * @param vectors
-     * @return
+     * @param vectors source array of vector2s
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute copyVector2sArray(Vector2[] vectors);
 
     /**
      * Copy an array representing Vector2s into array.
      *
-     * @param vectors
-     * @return
+     * @param vectors source array of vector3s
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute copyVector3sArray(Vector3[] vectors);
 
     /**
      * Copy an array representing Vector4s into array.
      *
-     * @param vectors
-     * @return
+     * @param vectors source array of vector4s
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute copyVector4sArray(Vector4[] vectors);
 
     /**
      * Returns the x component of the vector at the given index.
      *
-     * @param index
-     * @return
+     * @param index of x component
+     * @return instance of Object
      */
-    public native Object getX(int index);
+    public native JsObject getX(int index);
 
     /**
      * Returns the y component of the vector at the given index.
      *
-     * @param index
-     * @return
+     * @param index of y component
+     * @return instance of Object
      */
     public native Object getY(int index);
 
     /**
      * Returns the z component of the vector at the given index.
      *
-     * @param index
-     * @return
+     * @param index of z component
+     * @return instance of Object
      */
     public native Object getZ(int index);
 
@@ -217,7 +219,7 @@ public class BufferAttribute {
      * <p>
      * In the WebGL / Buffergeometry this is used to free memory after the buffer has been	transfered to the GPU.
      *
-     * @param callback
+     * @param callback of type OnUploadCallback
      */
     public native void onUpload(OnUploadCallback callback);
 
@@ -225,7 +227,7 @@ public class BufferAttribute {
      * @param value -- TypedArray from which to copy values.
      *              <p>
      *              In particular, see that page for requirements on value being a TypedArray.
-     * @return
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute set(TypedArray value);
 
@@ -235,7 +237,7 @@ public class BufferAttribute {
      *               Calls	TypedArray.set( value, offset ) on the array.
      *               <p>
      *               In particular, see that page for requirements on value being a TypedArray.
-     * @return
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute set(TypedArray value, int offset);
 
@@ -243,7 +245,7 @@ public class BufferAttribute {
      * @param value -- an Array or JsArray from which to copy values.
      *              <p>
      *              In particular, see that page for requirements on value being a TypedArray.
-     * @return
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute set(JsArray value);
 
@@ -253,88 +255,93 @@ public class BufferAttribute {
      *               Calls TypedArray.set( value, offset ) on the array.
      *               <p>
      *               In particular, see that page for requirements on value being a TypedArray.
-     * @return
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute set(JsArray value, int offset);
 
 
     /**
-     * array to the TypedArray passed in here.
-     * <p>
      * After setting the array, needsUpdate should be set to true.
      *
-     * @param array
-     * @return
+     * @param array to the TypedArray passed in here.
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setArray(TypedArray array);
 
     /**
      * Set dynamic to value.
      *
-     * @param value
-     * @return
+     * @param value set it dynamic
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setDynamic(boolean value);
 
     /**
      * Sets the x component of the vector at the given index.
      *
-     * @param x
-     * @return
+     * @param x component
+     * @param index of component
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setX(int index, Object x);
 
     /**
      * Sets the y component of the vector at the given index.
      *
-     * @param y
-     * @return
+     * @param y component
+     * @param index of component
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setY(int index, Object y);
 
     /**
      * Sets the z component of the vector at the given index.
      *
-     * @param z
-     * @return
+     * @param z component
+     * @param index of component
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setZ(int index, Object z);
 
     /**
      * Sets the w component of the vector at the given index.
      *
-     * @param w
-     * @return
+     * @param w component
+     * @param index of component
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setW(int index, Object w);
 
     /**
      * Sets the x and y components of the vector at the given index.
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x component
+     * @param y component
+     * @param index of component
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setXY(int index, Object x, Object y);
 
     /**
      * Sets the x, y and z components of the vector at the given index.
      *
-     * @param x
-     * @param y
-     * @param z
-     * @return
+     * @param x component
+     * @param y component
+     * @param z component
+     * @param index of component
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setXYZ(int index, Object x, Object y, Object z);
 
     /**
      * Sets the x, y, z and w components of the vector at the given index.
      *
-     * @param x
-     * @param y
-     * @param z
-     * @param w
-     * @return
+     * @param x component
+     * @param y component
+     * @param z component
+     * @param w component
+     * @param index of component
+     * @return instance of BufferAttribute
      */
     public native BufferAttribute setXYZW(int index, Object x, Object y, Object z, Object w);
 }

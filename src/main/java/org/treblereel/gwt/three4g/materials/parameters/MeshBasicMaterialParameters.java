@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * The exception is the property color, which can be passed in as a hexadecimal string and is 0xffffff (white) by default.
  * Color.set( color ) is called internally.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/7/18.
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")

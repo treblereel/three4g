@@ -6,7 +6,7 @@ import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/28/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -34,7 +34,7 @@ public class Vector3 implements Vector {
     /**
      * Adds v to this vector.
      *
-     * @param vector3
+     * @param vector3 source Vector3
      * @return Vector3
      */
     public native Vector3 add(Vector3 vector3);
@@ -42,7 +42,7 @@ public class Vector3 implements Vector {
     /**
      * Adds the scalar value s to this vector's x, y and z values.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector3
      */
     public native Vector3 addScalar(float scalar);
@@ -50,8 +50,8 @@ public class Vector3 implements Vector {
     /**
      * Adds the multiple of v and s to this vector.
      *
-     * @param vector3
-     * @param scalar
+     * @param vector3 as Vector3 value
+     * @param scalar  as float value
      * @return Vector3
      */
     public native Vector3 addScaledVector(Vector3 vector3, float scalar);
@@ -59,16 +59,16 @@ public class Vector3 implements Vector {
     /**
      * Sets this vector to a + b.
      *
-     * @param a
-     * @param b
-     * @return Vector3
+     * @param a instance of Vector3
+     * @param b instance of Vector3
+     * @return instance of Vector3
      */
     public native Vector3 addVectors(Vector3 a, Vector3 b);
 
     /**
      * Applies a rotation specified by an axis and an angle to this vector.
      *
-     * @param axis - A normalized Vector3.
+     * @param axis  - A normalized Vector3.
      * @param angle - An angle in radians.
      * @return Vector3
      */
@@ -77,7 +77,7 @@ public class Vector3 implements Vector {
     /**
      * Applies euler transform to this vector by converting the Euler object to a Quaternion and applying.
      *
-     * @param euler
+     * @param euler instance of Euler
      * @return Vector3
      */
     public native Vector3 applyEuler(Euler euler);
@@ -85,7 +85,7 @@ public class Vector3 implements Vector {
     /**
      * Multiplies this vector by m.
      *
-     * @param matrix3
+     * @param matrix3 source of Matrix3
      * @return Vector3
      */
     public native Vector3 applyMatrix3(Matrix3 matrix3);
@@ -93,7 +93,7 @@ public class Vector3 implements Vector {
     /**
      * Multiplies this vector (with an implicit 1 in the 4th dimension) and m, and divides by perspective.
      *
-     * @param matrix4
+     * @param matrix4 source of Matrix4
      * @return Vector3
      */
     public native Vector3 applyMatrix4(Matrix4 matrix4);
@@ -101,7 +101,7 @@ public class Vector3 implements Vector {
     /**
      * Applies a Quaternion transform to this vector.
      *
-     * @param quaternion
+     * @param quaternion source of Quaternion
      * @return Vector3
      */
     public native Vector3 applyQuaternion(Quaternion quaternion);
@@ -109,7 +109,7 @@ public class Vector3 implements Vector {
     /**
      * Returns the angle between this vector and vector v in radians.
      *
-     * @param vector3
+     * @param vector3 targeting Vector3
      * @return Vector3
      */
     public native Vector3 applyTo(Vector3 vector3);
@@ -164,7 +164,7 @@ public class Vector3 implements Vector {
     /**
      * Copies the values of the passed Vector3's x and y properties to this Vector3.
      *
-     * @param vector3
+     * @param vector3 source Vector3
      * @return Vector3
      */
     public native Vector3 copy(Vector3 vector3);
@@ -172,7 +172,7 @@ public class Vector3 implements Vector {
     /**
      * Sets this vector to cross product of itself and v.
      *
-     * @param vector3
+     * @param vector3 source Vector3
      * @return Vector3
      */
     public native Vector3 cross(Vector3 vector3);
@@ -180,8 +180,8 @@ public class Vector3 implements Vector {
     /**
      * Sets this vector to cross product of a and b.
      *
-     * @param a
-     * @param b
+     * @param a as Vector3
+     * @param b as Vector3
      * @return Vector3
      */
     public native Vector3 crossVectors(Vector3 a, Vector3 b);
@@ -189,7 +189,7 @@ public class Vector3 implements Vector {
     /**
      * computes the distance from this vector to v.
      *
-     * @param vector3
+     * @param vector3 targeting Vector3
      * @return float
      */
     public native float distanceTo(Vector3 vector3);
@@ -197,7 +197,7 @@ public class Vector3 implements Vector {
     /**
      * Computes the Manhattan distance from this vector to v.
      *
-     * @param vector3
+     * @param vector3 targeting Vector3
      * @return float
      */
     public native float manhattanDistanceTo(Vector3 vector3);
@@ -206,7 +206,7 @@ public class Vector3 implements Vector {
      * Computes the squared distance from this vector to v. If you are just comparing the distance with another distance,
      * you should compare the distance squared instead as it is slightly more efficient to calculate.
      *
-     * @param vector3
+     * @param vector3 targeting Vector3
      * @return float
      */
     public native float distanceToSquared(Vector3 vector3);
@@ -214,7 +214,7 @@ public class Vector3 implements Vector {
     /**
      * Divides this vector by v.
      *
-     * @param vector3
+     * @param vector3 instance of Vector3
      * @return Vector3
      */
     public native Vector3 divide(Vector3 vector3);
@@ -223,7 +223,7 @@ public class Vector3 implements Vector {
      * Divides this vector by scalar s.
      * Sets vector to ( 0, 0, 0 ) if *s = 0*.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector3
      */
     public native Vector3 divideScalar(float scalar);
@@ -231,7 +231,7 @@ public class Vector3 implements Vector {
     /**
      * Calculates the dot product of this vector and v.
      *
-     * @param vector3
+     * @param vector3 instance of Vector3
      * @return float
      */
     public native float dot(Vector3 vector3);
@@ -239,8 +239,8 @@ public class Vector3 implements Vector {
     /**
      * Checks for strict equality of this vector and v.
      *
-     * @param vector3
-     * @return boolean
+     * @param vector3 instance of Vector3
+     * @return true if vectors are equal
      */
     public native boolean equals(Vector3 vector3);
 
@@ -255,6 +255,14 @@ public class Vector3 implements Vector {
      * Sets this vector's x value to be array[ offset + 0 ], y value to be array[ offset + 1 ] and z value to be array[ offs
      *
      * @param array - the source array.
+     * @return Vector3
+     */
+    public native Vector3 fromArray(float[] array);
+
+    /**
+     * Sets this vector's x value to be array[ offset + 0 ], y value to be array[ offset + 1 ] and z value to be array[ offs
+     *
+     * @param array  - the source array.
      * @param offset - (optional) offset into the array. Default is 0.
      * @return Vector3
      */
@@ -263,8 +271,8 @@ public class Vector3 implements Vector {
     /**
      * Sets this vector's x, y and z values from the attribute.
      *
-     * @param  bufferAttribute - the source attribute.
-     * @param index - index in the attribute.
+     * @param bufferAttribute - the source attribute.
+     * @param index           - index in the attribute.
      * @return Vector3
      */
     public native Vector3 fromBufferAttribute(BufferAttribute bufferAttribute, int index);
@@ -306,7 +314,7 @@ public class Vector3 implements Vector {
      * Linearly interpolates between this vector and v, where alpha is the distance along
      * the line - alpha = 0 will be this vector, and alpha = 1 will be v.
      *
-     * @param v - Vector3 to interpolate towards.
+     * @param v     - Vector3 to interpolate towards.
      * @param alpha - interpolation factor in the closed interval [0, 1].
      * @return Vector3
      */
@@ -316,8 +324,8 @@ public class Vector3 implements Vector {
      * Sets this vector to be the vector linearly interpolated between v1 and v2 where alpha is the distance along
      * the line connecting the two vectors - alpha = 0 will be v1, and alpha = 1 will be v2.
      *
-     * @param v1 - the starting Vector3.
-     * @param v2 - Vector3 to interpolate towards.
+     * @param v1    - the starting Vector3.
+     * @param v2    - Vector3 to interpolate towards.
      * @param alpha - interpolation factor in the closed interval [0, 1].
      * @return Vector3
      */
@@ -340,7 +348,7 @@ public class Vector3 implements Vector {
     /**
      * If this vector's x, y or z value is less than v's x, y or z value, replace that value with the corresponding max value.
      *
-     * @param vector3
+     * @param vector3 instance of Vector3
      * @return Vector3
      */
     public native Vector3 max(Vector3 vector3);
@@ -348,7 +356,7 @@ public class Vector3 implements Vector {
     /**
      * If this vector's x, y or z value is greater than v's x, y or z value, replace that value with the corresponding min value.
      *
-     * @param vector3
+     * @param vector3 instance of Vector3
      * @return Vector3
      */
     public native Vector3 min(Vector3 vector3);
@@ -356,7 +364,7 @@ public class Vector3 implements Vector {
     /**
      * Multiplies this vector by scalar s.
      *
-     * @param vector3
+     * @param vector3 instance of Vector3
      * @return Vector3
      */
     public native Vector3 multiply(Vector3 vector3);
@@ -364,7 +372,7 @@ public class Vector3 implements Vector {
     /**
      * Multiplies this vector by scalar s.
      *
-     * @param scalar
+     * @param scalar instance of float
      * @return Vector3
      */
     public native Vector3 multiplyScalar(float scalar);
@@ -372,8 +380,8 @@ public class Vector3 implements Vector {
     /**
      * Sets this vector equal to a * b, component-wise.
      *
-     * @param a
-     * @param b
+     * @param a instance of Vector3
+     * @param b instance of Vector3
      * @return Vector3
      */
     public native Vector3 multiplyVectors(Vector3 a, Vector3 b);
@@ -389,7 +397,7 @@ public class Vector3 implements Vector {
     /**
      * Projects this vector onto another vector.
      *
-     * @param vector3
+     * @param vector3 instance of Vector3
      * @return Vector3
      */
     public native Vector3 projectOnVector(Vector3 vector3);
@@ -419,9 +427,9 @@ public class Vector3 implements Vector {
     /**
      * Sets the x, y and z components of this vector.
      *
-     * @param x
-     * @param y
-     * @param z
+     * @param x instance of float
+     * @param y instance of float
+     * @param z instance of float
      * @return Vector3
      */
     public native Vector3 set(float x, float y, float z);
@@ -439,47 +447,48 @@ public class Vector3 implements Vector {
     /**
      * Sets this vector from the cylindrical coordinates c.
      *
-     * @param cylindrical
+     * @param cylindrical instance of Cylindrical
+     * @return instance of Vector3
      */
     public native Vector3 setFromCylindrical(Cylindrical cylindrical);
 
     /**
      * Sets this vector's x, y and z equal to the column of the matrix specified by the index.
      *
-     * @param matrix4
-     * @param index
-     * @return
+     * @param matrix4 instance of Matrix4
+     * @param index   of column
+     * @return instance of Vector3
      */
     public native Vector3 setFromMatrixColumn(Matrix4 matrix4, int index);
 
     /**
      * Sets this vector to the position elements of the transformation matrix m.
      *
-     * @param matrix4
-     * @return
+     * @param matrix4 instance of Matrix4
+     * @return instance of Vector3
      */
     public native Vector3 setFromMatrixPosition(Matrix4 matrix4);
 
     /**
      * Sets this vector to the scale elements of the transformation matrix m.
      *
-     * @param matrix4
-     * @return
+     * @param matrix4 instance of Matrix4
+     * @return instance of Vector3
      */
     public native Vector3 setFromMatrixScale(Matrix4 matrix4);
 
     /**
      * Sets this vector from the spherical coordinates s.
      *
-     * @param spherical
-     * @return
+     * @param spherical instance of Spherical
+     * @return instance of Vector3
      */
     public native Vector3 setFromSpherical(Spherical spherical);
 
     /**
      * Sets this vector to the vector with the same direction as this one, but length l.
      *
-     * @param length
+     * @param length as float value
      * @return Vector3
      */
     public native Vector3 setLength(float length);
@@ -487,7 +496,7 @@ public class Vector3 implements Vector {
     /**
      * Set the x, y and z values of this vector both equal to scalar.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector3
      */
     public native Vector3 setScalar(float scalar);
@@ -495,7 +504,7 @@ public class Vector3 implements Vector {
     /**
      * Replaces this vector's x value with x.
      *
-     * @param x
+     * @param x as float value
      * @return Vector3
      */
     public native Vector3 setX(float x);
@@ -503,7 +512,7 @@ public class Vector3 implements Vector {
     /**
      * Replaces this vector's y value with y.
      *
-     * @param y
+     * @param y as float value
      * @return Vector3
      */
     public native Vector3 setY(float y);
@@ -511,7 +520,7 @@ public class Vector3 implements Vector {
     /**
      * Replaces this vector's z value with z.
      *
-     * @param z
+     * @param z as float value
      * @return Vector3
      */
     public native Vector3 setZ(float z);
@@ -519,7 +528,7 @@ public class Vector3 implements Vector {
     /**
      * Subtracts v from this vector.
      *
-     * @param vector3
+     * @param vector3 as Vector3 value
      * @return Vector3
      */
     public native Vector3 sub(Vector3 vector3);
@@ -527,7 +536,7 @@ public class Vector3 implements Vector {
     /**
      * Subtracts s from this vector's x and y components.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector3
      */
     public native Vector3 subScalar(float scalar);
@@ -535,8 +544,8 @@ public class Vector3 implements Vector {
     /**
      * Sets this vector to a - b.
      *
-     * @param vector1
-     * @param vector2
+     * @param vector1 instance of Vector3
+     * @param vector2 instance of Vector3
      * @return Vector3
      */
     public native Vector3 subVectors(Vector3 vector1, Vector3 vector2);
@@ -544,8 +553,23 @@ public class Vector3 implements Vector {
     /**
      * Returns an array [x, y, z], or copies x, y and z into the provided array.
      *
-     * @param array - (optional) array to store the vector to. If this is not provided, a new array will be created.
-     * @param  - (optional) optional offset into the array.
+     * @return float[]
+     */
+    public native float[] toArray();
+
+    /**
+     * Returns an array [x, y, z], or copies x, y and z into the provided array.
+     *
+     * @param array - array to store the vector to. If this is not provided, a new array will be created.
+     * @return float[]
+     */
+    public native float[] toArray(float[] array);
+
+    /**
+     * Returns an array [x, y, z], or copies x, y and z into the provided array.
+     *
+     * @param array  - array to store the vector to. If this is not provided, a new array will be created.
+     * @param offset - optional offset into the array.
      * @return float[]
      */
     public native float[] toArray(float[] array, int offset);
@@ -553,7 +577,7 @@ public class Vector3 implements Vector {
     /**
      * Transforms the direction of this vector by a matrix (the upper left 3 x 3 subset of a m) and then normalizes the result.
      *
-     * @param matrix4
+     * @param matrix4 instance of Matrix4
      * @return Vector3
      */
     public native Vector3 transformDirection(Matrix4 matrix4);
@@ -562,7 +586,7 @@ public class Vector3 implements Vector {
      * Unprojects the vector with the camera's projection matrix.
      *
      * @param camera — camera to use in the projection.
-     * @return
+     * @return instance of Vector3
      */
     public native Vector3 unproject(Camera camera);
 

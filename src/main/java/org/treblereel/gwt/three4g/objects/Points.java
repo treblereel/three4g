@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.materials.Material;
 /**
  * A class for displaying points. The points are rendered by the WebGLRenderer using gl.POINTS.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -69,11 +69,10 @@ public class Points extends Object3D {
     /**
      * Get intersections between a casted Ray and this Line. Raycaster.intersectObject will call this method.
      *
-     * @param raycaster
-     * @param intersects
-     * @return
+     * @param raycaster instance of Raycaster
+     * @param intersects intersecting objects
      */
-    public native void raycast(Raycaster raycaster, Object intersects);
+    public native void raycast(Raycaster raycaster, Object[] intersects);
 
     /**
      * Returns a clone of this Points object and its descendant

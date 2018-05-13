@@ -5,7 +5,7 @@ import com.google.gwt.core.client.ScriptInjector;
 import org.treblereel.gwt.three4g.resources.ThreeJsTextResource;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/11/18.
  */
 public class Three4GMin implements EntryPoint {

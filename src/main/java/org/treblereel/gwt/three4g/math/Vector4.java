@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -41,7 +41,7 @@ public class Vector4 implements Vector {
     /**
      * Adds v to this vector.
      *
-     * @param vector4
+     * @param vector4 instance of Vector4
      * @return Vector4
      */
     public native Vector4 add(Vector4 vector4);
@@ -49,7 +49,7 @@ public class Vector4 implements Vector {
     /**
      * Adds the scalar value s to this vector's x, y and z values.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector4
      */
     public native Vector4 addScalar(float scalar);
@@ -57,8 +57,8 @@ public class Vector4 implements Vector {
     /**
      * Adds the multiple of v and s to this vector.
      *
-     * @param vector4
-     * @param scalar
+     * @param vector4 instance of Vector4
+     * @param scalar  as float value
      * @return Vector4
      */
     public native Vector4 addScaledVector(Vector4 vector4, float scalar);
@@ -66,8 +66,8 @@ public class Vector4 implements Vector {
     /**
      * Sets this vector to a + b.
      *
-     * @param a
-     * @param b
+     * @param a instance of Vector4
+     * @param b instance of Vector4
      * @return Vector4
      */
     public native Vector4 addVectors(Vector4 a, Vector4 b);
@@ -75,7 +75,7 @@ public class Vector4 implements Vector {
     /**
      * Multiplies this vector by 4 x 4 m.
      *
-     * @param matrix4
+     * @param matrix4 instance of Matrix4
      * @return Vector4
      */
     public native Vector4 applyMatrix4(Matrix4 matrix4);
@@ -130,7 +130,7 @@ public class Vector4 implements Vector {
     /**
      * Copies the values of the passed Vector4's x and y properties to this Vector4.
      *
-     * @param vector4
+     * @param vector4 instance of Vector4
      * @return Vector4
      */
     public native Vector4 copy(Vector4 vector4);
@@ -139,7 +139,7 @@ public class Vector4 implements Vector {
      * Divides this vector by scalar s.
      * Sets vector to ( 0, 0, 0, 0 ) if *s = 0*.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector4
      */
     public native Vector4 divideScalar(float scalar);
@@ -147,7 +147,7 @@ public class Vector4 implements Vector {
     /**
      * Calculates the dot product of this vector and v.
      *
-     * @param vector4
+     * @param vector4 instance of Vector4
      * @return float
      */
     public native float dot(Vector4 vector4);
@@ -155,7 +155,7 @@ public class Vector4 implements Vector {
     /**
      * Checks for strict equality of this vector and v.
      *
-     * @param vector4
+     * @param vector4 instance of Vector4
      * @return boolean
      */
     public native boolean equals(Vector4 vector4);
@@ -180,7 +180,7 @@ public class Vector4 implements Vector {
      * Sets this vector's x value to be array[ offset + 0 ], y value to be array[ offset + 1 ] z value to be array[ offset + 2 ]
      * and w value to be array[ offset + 3 ].
      *
-     * @param array - the source array.
+     * @param array  - the source array.
      * @param offset - (optional) offset into the array. Default is 0.
      * @return Vector4
      */
@@ -190,7 +190,7 @@ public class Vector4 implements Vector {
      * Sets this vector's x, y, z and w values from the attribute.
      *
      * @param attribute - the source attribute.
-     * @param index - index in the attribute.
+     * @param index     - index in the attribute.
      * @return Vector4
      */
     public native Vector4 fromBufferAttribute(BufferAttribute attribute, int index);
@@ -233,7 +233,7 @@ public class Vector4 implements Vector {
      * Linearly interpolates between this vector and v, where alpha is the distance along
      * the line - alpha = 0 will be this vector, and alpha = 1 will be v.
      *
-     * @param v - Vector4 to interpolate towards.
+     * @param v     - Vector4 to interpolate towards.
      * @param alpha - interpolation factor in the closed interval [0, 1].
      * @return Vector4
      */
@@ -247,8 +247,8 @@ public class Vector4 implements Vector {
      * Sets this vector to be the vector linearly interpolated between v1 and v2 where alpha is the distance along
      * the line connecting the two vectors - alpha = 0 will be v1, and alpha = 1 will be v2.
      *
-     * @param v1 - the starting Vector4.
-     * @param v2 - Vector4 to interpolate towards.
+     * @param v1    - the starting Vector4.
+     * @param v2    - Vector4 to interpolate towards.
      * @param alpha - interpolation factor in the closed interval [0, 1].
      * @return Vector4
      */
@@ -271,7 +271,7 @@ public class Vector4 implements Vector {
     /**
      * If this vector's x, y or z value is less than v's x, y or z value, replace that value with the corresponding max value.
      *
-     * @param Vector4
+     * @param Vector4 instance of Vector4
      * @return Vector4
      */
     public native Vector4 max(Vector4 Vector4);
@@ -279,7 +279,7 @@ public class Vector4 implements Vector {
     /**
      * If this vector's x, y or z value is greater than v's x, y or z value, replace that value with the corresponding min value.
      *
-     * @param Vector4
+     * @param Vector4 instance of Vector4
      * @return Vector4
      */
     public native Vector4 min(Vector4 Vector4);
@@ -287,7 +287,7 @@ public class Vector4 implements Vector {
     /**
      * Multiplies this vector by scalar s.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector4
      */
     public native Vector4 multiplyScalar(float scalar);
@@ -295,7 +295,7 @@ public class Vector4 implements Vector {
     /**
      * The components of the vector are rounded to the nearest integer value
      *
-     * @return Vector4
+     * @return Vector4 instance of Vector4
      */
     public native Vector4 round();
 
@@ -309,10 +309,10 @@ public class Vector4 implements Vector {
     /**
      * Sets the x, y and z components of this vector.
      *
-     * @param x
-     * @param y
-     * @param z
-     * @param w
+     * @param x as float value
+     * @param y as float value
+     * @param z as float value
+     * @param w as float value
      * @return Vector4
      */
     public native Vector4 set(float x, float y, float z, float w);
@@ -347,7 +347,7 @@ public class Vector4 implements Vector {
     /**
      * Sets this vector to the vector with the same direction as this one, but length l.
      *
-     * @param length
+     * @param length as float value
      * @return Vector4
      */
     public native Vector4 setLength(float length);
@@ -355,7 +355,7 @@ public class Vector4 implements Vector {
     /**
      * Set the x, y, z and w values of this vector both equal to scalar.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector4
      */
     public native Vector4 setScalar(float scalar);
@@ -363,7 +363,7 @@ public class Vector4 implements Vector {
     /**
      * Replaces this vector's x value with x.
      *
-     * @param x
+     * @param x as float value
      * @return Vector4
      */
     public native Vector4 setX(float x);
@@ -371,7 +371,7 @@ public class Vector4 implements Vector {
     /**
      * Replaces this vector's y value with y.
      *
-     * @param y
+     * @param y as float value
      * @return Vector4
      */
     public native Vector4 setY(float y);
@@ -379,7 +379,7 @@ public class Vector4 implements Vector {
     /**
      * Replaces this vector's z value with z.
      *
-     * @param z
+     * @param z as float value
      * @return Vector4
      */
     public native Vector4 setZ(float z);
@@ -387,7 +387,7 @@ public class Vector4 implements Vector {
     /**
      * Replaces this vector's w value with w.
      *
-     * @param w
+     * @param w as float value
      * @return Vector4
      */
     public native Vector4 setW(float w);
@@ -395,7 +395,7 @@ public class Vector4 implements Vector {
     /**
      * Subtracts v from this vector.
      *
-     * @param Vector4
+     * @param Vector4 instance of Vector4
      * @return Vector4
      */
     public native Vector4 sub(Vector4 Vector4);
@@ -403,7 +403,7 @@ public class Vector4 implements Vector {
     /**
      * Subtracts s from this vector's x and y components.
      *
-     * @param scalar
+     * @param scalar as float value
      * @return Vector4
      */
     public native Vector4 subScalar(float scalar);
@@ -411,8 +411,8 @@ public class Vector4 implements Vector {
     /**
      * Sets this vector to a - b.
      *
-     * @param vector1
-     * @param vector2
+     * @param vector1 instance of Vector4
+     * @param vector2 instance of Vector4
      * @return Vector4
      */
     public native Vector4 subVectors(Vector4 vector1, Vector4 vector2);
@@ -435,7 +435,7 @@ public class Vector4 implements Vector {
     /**
      * Returns an array [x, y, z, w], or copies x, y, z and w into the provided array.
      *
-     * @param array - (optional) array to store the vector to. If this is not provided, a new array will be created.
+     * @param array  - (optional) array to store the vector to. If this is not provided, a new array will be created.
      * @param offset - (optional) optional offset into the array.
      * @return float[]
      */

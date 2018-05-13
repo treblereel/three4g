@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
 /**
  * This is the BufferGeometry port of ConeGeometry.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")

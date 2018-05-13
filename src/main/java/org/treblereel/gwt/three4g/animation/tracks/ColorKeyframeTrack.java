@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.animation.KeyframeTrack;
  * <p>
  * The very basic implementation of this subclass has nothing special yet. However, this is the place for color space parameterization.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(namespace = "THREE", isNative = true)
