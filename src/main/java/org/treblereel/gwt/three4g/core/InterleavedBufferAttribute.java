@@ -5,7 +5,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -53,32 +53,32 @@ public class InterleavedBufferAttribute {
     /**
      * Returns the x component of the item at the given index.
      *
-     * @param index
-     * @return
+     * @param index given index
+     * @return the x component
      */
     public native Number getX(Number index);
 
     /**
      * Returns the y component of the item at the given index.
      *
-     * @param index
-     * @return
+     * @param index given index
+     * @return the y component
      */
     public native Number getY(Number index);
 
     /**
      * Returns the z component of the item at the given index.
      *
-     * @param index
-     * @return
+     * @param index given index
+     * @return the z component
      */
     public native Number getZ(Number index);
 
     /**
      * Returns the w component of the item at the given index.
      *
-     * @param index
-     * @return
+     * @param index given index
+     * @return the w component
      */
     public native Number getW(Number index);
 

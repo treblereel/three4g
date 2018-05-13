@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * <p>
  * You can convert fonts online using facetype.js
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")

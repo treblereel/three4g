@@ -19,7 +19,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * Due to the simplicity of the reflectance and illumination models, performance will be greater when using this material
  * over the MeshPhongMaterial,	MeshStandardMaterial or MeshPhysicalMaterial, at the cost of some graphical accuracy.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/22/18.
  */
 @JsType(isNative = true, namespace = "THREE")

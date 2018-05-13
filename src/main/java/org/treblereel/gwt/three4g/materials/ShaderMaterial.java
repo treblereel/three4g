@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;
  * implement an effect not included with any of the built-in materials
  * combine many objects into a single Geometry or BufferGeometry in order to improve performance
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/12/18.
  */
 @JsType(isNative = true, namespace = "THREE")

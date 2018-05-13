@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
 /**
  * Creates a tube that extrudes along a 3d curve.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -18,15 +18,11 @@ public class TubeBufferGeometry extends BufferGeometry {
 
     /**
      * An object with all of the parameters that were used to generate the geometry
-     *
-     * @return
      */
     public TubeGeometryParameters parameters;
 
     /**
      * An array of Vector3 tangents
-     *
-     * @return
      */
     public Vector3[] tangents;
 
@@ -37,8 +33,6 @@ public class TubeBufferGeometry extends BufferGeometry {
 
     /**
      * An array of Vector3 binormals
-     *
-     * @return
      */
     public Vector3[] binormals;
 

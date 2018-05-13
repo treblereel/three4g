@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.cameras.Camera;
 /**
  * This is used internally by DirectionalLights for calculating shadows.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/21/18.
  */
 @JsType(isNative = true, namespace = "THREE")

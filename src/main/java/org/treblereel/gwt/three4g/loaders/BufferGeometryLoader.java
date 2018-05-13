@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 /**
  * A loader for loading a BufferGeometry. This uses the FileLoader internally for loading files.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -69,7 +69,7 @@ public class BufferGeometryLoader {
      * Parse a JSON structure and return a BufferGeometry.
      *
      * @param json — The JSON structure to parse.
-     * @return
+     * @return instance of BufferGeometry
      */
     public native BufferGeometry parse(JSONObject json);
 }

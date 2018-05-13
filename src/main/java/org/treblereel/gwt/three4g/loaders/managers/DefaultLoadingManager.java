@@ -8,7 +8,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * This will be sufficient for most purposes, however there may be times when you desire seperate loading managers for say, textures and models.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")

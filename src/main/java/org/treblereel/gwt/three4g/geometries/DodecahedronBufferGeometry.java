@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.DodecahedronGeometryPara
 /**
  * A class for generating a dodecahedron geometries.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")

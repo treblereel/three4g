@@ -10,7 +10,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * Creates a cube texture made up of six images.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")

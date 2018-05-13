@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.core.Geometry;
  * angle and a given central angle. It can also be used to create regular polygons, where the number of segments determines
  * the number of sides.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")

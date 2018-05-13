@@ -8,7 +8,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * This light cannot be used to cast shadows as it does not have a direction.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
 @JsType(isNative = true, namespace = "THREE")

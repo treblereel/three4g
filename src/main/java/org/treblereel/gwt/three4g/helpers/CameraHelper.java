@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.objects.LineSegments;
  * This helps with visualizing what a camera contains in its frustum.
  * It visualizes the frustum of a camera using a LineSegments.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")

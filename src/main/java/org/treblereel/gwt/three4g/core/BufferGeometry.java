@@ -15,7 +15,7 @@ import java.util.HashMap;
  * color data as Color objects, and so on, you have to access the raw data from the appropriate attribute buffer. This makes
  * BufferGeometry best-suited for static objects where you don't need to manipulate the geometry much after instantiating it.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/21/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -86,17 +86,17 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
      * Adds an attribute to this geometry. Use this rather than the attributes property, because an internal hashmap of
      * attributes is maintained to speed up iterating over a
      *
-     * @param name
-     * @param attribute
+     * @param name      of the attribute
+     * @param attribute instance of BufferAttribute
      */
     public native void addAttribute(String name, BufferAttribute attribute);
 
     /**
      * Adds a group to this geometry; see the groups property for details.
      *
-     * @param start
-     * @param count
-     * @param materialIndex
+     * @param start as int value
+     * @param count as int value
+     * @param materialIndex as int value
      */
     public native void addGroup(int start, int count, int materialIndex);
 
@@ -108,40 +108,41 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
     /**
      * Convert a Geometry to a BufferGeometry.
      *
-     * @param geometry
-     * @return
+     * @param geometry instance of Geometry
+     * @return instance of BufferGeometry
      */
     public native BufferGeometry fromDirectGeometry(Geometry geometry);
 
     /**
      * Populates this BufferGeometry with data from a Geometry object.
      *
-     * @param geometry
-     * @return
+     * @param geometry instance of Geometry
+     * @return instance of BufferGeometry
      */
     public native BufferGeometry fromGeometry(Geometry geometry);
 
     /**
      * Returns the attribute with the specified name.
      *
-     * @param name
-     * @return
+     * @param name of attribute
+     * @return instance of BufferGeometry
      */
     public native BufferAttribute getAttribute(String name);
 
     /**
      * Return the .index buffer
      *
-     * @return
+     * @return instance of BufferGeometry
      */
     public native BufferAttribute getIndex();
 
     /**
      * Merge in another BufferGeometry with an optional offset of where to start merging in.
-     * @param bufferGeometry
-     * @param offset
+     *
+     * @param bufferGeometry instance of BufferGeometry
+     * @param offset as int value
      */
-    public native void merge(BufferGeometry  bufferGeometry, int offset);
+    public native void merge(BufferGeometry bufferGeometry, int offset);
 
     /**
      * Every normal vector in a geometry will have a magnitude of 1. This will correct lighting on the geometry surfaces.
@@ -150,41 +151,47 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
 
     /**
      * Removes the attribute with the specified name.
-     * @param name
-     * @return
+     *
+     * @param name of the attribute
+     * @return instance of BufferGeometry
      */
     public native BufferAttribute removeAttribute(String name);
 
     /**
      * Set the .index buffer.
-     * @param index
+     *
+     * @param index instance of BufferGeometry
      */
     public native void setIndex(BufferAttribute index);
 
     /**
      * Set the .drawRange buffer. See that property for details.
-     * @param start
-     * @param count
+     *
+     * @param start int value
+     * @param count int value
      */
     public native void setDrawRange(int start, int count);
 
     /**
      * Sets the attributes for this BufferGeometry from an Object3D.
-     * @param object
-     * @return
+     *
+     * @param object instance of Object3D
+     * @return instance of BufferGeometry
      */
     public native BufferGeometry setFromObject(Object3D object);
 
     /**
      * Return a non-index version of an indexed BufferGeometry.
-     * @return
+     *
+     * @return instance of BufferGeometry
      */
     public native BufferGeometry toNonIndexed();
 
     /**
      * Updates the attributes for this BufferGeometry from an Object3D.
-     * @param object
-     * @return
+     *
+     * @param object instance of Object3D
+     * @return instance of BufferGeometry
      */
     public native BufferGeometry updateFromObject(Object3D object);
 }

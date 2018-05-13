@@ -12,7 +12,7 @@ import jsinterop.annotations.JsType;
  * Only MeshStandardMaterial and MeshPhysicalMaterial are supported.
  * You have to include RectAreaLightUniformsLib into your scene.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/25/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -72,8 +72,8 @@ public class RectAreaLight extends Light {
     /**
      * Copies value of all the properties from the source to this RectAreaLight.
      *
-     * @param source
-     * @return
+     * @param source RectAreaLight
+     * @return RectAreaLight
      */
     public native RectAreaLight copy(RectAreaLight source);
 

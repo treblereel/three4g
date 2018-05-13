@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
 /**
  * Create a smooth 2d spline curve from a series of points. Internally this uses Interpolations.CatmullRom to create the curve.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

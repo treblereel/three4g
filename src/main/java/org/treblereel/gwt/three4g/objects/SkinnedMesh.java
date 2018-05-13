@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Matrix4;
 /**
  * A mesh that has a Skeleton with bones that can then be used to animate the vertices of the geometry.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -51,7 +51,8 @@ public class SkinnedMesh extends Mesh {
     }
 
     /**
-     * Bind a skeleton to the skinned mesh. The bindMatrix gets saved to .bindMatrix property and the .bindMatrixInverse gets calculated. This is called automatically in the constructor, and the skeleton is created from the bones of the Geometry passed in the constructor.
+     * Bind a skeleton to the skinned mesh. The bindMatrix gets saved to .bindMatrix property and the .bindMatrixInverse
+     * gets calculated. This is called automatically in the constructor, and the skeleton is created from the bones of the Geometry passed in the constructor.
      *
      * @param skeleton   - Skeleton created from a Bones tree.
      * @param bindMatrix - Matrix4 that represents the base transform of the skeleton.
@@ -61,7 +62,7 @@ public class SkinnedMesh extends Mesh {
     /**
      * Returns a clone of this SkinnedMesh object and any descendants.
      *
-     * @return
+     * @return instance of SkinnedMesh
      */
     public native SkinnedMesh clone();
 

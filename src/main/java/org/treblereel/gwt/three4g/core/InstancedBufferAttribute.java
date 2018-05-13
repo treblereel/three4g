@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 
 /**
  * An instanced version of BufferAttribute.
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")

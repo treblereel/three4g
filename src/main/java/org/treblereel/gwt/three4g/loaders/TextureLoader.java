@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
 /**
  * Class for loading a texture. This uses the ImageLoader internally for loading files.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/5/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -80,7 +80,7 @@ public class TextureLoader {
     /**
      * Set the .crossOrigin attribute.
      *
-     * @param value
+     * @param value crossOrigin attribute
      */
     public native void setCrossOrigin(String value);
 
@@ -88,8 +88,8 @@ public class TextureLoader {
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
      *
-     * @param path
-     * @return
+     * @param path base path or URL
+     * @return instance of TextureLoader
      */
     public native TextureLoader setPath(String path);
 
@@ -97,10 +97,9 @@ public class TextureLoader {
      * Whether the XMLHttpRequest uses credentials such as cookies, authorization headers or TLS client certificates. See XMLHttpRequest.withCredentials.
      * Note that this has no effect if you are loading files locally or from the same domain.
      *
-     * @param value
-     * @return
+     * @param value credentials
+     * @return instance of TextureLoader
      */
     public native TextureLoader setWithCredentials(String value);
-
 
 }

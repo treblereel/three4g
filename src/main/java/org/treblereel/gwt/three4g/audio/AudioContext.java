@@ -9,23 +9,21 @@ import jsinterop.annotations.JsType;
  * <p>
  * This uses the Web Audio API.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")
 public class AudioContext {
 
     /**
-     * Return the value of the variable context in the outer scope, if defined, otherwise set it to a new AudioContext.
-     *
-     * @return
+     * @return the value of the variable context in the outer scope, if defined, otherwise set it to a new AudioContext.
      */
     public native elemental2.media.AudioContext getContext();
 
     /**
      * Set the variable context in the outer scope to value.
      *
-     * @param value
+     * @param value original audio context
      */
     public native void setContext(elemental2.media.AudioContext value);
 

@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 /**
  * An object with several loader utility functions.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -16,7 +16,7 @@ public class LoaderUtils {
      * The function takes a stream of bytes as input and returns a string representation.
      *
      * @param array — A stream of bytes as a typed array.
-     * @return
+     * @return string representation
      */
     public native String decodeText(TypedArray array);
 
@@ -24,7 +24,7 @@ public class LoaderUtils {
      * Extract the base from the URL.
      *
      * @param url — The url to extract the base url from.
-     * @return
+     * @return url base as String value
      */
     public native String extractUrlBase(String url);
 }

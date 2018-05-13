@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.ShapeGeometryParameters;
 /**
  * Creates an one-sided polygonal geometry from one or more path shapes.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

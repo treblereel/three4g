@@ -37,13 +37,12 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * }
  * );
  * <p>
- * <p>
  * // Alternatively, to parse a previously loaded JSON structure
  * var object = loader.parse( a_json_object );
  * <p>
  * scene.add( object );
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -70,22 +69,21 @@ public class ObjectLoader {
     }
 
     /**
-     * manager — The loadingManager for the loader to use. Default is THREE.DefaultLoadingManager.
-     * <p>
      * Creates a new ObjectLoader.
      *
-     * @param loadingManager
+     * @param manager — The loadingManager for the loader to use. Default is THREE.DefaultLoadingManager.
      */
     @JsConstructor
-    public ObjectLoader(LoadingManager loadingManager) {
+    public ObjectLoader(LoadingManager manager) {
 
     }
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
      *
-     * @param url        — the path or URL to the file. This can also be a Data URI.
-     * @param onLoad     — Will be called when load completes. The argument will be the loaded object.
+     * @param url    — the path or URL to the file. This can also be a Data URI.
+     * @param onLoad — Will be called when load completes. The argument will be the loaded object.
+     * @return instance of Texture
      */
     public native Texture load(String url, OnLoadCallback<Object> onLoad);
 
@@ -96,13 +94,14 @@ public class ObjectLoader {
      * @param onLoad     — Will be called when load completes. The argument will be the loaded object.
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
      * @param onError    — Will be called when load errors.
+     * @return instance of Texture
      */
     public native Texture load(String url, OnLoadCallback<Object> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * @param json — required. The JSON source to parse.
-     * Parse a JSON structure and return a threejs object. This is used internally by .load, but can also be used directly
-     * to parse a previously loaded JSON structure.
+     *             Parse a JSON structure and return a threejs object. This is used internally by .load, but can also be used directly
+     *             to parse a previously loaded JSON structure.
      * @return Object3D
      */
     public native Object3D parse(Object json);
@@ -121,7 +120,7 @@ public class ObjectLoader {
      * for geometries and BufferGeometryLoader for buffer geometries.
      *
      * @param json — required. The JSON source to parse.
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D parseGeometries(Object json);
 
@@ -129,7 +128,7 @@ public class ObjectLoader {
      * This is used .parse to parse any materials in the JSON structure using MaterialLoader.
      *
      * @param json — required. The JSON source to parse.
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D parseMaterials(Object json);
 
@@ -137,7 +136,7 @@ public class ObjectLoader {
      * This is used .parse to parse any animations in the JSON structure, using AnimationClip.parse.
      *
      * @param json — required. The JSON source to parse.
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D parseAnimations(Object json);
 
@@ -145,7 +144,7 @@ public class ObjectLoader {
      * This is used .parse to parse any images in the JSON structure, using ImageLoader.
      *
      * @param json — required. The JSON source to parse.
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D parseImages(Object json);
 
@@ -153,7 +152,7 @@ public class ObjectLoader {
      * This is used .parse to parse any textures in the JSON structure.
      *
      * @param json — required. The JSON source to parse.
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D parseTextures(Object json);
 
@@ -177,18 +176,16 @@ public class ObjectLoader {
      * Object3D
      *
      * @param json — required. The JSON source to parse.
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D parseObject(Object json);
 
     /**
-     *
      * @param value — The crossOrigin string to implement CORS for loading the url from a different domain that allows CORS.
      */
     public native void setCrossOrigin(String value);
 
     /**
-     *
      * @param value — The base path or URL from which textures will be loaded.
      */
     public native void setTexturePath(String value);

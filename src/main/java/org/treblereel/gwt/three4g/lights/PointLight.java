@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.lights.shadows.LightShadow;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -100,10 +100,10 @@ public class PointLight extends Light {
     /**
      * Copies the value of color and intensity from the source light into this one.
      *
-     * @param source
-     * @return
+     * @param source instance of PointLight
+     * @return instance of PointLight
      */
-    public native Light copy(PointLight source);
+    public native PointLight copy(PointLight source);
 
 
 }

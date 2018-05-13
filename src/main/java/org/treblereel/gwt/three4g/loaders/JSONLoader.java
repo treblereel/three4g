@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 /**
  * A loader for loading objects in JSON format. This uses the FileLoader internally for loading files.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -73,7 +73,7 @@ public class JSONLoader {
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many files from the same directory.
      *
-     * @param texturePath
+     * @param texturePath base path or URL
      */
     public native void setTexturePath(String texturePath);
 
@@ -82,7 +82,7 @@ public class JSONLoader {
      *
      * @param json        — JSON object to parse.
      * @param texturePath — Base path for textures.
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D parse(JSONObject json, String texturePath);
 }

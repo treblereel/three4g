@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.TextGeometryParameters;
  * parameters consisting of a loaded Font and settings for the geometry's parent ExtrudeGeometry. See the Font, FontLoader
  * and Creating_Text pages for additional details.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

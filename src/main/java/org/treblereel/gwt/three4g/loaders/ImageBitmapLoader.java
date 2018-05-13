@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * A loader for loading an Image as an ImageBitmap. An ImageBitmap provides an asynchronous and resource efficient pathway
  * to prepare textures for rendering in WebGL.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -78,20 +78,23 @@ public class ImageBitmapLoader {
     /**
      * Set the .crossOrigin attribute.
      *
-     * @param origin
+     * @param origin attribute
+     * @return instance of ImageBitmapLoader
      */
     public native ImageBitmapLoader setCrossOrigin(String origin);
 
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many textures from the same directory.
+     * @param path base path or URL
+     * @return instance of ImageBitmapLoader
      */
     public native ImageBitmapLoader setPath(String path);
 
     /**
      * Sets the options object for createImageBitmap.
      *
-     * @param options
-     * @return
+     * @param options object
+     * @return instance of ImageBitmapLoader
      */
     public native ImageBitmapLoader setOptions(String options);
 

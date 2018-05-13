@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 /**
  * A simple caching system, used internally by FileLoader.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")

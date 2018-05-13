@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.PolyhedronGeometryParame
  * onto a sphere, and then divide them up to the desired level of detail. This class is used by DodecahedronBufferGeometry,
  * IcosahedronBufferGeometry, OctahedronBufferGeometry, and TetrahedronBufferGeometry to generate their respective geometries.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

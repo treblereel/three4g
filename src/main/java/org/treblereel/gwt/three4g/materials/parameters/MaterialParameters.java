@@ -6,7 +6,7 @@ import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Plane;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/7/18.
  */
 @JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")

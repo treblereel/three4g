@@ -16,7 +16,7 @@ import org.treblereel.gwt.three4g.objects.Mesh;
  * Geometries are easier to work with than BufferGeometries as they store attributes such as vertices, faces, colors and
  * so on directly (rather than in buffers), however they are generally slower.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -175,24 +175,24 @@ public class Geometry extends AbstractGeometry<Geometry> {
     /**
      * Convert a BufferGeometry to a Geometry.
      *
-     * @param geometry
-     * @return
+     * @param geometry instance of BufferGeometry
+     * @return instance of Geometry
      */
     public native Geometry fromBufferGeometry(BufferGeometry geometry);
 
     /**
      * Merge two geometries or geometry and geometry from object (using object's transform)
      *
-     * @param geometry
-     * @param matrix
-     * @param materialIndexOffset
+     * @param geometry instance of Geometry
+     * @param matrix instance of Matrix4
+     * @param materialIndexOffset as int value
      */
     public native void merge(Geometry geometry, Matrix4 matrix, int materialIndexOffset);
 
     /**
      * Merge the mesh's geometry with this, also applying the mesh's transform.
      *
-     * @param mesh
+     * @param mesh instance of Mesh
      */
     public native void mergeMesh(Mesh mesh);
 

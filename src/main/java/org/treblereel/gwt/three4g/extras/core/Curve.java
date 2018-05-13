@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Vector;
 /**
  * An abstract base class for creating a Curve object that contains methods for interpolation. For an array of Curves see CurvePath.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/11/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -61,26 +61,25 @@ public abstract class Curve {
 
     /**
      * Returns a set of divisions + 1 points using getPoint( t ).
-     * divisions -- number of pieces to divide the curve into. Default is 5.
      *
-     * @param divisions
-     * @return
+     * @param divisions -- number of pieces to divide the curve into. Default is 5.
+     * @return array of points
      */
-    public native int[] getPoints(int divisions); //TODO
+    public native Vector[] getPoints(int divisions); //TODO
 
     /**
      * Returns a set of divisions + 1 equi-spaced points using getPointAt( u ).
      *
      * @param divisions -- number of pieces to divide the curve into. Default is 5.
-     * @return
+     * @return array of points
      */
-    public native int[] getSpacedPoints(int divisions);
+    public native Vector[] getSpacedPoints(int divisions);
 
 
     /**
      * Get total curve arc length.
      *
-     * @return
+     * @return as float value
      */
     public native float getLength();
 
@@ -88,9 +87,9 @@ public abstract class Curve {
      * Get total curve arc length.
      *
      * @param divisions -- Get list of cumulative segment lengths.
-     * @return
+     * @return array of lengths
      */
-    public native float getLength(int divisions);
+    public native float[] getLengths(int divisions);
 
     /**
      * Update the cumlative segment distance cache.
@@ -100,63 +99,64 @@ public abstract class Curve {
     /**
      * Given u in the range ( 0 .. 1 ), returns t also in the range ( 0 .. 1 ). u and t can then be used to give you points which are equidistant from the ends of the curve, using .getPoint.
      *
-     * @param u
-     * @param distance
-     * @return
+     * @param u        as float value
+     * @param distance as float value
+     * @return flaot value, equidistant from the ends of the curve
      */
     public native float getUtoTmapping(float u, float distance);
 
     /**
      * Returns a unit vector tangent at t. If the derived curve does not implement its tangent derivation, two points a small delta apart will be used to find its gradient which seems to give a reasonable approximation.
      *
-     * @param t
-     * @return
+     * @param t as float value
+     * @return tangent at t
      */
     public native Vector getTangent(float t);
 
     /**
      * Returns tangent at a point which is equidistant to the ends of the curve from the point given in .getTangent.
      *
-     * @param u
-     * @return
+     * @param u as float value
+     * @return tangent at t
      */
     public native Vector getTangentAt(float u);
 
     /**
      * Generates the Frenet Frames. Used in geometries like TubeGeometry or ExtrudeGeometry.
      *
-     * @param segments
-     * @param closed
-     * @return
+     * @param segments number of segments
+     * @param closed   true,if closed
+     * @return Frenet Frames Object
      */
     public native Object computeFrenetFrames(int segments, boolean closed);
 
     /**
      * Creates a clone of this instance.
      *
-     * @return
+     * @return instance of Curve
      */
     public native Curve clone();
 
     /**
      * Copies another Curve object to this instance.
      *
-     * @param source
-     * @return
+     * @param source Curve
+     * @return instance of Curve
      */
     public native Curve copy(Curve source);
 
     /**
      * Returns a JSON object representation of this instance.
      *
-     * @return
+     * @return JSON String
      */
     public native String toJSON();
 
     /**
      * Copies the data from the given JSON object to this instance.
      *
-     * @return
+     * @param json String
+     * @return instance of Curve
      */
     public native Curve toJSON(String json);
 

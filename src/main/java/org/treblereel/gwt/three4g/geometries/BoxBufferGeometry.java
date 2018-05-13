@@ -6,7 +6,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.geometries.parameters.BoxGeometryParameters;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/7/18.
  */
 @JsType(isNative = true, namespace = "THREE")

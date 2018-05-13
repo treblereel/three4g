@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
 /**
  * A bone which is part of a Skeleton. The skeleton in turn is used by the SkinnedMesh. Bones are almost identical to a blank Object3D.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")

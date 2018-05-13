@@ -5,11 +5,12 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.animation.KeyframeTrack;
+import org.treblereel.gwt.three4g.math.interpolants.QuaternionLinearInterpolant;
 
 /**
  * A Track of quaternion keyframe values.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -52,7 +53,8 @@ public class QuaternionKeyframeTrack extends KeyframeTrack {
 
     /**
      * Returns a new QuaternionLinearInterpolant based on the values, times and valueSize of the keyframes.
+     * @return instance of QuaternionLinearInterpolant
      */
     @JsMethod(name = "InterpolantFactoryMethodLinear")
-    public native void interpolantFactoryMethodLinear();
+    public native QuaternionLinearInterpolant interpolantFactoryMethodQuaternionLinear();
 }

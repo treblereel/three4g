@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 
 /**
  * An abstract base class extending Curve. A CurvePath is simply an array of connected curves, but retains the api of a curve.
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/11/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -28,7 +28,7 @@ public abstract class CurvePath extends Curve {
 
     /**
      * Add a curve to the .curves array
-     * @param curve
+     * @param curve instance of Curve
      */
     public native void add(Curve curve);
 
@@ -39,6 +39,7 @@ public abstract class CurvePath extends Curve {
 
     /**
      * Adds together the lengths of the curves in the .curves array.
+     * @return curve length as float value
      */
     public native float getCurveLengths();
 

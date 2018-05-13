@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 
 /**
  * A lower level function to compile either a vertex or fragment shader.
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/13/18.
  */
 @JsType(isNative = true, namespace = "THREE")

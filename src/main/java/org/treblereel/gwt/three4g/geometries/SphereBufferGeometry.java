@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
 /**
  * This is the BufferGeometry port of SphereGeometry.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")

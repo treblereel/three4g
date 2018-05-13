@@ -4,11 +4,12 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.math.Vector3;
+import org.treblereel.gwt.three4g.objects.Points;
 
 /**
  * parent for Geometry and BufferGeometry
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true)
@@ -27,7 +28,7 @@ public class AbstractGeometry<T> extends EventDispatcher {
     /**
      * Unique number for this bufferGeometry instance.
      *
-     * @return
+     * @return if of the object
      */
     @JsProperty
     public native int getId();
@@ -44,7 +45,7 @@ public class AbstractGeometry<T> extends EventDispatcher {
     /**
      * Bakes matrix transform directly into vertex coordinates.
      *
-     * @param matrix
+     * @param matrix matrix object ot be applied
      */
     public native void applyMatrix(Matrix4 matrix);
 
@@ -58,12 +59,15 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * <p>
      * This method copies only vertices, faces and uvs. It does not copy any other properties of the geometry.
      *
-     * @return Geometry
+     * @return extends AbstractGeometry
      */
     public native T clone();
 
     /**
      * Copies vertices, faces and uvs into this geometry. It does not copy any other properties of the geometry.
+     *
+     * @param geometry extends AbstractGeometry
+     * @return instance, extends AbstractGeometry
      */
     public native T copy(T geometry);
 
@@ -95,7 +99,7 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * Use Object3D.lookAt for typical real-time mesh usage.
      *
      * @param vector - A world vector to look at.
-     * @return
+     * @return extends AbstractGeometry
      */
     public native T lookAt(Vector3 vector);
 
@@ -103,7 +107,8 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * Rotate the geometry about the X axis. This is typically done as a one time operation but not during the render loop.
      * Use Object3D.rotation for typical real-time mesh rotation.
      *
-     * @param radians
+     * @param radians x of type float
+     * @return extends AbstractGeometry
      */
     public native T rotateX(float radians);
 
@@ -111,7 +116,8 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * Rotate the geometry about the Y axis. This is typically done as a one time operation but not during the render loop.
      * Use Object3D.rotation for typical real-time mesh rotation.
      *
-     * @param radians
+     * @param radians y of type float
+     * @return extends AbstractGeometry
      */
     public native T rotateY(float radians);
 
@@ -119,26 +125,29 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * Rotate the geometry about the Z axis. This is typically done as a one time operation but not during the render loop.
      * Use Object3D.rotation for typical real-time mesh rotation.
      *
-     * @param radians
+     * @param radians z of type float
+     * @return extends AbstractGeometry
      */
     public native T rotateZ(float radians);
 
     /**
      * Scale the geometry data. This is typically done as a one time operation, and not during a loop. Use Object3D.scale
      * for typical real-time mesh scaling.
-     * @param x
-     * @param y
-     * @param z
-     * @return
+     *
+     * @param x value of float
+     * @param y value of float
+     * @param z value of float
+     * @return extends AbstractGeometry
      */
     public native T scale(float x, float y, float z);
 
     /**
      * Sets the vertices for this Geometry from an array of points.
      *
-     * @param points
+     * @param points array of points
+     * @return extends AbstractGeometry
      */
-    public native T setFromPoints(Object[] points); //TODO chenge to proper type
+    public native T setFromPoints(Vector3[] points);
 
     /**
      * Convert the geometry to JSON format.
@@ -151,10 +160,10 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * Translate the geometry. This is typically done as a one time operation but not during the render loop.
      * Use Object3D.position for typical real-time mesh translation.
      *
-     * @param x
-     * @param y
-     * @param z
-     * @return
+     * @param x value of float
+     * @param y value of float
+     * @param z value of float
+     * @return extends AbstractGeometry
      */
     public native T translate(float x, float y, float z);
 }

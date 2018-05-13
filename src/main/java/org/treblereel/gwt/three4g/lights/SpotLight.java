@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
 /**
  * This light gets emitted from a single point in one direction, along a cone that increases in size the further from the light it gets.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/25/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -153,8 +153,8 @@ public class SpotLight extends Light {
     /**
      * Copies value of all the properties from the source to this SpotLight.
      *
-     * @param source
-     * @return
+     * @param source instance of SpotLight
+     * @return instance of SpotLight
      */
     public native SpotLight copy(SpotLight source);
 

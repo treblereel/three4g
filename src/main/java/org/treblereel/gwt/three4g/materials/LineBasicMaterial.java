@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.math.Color;
 /**
  * A material for drawing wireframe-style geometries.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/27/18.
  */
 @JsType(isNative = true, namespace = "THREE")

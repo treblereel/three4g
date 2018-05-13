@@ -12,7 +12,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * All classes that inherit from Object3D have an Object3D.layers property which is an instance of this class.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/8/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -53,6 +53,7 @@ public class Layers {
      * Returns true if this and the passed layers object are members of the same set of layers.
      *
      * @param layer - a Layers object
+     * @return true, if memebers of the same layer
      */
     public native boolean test(Layers layer);
 

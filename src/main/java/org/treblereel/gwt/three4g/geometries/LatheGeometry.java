@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
 /**
  * Creates meshes with axial symmetry like vases. The lathe rotates around the Y axis.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.materials.Material;
  * <p>
  * This is nearly the same as LineSegments; the only difference is that it is rendered using gl.LINE_STRIP instead of gl.LINES
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -58,16 +58,15 @@ public class Line extends Object3D {
     /**
      * Get intersections between a casted Ray and this Line. Raycaster.intersectObject will call this method.
      *
-     * @param raycaster
-     * @param intersects
-     * @return
+     * @param raycaster Raycaster
+     * @param intersects array of objects to check
      */
-    public native void raycast(Raycaster raycaster, Object intersects);
+    public native void raycast(Raycaster raycaster, Object[] intersects);
 
     /**
      * Returns a clone of this Line object and its descendants.
      *
-     * @return
+     * @return Line
      */
     public native Line clone();
 }

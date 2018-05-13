@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * <p>
  * This light cannot be used to cast shadows.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/25/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -79,8 +79,8 @@ public class HemisphereLight extends Light {
     /**
      * Copies the value of color, intensity and groundColor from the source light into this one.
      *
-     * @param source
-     * @return
+     * @param source instance of HemisphereLight
+     * @return instance of HemisphereLight
      */
     public native HemisphereLight copy(HemisphereLight source);
 }

@@ -6,7 +6,7 @@ import jsinterop.annotations.JsType;
 /**
  * Dual PerspectiveCameras used for effects such as 3D Anaglyph or Parallax Barrier.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -39,6 +39,7 @@ public class StereoCamera {
 
     /**
      * Update the stereo cameras based on the camera passed in.
+     * @param camera instance of camera
      */
     public native void update(Camera camera);
 }

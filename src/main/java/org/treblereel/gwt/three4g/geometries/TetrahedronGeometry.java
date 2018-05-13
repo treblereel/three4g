@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.TetrahedronGeometryParam
 /**
  * A class for generating a tetrahedron geometries.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

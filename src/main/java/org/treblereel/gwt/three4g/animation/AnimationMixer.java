@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * For an overview of the different elements of the three.js animation system see the "Animation System" article in the
  * "Next Steps" section of the manual.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
 @JsType(namespace = "THREE", isNative = true)
@@ -46,8 +46,8 @@ public class AnimationMixer extends EventDispatcher {
      * <p>
      * Note: Calling this method several times with the same parameters returns always the same clip instance.
      *
-     * @param clip
-     * @return
+     * @param clip instance of AnimationClip
+     * @return instance of AnimationAction
      */
     public native AnimationAction clipAction(AnimationClip clip);
 
@@ -58,9 +58,9 @@ public class AnimationMixer extends EventDispatcher {
      * <p>
      * Note: Calling this method several times with the same parameters returns always the same clip instance.
      *
-     * @param clip
-     * @param optionalRoot
-     * @return
+     * @param clip         instance of AnimationAction
+     * @param optionalRoot ia a root
+     * @return instance of AnimationAction
      */
     public native AnimationAction clipAction(AnimationClip clip, Object3D optionalRoot);
 
@@ -69,8 +69,8 @@ public class AnimationMixer extends EventDispatcher {
      * <p>
      * The first parameter can be either an AnimationClip object or the name of an AnimationClip.
      *
-     * @param clip
-     * @return
+     * @param clip instance of AnimationAction
+     * @return instance of AnimationAction
      */
     public native AnimationAction existingAction(AnimationClip clip);
 
@@ -79,23 +79,23 @@ public class AnimationMixer extends EventDispatcher {
      * <p>
      * The first parameter can be either an AnimationClip object or the name of an AnimationClip.
      *
-     * @param clip
-     * @param optionalRoot
-     * @return
+     * @param clip         instance of AnimationClip
+     * @param optionalRoot is a root
+     * @return instance of AnimationAction
      */
     public native AnimationAction existingAction(AnimationClip clip, Object3D optionalRoot);
 
     /**
      * Returns this mixer's root object.
      *
-     * @return
+     * @return instance of Object3D
      */
     public native Object3D getRoot();
 
     /**
      * Deactivates all previously scheduled actions on this mixer.
      *
-     * @return
+     * @return instance of AnimationMixer
      */
     public native AnimationMixer stopAllAction();
 
@@ -104,37 +104,37 @@ public class AnimationMixer extends EventDispatcher {
      * <p>
      * This is usually done in the render loop, passing clock.getDelta scaled by the mixer's timeScale).
      *
-     * @param deltaTimeInSeconds
-     * @return
+     * @param deltaTimeInSeconds is the time
+     * @return instance of AnimationMixer
      */
     public native AnimationMixer update(Number deltaTimeInSeconds);
 
     /**
      * Deallocates all memory resources for a clip.
      *
-     * @param clip
+     * @param clip instance of AnimationClip
      */
     public native void update(AnimationClip clip);
 
     /**
      * Deallocates all memory resources for a root object.
      *
-     * @param root
+     * @param root instance of Object3D as root
      */
     public native void uncacheRoot(Object3D root);
 
     /**
      * Deallocates all memory resources for an action.
      *
-     * @param clip
+     * @param clip instance of AnimationClip
      */
     public native void uncacheAction(AnimationClip clip);
 
     /**
      * Deallocates all memory resources for an action.
      *
-     * @param clip
-     * @param root
+     * @param clip instance of AnimationClip
+     * @param root instance of Object3D as root
      */
     public native void uncacheAction(AnimationClip clip, Object3D root);
 

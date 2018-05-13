@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.Raycaster;
  * <p>
  * Every level is associated with an object, and rendering can be switched between them at the distances specified. Typically you would create, say, three meshes, one for far away (low detail), one for mid range (medium detail) and one for close up (high detail).
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -42,38 +42,38 @@ public class LOD extends Object3D {
     /**
      * Returns a clone of this LOD object and its associated distance specific objects.
      *
-     * @return
+     * @return instance of LOD
      */
     public native LOD clone();
 
     /**
      * Get a reference to the first Object3D (mesh) that is greater than distance.
      *
-     * @param distance
-     * @return
+     * @param distance as float value
+     * @return instance of Object3D
      */
     public native Object3D getObjectForDistance(float distance);
 
     /**
      * Get intersections between a casted Ray and this LOD. Raycaster.intersectObject will call this method.
      *
-     * @param raycaster
-     * @param intersects
-     * @return
+     * @param raycaster instance of Raycaster
+     * @param intersects objects to check
+     * @return array of intersects objects
      */
     public native Object[] raycast(Raycaster raycaster, Object[] intersects); //TODO fix method signature
 
     /**
      * Create a JSON structure with details of this LOD object.
      *
-     * @return
+     * @return JSON String
      */
     public native String toJSON();
 
     /**
      * Set the visibility of each level's object based on distance from the camera. This needs to be called in the render loop for levels of detail to be updated dynamically.
      *
-     * @param camera
+     * @param camera instance of a Camera
      */
     public native void update(Camera camera);
 }

@@ -9,7 +9,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * This is used internally by the FontLoader.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -29,7 +29,7 @@ public class Font {
 
     /**
      * This constructor creates a new Font, which is an array of Shapes.
-     * @param data
+     * @param data as JSONObject
      */
     @JsConstructor
     public Font(JSONObject data) {

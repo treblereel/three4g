@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.materials.Material;
  * This is nearly the same	as Line; the only difference is that it is rendered using gl.LINE_LOOP instead of gl.LINE_STRIP,
  * which draws a straight line to the next vertex, and connects the last vertex back to the first.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
 /**
  * Create a smooth 3d cubic bezier curve, defined by a start point, endpoint and two control points.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

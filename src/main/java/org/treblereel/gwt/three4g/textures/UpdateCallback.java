@@ -3,7 +3,7 @@ package org.treblereel.gwt.three4g.textures;
 import jsinterop.annotations.JsFunction;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/9/18.
  */
 @JsFunction

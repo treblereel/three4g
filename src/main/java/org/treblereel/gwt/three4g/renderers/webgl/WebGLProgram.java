@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 import org.treblereel.gwt.three4g.renderers.parameters.WebGLRendererParameters;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/12/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -41,7 +41,7 @@ public class WebGLProgram {
     /**
      * Returns a name-value mapping of all active vertex attribute locations.
      *
-     * @return
+     * @return get all attrs
      */
     public native JsPropertyMap getAttributes();
 }

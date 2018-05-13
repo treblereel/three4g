@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.textures.DataTexture;
 /**
  * Use an array of bones to create a skeleton that can be used by a SkinnedMesh.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -48,7 +48,7 @@ public class Skeleton {
     /**
      * Returns a clone of this Skeleton object.
      *
-     * @return
+     * @return instance of Skeleton
      */
     public native Skeleton clone();
 
@@ -71,7 +71,7 @@ public class Skeleton {
      * Searches through the skeleton's bone array and returns the first with a matching name.
      *
      * @param name -- String to match to the Bone's .name property.
-     * @return
+     * @return instance of Bone
      */
     public native Bone getBoneByName(String name);
 }

@@ -5,7 +5,7 @@ import jsinterop.annotations.JsType;
 /**
  * Alias for EllipseCurve
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * <p>
  * This light can cast shadows - see the DirectionalLightShadow page for details.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/21/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -84,8 +84,8 @@ public class DirectionalLight extends Light {
 
     /**
      * Copies value of all the properties from the source to this DirectionalLight.
-     * @param source
-     * @return
+     * @param source instance of DirectionalLight
+     * @return instance of DirectionalLight
      */
     public native DirectionalLight copy(DirectionalLight source);
 

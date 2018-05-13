@@ -10,7 +10,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * This can be useful for rendering 2D scenes and UI elements, amongst other things.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/18/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -105,7 +105,7 @@ public class OrthographicCamera extends Camera {
     public native void updateProjectionMatrix();
 
     /**
-     * Return the camera's data in JSON format.
+     * @return the camera's data in JSON format.
      */
     public native String toJSON();
 

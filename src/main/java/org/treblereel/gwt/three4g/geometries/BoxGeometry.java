@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.BoxGeometryParameters;
  * BoxGeometry is the quadrilateral primitive geometry class. It is typically used for creating a cube or irregular
  * quadrilateral of the dimensions provided with the 'width', 'height', and 'depth' constructor arguments.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/7/18.
  */
 @JsType(isNative = true, namespace = "THREE")

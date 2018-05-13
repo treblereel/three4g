@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * A loader for loading an Image. This uses the FileLoader internally for loading files, and is used internally by the
  * CubeTextureLoader, ObjectLoader and TextureLoader.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -77,12 +77,14 @@ public class ImageLoader {
 
     /**
      * Set the .crossOrigin attribute.
-     * @param origin
+     * @param origin crossOrigin attribute.
      */
     public native void setCrossOrigin(String origin);
 
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many textures from the same directory.
+     * @param path base path or URL
+     * @return instance of FileLoader
      */
     public native FileLoader setPath(String path);
 

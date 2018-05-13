@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
 /**
  * A 2D path representation. The class provides methods for creating paths and contours of 2D shapes similar to the 2D Canvas API.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/27/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -28,7 +28,8 @@ public class Path extends CurvePath {
     /**
      * Adds an absolutely positioned EllipseCurve to the path.
      *
-     * @param x,         y -- The absolute center of the arc.
+     * @param x          -- The absolute center of the arc.
+     * @param y          -- The absolute center of the arc.
      * @param radius     -- The radius of the arc.
      * @param startAngle -- The start angle in radians.
      * @param endAngle   -- The end angle in radians.
@@ -39,7 +40,8 @@ public class Path extends CurvePath {
     /**
      * Adds an absolutely positioned EllipseCurve to the path.
      *
-     * @param x,         y -- The absolute center of the ellipse.
+     * @param x          -- The absolute center of the ellipse.
+     * @param y          -- The absolute center of the ellipse.
      * @param xRadius    -- The radius of the ellipse in the x axis.
      * @param yRadius    -- The radius of the ellipse in the y axis.
      * @param startAngle -- The start angle in radians.
@@ -51,7 +53,8 @@ public class Path extends CurvePath {
     /**
      * Adds an absolutely positioned EllipseCurve to the path.
      *
-     * @param x,         y -- The absolute center of the ellipse.
+     * @param x          -- The absolute center of the ellipse.
+     * @param y          -- The absolute center of the ellipse.
      * @param xRadius    -- The radius of the ellipse in the x axis.
      * @param yRadius    -- The radius of the ellipse in the y axis.
      * @param startAngle -- The start angle in radians.
@@ -64,7 +67,8 @@ public class Path extends CurvePath {
     /**
      * Adds an EllipseCurve to the path, positioned relative to .currentPoint.
      *
-     * @param x,         y -- The center of the arc offset from the last call.
+     * @param x          -- The center of the arc offset from the last call.
+     * @param y          -- The center of the arc offset from the last call.
      * @param radius     -- The radius of the arc.
      * @param startAngle -- The start angle in radians.
      * @param endAngle   -- The end angle in radians.
@@ -75,17 +79,18 @@ public class Path extends CurvePath {
     /**
      * This creates a bezier curve from .currentPoint with (cp1X, cp1Y) and (cp2X, cp2Y) as control points and updates .currentPoint to x and y.
      *
-     * @param cp1X
-     * @param cp1Y
-     * @param cp2X
-     * @param cp2Y
-     * @param x
-     * @param y
+     * @param cp1X as float value
+     * @param cp1Y as float value
+     * @param cp2X as float value
+     * @param cp2Y as float value
+     * @param x as float value
+     * @param y as float value
      */
     public native void bezierCurveTo(float cp1X, float cp1Y, float cp2X, float cp2Y, float x, float y);
 
     /**
-     * @param x,         y -- The center of the ellipse offset from the last call.
+     * @param x          -- The center of the ellipse offset from the last call.
+     * @param y          -- The center of the ellipse offset from the last call.
      * @param xRadius    -- The radius of the ellipse in the x axis.
      * @param yRadius    -- The radius of the ellipse in the y axis.
      * @param startAngle -- The start angle in radians.
@@ -95,7 +100,8 @@ public class Path extends CurvePath {
     public native void ellipse(float x, float y, float xRadius, float yRadius, float startAngle, float endAngle, float clockwise);
 
     /**
-     * @param x,         y -- The center of the ellipse offset from the last call.
+     * @param x          -- The center of the ellipse offset from the last call.
+     * @param y          -- The center of the ellipse offset from the last call.
      * @param xRadius    -- The radius of the ellipse in the x axis.
      * @param yRadius    -- The radius of the ellipse in the y axis.
      * @param startAngle -- The start angle in radians.
@@ -108,26 +114,25 @@ public class Path extends CurvePath {
     /**
      * connects a LineCurve from .currentPoint to x, y onto the path.
      *
-     * @param x
-     * @param y
+     * @param x as float value
+     * @param y as float value
      */
     public native void lineTo(float x, float y);
 
     /**
      * Move the .currentPoint to x, y.
-     *
-     * @param x
-     * @param y
+     * @param x as float value
+     * @param y as float value
      */
     public native void moveTo(float x, float y);
 
     /**
      * Creates a quadratic curve from .currentPoint with cpX and cpY as control point and updates .currentPoint to x and y.
      *
-     * @param cpX
-     * @param cpY
-     * @param x
-     * @param y
+     * @param cpX as float value
+     * @param cpY as float value
+     * @param x as float value
+     * @param y as float value
      */
     public native void quadraticCurveTo(float cpX, float cpY, float x, float y);
 
@@ -140,6 +145,7 @@ public class Path extends CurvePath {
 
     /**
      * Connects a new SplineCurve onto the path.
+     *
      * @param points - An array of Vector2s
      */
     public native void splineThru(Vector2 points);

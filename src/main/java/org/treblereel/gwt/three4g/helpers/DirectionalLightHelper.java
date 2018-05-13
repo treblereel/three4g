@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.objects.Line;
  * Helper object to assist with visualizing a DirectionalLight's effect on the scene. This consists of plane and a line
  * representing the light's position and direction.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.core.BufferAttribute;
 /**
  * A class representing a 3x3 matrix.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -35,21 +35,21 @@ public class Matrix3 implements Matrix {
      * Multiplies (applies) this matrix to every 3D vector in the attribute.
      *
      * @param attribute - An attribute of floats that represent 3D vectors.
-     * @return
+     * @return todo
      */
     public native Object[] applyToBufferAttribute(BufferAttribute attribute); //TODO
 
     /**
      * Creates a new Matrix3 with identical elements to this one.
      *
-     * @return
+     * @return clone of this Matrix
      */
     public native Matrix3 clone();
 
     /**
      * Copies the elements of matrix m into this matrix.
      *
-     * @param m
+     * @param m original matrix
      * @return Matrix3
      */
     public native Matrix3 copy(Matrix3 m);
@@ -57,15 +57,15 @@ public class Matrix3 implements Matrix {
     /**
      * Computes and returns the determinant of this matrix.
      *
-     * @return
+     * @return determinant of this matrix
      */
     public native float determinant();
 
     /**
      * Return true if this matrix and m are equal.
      *
-     * @param m
-     * @return
+     * @param m - matrix to compare
+     * @return is equal
      */
     public native boolean equals(Matrix3 m);
 
@@ -73,7 +73,7 @@ public class Matrix3 implements Matrix {
      * Sets the elements of this matrix based on an array in column-major format.
      *
      * @param array - the array to read the elements from.
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 fromArray(float[] array);
 
@@ -82,7 +82,7 @@ public class Matrix3 implements Matrix {
      *
      * @param array  - the array to read the elements from.
      * @param offset - offset into the array. Default is 0.
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 fromArray(float[] array, float offset);
 
@@ -91,7 +91,7 @@ public class Matrix3 implements Matrix {
      * and the matrix is not invertible, set this to the 3x3 identity matrix.
      *
      * @param m - the matrix to take the inverse of.
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 getInverse(Matrix3 m);
 
@@ -101,7 +101,7 @@ public class Matrix3 implements Matrix {
      *
      * @param m                 - the matrix to take the inverse of.
      * @param throwOnDegenerate - If true, throw an error if the matrix is degenerate (not invertible).
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 getInverse(Matrix3 m, boolean throwOnDegenerate);
 
@@ -111,7 +111,7 @@ public class Matrix3 implements Matrix {
      * inverse transpose of the matrix m.
      *
      * @param m - Matrix4
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 getNormalMatrix(Matrix4 m);
 
@@ -121,55 +121,64 @@ public class Matrix3 implements Matrix {
      * 0, 1, 0
      * 0, 0, 1
      *
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 identity();
 
     /**
      * Post-multiplies this matrix by m.
      *
-     * @param m
-     * @return
+     * @param m instance of Matrix3
+     * @return instance of Matrix3
      */
     public native Matrix3 multiply(Matrix3 m);
 
     /**
      * Sets this matrix to a x b.
      *
-     * @param a
-     * @param b
-     * @return
+     * @param a instance of Matrix3
+     * @param b instance of Matrix3
+     * @return instance of Matrix3
      */
     public native Matrix3 multiplyMatrices(Matrix3 a, Matrix3 b);
 
     /**
      * Multiplies every component of the matrix by a scalar value s.
      *
-     * @param s
-     * @return
+     * @param s scalar
+     * @return instance of Matrix3
      */
     public native Matrix3 multiplyScalar(float s);
 
     /**
      * Sets the 3x3 matrix values to the given row-major sequence of values.
      *
-     * @return
+     * @param n11 float value
+     * @param n12 float value
+     * @param n13 float value
+     * @param n21 float value
+     * @param n22 float value
+     * @param n23 float value
+     * @param n31 float value
+     * @param n32 float value
+     * @param n33 float value
+     * @return instance of Matrix3
      */
     public native Matrix3 set(float n11, float n12, float n13, float n21, float n22, float n23, float n31, float n32, float n33);
 
     /**
      * Pre-multiplies this matrix by m.
      *
-     * @param m
-     * @return
+     * @param m instance of Matrix3
+     * @return instance of Matrix3
      */
     public native Matrix3 premultiply(Matrix3 m);
 
     /**
-     * Set this matrx to the upper 3x3 matrix of the Matrix4 m.
+     * Set this matrix to the upper 3x3 matrix of the Matrix4 m.
      *
-     * @param m
-     * @return
+     * @param m instance of Matrix4
+     * @return instance of Matrix3
      */
     public native Matrix3 setFromMatrix4(Matrix4 m);
 
@@ -183,47 +192,46 @@ public class Matrix3 implements Matrix {
      * @param rotation - rotation (in radians)
      * @param cx       - center x of rotation
      * @param cy       - center y of rotation
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 setUvTransform(float tx, float ty, float sx, float sy, float rotation, float cx, float cy);
 
     /**
      * Writes the elements of this matrix to an array in column-major format.
      *
-     * @return float[]
+     * @return array of a float[] representing this instance of Matrix3
      */
     public native float[] toArray();
 
     /**
      * Writes the elements of this matrix to an array in column-major format.
      *
-     * @param array - (optional) array to store the resulting vector in.
-     * @return float[]
+     * @param array - array to store the resulting vector in.
+     * @return array of a float[] representing this instance of Matrix3
      */
     public native float[] toArray(float[] array);
 
     /**
      * Writes the elements of this matrix to an array in column-major format.
      *
-     * @param array  - (optional) array to store the resulting vector in.
-     * @param offset - (optional) offset in the array at which to put the result.
-     * @return float[]
+     * @param array  - array to store the resulting vector in.
+     * @param offset - offset in the array at which to put the result.
+     * @return array of a float[] representing this instance of Matrix3
      */
     public native float[] toArray(float[] array, int offset);
 
     /**
      * Transposes this matrix.
      *
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 transpose();
 
     /**
      * Transposes this matrix into the supplied array, and returns itself unchanged.
      * @param array - array to store the resulting vector in.
-     * @return
+     * @return instance of Matrix3
      */
     public native Matrix3 transposeIntoArray (float[] array);
-
 
 }

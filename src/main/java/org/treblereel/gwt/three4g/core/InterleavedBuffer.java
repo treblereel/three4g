@@ -9,7 +9,7 @@ import jsinterop.annotations.JsType;
  * <p>
  * An introduction into interleaved arrays can be found here: Interleaved array basics
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -37,8 +37,8 @@ public class InterleavedBuffer {
 
     /**
      * Object containing offset and count.
-     * updateRange.offset -> Default is 0
-     * updateRange.count -> Default is 0
+     * updateRange.offset - Default is 0
+     * updateRange.count  - Default is 0
      */
     public Object updateRange;//TODO check this
 
@@ -69,32 +69,33 @@ public class InterleavedBuffer {
 
     /**
      * @param array - must be a Typed Array.
-     * @return
+     * @return instance of InterleavedBuffer
      */
     public native InterleavedBuffer setArray(TypedArray array);
 
     /**
      * Set dynamic to value.
      *
-     * @param value
-     * @return
+     * @param value true, to set dynamic
+     * @return instance of InterleavedBuffer
      */
     public native InterleavedBuffer setDynamic(boolean value);
 
     /**
      * Copies another InterleavedBuffer to this InterleavedBuffer.
      *
-     * @param source
-     * @return
+     * @param source instance of InterleavedBuffer
+     * @return instance of InterleavedBuffer
      */
     public native InterleavedBuffer copy(InterleavedBuffer source);
 
     /**
      * Copies data from attribute[index2] to array[index1].
      *
-     * @param index1
-     * @param index2
-     * @return
+     * @param index1 as int value
+     * @param index2 as int value
+     * @param attribute object //TODO
+     * @return instance of InterleavedBuffer
      */
     public native InterleavedBuffer copyAt(int index1, Object attribute, int index2); //TODO check object
 
@@ -103,14 +104,14 @@ public class InterleavedBuffer {
      *
      * @param value  - The source (typed) array.
      * @param offset - The offset into the target array at which to begin writing values from the source array. Default is 0.
-     * @return
+     * @return instance of InterleavedBuffer
      */
     public native InterleavedBuffer set(TypedArray value, int offset);
 
     /**
      * Creates a clone of this InterleavedBuffer.
      *
-     * @return
+     * @return instance of InterleavedBuffer
      */
     public native InterleavedBuffer clone();
 

@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
  * Sprites do not cast shadows, setting
  * castShadow = true will have no effect.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -51,24 +51,23 @@ public class Sprite extends Object3D {
     /**
      * Returns a clone of this Sprite object and any descendants.
      *
-     * @return
+     * @return instance of Sprite
      */
     public native Sprite clone();
 
     /**
      * Copies the properties of the passed sprite to this one.
      *
-     * @param sprite
-     * @return
+     * @param sprite instance of Sprite
+     * @return instance of Sprite
      */
     public native Sprite copy(Sprite sprite);
 
     /**
      * Get intersections between a casted Ray and this Line. Raycaster.intersectObject will call this method.
      *
-     * @param raycaster
-     * @param intersects
-     * @return
+     * @param raycaster instance of Raycaster
+     * @param intersects intercasting objects
      */
-    public native void raycast(Raycaster raycaster, Object intersects);
+    public native void raycast(Raycaster raycaster, Object[] intersects);
 }

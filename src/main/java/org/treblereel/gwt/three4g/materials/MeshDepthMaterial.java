@@ -8,7 +8,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
 /**
  * A material for drawing geometry by depth. Depth is based off of the camera near and far plane. White is nearest, black is farthest.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/22/18.
  */
 @JsType(isNative = true, namespace = "THREE")

@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
 /**
  * Create a smooth 2d quadratic bezier curve, defined by a startpoint, endpoint and a single control point.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
 @JsType(isNative = true, namespace = "THREE")

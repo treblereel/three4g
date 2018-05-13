@@ -1,14 +1,17 @@
 package org.treblereel.gwt.three4g.extras.core;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.math.Vector;
 import org.treblereel.gwt.three4g.math.Vector2;
 
 /**
  * Defines an arbitrary 2d shape plane using paths with optional holes. It can be used with ExtrudeGeometry, ShapeGeometry, to get points, or to get triangulated faces.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/27/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -38,8 +41,6 @@ public class Shape extends Path {
     public native int getUuid();
 
     /**
-     * divisions -- The fineness of the result.
-     * <p>
      * Call getPoints on the shape and the .holes array, and return an object of the form:
      * {
      * shape
@@ -47,17 +48,26 @@ public class Shape extends Path {
      * } where shape and holes are arrays of Vector2s.
      *
      * @param divisions -- The fineness of the result.
-     * @return
+     * @return JsPropertyMap as a holder for shape and holes
      */
-    public native Vector2[] extractPoints(int divisions);
+    public native JsPropertyMap extractPoints(int divisions);
+
+    @JsOverlay
+    public Vector[] getShape(int divisions) {
+        return getPoints(divisions);
+    }
+
+    @JsOverlay
+    public Vector[] getHoles(int divisions) {
+        return getHoles(divisions);
+    }
 
     /**
      * Get an array of Vector2s that represent the holes in the shape.
      *
      * @param divisions -- The fineness of the result.
-     * @return
+     * @return array of Vector2s that represent the holes in the shape.
      */
     public native Vector2[] getPointsHoles(int divisions);
-
 
 }

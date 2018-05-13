@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.core.Geometry;
  * Creates a torus knot, the particular shape of which is defined by a pair of coprime integers, p and q. If p and q are
  * not coprime, the result will be a torus link.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")

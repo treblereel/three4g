@@ -7,7 +7,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
 /**
  * Abstract base class for lights - all other light types inherit the properties and methods described here.
  *
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
 @JsType(isNative = true, namespace = "THREE")
@@ -73,15 +73,15 @@ public class Light extends Object3D {
     /**
      * Copies the value of color and intensity from the source light into this one.
      *
-     * @param source
-     * @return
+     * @param source Light
+     * @return Light
      */
     public native Light copy(Light source);
 
     /**
      * Return Light data in JSON format.
      *
-     * @return
+     * @return JSON
      */
     public native String toJSON();
 
