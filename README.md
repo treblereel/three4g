@@ -21,10 +21,13 @@ Snapshot Version 0.1-SNAPSHOT
 
 # Setup
 all you need to do is add
+```java
 <inherits name="org.treblereel.gwt.Three4G"/>
-
+```
 to our gwt project module, or   
+```java
 <inherits name="org.treblereel.gwt.Three4GMin"/>
+```
 
 for min version.
 
