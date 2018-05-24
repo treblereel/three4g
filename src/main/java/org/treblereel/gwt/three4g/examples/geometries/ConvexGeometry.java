@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.examples.geometries;
 
+import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;
 import org.treblereel.gwt.three4g.math.Vector3;
 
@@ -9,6 +10,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/24/18.
  */
+@JsType(isNative = true, namespace = "THREE")
 public class ConvexGeometry extends Geometry {
 
     /**
