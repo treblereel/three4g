@@ -374,13 +374,13 @@ public class WebGLRenderer {
     public native JsPropertyMap getDrawingBufferSize();
 
     @JsOverlay
-    public Double getDrawingBufferWidthSize() {
+    public final Double getDrawingBufferWidthSize() {
         JsPropertyMap holder = Js.uncheckedCast(getDrawingBufferSize());
         return Double.parseDouble(holder.get("width").toString());
     }
 
     @JsOverlay
-    public Double getDrawingBufferHeightSize() {
+    public final Double getDrawingBufferHeightSize() {
         JsPropertyMap holder = Js.uncheckedCast(getDrawingBufferSize());
         return Double.parseDouble(holder.get("height").toString());
     }
@@ -400,13 +400,13 @@ public class WebGLRenderer {
     public native Object getSize();
 
     @JsOverlay
-    public Double getWidth() {
+    public final Double getWidth() {
         JsPropertyMap sizeObject = Js.uncheckedCast(getSize());
         return Double.parseDouble((sizeObject.get("width").toString()));
     }
 
     @JsOverlay
-    public Double getHeight() {
+    public final Double getHeight() {
         JsPropertyMap sizeObject = Js.uncheckedCast(getSize());
         return Double.parseDouble(sizeObject.get("height").toString());
     }

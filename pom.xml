@@ -25,6 +25,11 @@
         </license>
     </licenses>
 
+    <scm>
+        <url>https://github.com/treblereel/three4g</url>
+        <connection>scm:git:git://github.com/treblereel/three4g.git</connection>
+    </scm>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -51,6 +56,7 @@
                 <executions>
                     <execution>
                         <id>attach-sources</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -64,7 +70,7 @@
                 <executions>
                     <execution>
                         <id>attach-javadoc</id>
-                        <phase>install</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
