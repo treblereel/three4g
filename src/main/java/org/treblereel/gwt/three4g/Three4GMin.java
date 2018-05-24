@@ -15,7 +15,7 @@ public class Three4GMin implements EntryPoint {
         load();
     }
 
-    private static void load() {
+    public static void load() {
         ScriptInjector.fromString(ThreeJsTextResource.IMPL.getThreeJSMin().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW).inject();
 
