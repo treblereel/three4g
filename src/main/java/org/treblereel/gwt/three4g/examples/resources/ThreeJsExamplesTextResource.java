@@ -15,4 +15,12 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/OrbitControls.js")
     TextResource getThreeOrbitControlsJS();
 
+    @Source("js/DecalGeometry.js")
+    TextResource getThreeDecalGeometryJS();
+
+    @Source("js/ConvexGeometry.js")
+    TextResource getThreeConvexGeometryJS();
+
+
+
 }

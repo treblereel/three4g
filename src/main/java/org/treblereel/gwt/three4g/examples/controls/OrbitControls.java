@@ -200,7 +200,7 @@ public class OrbitControls extends EventDispatcher {
     /**
      * Get the current vertical rotation, in radians.
      *
-     * @return
+     * @return current vertical rotation
      */
     public native float getPolarAngle();
 
