@@ -21,6 +21,12 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/ConvexGeometry.js")
     TextResource getThreeConvexGeometryJS();
 
+    @Source("js/SceneUtils.js")
+    TextResource getThreeSceneUtilsJS();
+
+    @Source("js/BufferGeometryUtils.js")
+    TextResource getThreeBufferGeometryUtilsJS();
+
 
 
 }
