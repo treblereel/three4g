@@ -39,6 +39,9 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/QuickHull.js")
     TextResource getThreeQuickHullJS();
 
+    @Source("js/Lut.js")
+    TextResource getThreeLutJS();
+
 
 
 }

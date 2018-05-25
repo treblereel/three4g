@@ -499,6 +499,43 @@ public class WebGLRenderer {
     /**
      * Sets the clear color and opacity.
      *
+     * @param color instance of String
+     */
+    public native void setClearColor(String color);
+
+    /**
+     * Sets the clear color and opacity.
+     *
+     * @param alpha the clear alpha
+     * @param color instance of String
+     */
+    public native void setClearColor(String color, float alpha);
+
+    /**
+     * Sets the clear color and opacity.
+     *
+     * @param color instance of int
+     */
+    public native void setClearColor(int color);
+
+    /**
+     * Sets the clear color and opacity.
+     *
+     * @param alpha the clear alpha
+     * @param color instance of int
+     */
+    public native void setClearColor(int color, float alpha);
+
+    /**
+     * Sets the clear color and opacity.
+     *
+     * @param color instance of Color
+     */
+    public native void setClearColor(Color color);
+
+    /**
+     * Sets the clear color and opacity.
+     *
      * @param alpha the clear alpha
      * @param color instance of Color
      */
@@ -546,6 +583,16 @@ public class WebGLRenderer {
      * @return Return a Boolean true if the context supports vertex textures
      */
     public native boolean supportsVertexTextures();
+
+    /**
+     * Resizes the output canvas to (width, height) with device pixel ratio taken into account,
+     * and also sets the viewport to fit that size, starting in (0, 0). Setting updateStyle to
+     * false prevents any style changes to the output canvas.
+     *
+     * @param width       as int
+     * @param height      as int
+     */
+    public native void setSize(int width, int height);
 
     /**
      * Resizes the output canvas to (width, height) with device pixel ratio taken into account,
