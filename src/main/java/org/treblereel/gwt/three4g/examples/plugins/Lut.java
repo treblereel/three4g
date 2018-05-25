@@ -48,7 +48,7 @@ public class Lut {
      * Copies given lut.
      *
      * @param lut — Lut to copy.
-     * @return
+     * @return instance of Lut
      */
     public native Lut copy(Lut lut);
 
@@ -109,6 +109,8 @@ public class Lut {
     /**
      * Insert a new color map into the set of available color maps.
      *
+     * @param colorMapName — The name of the color map to be used to represent the data array.
+     * @param arrayOfColors - array of colors
      * @return instance of Lut
      */
     public native Lut addColorMap(String colorMapName, Object[] arrayOfColors); //TODO

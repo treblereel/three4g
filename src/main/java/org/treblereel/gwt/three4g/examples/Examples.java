@@ -46,6 +46,9 @@ public class Examples implements EntryPoint {
         ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeLutJS().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW).inject();
 
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeGLTFExporterJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
 
 /*        try {
             if (new OrbitControls(null) == null) {

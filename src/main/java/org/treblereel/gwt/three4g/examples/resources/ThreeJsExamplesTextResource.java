@@ -42,6 +42,9 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/Lut.js")
     TextResource getThreeLutJS();
 
+    @Source("js/GLTFExporter.js")
+    TextResource getThreeGLTFExporterJS();
+
 
 
 }
