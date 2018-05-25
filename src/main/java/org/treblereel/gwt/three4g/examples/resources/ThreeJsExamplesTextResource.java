@@ -36,6 +36,9 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/SVGRenderer.js")
     TextResource getThreeSVGRendererJS();
 
+    @Source("js/QuickHull.js")
+    TextResource getThreeQuickHullJS();
+
 
 
 }
