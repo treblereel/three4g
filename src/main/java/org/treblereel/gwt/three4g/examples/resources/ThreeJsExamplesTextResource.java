@@ -45,6 +45,40 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/GLTFExporter.js")
     TextResource getThreeGLTFExporterJS();
 
+    @Source("js/BabylonLoader.js")
+    TextResource getThreeBabylonLoaderJS();
 
+    @Source("js/GLTFLoader.js")
+    TextResource getThreeGLTFLoaderJS();
+
+    @Source("js/DRACOLoader.js")
+    TextResource getThreeDRACOLoaderJS();
+
+    @Source("js/LoaderSupport.js")
+    TextResource getThreeLoaderSupportJS();
+
+    @Source("js/OBJLoader.js")
+    TextResource getThreeOBJLoaderJS();
+
+    @Source("js/OBJLoader2.js")
+    TextResource getThreeOBJLoader2JS();
+
+    @Source("js/ColladaLoader.js")
+    TextResource getThreeColladaLoaderJS();
+
+    @Source("js/PCDLoader.js")
+    TextResource getThreePCDLoaderJS();
+
+    @Source("js/PDBLoader.js")
+    TextResource getThreePDBLoaderJS();
+
+    @Source("js/SVGLoader.js")
+    TextResource getThreeSVGLoaderJS();
+
+    @Source("js/TGALoader.js")
+    TextResource getThreeTGALoaderJS();
+
+    @Source("js/PRWMLoader.js")
+    TextResource getThreePRWMLoaderJS();
 
 }

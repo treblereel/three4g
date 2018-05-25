@@ -49,6 +49,42 @@ public class Examples implements EntryPoint {
         ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeGLTFExporterJS().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW).inject();
 
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeBabylonLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeGLTFLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeDRACOLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeLoaderSupportJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeOBJLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeOBJLoader2JS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeColladaLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreePCDLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreePDBLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeSVGLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreeTGALoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+        ScriptInjector.fromString(ThreeJsExamplesTextResource.IMPL.getThreePRWMLoaderJS().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW).inject();
+
 
 /*        try {
             if (new OrbitControls(null) == null) {
