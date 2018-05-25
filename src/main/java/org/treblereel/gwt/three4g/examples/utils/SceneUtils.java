@@ -21,7 +21,7 @@ public class SceneUtils {
      *
      * @param geometry  -- The geometry for the set of materials.
      * @param materials -- The materials for the object.
-     * @return
+     * @return instance of Group
      */
     public native static Group createMultiMaterialObject(Geometry geometry, Material... materials);
 
