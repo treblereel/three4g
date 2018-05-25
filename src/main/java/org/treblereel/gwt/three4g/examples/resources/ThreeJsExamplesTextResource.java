@@ -27,6 +27,15 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/BufferGeometryUtils.js")
     TextResource getThreeBufferGeometryUtilsJS();
 
+    @Source("js/CSS2DRenderer.js")
+    TextResource getThreeCSS2DRendererJS();
+
+    @Source("js/CSS3DRenderer.js")
+    TextResource getThreeCSS3DRendererJS();
+
+    @Source("js/SVGRenderer.js")
+    TextResource getThreeSVGRendererJS();
+
 
 
 }
