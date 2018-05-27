@@ -589,21 +589,21 @@ public class WebGLRenderer {
      * and also sets the viewport to fit that size, starting in (0, 0). Setting updateStyle to
      * false prevents any style changes to the output canvas.
      *
-     * @param width       as int
-     * @param height      as int
+     * @param width       as double
+     * @param height      as double
      */
-    public native void setSize(int width, int height);
+    public native void setSize(double width, double height);
 
     /**
      * Resizes the output canvas to (width, height) with device pixel ratio taken into account,
      * and also sets the viewport to fit that size, starting in (0, 0). Setting updateStyle to
      * false prevents any style changes to the output canvas.
      *
-     * @param width       as int
-     * @param height      as int
+     * @param width       as double
+     * @param height      as double
      * @param updateStyle force style update
      */
-    public native void setSize(int width, int height, boolean updateStyle);
+    public native void setSize(double width, double height, boolean updateStyle);
 
     /**
      * This method sets the correct texture to the correct slot for the WebGL shader. The slot number can be found as a value of the uniform of the sampler.
