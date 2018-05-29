@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.core;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.math.Euler;
 import org.treblereel.gwt.three4g.math.Matrix3;
 import org.treblereel.gwt.three4g.math.Matrix4;
@@ -143,7 +144,7 @@ public class Object3D extends EventDispatcher {
      * An object that can be used to store custom data about the Object3D. It should not hold references
      * to functions as these will not be cloned.
      */
-    public Object userData;
+    public JsPropertyMap userData;
 
     /**
      * UUID of this object instance. This gets automatically assigned, so this shouldn't be edited.
