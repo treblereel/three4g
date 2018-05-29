@@ -19,6 +19,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
 import org.treblereel.gwt.three4g.renderers.parameters.WebGLRendererParameters;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGlShadowMap;
+import org.treblereel.gwt.three4g.renderers.webvr.WebVRManager;
 import org.treblereel.gwt.three4g.scenes.Fog;
 import org.treblereel.gwt.three4g.scenes.Scene;
 import org.treblereel.gwt.three4g.textures.CubeTexture;
@@ -186,6 +187,11 @@ public class WebGLRenderer {
      */
     public int toneMappingWhitePoint;
 
+    /**
+     * Instance of WebVRManager if presented
+     */
+    public WebVRManager vr;
+
     @JsConstructor
     public WebGLRenderer() {
 
@@ -201,6 +207,13 @@ public class WebGLRenderer {
      * units than the GPU supports. This is mainly used internally. See capabilities.maxTextures.
      */
     public native void allocTextureUnit();
+
+    /**
+     * A build in function that can be used instead of requestAnimationFrame. For WebVR projects this function must be used.
+     *
+     * @param callback — The function will be called every available frame. If `null` is passed it will stop any already ongoing animation.
+     */
+    public native void animate(OnAnimate callback);
 
     /**
      * Tells the renderer to clear its color, depth or stencil drawing buffer(s). This method initializes the color buffer
@@ -589,8 +602,8 @@ public class WebGLRenderer {
      * and also sets the viewport to fit that size, starting in (0, 0). Setting updateStyle to
      * false prevents any style changes to the output canvas.
      *
-     * @param width       as double
-     * @param height      as double
+     * @param width  as double
+     * @param height as double
      */
     public native void setSize(double width, double height);
 

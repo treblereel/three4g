@@ -81,4 +81,9 @@ public interface ThreeJsExamplesTextResource extends ClientBundle{
     @Source("js/PRWMLoader.js")
     TextResource getThreePRWMLoaderJS();
 
+    @Source("js/WebVRManager.js")
+    TextResource getThreeWebVRManagerJS();
+
+    @Source("js/WebVR.js")
+    TextResource getThreeWebVRJS();
 }
