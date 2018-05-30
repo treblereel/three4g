@@ -238,64 +238,36 @@ public class Object3D extends EventDispatcher {
     public native Object3D getObjectByProperty(String name, float value);
 
     /**
-     * Returns a vector representing the position of the object in world space.
+     * Returns a vector representing the direction of object's positive z-axis in world space.
      *
+     * @param target — the result will be copied into this Vector3.
      * @return Vector3
      */
-    public native Vector3 getWorldPosition();
-
-    /**
-     * Returns a vector representing the position of the object in world space.
-     *
-     * @param optionalTarget — target to set the result. Otherwise, a new Vector3 is instantiated.
-     * @return Vector3
-     */
-    public native Vector3 getWorldPosition(Vector3 optionalTarget);
+    public native Vector3 getWorldPosition(Vector3 target);
 
     /**
      * Returns a quaternion representing the rotation of the object in world space.
      *
+     * @param target — the result will be copied into this Quaternion.
      * @return Quaternion
      */
-    public native Quaternion getWorldQuaternion();
+    public native Quaternion getWorldQuaternion(Quaternion target);
 
     /**
-     * Returns a quaternion representing the rotation of the object in world space.
+     * Returns a vector of the scaling factors applied to the object for each axis in world space.
      *
-     * @param optionalTarget — if specified, the result will be copied into this Quaternion, otherwise a new Quaternion will be created.
-     * @return Quaternion
+     * @param target — the result will be copied into this Vector3.
+     * @return
      */
-    public native Quaternion getWorldQuaternion(Quaternion optionalTarget);
-
-    /**
-     * Returns the euler angles representing the rotation of the object in world space.
-     *
-     * @return Euler
-     */
-    public native Euler getWorldRotation();
-
-    /**
-     * Returns the euler angles representing the rotation of the object in world space.
-     *
-     * @param optionalTarget — if specified, the result will be copied into this Euler, otherwise a new Euler will be created.
-     * @return Euler
-     */
-    public native Euler getWorldRotation(Euler optionalTarget);
+    public native Vector3 getWorldScale(Vector3 target);
 
     /**
      * Returns a vector representing the direction of object's positive z-axis in world space.
      *
+     * @param target — — the result will be copied into this Vector3.
      * @return Vector3
      */
-    public native Vector3 getWorldDirection();
-
-    /**
-     * Returns a vector representing the direction of object's positive z-axis in world space.
-     *
-     * @param optionalTarget — if specified, the result will be copied into this Vector3, otherwise a new Vector3 will be created.
-     * @return Vector3
-     */
-    public native Vector3 getWorldDirection(Vector3 optionalTarget);
+    public native Vector3 getWorldDirection(Vector3 target);
 
     /**
      * Converts the vector from local space to world space.

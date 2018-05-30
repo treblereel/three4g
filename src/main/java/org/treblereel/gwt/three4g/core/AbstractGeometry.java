@@ -51,8 +51,9 @@ public class AbstractGeometry<T> extends EventDispatcher {
 
     /**
      * Center the geometry based on the bounding box.
+     * @return instance, extends AbstractGeometry
      */
-    public native void center();
+    public native T center();
 
     /**
      * Creates a new clone of the BufferGeometry.
