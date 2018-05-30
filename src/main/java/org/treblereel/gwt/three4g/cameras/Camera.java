@@ -46,24 +46,11 @@ public class Camera extends Object3D {
     public native Camera copy(Camera camera);
 
     /**
-     * Returns a Vector3 representing the world space direction in which the camera is looking.
-     * <p>
-     * Note: This is not the camera’s positive, but its negative z-axis, in contrast to getWorldDirection of the base class (Object3D).
+     * Returns a Vector3 representing the world space direction in which the camera is looking. (Note: A camera looks down its local, negative z-axis).
      *
+     * @param target — the result will be copied into this Vector3.
      * @return Vector3
      */
-    public native Vector3 getWorldDirection();
-
-    /**
-     * Returns a Vector3 representing the world space direction in which the camera is looking.
-     * <p>
-     * Note: This is not the camera’s positive, but its negative z-axis, in contrast to getWorldDirection of the base class (Object3D).
-     *
-     * If an optionalTarget vector is specified, the result will be copied into this vector (which can be reused in this way),
-     * otherwise a new vector will be created.
-     * @return Vector3
-     */
-    public native Vector3 getWorldDirection(Vector3 optionalTarget);
-
+    public native Vector3 getWorldDirection(Vector3 target);
 
 }

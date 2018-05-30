@@ -63,18 +63,10 @@ public class Plane {
     /**
      * Returns a Vector3 coplanar to the plane, by calculating the projection of the normal vector at the origin onto the plane.
      *
-     * @return Vector3
-     */
-    public native Vector3 coplanarPoint();
-
-    /**
-     * Returns a Vector3 coplanar to the plane, by calculating the projection of the normal vector at the origin onto the plane.
-     * optionalTarget if specified, the result will be copied into this Vector3, otherwise a new Vector3 will be created.
-     *
-     * @param optionalTarget Vector3
+     * @param target Vector3
      * @return instance of Place
      */
-    public native Vector3 coplanarPoint(Vector3 optionalTarget);
+    public native Vector3 coplanarPoint(Vector3 target);
 
     /**
      * Copies the values of the passed plane's normal and constant properties to this plane.
@@ -112,20 +104,11 @@ public class Plane {
      * Returns the intersection point of the passed line and the plane. Returns undefined if the line does not intersect. Returns the
      * line's starting point if the line is coplanar with the plane.
      *
-     * @param line - the Line3 to check for intersection.
-     * @return Vector3
-     */
-    public native Vector3 intersectLine(Line3 line);
-
-    /**
-     * Returns the intersection point of the passed line and the plane. Returns undefined if the line does not intersect. Returns the
-     * line's starting point if the line is coplanar with the plane.
-     *
      * @param line           - the Line3 to check for intersection.
-     * @param optionalTarget - the result will be copied into this Vector3, otherwise a new Vector3 will be created.
+     * @param target - the result will be copied into this Vector3, otherwise a new Vector3 will be created.
      * @return Vector3
      */
-    public native Vector3 intersectLine(Line3 line, Vector3 optionalTarget);
+    public native Vector3 intersectLine(Line3 line, Vector3 target);
 
     /**
      * Determines whether or not this plane intersects box.
@@ -168,19 +151,11 @@ public class Plane {
     /**
      * Projects a point onto the plane.
      *
-     * @param point - the Vector3 to project onto the plane.
-     * @return Vector3
-     */
-    public native Vector3 projectPoint(Vector3 point);
-
-    /**
-     * Projects a point onto the plane.
-     *
      * @param point          - the Vector3 to project onto the plane.
-     * @param optionalTarget - the result will be copied into this Vector3, otherwise a new Vector3 will be created.
+     * @param target - the result will be copied into this Vector3, otherwise a new Vector3 will be created.
      * @return Vector3
      */
-    public native Vector3 projectPoint(Vector3 point, Vector3 optionalTarget);
+    public native Vector3 projectPoint(Vector3 point, Vector3 target);
 
     /**
      * Sets the plane's normal and constant properties.

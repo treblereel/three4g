@@ -34,4 +34,6 @@ public class ShadowMaterial extends Material {
     public ShadowMaterial(ShadowMaterialParameters parameters) {
 
     }
+
+    public native ShadowMaterial copy(ShadowMaterial source);
 }
