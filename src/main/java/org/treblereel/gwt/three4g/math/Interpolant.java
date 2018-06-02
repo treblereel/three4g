@@ -43,5 +43,5 @@ public abstract class Interpolant {
     /**
      * @param t Evaluate the interpolant at position t.
      */
-    public native void evaluate(Number t);
+    public native void evaluate(float t);
 }

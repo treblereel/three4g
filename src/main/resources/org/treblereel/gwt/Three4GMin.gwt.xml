@@ -3,6 +3,8 @@
         "http://gwtproject.org/doctype/2.8.2/gwt-module.dtd">
 <module>
     <inherits name="com.google.gwt.user.User"/>
+    <inherits name="com.google.gwt.json.JSON"/>
+
     <inherits name="com.google.gwt.resources.Resources" />
     <inherits name="elemental2.dom.Dom"/>
     <inherits name="elemental2.media.Media"/>

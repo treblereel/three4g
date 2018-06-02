@@ -322,7 +322,7 @@ public class WebGLRenderer {
      * @param texture  instance of Texture
      * @param level    the level
      */
-    public native void copyFramebufferToTexture(Vector2 position, Texture texture, Number level);
+    public native void copyFramebufferToTexture(Vector2 position, Texture texture, int level);
 
     /**
      * Copies all pixels of a texture to an existing texture starting from the given position. Enables access to WebGLRenderingContext.texSubImage2D.
@@ -331,7 +331,7 @@ public class WebGLRenderer {
      * @param dstTexture distinctional Texture
      * @param level the level
      */
-    public native void  copyTextureToTexture (Vector2 position, Texture srcTexture, Texture dstTexture, Number level);
+    public native void  copyTextureToTexture (Vector2 position, Texture srcTexture, Texture dstTexture, int level);
 
     /**
      * Dispose of the current rendering context.
@@ -413,7 +413,7 @@ public class WebGLRenderer {
      *
      * @return in pixel
      */
-    public native Number getPixelRatio();
+    public native double getPixelRatio();
 
     /**
      * Returns an object containing the width and height of the renderer's output canvas, in pixels.
@@ -423,12 +423,12 @@ public class WebGLRenderer {
     public native HeightWidth getSize();
 
     @JsOverlay
-    public final Number getWidth() {
+    public final double getWidth() {
         return getSize().width;
     }
 
     @JsOverlay
-    public final Number getHeight() {
+    public final double getHeight() {
         return getSize().height;
     }
 
@@ -568,7 +568,7 @@ public class WebGLRenderer {
      *
      * @param value pixel ratio
      */
-    public native void setPixelRatio(Number value);
+    public native void setPixelRatio(double value);
 
     /**
      * This method sets the active rendertarget. If the parameter is omitted the canvas is set as the active rendertarget.
@@ -635,7 +635,7 @@ public class WebGLRenderer {
      * @param texture -- The texture that needs to be set.
      * @param slot    -- The number indicating which slot should be used by the texture.
      */
-    public native void setTexture2D(Texture texture, Number slot);
+    public native void setTexture2D(Texture texture, int slot);
 
     /**
      * This method sets the correct texture to the correct slot for the WebGL shader. The slot number can be found as a value of the uniform of the sampler.
@@ -643,7 +643,7 @@ public class WebGLRenderer {
      * @param texture -- The cubeTexture that needs to be set.
      * @param slot    -- The number indicating which slot should be used by the texture.
      */
-    public native void setTextureCube(CubeTexture texture, Number slot);
+    public native void setTextureCube(CubeTexture texture, int slot);
 
 
     /**

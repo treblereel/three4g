@@ -16,9 +16,7 @@ public class Three4G implements EntryPoint {
     }
 
     public static void load() {
-        ScriptInjector.fromString(ThreeJsTextResource.IMPL.getThreeJS().getText())
-                .setWindow(ScriptInjector.TOP_WINDOW).inject();
-
+        ScriptInjector.fromString(ThreeJsTextResource.IMPL.getThreeJS().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
     }
 
 }
