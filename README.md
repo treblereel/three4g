@@ -33,12 +33,14 @@ to your gwt project module, or
 ```xml
 <inherits name="org.treblereel.gwt.Three4GMin"/>
 ```
-if you need Objects from examples add the following to your pom
+for min version.
+
+If you need Objects from examples add the following to your pom
 ```xml
 <dependency>
    <groupId>org.treblereel.gwt</groupId>
    <artifactId>three4g-examples</artifactId>
-   <version>0.1-SNAPSHOT</version>
+   <version>0.1</version>
 </dependency>
 ```
 and to your module:
@@ -48,8 +50,6 @@ and to your module:
 ```
 
 
-
-for min version.
 
 
 # Code example
