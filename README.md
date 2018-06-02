@@ -3,7 +3,7 @@
 ## A Three.js wrapper for GWT
 
 # Maven (not yet)
-Current Version 0.1, implements 0.91 version of three.js
+Current Version 0.1, implements 0.93 version of three.js
 
 <dependency>
     <groupId>org.treblereel.gwt</groupId>
@@ -28,6 +28,21 @@ to your gwt project module, or
 ```java
 <inherits name="org.treblereel.gwt.Three4GMin"/>
 ```
+if you need Objects from examples add the following to your pom
+
+<dependency>
+   <groupId>org.treblereel.gwt</groupId>
+   <artifactId>three4g-examples</artifactId>
+   <version>0.1-SNAPSHOT</version>
+</dependency>
+
+and to your module:
+
+```java
+<inherits name="org.treblereel.gwt.three4g.Examples"/>
+```
+
+
 
 for min version.
 
