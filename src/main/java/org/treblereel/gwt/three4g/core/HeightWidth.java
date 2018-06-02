@@ -10,7 +10,7 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public class HeightWidth {
 
-    public Number width;
+    public double width;
 
-    public Number height;
+    public double height;
 }

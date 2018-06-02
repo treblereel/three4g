@@ -3,7 +3,8 @@
     "http://gwtproject.org/doctype/2.8.2/gwt-module.dtd">
 <module>
   <inherits name="com.google.gwt.user.User"/>
-  <inherits name="com.google.gwt.resources.Resources" />
+  <inherits name="com.google.gwt.json.JSON"/>
+
   <inherits name="elemental2.dom.Dom"/>
   <inherits name="elemental2.media.Media"/>
   <inherits name="elemental2.webgl.WebGl"/>
@@ -14,7 +15,7 @@
   <source path="three4g" />
   <resource path="three4g/resources" />
 
-  <set-property name="gwt.logging.enabled" value="TRUE"/>
-  <set-property name="gwt.logging.logLevel" value="ALL"/>
+<!--  <set-property name="gwt.logging.enabled" value="TRUE"/>
+  <set-property name="gwt.logging.logLevel" value="ALL"/>-->
 
 </module>

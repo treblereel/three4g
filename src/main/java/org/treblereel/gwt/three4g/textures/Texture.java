@@ -214,6 +214,11 @@ public class Texture extends EventDispatcher {
     public native int getVersion();
 
     /**
+     * Update the texture's uv-transform .matrix from the texture properties .offset, .repeat, .rotation, and .center.
+     */
+    public native void updateMatrix();
+
+    /**
      * Make copy of the texture. Note this is not a "deep copy", the image is shared.
      *
      * @return instance of texture

@@ -92,10 +92,10 @@ public class Color {
     /**
      * Adds s to the RGB values of this color.
      *
-     * @param s number
+     * @param s float
      * @return Color
      */
-    public native Color addScalar(Number s);
+    public native Color addScalar(float s);
 
     /**
      * Returns a new Color with the same r, g and b values as this one.
@@ -243,7 +243,7 @@ public class Color {
      * @param scalar Scalar
      * @return Color
      */
-    public native Color multiplyScalar(Number scalar);
+    public native Color multiplyScalar(float scalar);
 
     /**
      * Adds the given h, s, and l to this color's values. Internally, this converts the color's r, g and b values to
