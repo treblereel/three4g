@@ -38,6 +38,11 @@ public class PointsMaterial extends Material{
     public Texture map;
 
     /**
+     * Define whether the material uses morphTargets. Default is false.
+     */
+    public boolean morphTargets;
+
+    /**
      * Sets the size of the points. Default is 1.0.
      */
     public Number size;

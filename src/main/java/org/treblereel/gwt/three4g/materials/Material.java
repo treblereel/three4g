@@ -237,7 +237,7 @@ public class Material extends EventDispatcher {
     /**
      * An object that can be used to store custom data about the Material. It should not hold references to functions as these will not be cloned.
      */
-    public Object userData;
+    public JsPropertyMap userData;
 
     @JsConstructor
     public Material() {

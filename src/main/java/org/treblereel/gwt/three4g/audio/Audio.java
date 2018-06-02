@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.audio;
 
+import elemental2.dom.HTMLMediaElement;
 import elemental2.media.AudioBuffer;
 import elemental2.media.AudioNode;
 import elemental2.media.BiquadFilterNode;
@@ -183,6 +184,13 @@ public class Audio extends Object3D {
      * @param value boolean
      */
     public native void setLoop(boolean value);
+
+    /**
+     * Applies the given object of type HTMLMediaElement as the source of this audio.
+     * Also sets hasPlaybackControl to false.
+     * @param mediaElement of type HTMLMediaElement
+     */
+    public native void setMediaElementSource(HTMLMediaElement mediaElement);
 
     /**
      * Setup the source to the audioBuffer, and sets sourceType to 'audioNode'.
