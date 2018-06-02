@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.core;
 import elemental2.core.JsObject;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.math.Box3;
 import org.treblereel.gwt.three4g.math.Sphere;
 
@@ -73,6 +74,11 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
      * Hashmap of BufferAttributes holding details of the geometry's morphTargets.
      */
     public HashMap<String, BufferAttribute> morphAttributes;
+
+    /**
+     * An object that can be used to store custom data about the BufferGeometry. It should not hold references to functions as these will not be cloned.
+     */
+    public JsPropertyMap userData;
 
     /**
      * This creates a new BufferGeometry. It also sets several properties to a default value.

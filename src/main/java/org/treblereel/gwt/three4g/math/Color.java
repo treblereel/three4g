@@ -127,6 +127,14 @@ public class Color {
     public native Color convertLinearToGamma();
 
     /**
+     * Converts this color from gamma to linear space by taking r, g and b to the power of gammaFactor.
+     *
+     * @param gammaFactor - Default is 2.0.
+     * @return Color
+     */
+    public native Color convertLinearToGamma(float gammaFactor);
+
+    /**
      * Copies the given color into this color while converting it from gamma to linear space by
      * taking r, g and b to the power of gammaFactor.
      *
@@ -139,7 +147,7 @@ public class Color {
      * Copies the given color into this color while converting it from gamma to linear space by
      * taking r, g and b to the power of gammaFactor.
      *
-     * @param color — Color to copy.
+     * @param color       — Color to copy.
      * @param gammaFactor - Default is 2.0.
      * @return Color
      */
@@ -156,7 +164,7 @@ public class Color {
     /**
      * Copies the given color into this color while converting it from linear to gamma space by taking r, g and b to the power of 1 / gammaFactor.
      *
-     * @param color — Color to copy.
+     * @param color       — Color to copy.
      * @param gammaFactor - Default is 2.0.
      * @return Color
      */
@@ -173,7 +181,7 @@ public class Color {
     /**
      * Sets this color's components based on an array formatted like [ r, g, b ].
      *
-     * @param  array - Array of floats in the form [ r, g, b ].
+     * @param array - Array of floats in the form [ r, g, b ].
      * @return Color
      */
     public native Color fromArray(float[] array);
@@ -181,7 +189,7 @@ public class Color {
     /**
      * Sets this color's components based on an array formatted like [ r, g, b ].
      *
-     * @param array - Array of floats in the form [ r, g, b ].
+     * @param array  - Array of floats in the form [ r, g, b ].
      * @param offset - An optional offset into the array.
      * @return Color
      */
@@ -332,7 +340,7 @@ public class Color {
     /**
      * Returns an array of the form [ r, g, b ].
      *
-     * @param array - An optional array to store the color to.
+     * @param array  - An optional array to store the color to.
      * @param offset - An optional offset into the array.
      * @return Color
      */

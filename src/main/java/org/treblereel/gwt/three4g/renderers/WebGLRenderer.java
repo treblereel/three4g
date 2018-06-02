@@ -213,7 +213,7 @@ public class WebGLRenderer {
      *
      * @param callback — The function will be called every available frame. If `null` is passed it will stop any already ongoing animation.
      */
-    public native void animate(OnAnimate callback);
+    public native void setAnimationLoop(OnAnimate callback);
 
     /**
      * Tells the renderer to clear its color, depth or stencil drawing buffer(s). This method initializes the color buffer

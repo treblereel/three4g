@@ -76,6 +76,15 @@ public class ImageBitmapLoader {
     public native void load(String url, OnLoadCallback<ImageBitmap> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
+     * Given a URL, uses the URL modifier callback (if any) and returns a resolved URL. If no URL modifier is set, returns
+     * the original URL.
+     *
+     * @param url — the url to load
+     * @return resulting url
+     */
+    public native String resolveURL(String url);
+
+    /**
      * Set the .crossOrigin attribute.
      *
      * @param origin attribute

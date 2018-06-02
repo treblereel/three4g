@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.Mouse;
 
 /**
  * Material Constants
@@ -15,7 +16,7 @@ import jsinterop.annotations.JsType;
 public class THREE {
 
     public static int REVISION;
-    //public static int MOUSE={LEFT:0,MIDDLE:1,RIGHT:2};
+    public static Mouse MOUSE;
     public static int CullFaceNone;
     public static int CullFaceBack;
     public static int CullFaceFront;
