@@ -5,40 +5,45 @@
 # Maven (not yet)
 Current Version 0.1, implements 0.93 version of three.js
 
+```xml
 <dependency>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
     <version>0.1</version>
 </dependency>
+```
+
 
 Snapshot Version 0.1-SNAPSHOT
 
+```xml
 <dependency>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
     <version>0.1-SNAPSHOT</version>
 </dependency>
+```
 
 # Setup
 all you need to do is add
-```java
+```xml
 <inherits name="org.treblereel.gwt.Three4G"/>
 ```
 to your gwt project module, or   
-```java
+```xml
 <inherits name="org.treblereel.gwt.Three4GMin"/>
 ```
 if you need Objects from examples add the following to your pom
-
+```xml
 <dependency>
    <groupId>org.treblereel.gwt</groupId>
    <artifactId>three4g-examples</artifactId>
    <version>0.1-SNAPSHOT</version>
 </dependency>
-
+```
 and to your module:
 
-```java
+```xml
 <inherits name="org.treblereel.gwt.three4g.Examples"/>
 ```
 
