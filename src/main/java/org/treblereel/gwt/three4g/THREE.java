@@ -31,6 +31,9 @@ public class THREE {
     public static int DoubleSide;
     public static int FlatShading;
     public static int SmoothShading;
+    public static int NoColors;
+    public static int FaceColors;
+    public static int VertexColors;
     public static int NoBlending;
     public static int NormalBlending;
     public static int AdditiveBlending;

@@ -51,6 +51,9 @@ public class Raycaster {
      */
     public Ray ray;
 
+    public Raycaster() {
+    }
+
     /**
      * @param origin    — The origin vector where the ray casts from.
      * @param direction — The direction vector that gives direction to the ray. Should be normalized.
@@ -108,6 +111,12 @@ public class Raycaster {
      * you'll want to set the material's side property to THREE.DoubleSide.
      */
     public native Intersect intersectObject(Object3D object, boolean recursive, Object[] optionalTarget);
+
+    /**
+     * @param objects   — The objects to check for intersection with the ray.
+     * @return array of intersecting objects
+     */
+    public native Intersect[] intersectObjects(Object3D... objects);
 
     /**
      * @param objects   — The objects to check for intersection with the ray.

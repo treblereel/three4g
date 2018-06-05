@@ -196,6 +196,13 @@ public class Object3D extends EventDispatcher {
     /**
      * Returns a clone of this object and optionally all descendants.
      *
+     * @return Object3D
+     */
+    public native Object3D clone();
+
+    /**
+     * Returns a clone of this object and optionally all descendants.
+     *
      * @param recursive -- if true, descendants of the object are also cloned. Default is true.
      * @return Object3D
      */

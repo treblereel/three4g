@@ -43,7 +43,7 @@ public class CubeTextureLoader {
      * @param urls — array of 6 urls to images, one for each side of the CubeTexture. The urls should be specified in the following order: pos-x, neg-x, pos-y, neg-y, pos-z, neg-z. They can also be Data URIs.
      *             Note that, by convention, cube maps are specified in a coordinate system in which positive-x is to the right when looking up the positive-z axis -- in other words, using a left-handed coordinate system. Since three.js uses a right-handed coordinate system, environment maps used in three.js will have pos-x and neg-x swapped.
      */
-    public native void load(String urls);
+    public native void load(String[] urls);
 
 
     /**
@@ -51,7 +51,7 @@ public class CubeTextureLoader {
      *               Note that, by convention, cube maps are specified in a coordinate system in which positive-x is to the right when looking up the positive-z axis -- in other words, using a left-handed coordinate system. Since three.js uses a right-handed coordinate system, environment maps used in three.js will have pos-x and neg-x swapped.
      * @param onLoad — Will be called when load completes. The argument will be the loaded texture.
      */
-    public native void load(String urls, OnLoadCallback<Object> onLoad);
+    public native void load(String[] urls, OnLoadCallback<CubeTexture> onLoad);
 
 
     /**
@@ -61,7 +61,7 @@ public class CubeTextureLoader {
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
      * @param onError    — Will be called when load errors.
      */
-    public native void load(String urls, OnLoadCallback<CubeTexture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String[] urls, OnLoadCallback<CubeTexture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Set the .crossOrigin attribute.
@@ -74,5 +74,5 @@ public class CubeTextureLoader {
      * @param path Set the base path or URL from which to load files. This can be useful if you are loading many textures from the same directory.
      * @return instance of FileLoader
      */
-    public native FileLoader setPath(String path);
+    public native CubeTextureLoader setPath(String path);
 }
