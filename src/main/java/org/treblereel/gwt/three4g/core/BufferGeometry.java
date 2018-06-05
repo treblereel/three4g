@@ -25,7 +25,7 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
     /**
      * This hashmap has as id the name of the attribute to be set and as value the buffer to set it to. Rather than accessing this property directly, use .addAttribute and .getAttribute to access attributes of this geometry.
      */
-    public HashMap<String, JsObject> attributes; //TODO
+    public HashMap<String, BufferAttribute> attributes;
 
 
     /**
@@ -43,7 +43,7 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
      * Default is
      * { start: 0, count: Infinity }
      */
-    public JsObject drawRange; //TODO
+    public DrawRange drawRange;
 
     /**
      * Split the geometry into groups, each of which will be rendered in a separate WebGL draw call. This allows an array of materials to be used with the bufferGeometry.

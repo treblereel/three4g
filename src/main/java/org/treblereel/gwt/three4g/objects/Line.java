@@ -42,6 +42,16 @@ public class Line extends Object3D {
      * If no material is supplied, a randomized line material will be created and assigned to the object.
      *
      * @param geometry — vertices representing the line segment(s). Default is a new BufferGeometry.
+     */
+    @JsConstructor
+    public Line(AbstractGeometry geometry) {
+
+    }
+
+    /**
+     * If no material is supplied, a randomized line material will be created and assigned to the object.
+     *
+     * @param geometry — vertices representing the line segment(s). Default is a new BufferGeometry.
      * @param material — material for the line. Default is a new LineBasicMaterial with random color.
      */
     @JsConstructor
@@ -51,6 +61,7 @@ public class Line extends Object3D {
 
     /**
      * Computes an array of distance values which are necessary for LineDashedMaterial. For each vertex in the geometry, the method calculates the cumulative length from the current point to the very beginning of the line.
+     *
      * @return float
      */
     public native float computeLineDistances();
@@ -58,7 +69,7 @@ public class Line extends Object3D {
     /**
      * Get intersections between a casted Ray and this Line. Raycaster.intersectObject will call this method.
      *
-     * @param raycaster Raycaster
+     * @param raycaster  Raycaster
      * @param intersects array of objects to check
      */
     public native void raycast(Raycaster raycaster, Object[] intersects);
