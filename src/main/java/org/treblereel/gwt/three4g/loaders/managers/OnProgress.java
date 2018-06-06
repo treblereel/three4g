@@ -5,5 +5,5 @@ package org.treblereel.gwt.three4g.loaders.managers;
  * Created by treblereel on 4/26/18.
  */
 public interface OnProgress {
-    void onProgress();
+    void onProgress(String url, int itemsLoaded, int itemsTotal);
 }

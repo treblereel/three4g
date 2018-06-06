@@ -2,8 +2,8 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.core.EventDispatcher;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.materials.parameters.MaterialParameters;
 import org.treblereel.gwt.three4g.math.Plane;
 
@@ -95,7 +95,7 @@ public class Material extends EventDispatcher {
     /**
      * Custom defines to be injected into the shader. These are passed in form of an object literal, with key/value pairs. { MY_CUSTOM_DEFINE: '' , PI2: Math.PI * 2 }. The pairs are defined in both vertex and fragment shaders. Default is undefined.
      */
-    public JsPropertyMap defines;
+    public JsObject defines;
 
 
     /**
@@ -129,6 +129,13 @@ public class Material extends EventDispatcher {
      * Unique number for this material instance.
      */
     public int id;
+
+    /**
+     * Used to check whether this or derived classes are materials. Default is true.
+     * <p>
+     * You should not change this, as it used internally for optimisation.
+     */
+    public boolean isMaterial;
 
     /**
      * Whether the material is affected by lights. Default is true.
@@ -237,7 +244,7 @@ public class Material extends EventDispatcher {
     /**
      * An object that can be used to store custom data about the Material. It should not hold references to functions as these will not be cloned.
      */
-    public JsPropertyMap userData;
+    public JsObject userData;
 
     @JsConstructor
     public Material() {

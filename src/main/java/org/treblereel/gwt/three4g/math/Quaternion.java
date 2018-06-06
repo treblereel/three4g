@@ -231,7 +231,14 @@ public class Quaternion {
     /**
      * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
      *
-     * @param array - An optional array to store the quaternion. If not specified, a new array will be created.
+     * @return float[]
+     */
+    public native float[] toArray();
+
+    /**
+     * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
+     *
+     * @param array - An array to store the quaternion. If not specified, a new array will be created.
      * @return float[]
      */
     public native float[] toArray(float[] array);
@@ -239,12 +246,11 @@ public class Quaternion {
     /**
      * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
      *
-     * @param array  - An optional array to store the quaternion. If not specified, a new array will be created.
-     * @param offset - optional offset into the array.
+     * @param array  - An array to store the quaternion. If not specified, a new array will be created.
+     * @param offset - offset into the array.
      * @return float[]
      */
     public native float[] toArray(float[] array, int offset);
-
 
     /**
      * Unlike the normal method, the static version of slerp sets a target quaternion to the result of the slerp operation.

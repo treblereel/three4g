@@ -4,7 +4,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.math.Vector;
 import org.treblereel.gwt.three4g.math.Vector2;
 
@@ -50,7 +50,7 @@ public class Shape extends Path {
      * @param divisions -- The fineness of the result.
      * @return JsPropertyMap as a holder for shape and holes
      */
-    public native JsPropertyMap extractPoints(int divisions);
+    public native JsObject extractPoints(int divisions);
 
     @JsOverlay
     public Vector[] getShape(int divisions) {

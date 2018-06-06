@@ -10,7 +10,7 @@ import jsinterop.annotations.JsType;
  * @author pesse
  */
 @JsType(isNative = true, namespace = "THREE")
-public class EventDispatcher {
+public class EventDispatcher extends JsObject{
 
     @JsType
     @FunctionalInterface

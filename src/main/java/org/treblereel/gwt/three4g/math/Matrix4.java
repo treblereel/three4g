@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.math;
 
-import elemental2.core.Float32Array;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
@@ -30,7 +29,7 @@ public class Matrix4 implements Matrix {
     /**
      * A column-major list of matrix values.
      */
-    public Float32Array elements;
+    public float[] elements;
 
     /**
      * Used to check whether this or derived classes are Matrix4s. Default is true.

@@ -17,5 +17,5 @@ public interface ThreeJsTextResource extends ClientBundle{
     TextResource getThreeJS();
 
     @Source("js/three.min.js")
-    ExternalTextResource getThreeJSMin();
+    TextResource getThreeJSMin();
 }

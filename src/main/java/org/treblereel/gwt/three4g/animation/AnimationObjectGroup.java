@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.animation;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
 
 /**
@@ -19,7 +19,7 @@ public class AnimationObjectGroup {
     /**
      * An object that contains some informations of this AnimationObjectGroup (total number, number in use, number of bindings per object)
      */
-    public JsPropertyMap stats;
+    public JsObject stats;
 
     /**
      * The UUID of this AnimationObjectGroup. It gets automatically assigned and shouldn't be edited.

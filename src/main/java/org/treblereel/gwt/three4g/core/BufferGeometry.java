@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.core;
 
-import elemental2.core.JsObject;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
@@ -25,7 +24,7 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
     /**
      * This hashmap has as id the name of the attribute to be set and as value the buffer to set it to. Rather than accessing this property directly, use .addAttribute and .getAttribute to access attributes of this geometry.
      */
-    public HashMap<String, BufferAttribute> attributes;
+    public JsPropertyMap<BufferAttribute> attributes;
 
 
     /**
@@ -78,7 +77,7 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
     /**
      * An object that can be used to store custom data about the BufferGeometry. It should not hold references to functions as these will not be cloned.
      */
-    public JsPropertyMap userData;
+    public org.treblereel.gwt.three4g.core.JsObject userData;
 
     /**
      * This creates a new BufferGeometry. It also sets several properties to a default value.

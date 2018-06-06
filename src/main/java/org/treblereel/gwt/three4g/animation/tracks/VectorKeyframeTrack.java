@@ -2,7 +2,6 @@ package org.treblereel.gwt.three4g.animation.tracks;
 
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.animation.KeyframeTrack;
 

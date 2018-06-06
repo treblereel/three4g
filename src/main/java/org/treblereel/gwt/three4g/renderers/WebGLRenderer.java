@@ -8,7 +8,6 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
-import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.HeightWidth;
 import org.treblereel.gwt.three4g.core.Object3D;
@@ -394,19 +393,7 @@ public class WebGLRenderer {
      *
      * @return JsPropertyMap as a holder for width and height
      */
-    public native JsPropertyMap getDrawingBufferSize();
-
-    @JsOverlay
-    public final Double getDrawingBufferWidthSize() {
-        JsPropertyMap holder = Js.uncheckedCast(getDrawingBufferSize());
-        return Double.parseDouble(holder.get("width").toString());
-    }
-
-    @JsOverlay
-    public final Double getDrawingBufferHeightSize() {
-        JsPropertyMap holder = Js.uncheckedCast(getDrawingBufferSize());
-        return Double.parseDouble(holder.get("height").toString());
-    }
+    public native HeightWidth getDrawingBufferSize();
 
     /**
      * Returns current device pixel ratio used.

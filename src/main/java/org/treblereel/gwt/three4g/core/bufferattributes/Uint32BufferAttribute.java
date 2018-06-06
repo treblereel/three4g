@@ -1,6 +1,6 @@
 package org.treblereel.gwt.three4g.core.bufferattributes;
 
-import elemental2.core.TypedArray;
+import elemental2.core.Uint32Array;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
 
@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.core.BufferAttribute;
  */
 @JsType(isNative = true, namespace = "THREE")
 public class Uint32BufferAttribute extends BufferAttribute {
-    
+
     /**
      * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
      *                 This array should have
@@ -18,12 +18,12 @@ public class Uint32BufferAttribute extends BufferAttribute {
      * @param itemSize -- the number of values of the array that should be associated with a particular vertex. For instance, if this
      *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
-    public Uint32BufferAttribute(TypedArray array, int itemSize) {
-        super(array, itemSize);
+    public Uint32BufferAttribute(int[] array, int itemSize) {
+        super(new Uint32Array(array), itemSize);
     }
 
     /**
-     * @param array      -- Must be a TypedArray. Used to instantiate the buffer.
+     * @param array      -- Must be a Integer[]. Used to instantiate the buffer.
      *                   This array should have
      *                   itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
      * @param itemSize   -- the number of values of the array that should be associated with a particular vertex. For instance, if this
@@ -33,7 +33,7 @@ public class Uint32BufferAttribute extends BufferAttribute {
      *                   in the array data will be mapped to 0.0f - +1.0f in the GLSL attribute. An Int16Array (signed)
      *                   would map from -32767 - +32767 to -1.0f - +1.0f. If normalized is false, the values will be converted
      */
-    public Uint32BufferAttribute(TypedArray array, int itemSize, boolean normalized) {
-        super(array, itemSize, normalized);
+    public Uint32BufferAttribute(int[] array, int itemSize, boolean normalized) {
+        super(new Uint32Array(array), itemSize, normalized);
     }
 }
