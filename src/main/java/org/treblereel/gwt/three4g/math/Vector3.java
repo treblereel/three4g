@@ -440,7 +440,7 @@ public class Vector3 implements Vector {
      * If index equals 2 set z to value
      *
      * @param index - 0, 1 or 2.
-     * @param value - Float
+     * @param value - float
      */
     public native void setComponent(int index, float value);
 

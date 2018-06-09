@@ -332,7 +332,7 @@ public class Color {
     /**
      * Returns an array of the form [ r, g, b ].
      *
-     * @param array - An optional array to store the color to.
+     * @param array - An array to store the color to.
      * @return Color
      */
     public native float[] toArray(float[] array);
@@ -340,8 +340,8 @@ public class Color {
     /**
      * Returns an array of the form [ r, g, b ].
      *
-     * @param array  - An optional array to store the color to.
-     * @param offset - An optional offset into the array.
+     * @param array  - An array to store the color to.
+     * @param offset - An offset into the array.
      * @return Color
      */
     public native float[] toArray(float[] array, int offset);

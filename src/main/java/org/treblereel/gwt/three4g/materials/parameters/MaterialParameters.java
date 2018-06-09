@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Plane;
 
@@ -236,5 +236,5 @@ public class MaterialParameters {
     /**
      * An object that can be used to store custom data about the Material. It should not hold references to functions as these will not be cloned.
      */
-    public JsPropertyMap userData;
+    public JsObject userData;
 }

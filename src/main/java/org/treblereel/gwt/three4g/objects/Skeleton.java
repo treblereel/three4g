@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.objects;
 
-import elemental2.core.Float32Array;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Matrix4;
@@ -28,7 +27,7 @@ public class Skeleton {
     /**
      * The array buffer holding the bone data when using a vertex texture.
      */
-    public Float32Array boneMatrices;
+    public float[] boneMatrices;
 
     /**
      * The DataTexture holding the bone data when using a vertex texture.

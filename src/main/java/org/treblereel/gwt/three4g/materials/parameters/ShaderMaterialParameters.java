@@ -2,14 +2,13 @@ package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;
 
 /**
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/12/18.
  */
-@JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public class ShaderMaterialParameters extends MaterialParameters {
 
     /**
@@ -67,6 +66,7 @@ public class ShaderMaterialParameters extends MaterialParameters {
      */
     public boolean skinning;
 
+
     /**
      * An object of the form:
      * { "uniform1": { value: 1.0 }, "uniform2": { value: 2 } } specifying the uniforms to be passed to the shader code; keys
@@ -75,7 +75,7 @@ public class ShaderMaterialParameters extends MaterialParameters {
      * GLSL code. Note that uniforms are refreshed on every frame, so updating the value of the uniform will immediately
      * update the value available to the GLSL code.
      */
-    public JsPropertyMap uniforms;
+    public Uniforms uniforms;
 
     /**
      * Define how the vertices are colored, by defining how the colors attribute gets populated. Possible values
@@ -99,4 +99,14 @@ public class ShaderMaterialParameters extends MaterialParameters {
      * Due to limitations in the ANGLE layer, on Windows platforms linewidth will always be 1 regardless of the set value.
      */
     public float wireframeLinewidth;
+
+    /**
+     * An object of the form:
+     * { "uniform1": { value: 1.0 }, "uniform2": { value: 2 } } specifying the uniforms to be passed to the shader code; keys
+     * are uniform names, values are definitions of the form
+     * { value: 1.0 } where value is the value of the uniform. Names must match the name of the uniform, as defined in the
+     * GLSL code. Note that uniforms are refreshed on every frame, so updating the value of the uniform will immediately
+     * update the value available to the GLSL code.
+     */
+
 }

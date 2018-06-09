@@ -1,7 +1,6 @@
 package org.treblereel.gwt.three4g.animation;
 
 import elemental2.core.Float32Array;
-import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
@@ -35,13 +34,13 @@ public class KeyframeTrack {  //TODO check it
     /**
      * A Float32Array, converted from the times array which is passed in the constructor.
      */
-    public Float32Array times;
+    public float[] times;
 
 
     /**
      * A Float32Array, converted from the values array which is passed in the constructor.
      */
-    public Float32Array values;
+    public float[] values;
 
     /**
      * The default interpolation type: InterpolateLinear.
@@ -69,7 +68,7 @@ public class KeyframeTrack {  //TODO check it
      * @param values - an array with the values related to the times array, converted internally to a Float32Array.
      */
     @JsConstructor
-    public KeyframeTrack(String name, JsArray times, JsArray values) {
+    public KeyframeTrack(String name, float[] times, float[] values) {
 
     }
 
@@ -80,7 +79,7 @@ public class KeyframeTrack {  //TODO check it
      * @param interpolation - the type of interpolation to use. See Animation Constants for possible values. Default is InterpolateLinear.
      */
     @JsConstructor
-    public KeyframeTrack(String name, JsArray times, JsArray values, int interpolation) {
+    public KeyframeTrack(String name, float[] times, float[] values, int interpolation) {
 
     }
 

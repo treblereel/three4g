@@ -14,6 +14,8 @@ import org.treblereel.gwt.three4g.objects.Mesh;
 @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
 public class Intersect {
 
+    public int index;
+
     /**
      * distance between the origin of the ray and the intersection
      */

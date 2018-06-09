@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 import org.treblereel.gwt.three4g.textures.Texture;
@@ -85,7 +86,7 @@ public class ObjectLoader {
      * @param onLoad — Will be called when load completes. The argument will be the loaded object.
      * @return instance of Texture
      */
-    public native Texture load(String url, OnLoadCallback<Object> onLoad);
+    public native Texture load(String url, OnLoadCallback<JsObject> onLoad);
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
@@ -96,7 +97,7 @@ public class ObjectLoader {
      * @param onError    — Will be called when load errors.
      * @return instance of Texture
      */
-    public native Texture load(String url, OnLoadCallback<Object> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native Texture load(String url, OnLoadCallback<JsObject> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * @param json — required. The JSON source to parse.
@@ -113,7 +114,7 @@ public class ObjectLoader {
      *               to parse a previously loaded JSON structure.
      * @return Object3D
      */
-    public native Object3D parse(Object json, OnLoadCallback<Object> onLoad);
+    public native Object3D parse(Object json, OnLoadCallback<JsObject> onLoad);
 
     /**
      * This is used .parse to parse any geometries or buffer geometries in the JSON structure. Internally it uses JSONLoader

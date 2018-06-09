@@ -2,7 +2,6 @@ package org.treblereel.gwt.three4g.core;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.extra.Intersect;
 import org.treblereel.gwt.three4g.math.Ray;
@@ -83,6 +82,19 @@ public class Raycaster {
 
     /**
      * @param object    — The object to check for intersection with the ray.
+     * @return Checks all intersection between the ray and the object with or without the descendants. Intersections are
+     * returned sorted by distance, closest first. An array of intersections is returned...
+     * Raycaster delegates to the raycast method of the passed object, when evaluating whether the ray intersects the
+     * object or not. This allows meshes to respond differently to ray casting than lines and pointclouds.
+     * <p>
+     * Note that for meshes, faces must be pointed towards the origin of the ray in order to be detected; intersections
+     * of the ray passing through the back of a face will not be detected. To raycast against both faces of an object,
+     * you'll want to set the material's side property to THREE.DoubleSide.
+     */
+    public native Intersect[] intersectObject(Object3D object);
+
+    /**
+     * @param object    — The object to check for intersection with the ray.
      * @param recursive — If true, it also checks all descendants. Otherwise it only checks intersecton with the object. Default is false.
      * @return Checks all intersection between the ray and the object with or without the descendants. Intersections are
      * returned sorted by distance, closest first. An array of intersections is returned...
@@ -93,7 +105,7 @@ public class Raycaster {
      * of the ray passing through the back of a face will not be detected. To raycast against both faces of an object,
      * you'll want to set the material's side property to THREE.DoubleSide.
      */
-    public native Intersect intersectObject(Object3D object, boolean recursive);
+    public native Intersect[] intersectObject(Object3D object, boolean recursive);
 
     /**
      * @param object         — The object to check for intersection with the ray.
@@ -110,7 +122,7 @@ public class Raycaster {
      * of the ray passing through the back of a face will not be detected. To raycast against both faces of an object,
      * you'll want to set the material's side property to THREE.DoubleSide.
      */
-    public native Intersect intersectObject(Object3D object, boolean recursive, Object[] optionalTarget);
+    public native Intersect[] intersectObject(Object3D object, boolean recursive, Object[] optionalTarget);
 
     /**
      * @param objects   — The objects to check for intersection with the ray.

@@ -96,11 +96,11 @@ public class BufferAttribute {
     }
 
     /**
-     * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
-     *                 This array should have
-     *                 itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
-     * @param itemSize -- the number of values of the array that should be associated with a particular vertex. For instance, if this
-     *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
+     * @param array      -- Must be a TypedArray. Used to instantiate the buffer.
+     *                   This array should have
+     *                   itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
+     * @param itemSize   -- the number of values of the array that should be associated with a particular vertex. For instance, if this
+     *                   attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
     @JsConstructor
     public BufferAttribute(TypedArray array, int itemSize) {
@@ -136,10 +136,30 @@ public class BufferAttribute {
      * <p>
      * See TypedArray.set for notes on requirements if copying a TypedArray.
      *
-     * @param array of TypedArray
+     * @param array of int
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyArray(TypedArray array);
+    public native BufferAttribute copyArray(int[] array);
+
+    /**
+     * Copy the array given here (which can be a normal array or TypedArray) into array.
+     * <p>
+     * See TypedArray.set for notes on requirements if copying a TypedArray.
+     *
+     * @param array of double
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute copyArray(double[] array);
+
+    /**
+     * Copy the array given here (which can be a normal array or TypedArray) into array.
+     * <p>
+     * See TypedArray.set for notes on requirements if copying a TypedArray.
+     *
+     * @param array of float
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute copyArray(float[] array);
 
     /**
      * Copy the array given here (which can be a normal array or TypedArray) into array.
@@ -150,11 +170,19 @@ public class BufferAttribute {
     public native BufferAttribute copyArray(JsArray array);
 
     /**
+     * Copy the array given here (which can be a normal array or TypedArray) into array.
+     *
+     * @param array of JsArray
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute copyArray(TypedArray array);
+
+    /**
      * Copy a vector from bufferAttribute[index2] to array[index1].
      *
-     * @param index1 as int value
+     * @param index1          as int value
      * @param bufferAttribute source buffer
-     * @param index2  as int value
+     * @param index2          as int value
      */
     public native void copyAt(int index1, BufferAttribute bufferAttribute, int index2);
 
@@ -242,9 +270,55 @@ public class BufferAttribute {
     public native BufferAttribute set(TypedArray value, int offset);
 
     /**
-     * @param value -- an Array or JsArray from which to copy values.
+     * @param array -- an Array or JsArray from which to copy values.
      *              <p>
      *              In particular, see that page for requirements on value being a TypedArray.
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute set(float[] array);
+
+    /**
+     * @param array -- an Array or JsArray from which to copy values.
+     *              <p>
+     *              In particular, see that page for requirements on value being a TypedArray.
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute set(float[] array, int offset);
+
+    /**
+     * @param array -- an Array or JsArray from which to copy values.
+     *              <p>
+     *              In particular, see that page for requirements on value being a TypedArray.
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute set(int[] array);
+
+    /**
+     * @param array -- an Array or JsArray from which to copy values.
+     *              <p>
+     *              In particular, see that page for requirements on value being a TypedArray.
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute set(int[] array, int offset);
+
+    /**
+     * @param array -- an Array or JsArray from which to copy values.
+     *              <p>
+     *              In particular, see that page for requirements on value being a TypedArray.
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute set(double[] array);
+
+    /**
+     * @param array -- an Array or JsArray from which to copy values.
+     *              <p>
+     *              In particular, see that page for requirements on value being a TypedArray.
+     * @return instance of BufferAttribute
+     */
+    public native BufferAttribute set(double[] array, int offset);
+
+    /**
+     * @param value -- JsArray from which to copy values.
      * @return instance of BufferAttribute
      */
     public native BufferAttribute set(JsArray value);
@@ -279,7 +353,7 @@ public class BufferAttribute {
     /**
      * Sets the x component of the vector at the given index.
      *
-     * @param x component
+     * @param x     component
      * @param index of component
      * @return instance of BufferAttribute
      */
@@ -288,7 +362,7 @@ public class BufferAttribute {
     /**
      * Sets the y component of the vector at the given index.
      *
-     * @param y component
+     * @param y     component
      * @param index of component
      * @return instance of BufferAttribute
      */
@@ -297,7 +371,7 @@ public class BufferAttribute {
     /**
      * Sets the z component of the vector at the given index.
      *
-     * @param z component
+     * @param z     component
      * @param index of component
      * @return instance of BufferAttribute
      */
@@ -306,7 +380,7 @@ public class BufferAttribute {
     /**
      * Sets the w component of the vector at the given index.
      *
-     * @param w component
+     * @param w     component
      * @param index of component
      * @return instance of BufferAttribute
      */
@@ -315,8 +389,8 @@ public class BufferAttribute {
     /**
      * Sets the x and y components of the vector at the given index.
      *
-     * @param x component
-     * @param y component
+     * @param x     component
+     * @param y     component
      * @param index of component
      * @return instance of BufferAttribute
      */
@@ -325,9 +399,9 @@ public class BufferAttribute {
     /**
      * Sets the x, y and z components of the vector at the given index.
      *
-     * @param x component
-     * @param y component
-     * @param z component
+     * @param x     component
+     * @param y     component
+     * @param z     component
      * @param index of component
      * @return instance of BufferAttribute
      */
@@ -336,10 +410,10 @@ public class BufferAttribute {
     /**
      * Sets the x, y, z and w components of the vector at the given index.
      *
-     * @param x component
-     * @param y component
-     * @param z component
-     * @param w component
+     * @param x     component
+     * @param y     component
+     * @param z     component
+     * @param w     component
      * @param index of component
      * @return instance of BufferAttribute
      */

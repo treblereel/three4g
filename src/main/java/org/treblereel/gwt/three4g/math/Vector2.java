@@ -373,7 +373,7 @@ public class Vector2 implements Vector {
      * If index equals 1 set y to value
      *
      * @param index - 0 or 1.
-     * @param value - Float
+     * @param value - float
      */
     public native void setComponent(int index, float value);
 
@@ -437,11 +437,25 @@ public class Vector2 implements Vector {
     /**
      * Returns an array [x, y], or copies x and y into the provided array.
      *
-     * @param array - (optional) array to store the vector to. If this is not provided, a new array will be created.
-     * @param index - (optional) optional offset into the array.
+     * @return float[]
+     */
+    public native float[] toArray();
+
+    /**
+     * Returns an array [x, y], or copies x and y into the provided array.
+     *
+     * @param array - array to store the vector to. If this is not provided, a new array will be created.
+     * @return float[]
+     */
+    public native float[] toArray(float[] array);
+
+    /**
+     * Returns an array [x, y], or copies x and y into the provided array.
+     *
+     * @param array - array to store the vector to. If this is not provided, a new array will be created.
+     * @param index - offset into the array.
      * @return float[]
      */
     public native float[] toArray(float[] array, int index);
-
 
 }
