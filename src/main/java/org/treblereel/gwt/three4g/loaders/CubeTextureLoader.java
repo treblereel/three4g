@@ -2,8 +2,10 @@ package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 import org.treblereel.gwt.three4g.textures.CubeTexture;
+import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
  * Class for loading a CubeTexture. This uses the ImageLoader internally for loading files.
@@ -42,8 +44,9 @@ public class CubeTextureLoader {
     /**
      * @param urls — array of 6 urls to images, one for each side of the CubeTexture. The urls should be specified in the following order: pos-x, neg-x, pos-y, neg-y, pos-z, neg-z. They can also be Data URIs.
      *             Note that, by convention, cube maps are specified in a coordinate system in which positive-x is to the right when looking up the positive-z axis -- in other words, using a left-handed coordinate system. Since three.js uses a right-handed coordinate system, environment maps used in three.js will have pos-x and neg-x swapped.
+     * @return instance of CubeTexture
      */
-    public native void load(String[] urls);
+    public native CubeTexture load(String[] urls);
 
 
     /**

@@ -1,7 +1,6 @@
 package org.treblereel.gwt.three4g.core;
 
 import elemental2.core.JsArray;
-import elemental2.core.JsObject;
 import elemental2.core.TypedArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
@@ -96,11 +95,11 @@ public class BufferAttribute {
     }
 
     /**
-     * @param array      -- Must be a TypedArray. Used to instantiate the buffer.
-     *                   This array should have
-     *                   itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
-     * @param itemSize   -- the number of values of the array that should be associated with a particular vertex. For instance, if this
-     *                   attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
+     * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
+     *                 This array should have
+     *                 itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
+     * @param itemSize -- the number of values of the array that should be associated with a particular vertex. For instance, if this
+     *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
     @JsConstructor
     public BufferAttribute(TypedArray array, int itemSize) {
@@ -224,7 +223,7 @@ public class BufferAttribute {
      * @param index of x component
      * @return instance of Object
      */
-    public native JsObject getX(int index);
+    public native Number getX(int index);
 
     /**
      * Returns the y component of the vector at the given index.
@@ -232,7 +231,7 @@ public class BufferAttribute {
      * @param index of y component
      * @return instance of Object
      */
-    public native Object getY(int index);
+    public native Number getY(int index);
 
     /**
      * Returns the z component of the vector at the given index.
@@ -240,7 +239,7 @@ public class BufferAttribute {
      * @param index of z component
      * @return instance of Object
      */
-    public native Object getZ(int index);
+    public native Number getZ(int index);
 
     /**
      * Sets the value of the onUploadCallback property.
@@ -278,9 +277,10 @@ public class BufferAttribute {
     public native BufferAttribute set(float[] array);
 
     /**
-     * @param array -- an Array or JsArray from which to copy values.
-     *              <p>
-     *              In particular, see that page for requirements on value being a TypedArray.
+     * @param array  -- an Array or JsArray from which to copy values.
+     * @param offset int as offset
+     *               <p>
+     *               In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
     public native BufferAttribute set(float[] array, int offset);
@@ -294,9 +294,11 @@ public class BufferAttribute {
     public native BufferAttribute set(int[] array);
 
     /**
-     * @param array -- an Array or JsArray from which to copy values.
-     *              <p>
-     *              In particular, see that page for requirements on value being a TypedArray.
+     * @param array  -- an Array or JsArray from which to copy values.
+     * @param offset int as offset
+     *
+     *               <p>
+     *               In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
     public native BufferAttribute set(int[] array, int offset);
@@ -311,6 +313,7 @@ public class BufferAttribute {
 
     /**
      * @param array -- an Array or JsArray from which to copy values.
+     * @param offset int as offset
      *              <p>
      *              In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
@@ -418,4 +421,5 @@ public class BufferAttribute {
      * @return instance of BufferAttribute
      */
     public native BufferAttribute setXYZW(int index, Object x, Object y, Object z, Object w);
+
 }

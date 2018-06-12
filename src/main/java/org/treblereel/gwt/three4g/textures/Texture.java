@@ -203,7 +203,7 @@ public class Texture extends EventDispatcher {
      * @return uuid of this object instance
      */
     @JsProperty
-    public native int getUuid();
+    public native String getUuid();
 
     /**
      * This starts at 0 and counts how many times # .needsUpdate is set to true.

@@ -24,4 +24,28 @@ public class Float64BufferAttribute extends BufferAttribute {
         super(new Float64Array((ArrayBuffer) Js.uncheckedCast(array)), itemSize);
     }
 
+    /**
+     * Returns the x component of the vector at the given index.
+     *
+     * @param index of x component
+     * @return instance of Float
+     */
+    public native Float getX(int index);
+
+    /**
+     * Returns the y component of the vector at the given index.
+     *
+     * @param index of y component
+     * @return instance of Float
+     */
+    public native Float getY(int index);
+
+    /**
+     * Returns the z component of the vector at the given index.
+     *
+     * @param index of z component
+     * @return instance of Float
+     */
+    public native Float getZ(int index);
+
 }

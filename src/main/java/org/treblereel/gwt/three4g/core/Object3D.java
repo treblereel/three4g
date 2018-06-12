@@ -263,7 +263,7 @@ public class Object3D extends EventDispatcher {
      * Returns a vector of the scaling factors applied to the object for each axis in world space.
      *
      * @param target — the result will be copied into this Vector3.
-     * @return
+     * @return instance of Vector3
      */
     public native Vector3 getWorldScale(Vector3 target);
 

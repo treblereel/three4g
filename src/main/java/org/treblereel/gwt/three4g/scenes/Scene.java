@@ -2,8 +2,10 @@ package org.treblereel.gwt.three4g.scenes;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.materials.Material;
+import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
  * @author Dmitrii Tikhomirov
@@ -30,7 +32,7 @@ public class Scene extends Object3D {
     /**
      * If not null, sets the background used when rendering the scene, and is always rendered first. Can be set to a Color which sets the clear color, a Texture covering the canvas, or a CubeTexture. Default is null.
      */
-    public Object background;
+    public JsObject background;
 
     @JsConstructor
     public Scene(){

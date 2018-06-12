@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.core;
 
+import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
@@ -42,7 +43,8 @@ public class Geometry extends AbstractGeometry<Geometry> {
      * <p>
      * To signal an update in this array, Geometry.elementsNeedUpdate needs to be set to true.
      */
-    public Face3[] faces;
+    @JsProperty
+    public JsArray<Face3> faces;
 
     /**
      * Array of face UV layers, used for mapping textures onto the geometry.
@@ -111,7 +113,7 @@ public class Geometry extends AbstractGeometry<Geometry> {
      * The array of vertices holds the position of every vertex in the model.
      * To signal an update in this array, .verticesNeedUpdate needs to be set to true.
      */
-    public Vector3[] vertices;
+    public JsArray<Vector3> vertices;
 
     /**
      * Set to true if the vertices array has been updated.

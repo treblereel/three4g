@@ -14,8 +14,8 @@ public class EventDispatcher extends JsObject{
 
     @JsType
     @FunctionalInterface
-    public interface EventListener<T> {
-        void call(Object sender, T event);
+    public interface EventListener<JsObject> {
+        void call(JsObject sender, JsObject event);
     }
 
     /**
@@ -31,7 +31,7 @@ public class EventDispatcher extends JsObject{
      * @param listener The function that gets called when the event is fired.
      */
     @SuppressWarnings("rawtypes")
-    public native void addEventListener(Object type, EventListener listener);
+    public native void addEventListener(String type, EventListener<JsObject> listener);
 
     /**
      * Checks if listener is added to an event type.
@@ -41,7 +41,7 @@ public class EventDispatcher extends JsObject{
      * @return isAdded
      */
     @SuppressWarnings("rawtypes")
-    public native boolean hasEventListener(Object type, EventListener listener);
+    public native boolean hasEventListener(String type, EventListener<JsObject> listener);
 
 
     /**
@@ -51,7 +51,7 @@ public class EventDispatcher extends JsObject{
      * @param listener The function that gets called when the event is fired.
      */
     @SuppressWarnings("rawtypes")
-    public native void removeEventListener(Object type, EventListener listener);
+    public native void removeEventListener(String type, EventListener<JsObject> listener);
 
     /**
      * Fire an event type.

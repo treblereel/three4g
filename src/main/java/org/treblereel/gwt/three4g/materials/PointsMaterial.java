@@ -45,7 +45,7 @@ public class PointsMaterial extends Material{
     /**
      * Sets the size of the points. Default is 1.0.
      */
-    public Number size;
+    public float size;
 
     /**
      * Specify whether points' size will get smaller with the distance. Default is true.
