@@ -36,4 +36,28 @@ public class Uint8ClampedBufferAttribute extends BufferAttribute {
     public Uint8ClampedBufferAttribute(int[] array, int itemSize, boolean normalized) {
         super(new Uint8ClampedArray(array), itemSize, normalized);
     }
+
+    /**
+     * Returns the x component of the vector at the given index.
+     *
+     * @param index of x component
+     * @return instance of Integer
+     */
+    public native Integer getX(int index);
+
+    /**
+     * Returns the y component of the vector at the given index.
+     *
+     * @param index of y component
+     * @return instance of Integer
+     */
+    public native Integer getY(int index);
+
+    /**
+     * Returns the z component of the vector at the given index.
+     *
+     * @param index of z component
+     * @return instance of Integer
+     */
+    public native Integer getZ(int index);
 }

@@ -21,4 +21,28 @@ public class Int8BufferAttribute extends BufferAttribute {
     public Int8BufferAttribute(int[] array, int itemSize) {
         super(new Int8Array(array), itemSize);
     }
+
+    /**
+     * Returns the x component of the vector at the given index.
+     *
+     * @param index of x component
+     * @return instance of Integer
+     */
+    public native Integer getX(int index);
+
+    /**
+     * Returns the y component of the vector at the given index.
+     *
+     * @param index of y component
+     * @return instance of Integer
+     */
+    public native Integer getY(int index);
+
+    /**
+     * Returns the z component of the vector at the given index.
+     *
+     * @param index of z component
+     * @return instance of Integer
+     */
+    public native Integer getZ(int index);
 }

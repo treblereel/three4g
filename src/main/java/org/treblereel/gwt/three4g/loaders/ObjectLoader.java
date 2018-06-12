@@ -183,11 +183,13 @@ public class ObjectLoader {
 
     /**
      * @param value — The crossOrigin string to implement CORS for loading the url from a different domain that allows CORS.
+     * @return instance of ObjectLoader
      */
     public native ObjectLoader setCrossOrigin(String value);
 
     /**
      * @param value — The base path or URL from which textures will be loaded.
+     * @return instance of ObjectLoader
      */
     public native ObjectLoader setTexturePath(String value);
 

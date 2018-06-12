@@ -159,7 +159,7 @@ public class Box2 implements Box {
      *
      * @param min - Vector2 representing the lower (x, y) boundary of the box.
      * @param max - Vector2 representing the lower upper (x, y) boundary of the box.
-     * @return
+     * @return instance of Box2
      */
     public native Box2 set(Vector2 min, Vector2 max);
 

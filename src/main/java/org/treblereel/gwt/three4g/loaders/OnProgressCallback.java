@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import elemental2.dom.XMLHttpRequest;
 import jsinterop.annotations.JsFunction;
 
 /**
@@ -10,5 +9,5 @@ import jsinterop.annotations.JsFunction;
 @JsFunction
 @FunctionalInterface
 public interface OnProgressCallback {
-    void onProgress(XMLHttpRequest request);
+    void onProgress(OnProgressEvent request);
 }

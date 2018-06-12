@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsFunction;
+import org.treblereel.gwt.three4g.core.JsObject;
 
 /**
  * @author Dmitrii Tikhomirov
@@ -9,5 +10,5 @@ import jsinterop.annotations.JsFunction;
 @JsFunction
 @FunctionalInterface
 public interface OnErrorCallback {
-    void onError();
+    void onError(JsObject error);
 }

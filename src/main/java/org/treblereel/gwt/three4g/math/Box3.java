@@ -57,7 +57,7 @@ public class Box3 implements Box {
      *
      * @param point  - Vector3 to clamp.
      * @param target — the result will be copied into this Vector3.
-     * @return
+     * @return instance of Vector3
      */
     public native Vector3 clampPoint(Vector3 point, Vector3 target);
 
@@ -213,7 +213,7 @@ public class Box3 implements Box {
      *
      * @param min - Vector3 representing the lower (x, y, z) boundary of the box.
      * @param max - Vector3 representing the lower upper (x, y, z) boundary of the box.
-     * @return
+     * @return instance of Box3
      */
     public native Box3 set(Vector3 min, Vector3 max);
 
