@@ -14,4 +14,6 @@ public class WebGlShadowMap {
     public boolean autoUpdate;
 
     public boolean needsUpdate;
+
+    public int type;
 }
