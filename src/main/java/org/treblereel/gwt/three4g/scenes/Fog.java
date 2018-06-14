@@ -51,6 +51,17 @@ public class Fog {
     }
 
     /**
+     * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
+     *
+     * @param color color code
+     * @param near as float value
+     * @param far as float value
+     */
+    public Fog(Color color, float near, float far) {
+
+    }
+
+    /**
      * Returns a new fog instance with the same parameters as this one.
      *
      * @return instance of Fog
