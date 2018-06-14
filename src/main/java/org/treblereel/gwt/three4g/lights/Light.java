@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.lights;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.math.Color;
 
 /**
  * Abstract base class for lights - all other light types inherit the properties and methods described here.
@@ -23,7 +24,7 @@ public class Light extends Object3D {
     /**
      * hexadecimal color of the light. Default is 0xffffff (white)
      */
-    public int color;
+    public Color color;
 
     /**
      * numeric value of the light's strength/intensity. Default is 1.
