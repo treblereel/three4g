@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.core;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.math.Euler;
 import org.treblereel.gwt.three4g.math.Matrix3;
 import org.treblereel.gwt.three4g.math.Matrix4;

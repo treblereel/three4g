@@ -5,7 +5,6 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.materials.Material;
-import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
  * @author Dmitrii Tikhomirov

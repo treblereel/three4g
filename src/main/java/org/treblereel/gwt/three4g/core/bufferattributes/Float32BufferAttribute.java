@@ -2,7 +2,6 @@ package org.treblereel.gwt.three4g.core.bufferattributes;
 
 import elemental2.core.ArrayBuffer;
 import elemental2.core.Float32Array;
-import elemental2.core.TypedArray;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.BufferAttribute;

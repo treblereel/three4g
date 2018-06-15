@@ -2,8 +2,8 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.EventDispatcher;
 import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.materials.parameters.MaterialParameters;
 import org.treblereel.gwt.three4g.math.Plane;
 
