@@ -2,10 +2,8 @@ package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 import org.treblereel.gwt.three4g.textures.CubeTexture;
-import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
  * Class for loading a CubeTexture. This uses the ImageLoader internally for loading files.

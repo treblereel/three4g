@@ -2,8 +2,8 @@ package org.treblereel.gwt.three4g.animation;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.EventDispatcher;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 
 /**
  * The AnimationMixer is a player for animations on a particular object in the scene. When multiple objects in the scene

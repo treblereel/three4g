@@ -7,7 +7,6 @@ import elemental2.webgl.WebGLRenderingContext;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.HeightWidth;
 import org.treblereel.gwt.three4g.core.Object3D;
