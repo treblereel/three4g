@@ -65,10 +65,10 @@ public class Mesh extends Object3D {
 
     /**
      * @param geometry —  an instance of Geometry or BufferGeometry. Default is a new BufferGeometry.
-     * @param material —  a Material. Default is a new MeshBasicMaterial with a random color.
+     * @param material —   a single or an array of Material. Default is a new MeshBasicMaterial with a random color.
      */
     @JsConstructor
-    public Mesh(AbstractGeometry geometry, Material material) {
+    public Mesh(AbstractGeometry geometry, Material... material) {
 
     }
 
