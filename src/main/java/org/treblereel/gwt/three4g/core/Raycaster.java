@@ -128,7 +128,7 @@ public class Raycaster {
      * @param objects   — The objects to check for intersection with the ray.
      * @return array of intersecting objects
      */
-    public native Intersect[] intersectObjects(Object3D... objects);
+    public native Intersect[] intersectObjects(Object3D[] objects);
 
     /**
      * @param objects   — The objects to check for intersection with the ray.

@@ -175,18 +175,6 @@
 
 				for ( var i = 0, l = array.length; i < l; i ++ ) {
 
-             //   console.log("event " + JSON.stringify(event))
-
-            //    console.log("dispatchEvent " + JSON.stringify(array[ i ]))
-console.dir(array[ i ]);
-
-if (typeof array[ i ] === "function") {
-  console.log('function');
-}else{
-  console.log('not a function');
-
-}
-
 					array[ i ].call( this, event );
 
 				}
