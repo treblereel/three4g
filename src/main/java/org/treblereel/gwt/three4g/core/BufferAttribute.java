@@ -360,7 +360,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setX(int index, Object x);
+    public native BufferAttribute setX(int index, Number x);
 
     /**
      * Sets the y component of the vector at the given index.
@@ -369,7 +369,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setY(int index, Object y);
+    public native BufferAttribute setY(int index, Number y);
 
     /**
      * Sets the z component of the vector at the given index.
@@ -378,7 +378,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setZ(int index, Object z);
+    public native BufferAttribute setZ(int index, Number z);
 
     /**
      * Sets the w component of the vector at the given index.
@@ -387,7 +387,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setW(int index, Object w);
+    public native BufferAttribute setW(int index, Number w);
 
     /**
      * Sets the x and y components of the vector at the given index.
@@ -397,7 +397,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setXY(int index, Object x, Object y);
+    public native BufferAttribute setXY(int index, Number x, Number y);
 
     /**
      * Sets the x, y and z components of the vector at the given index.
@@ -408,7 +408,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setXYZ(int index, Object x, Object y, Object z);
+    public native BufferAttribute setXYZ(int index, Number x, Number y, Number z);
 
     /**
      * Sets the x, y, z and w components of the vector at the given index.
@@ -420,6 +420,6 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setXYZW(int index, Object x, Object y, Object z, Object w);
+    public native BufferAttribute setXYZW(int index, Number x, Number y, Number z, Number w);
 
 }

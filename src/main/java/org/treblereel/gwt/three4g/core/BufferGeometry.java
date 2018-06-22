@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.core;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.math.Box3;
@@ -21,10 +22,25 @@ import java.util.HashMap;
 @JsType(isNative = true, namespace = "THREE")
 public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
 
+    @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
+    public static class Attributes extends JsObject{
+
+        public BufferAttribute position;
+        public BufferAttribute normal;
+        public BufferAttribute color;
+        public BufferAttribute uv;
+        public BufferAttribute lineDistance;
+
+        Attributes(){
+
+        }
+
+    }
+
     /**
      * This hashmap has as id the name of the attribute to be set and as value the buffer to set it to. Rather than accessing this property directly, use .addAttribute and .getAttribute to access attributes of this geometry.
      */
-    public JsPropertyMap<BufferAttribute> attributes;
+    public Attributes attributes;
 
 
     /**
