@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.materials.parameters.MeshNormalMaterialParamet
  * Created by treblereel on 4/25/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class MeshNormalMaterial {
+public class MeshNormalMaterial extends Material{
 
     /**
      * Whether the material is affected by fog. Default is false.
@@ -43,6 +43,10 @@ public class MeshNormalMaterial {
      * Due to limitations in the ANGLE layer, on Windows platforms linewidth will always be 1 regardless of the set value.
      */
     public float wireframeLinewidth;
+
+    public MeshNormalMaterial() {
+
+    }
 
     @JsConstructor
     public MeshNormalMaterial(MeshNormalMaterialParameters meshNormalMaterialParameters) {
