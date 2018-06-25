@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.textures;
 
+import elemental2.dom.HTMLCanvasElement;
 import elemental2.dom.ImageData;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
@@ -179,13 +180,15 @@ public class Texture extends EventDispatcher {
      */
     public boolean needsUpdate;
 
-    @JsConstructor
     public Texture() {
 
     }
 
-    @JsConstructor
-    public Texture(Object image, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy, int encoding) {
+    public Texture(HTMLCanvasElement image) {
+
+    }
+
+    public Texture(HTMLCanvasElement image, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy, int encoding) {
 
     }
 
