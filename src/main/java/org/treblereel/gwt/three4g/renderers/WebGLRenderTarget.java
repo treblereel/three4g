@@ -75,6 +75,7 @@ public class WebGLRenderTarget extends RenderTarget {
     /**
      * @param width  - The width of the renderTarget.
      * @param height - The height of the renderTarget.
+     * @param webGLRenderTargetParameters options, instance of WebGLRenderTargetParameters
      */
     public WebGLRenderTarget(Number width, Number height, WebGLRenderTargetParameters webGLRenderTargetParameters) {
 
