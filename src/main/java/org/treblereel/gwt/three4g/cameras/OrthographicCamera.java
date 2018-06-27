@@ -78,7 +78,7 @@ public class OrthographicCamera extends Camera {
      * @param far    — Camera frustum far plane.
      */
     @JsConstructor
-    public OrthographicCamera(Number left, Number right, Number top, Number bottom, Number near, Number far) {
+    public OrthographicCamera(float left, float right, float top, float bottom, float near, float far) {
 
     }
 
