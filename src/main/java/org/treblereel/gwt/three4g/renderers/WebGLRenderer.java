@@ -312,6 +312,13 @@ public class WebGLRenderer {
      */
     public native void compile(Scene scene, Camera camera);
 
+    /**
+     * Copies pixels from the current WebGLFramebuffer into a 2D texture. Enables access to WebGLRenderingContext.copyTexImage2D.
+     *
+     * @param position instance of Vector2
+     * @param texture  instance of Texture
+     */
+    public native void copyFramebufferToTexture(Vector2 position, Texture texture);
 
     /**
      * Copies pixels from the current WebGLFramebuffer into a 2D texture. Enables access to WebGLRenderingContext.copyTexImage2D.
