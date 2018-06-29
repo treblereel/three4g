@@ -27,62 +27,62 @@ public class DataTexture extends Texture {
     public Image image;
 
     @JsConstructor
-    public DataTexture(ArrayBuffer data, float width, float height, int format) {
+    public DataTexture(ArrayBuffer data, int width, int height, int format) {
 
     }
 
     @JsConstructor
-    public DataTexture(ArrayBuffer data, float width, float height, int format, int type) {
+    public DataTexture(ArrayBuffer data, int width, int height, int format, int type) {
 
     }
 
     @JsConstructor
-    public DataTexture(ArrayBuffer data, float width, float height, int format, int type, int mapping) {
+    public DataTexture(ArrayBuffer data, int width, int height, int format, int type, int mapping) {
 
     }
 
     @JsConstructor
-    public DataTexture(ArrayBuffer data, float width, float height, int format, int type, int mapping, int wrapS, int wrapT) {
+    public DataTexture(ArrayBuffer data, int width, int height, int format, int type, int mapping, int wrapS, int wrapT) {
 
     }
 
     @JsConstructor
-    public DataTexture(ArrayBuffer data, float width, float height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter) {
+    public DataTexture(ArrayBuffer data, int width, int height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter) {
 
     }
 
     @JsConstructor
-    public DataTexture(ArrayBuffer data, float width, float height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int anisotropy) {
+    public DataTexture(ArrayBuffer data, int width, int height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int anisotropy) {
 
     }
 
     @JsConstructor
-    public DataTexture(TypedArray data, float width, float height, int format) {
+    public DataTexture(TypedArray data, int width, int height, int format) {
 
     }
 
     @JsConstructor
-    public DataTexture(TypedArray data, float width, float height, int format, int type) {
+    public DataTexture(TypedArray data, int width, int height, int format, int type) {
 
     }
 
     @JsConstructor
-    public DataTexture(TypedArray data, float width, float height, int format, int type, int mapping) {
+    public DataTexture(TypedArray data, int width, int height, int format, int type, int mapping) {
 
     }
 
     @JsConstructor
-    public DataTexture(TypedArray data, float width, float height, int format, int type, int mapping, int wrapS, int wrapT) {
+    public DataTexture(TypedArray data, int width, int height, int format, int type, int mapping, int wrapS, int wrapT) {
 
     }
 
     @JsConstructor
-    public DataTexture(TypedArray data, float width, float height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter) {
+    public DataTexture(TypedArray data, int width, int height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter) {
 
     }
 
     @JsConstructor
-    public DataTexture(TypedArray data, float width, float height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int anisotropy) {
+    public DataTexture(TypedArray data, int width, int height, int format, int type, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int anisotropy) {
 
     }
 }
