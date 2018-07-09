@@ -15,7 +15,7 @@ import org.treblereel.gwt.three4g.textures.CubeTexture;
 public class CubeTextureLoader {
 
     /**
-     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is undefined.
+     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is anonymous.
      */
     public String crossOrigin;
 
@@ -65,7 +65,7 @@ public class CubeTextureLoader {
     public native void load(String[] urls, OnLoadCallback<CubeTexture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
-     * Set the .crossOrigin attribute.
+     * Set the crossOrigin attribute.
      *
      * @param origin crossOrigin attribute
      */

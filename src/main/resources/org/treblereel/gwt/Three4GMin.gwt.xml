@@ -10,7 +10,7 @@
     <inherits name="elemental2.media.Media"/>
     <inherits name="elemental2.webgl.WebGl"/>
     <inherits name="elemental2.vr.VR"/>
-
+    <inherits name="elemental2.gamepad.Gamepad"/>
 
     <entry-point class="org.treblereel.gwt.three4g.Three4GMin"/>
 

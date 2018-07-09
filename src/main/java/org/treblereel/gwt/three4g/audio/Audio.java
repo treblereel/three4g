@@ -80,7 +80,7 @@ public class Audio extends Object3D {
      */
     public String type;
 
-    protected Audio(){
+    protected Audio() {
 
     }
 
@@ -93,13 +93,17 @@ public class Audio extends Object3D {
 
     /**
      * Connect to the Audio.source. This is used internally on initialisation and when setting / removing filters.
+     *
+     * @return instance of Audio
      */
-    public native void connect();
+    public native Audio connect();
 
     /**
      * Disconnect from the Audio.source. This is used internally when setting / removing filters.
+     *
+     * @return instance of Audio
      */
-    public native void disconnect();
+    public native Audio disconnect();
 
     /**
      * Returns the first element of the filters array.
@@ -135,7 +139,7 @@ public class Audio extends Object3D {
      *
      * @return playback rate
      */
-    public native Number getPlaybackRate();
+    public native float getPlaybackRate();
 
     /**
      * Return the current volume.
@@ -146,8 +150,10 @@ public class Audio extends Object3D {
 
     /**
      * If hasPlaybackControl is true, starts playback.
+     *
+     * @return instance of Audio
      */
-    public native void play();
+    public native Audio play();
 
     /**
      * If hasPlaybackControl is true, pauses playback.
@@ -159,7 +165,7 @@ public class Audio extends Object3D {
      * If autoplay, also starts playback.
      *
      * @param audioBuffer source to the audioBuffer
-     * @return Audio
+     * @return insatnce of Audio
      */
     public native Audio setBuffer(AudioBuffer audioBuffer);
 
@@ -167,8 +173,9 @@ public class Audio extends Object3D {
      * Applies a single BiquadFilterNode to the audio.
      *
      * @param filter BiquadFilterNode
+     * @return instance of Audio
      */
-    public native void setFilter(BiquadFilterNode filter);
+    public native Audio setFilter(BiquadFilterNode filter);
 
     /**
      * Applies an array of BiquadFilterNodes to the audio.
@@ -182,41 +189,49 @@ public class Audio extends Object3D {
      * Set source.loop to value (whether playback should loop).
      *
      * @param value boolean
+     * @return this Audio instance
      */
-    public native void setLoop(boolean value);
+    public native Audio setLoop(boolean value);
 
     /**
      * Applies the given object of type HTMLMediaElement as the source of this audio.
      * Also sets hasPlaybackControl to false.
+     *
      * @param mediaElement of type HTMLMediaElement
+     * @return instance of Audio
      */
-    public native void setMediaElementSource(HTMLMediaElement mediaElement);
+    public native Audio setMediaElementSource(HTMLMediaElement mediaElement);
 
     /**
      * Setup the source to the audioBuffer, and sets sourceType to 'audioNode'.
      * Also sets hasPlaybackControl to false.
+     *
      * @param audioNode AudioNode
+     * @return instance of Audio
      */
-    public native void setNodeSource(AudioNode audioNode);
+    public native Audio setNodeSource(AudioNode audioNode);
 
     /**
      * If hasPlaybackControl is enabled, set the playbackRate to value.
      *
      * @param value playback rate
+     * @return instance of Audio
      */
-    public native void setPlaybackRate(Number value);
+    public native Audio setPlaybackRate(Number value);
 
     /**
      * Set the volume.
      *
      * @param value volume rate
+     * @return instance of Audio
      */
-    public native void setVolume(Number value);
+    public native Audio setVolume(Number value);
 
     /**
      * If hasPlaybackControl is enabled, stops playback, resets startTime to 0 and sets isPlaying to false.
+     *
+     * @return instance of Audio
      */
-    public native void stop();
-
+    public native Audio stop();
 
 }

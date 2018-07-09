@@ -151,6 +151,12 @@ public class MeshPhongMaterial extends Material {
     public Texture normalMap;
 
     /**
+     * The type of normal map.
+     * Options are THREE.TangentSpaceNormalMap (default), and THREE.ObjectSpaceNormalMap.
+     */
+    public int normalMapType;
+
+    /**
      * How much the normal map affects the material. Typical ranges are 0-1. Default is a Vector2 set to (1,1).
      */
     public Vector2 normalScale;

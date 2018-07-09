@@ -29,6 +29,7 @@ public class Font {
 
     /**
      * This constructor creates a new Font, which is an array of Shapes.
+     *
      * @param data as JSONObject
      */
     @JsConstructor
@@ -39,9 +40,15 @@ public class Font {
     /**
      * Creates an array of Shapes representing the text in the font.
      *
-     * @param text      -- string of text.
-     * @param size      -- (optional) scale for the Shapes. Default is 100.
-     * @param divisions -- (optional) fineness of the Shapes. Default is 4.
+     * @param text -- string of text.
      */
-    public native void generateShapes(String text, float size, int divisions);
+    public native void generateShapes(String text);
+
+    /**
+     * Creates an array of Shapes representing the text in the font.
+     *
+     * @param text -- string of text.
+     * @param size -- (optional) scale for the Shapes. Default is 100.
+     */
+    public native void generateShapes(String text, float size);
 }

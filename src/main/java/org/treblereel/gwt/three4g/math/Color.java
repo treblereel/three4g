@@ -121,6 +121,15 @@ public class Color extends JsObject {
     public native Color convertGammaToLinear();
 
     /**
+     * Converts this color from gamma to linear space by squaring the values of r, g and b ).
+     *
+     * @param gammaFactor - Default is 2.0.
+     * @return Color
+     */
+    public native Color convertGammaToLinear(float gammaFactor);
+
+
+    /**
      * Converts this color from linear to gamma space by taking the square root of r, g and b).
      *
      * @return Color
@@ -135,18 +144,33 @@ public class Color extends JsObject {
      */
     public native Color convertLinearToGamma(float gammaFactor);
 
+
     /**
-     * Copies the given color into this color while converting it from gamma to linear space by
-     * taking r, g and b to the power of gammaFactor.
+     * Converts this color from linear space to sRGB space.
+     *
+     * @return Color
+     */
+    public native Color convertLinearToSRGB();
+
+    /**
+     * Converts this color from sRGB space to linear space.
+     *
+     * @return Color
+     */
+    public native Color convertSRGBToLinear();
+
+
+    /**
+     * Copies the given color into this color, and then converts this color from gamma space to linear space by taking r, g and b to the power of gammaFactor.
      *
      * @param color — Color to copy.
      * @return Color
      */
     public native Color copyGammaToLinear(Color color);
 
+
     /**
-     * Copies the given color into this color while converting it from gamma to linear space by
-     * taking r, g and b to the power of gammaFactor.
+     * Copies the given color into this color, and then converts this color from gamma space to linear space by taking r, g and b to the power of gammaFactor.
      *
      * @param color       — Color to copy.
      * @param gammaFactor - Default is 2.0.
@@ -170,6 +194,22 @@ public class Color extends JsObject {
      * @return Color
      */
     public native Color copyLinearToGamma(Color color, float gammaFactor);
+
+    /**
+     * Copies the given color into this color, and then converts this color from linear space to sRGB space.
+     *
+     * @param color — Color to copy.
+     * @return Color
+     */
+    public native Color copyLinearToSRGB(Color color);
+
+    /**
+     * Copies the given color into this color, and then converts this color from sRGB space to linear space.
+     *
+     * @param color — Color to copy.
+     * @return Color
+     */
+    public native Color copySRGBToLinear(Color color);
 
     /**
      * Compares the RGB values of color with those of this object. Returns true if they are the same, false otherwise.
