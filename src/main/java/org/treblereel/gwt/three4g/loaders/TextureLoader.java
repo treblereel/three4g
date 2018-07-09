@@ -15,7 +15,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
 public class TextureLoader {
 
     /**
-     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is undefined.
+     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is anonymous.
      */
     public String crossOrigin;
 

@@ -45,8 +45,10 @@ public class AudioListener extends Object3D {
 
     /**
      * Set the filter property to null.
+     *
+     * @return instance of AudioListener
      */
-    public native void removeFilter();
+    public native AudioListener removeFilter();
 
     /**
      * @return the value of the filter property.
@@ -57,16 +59,18 @@ public class AudioListener extends Object3D {
      * Set the filter property to value.
      *
      * @param value - filter
+     * @return instance of AudioListener
      */
-    public native void setFilter(AudioNode value);
+    public native AudioListener setFilter(AudioNode value);
 
     /**
      * @return the volume.
      */
-    public native Number getMasterVolume();
+    public native float getMasterVolume();
 
     /**
      * @param value Set the volume.
+     * @return instance of AudioListener
      */
-    public native void setMasterVolume(Number value);
+    public native AudioListener setMasterVolume(Number value);
 }

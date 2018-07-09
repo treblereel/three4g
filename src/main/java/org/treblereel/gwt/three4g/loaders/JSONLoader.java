@@ -15,6 +15,11 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 public class JSONLoader {
 
     /**
+     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is "anonymous".
+     */
+    public String crossOrigin;
+
+    /**
      * The loadingManager the loader is using. Default is DefaultLoadingManager.
      */
     public LoadingManager manager;
@@ -97,11 +102,21 @@ public class JSONLoader {
     public native void load(String url, OnLoadCallbackPair onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
+     * Set the crossOrigin attribute.
+     *
+     * @param value crossOrigin
+     * @return instance of JSONLoader
+     */
+    public native JSONLoader setCrossOrigin(String value);
+
+
+    /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many files from the same directory.
      *
      * @param texturePath base path or URL
+     * @return instance of JSONLoader
      */
-    public native void setTexturePath(String texturePath);
+    public native JSONLoader setTexturePath(String texturePath);
 
     /**
      * Parse a JSON structure and return an object containing the parsed geometry and materials.

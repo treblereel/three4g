@@ -37,30 +37,30 @@ public class PositionalAudio extends Audio {
      *
      * @return refDistance
      */
-    public native Number getRefDistance();
+    public native float getRefDistance();
 
     /**
      * Sets the value of panner.refDistance.
      *
      * @param value refDistance
-     * @return PannerNode
+     * @return instance of PositionalAudio
      */
-    public native PannerNode setRefDistance(Number value);
+    public native PositionalAudio setRefDistance(float value);
 
     /**
      * Returns the value of panner.rolloffFactor.
      *
      * @return PannerNode
      */
-    public native PannerNode getRolloffFactor();
+    public native float getRolloffFactor();
 
     /**
      * Sets the value of panner.rolloffFactor.
      *
      * @param value rolloffFactor
-     * @return PannerNode
+     * @return instance of PositionalAudio
      */
-    public native PannerNode setRolloffFactor(Number value);
+    public native PositionalAudio setRolloffFactor(float value);
 
     /**
      * Returns the value of panner.distanceModel.
@@ -73,23 +73,33 @@ public class PositionalAudio extends Audio {
      * Sets the value of panner.distanceModel.
      *
      * @param value the value of panner.distanceModel
-     * @return String distanceModel
+     * @return instance of PositionalAudio
      */
-    public native String setDistanceModel(String value);
+    public native PositionalAudio setDistanceModel(String value);
 
     /**
      * Returns the value of panner.maxDistance.
      *
-     * @return PannerNode
+     * @return float value
      */
-    public native PannerNode getMaxDistance();
+    public native float getMaxDistance();
+
+    /**
+     * This method can be used in order to transform an omnidirectional sound into a directional sound.
+     *
+     * @param coneInnerAngle float value
+     * @param coneOuterAngle float value
+     * @param coneOuterGain  float value
+     * @return instance of PositionalAudio
+     */
+    public native PositionalAudio setMaxDistance(float coneInnerAngle, float coneOuterAngle, float coneOuterGain);
 
     /**
      * Sets the value of panner.maxDistance.
      *
      * @param value maxDistance
-     * @return PannerNode
+     * @return instance of PositionalAudio
      */
-    public native PannerNode PannerNodesetMaxDistance(Number value);
+    public native PositionalAudio setMaxDistance(float value);
 
 }

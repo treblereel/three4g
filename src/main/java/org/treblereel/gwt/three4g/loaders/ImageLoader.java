@@ -16,7 +16,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 public class ImageLoader {
 
     /**
-     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is undefined.
+     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is anonymous.
      */
     public String crossOrigin;
 

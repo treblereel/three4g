@@ -154,4 +154,7 @@ public class THREE {
     public static int RGBDEncoding;
     public static int BasicDepthPacking;
     public static int RGBADepthPacking;
+    public static int TangentSpaceNormalMap;
+    public static int ObjectSpaceNormalMap;
+
 }
