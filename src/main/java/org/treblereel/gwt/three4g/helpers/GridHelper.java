@@ -19,7 +19,7 @@ public class GridHelper extends LineSegments {
      * @param size            -- The size of the grid. Default is 10.
      * @param divisions       -- The number of divisions across the grid. Default is 10.
      */
-    public GridHelper(int size, Number divisions) {
+    public GridHelper(int size, int divisions) {
 
     }
 
@@ -30,7 +30,7 @@ public class GridHelper extends LineSegments {
      * @param divisions       -- The number of divisions across the grid. Default is 10.
      * @param colorCenterLine -- The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x444444
      */
-    public GridHelper(int size, Number divisions, Color colorCenterLine) {
+    public GridHelper(int size, int divisions, Color colorCenterLine) {
 
     }
 
@@ -42,7 +42,7 @@ public class GridHelper extends LineSegments {
      * @param colorCenterLine -- The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x444444
      * @param colorGrid       -- The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x888888
      */
-    public GridHelper(int size, Number divisions, Color colorCenterLine, Color colorGrid) {
+    public GridHelper(int size, int divisions, Color colorCenterLine, Color colorGrid) {
 
     }
 }
