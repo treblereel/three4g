@@ -102,4 +102,13 @@ public class PositionalAudio extends Audio {
      */
     public native PositionalAudio setMaxDistance(float value);
 
+    /**
+     *
+     * @param coneInnerAngle float
+     * @param coneOuterAngle float
+     * @param coneOuterGain float
+     * @return instance of PositionalAudio
+     */
+    public native PositionalAudio setDirectionalCone(float coneInnerAngle, float coneOuterAngle, float coneOuterGain);
+
 }
