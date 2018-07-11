@@ -11,6 +11,8 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = "THREE")
 public class Math {
 
+    public static float DEG2RAD, RAD2DEG;
+
     /**
      * Clamps the value to be between min and max.
      *
