@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.math;
 
-import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
@@ -31,12 +30,22 @@ public class Euler {
     public String order;
 
 
-    @JsConstructor
     public Euler() {
 
     }
 
-    @JsConstructor
+    public Euler(float x) {
+
+    }
+
+    public Euler(float x, float y) {
+
+    }
+
+    public Euler(float x, float y, float z) {
+
+    }
+
     public Euler(float x, float y, float z, String order) {
 
     }
@@ -118,9 +127,9 @@ public class Euler {
     /**
      * Sets the angles of this euler transform and optionally the order and then call onChangeCallback().
      *
-     * @param x - the angle of the x axis in radians.
-     * @param y - the angle of the y axis in radians.
-     * @param z - the angle of the z axis in radians.
+     * @param x     - the angle of the x axis in radians.
+     * @param y     - the angle of the y axis in radians.
+     * @param z     - the angle of the z axis in radians.
      * @param order - (optional) a string representing the order that the rotations are applied.
      * @return Euler
      */
@@ -138,7 +147,7 @@ public class Euler {
     /**
      * Sets the angles of this euler transform from a pure rotation matrix based on the orientation specified by order.
      *
-     * @param m - a Matrix4 of which the upper 3x3 of matrix is a pure rotation matrix (i.e. unscaled).
+     * @param m     - a Matrix4 of which the upper 3x3 of matrix is a pure rotation matrix (i.e. unscaled).
      * @param order - a string representing the order that the rotations are applied.
      * @return Euler
      */
@@ -147,8 +156,8 @@ public class Euler {
     /**
      * Sets the angles of this euler transform from a pure rotation matrix based on the orientation specified by order.
      *
-     * @param m - a Matrix4 of which the upper 3x3 of matrix is a pure rotation matrix (i.e. unscaled).
-     * @param order - a string representing the order that the rotations are applied.
+     * @param m      - a Matrix4 of which the upper 3x3 of matrix is a pure rotation matrix (i.e. unscaled).
+     * @param order  - a string representing the order that the rotations are applied.
      * @param update - whether to call onChangeCallback() after applying the matrix.
      * @return Euler
      */
@@ -165,7 +174,7 @@ public class Euler {
     /**
      * Sets the angles of this euler transform from a normalized quaternion based on the orientation specified by order.
      *
-     * @param q - a normalized quaternion.
+     * @param q     - a normalized quaternion.
      * @param order - a string representing the order that the rotations are applied.
      * @return Euler
      */
@@ -174,8 +183,8 @@ public class Euler {
     /**
      * Sets the angles of this euler transform from a normalized quaternion based on the orientation specified by order.
      *
-     * @param q - a normalized quaternion.
-     * @param order - a string representing the order that the rotations are applied.
+     * @param q      - a normalized quaternion.
+     * @param order  - a string representing the order that the rotations are applied.
      * @param update - whether to call onChangeCallback() after applying the matrix.
      * @return Euler
      */
@@ -193,7 +202,7 @@ public class Euler {
      * Set the x, y and z, and optionally update the order. onChangeCallback() is called after these changes are made.
      *
      * @param vector - Vector3.
-     * @param order - a string representing the order that the rotations are applied.
+     * @param order  - a string representing the order that the rotations are applied.
      * @return Euler
      */
     public native Euler setFromVector3(Vector3 vector, String order);
@@ -216,7 +225,7 @@ public class Euler {
     /**
      * Returns an array of the form [x, y, z, order ].
      *
-     * @param array - array to store the euler in.
+     * @param array  - array to store the euler in.
      * @param offset offset in the array.
      * @return float[]
      */
