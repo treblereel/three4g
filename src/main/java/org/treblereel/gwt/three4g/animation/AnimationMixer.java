@@ -34,8 +34,14 @@ public class AnimationMixer extends EventDispatcher {
     /**
      * @param rootObject - the object whose animations shall be played by this mixer.
      */
-    @JsConstructor
     public AnimationMixer(Object3D rootObject) {
+
+    }
+
+    /**
+     * @param animationObjectGroup - all objects of this animation group share a common animation state
+     */
+    public AnimationMixer(AnimationObjectGroup animationObjectGroup) {
 
     }
 
