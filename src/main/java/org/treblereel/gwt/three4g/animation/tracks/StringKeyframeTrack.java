@@ -28,6 +28,15 @@ public class StringKeyframeTrack extends KeyframeTrack {
     }
 
     /**
+     * @param name  - identifier for the KeyframeTrack.
+     * @param times - array of keyframe times.
+     */
+    @JsConstructor
+    public StringKeyframeTrack(String name, float[] times) {
+
+    }
+
+    /**
      * @param name   - identifier for the KeyframeTrack.
      * @param times  - array of keyframe times.
      * @param values - values for the keyframes at the times specified.
