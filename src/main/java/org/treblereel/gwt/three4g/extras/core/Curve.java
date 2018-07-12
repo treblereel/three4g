@@ -2,7 +2,8 @@ package org.treblereel.gwt.three4g.extras.core;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.math.Vector;
+
+import org.treblereel.gwt.three4g.math.Vector3;
 
 /**
  * An abstract base class for creating a Curve object that contains methods for interpolation. For an array of Curves see CurvePath.
@@ -31,7 +32,7 @@ public abstract class Curve {
      * @param t - A position on the curve. Must be in the range [ 0, 1 ].
      * @return Vector
      */
-    public native Vector getPoint(float t);
+    public native Vector3 getPoint(float t);
 
     /**
      * Returns a vector for a given position on the curve.
@@ -40,7 +41,7 @@ public abstract class Curve {
      * @param optionalTarget — (optional) If specified, the result will be copied into this Vector, otherwise a new Vector will be created.
      * @return Vector
      */
-    public native Vector getPoint(float t, Vector optionalTarget);
+    public native Vector3 getPoint(float t, Vector3 optionalTarget);
 
     /**
      * Returns a vector for a given position on the curve according to the arc length.
@@ -48,16 +49,23 @@ public abstract class Curve {
      * @param u - A position on the curve according to the arc length. Must be in the range [ 0, 1 ].
      * @return Vector
      */
-    public native Vector getPointAt(float u);
+    public native Vector3 getPointAt(float u);
 
     /**
      * Returns a vector for a given position on the curve according to the arc length.
      *
      * @param u              - A position on the curve according to the arc length. Must be in the range [ 0, 1 ].
-     * @param optionalTarget — (optional) If specified, the result will be copied into this Vector, otherwise a new Vector will be created.
-     * @return Vector
+     * @param optionalTarget — (optional) If specified, the result will be copied into this Vector3, otherwise a new Vector3 will be created.
+     * @return Vector3
      */
-    public native Vector getPointAt(float u, Vector optionalTarget);
+    public native Vector3 getPointAt(float u, Vector3 optionalTarget);
+
+    /**
+     * Returns a set of divisions + 1 points using getPoint( t ).
+     *
+     * @return array of points
+     */
+    public native Vector3[] getPoints();
 
     /**
      * Returns a set of divisions + 1 points using getPoint( t ).
@@ -65,7 +73,7 @@ public abstract class Curve {
      * @param divisions -- number of pieces to divide the curve into. Default is 5.
      * @return array of points
      */
-    public native Vector[] getPoints(int divisions); //TODO
+    public native Vector3[] getPoints(int divisions);
 
     /**
      * Returns a set of divisions + 1 equi-spaced points using getPointAt( u ).
@@ -73,7 +81,7 @@ public abstract class Curve {
      * @param divisions -- number of pieces to divide the curve into. Default is 5.
      * @return array of points
      */
-    public native Vector[] getSpacedPoints(int divisions);
+    public native Vector3[] getSpacedPoints(int divisions);
 
 
     /**
@@ -106,12 +114,12 @@ public abstract class Curve {
     public native float getUtoTmapping(float u, float distance);
 
     /**
-     * Returns a unit vector tangent at t. If the derived curve does not implement its tangent derivation, two points a small delta apart will be used to find its gradient which seems to give a reasonable approximation.
+     * Returns a unit Vector3 tangent at t. If the derived curve does not implement its tangent derivation, two points a small delta apart will be used to find its gradient which seems to give a reasonable approximation.
      *
      * @param t as float value
      * @return tangent at t
      */
-    public native Vector getTangent(float t);
+    public native Vector3 getTangent(float t);
 
     /**
      * Returns tangent at a point which is equidistant to the ends of the curve from the point given in .getTangent.
@@ -119,7 +127,7 @@ public abstract class Curve {
      * @param u as float value
      * @return tangent at t
      */
-    public native Vector getTangentAt(float u);
+    public native Vector3 getTangentAt(float u);
 
     /**
      * Generates the Frenet Frames. Used in geometries like TubeGeometry or ExtrudeGeometry.
