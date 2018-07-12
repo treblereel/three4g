@@ -61,7 +61,41 @@ public class CylinderBufferGeometry extends BufferGeometry {
      */
     @JsConstructor
     public CylinderBufferGeometry(float radiusTop, float radiusBottom, float height, int radialSegments) {
+    }
 
+    /**
+     * @param radiusTop      — Radius of the cylinder at the top. Default is 1.
+     * @param radiusBottom   — Radius of the cylinder at the bottom. Default is 1.
+     * @param height         — Height of the cylinder. Default is 1.
+     * @param radialSegments — Number of segmented faces around the circumference of the cylinder. Default is 8
+     * @param heightSegments — Number of rows of faces along the height of the cylinder. Default is 1.
+     */
+    public CylinderBufferGeometry(float radiusTop, float radiusBottom, float height, int radialSegments, int heightSegments) {
+    }
+
+    /**
+     * @param radiusTop      — Radius of the cylinder at the top. Default is 1.
+     * @param radiusBottom   — Radius of the cylinder at the bottom. Default is 1.
+     * @param height         — Height of the cylinder. Default is 1.
+     * @param radialSegments — Number of segmented faces around the circumference of the cylinder. Default is 8
+     * @param heightSegments — Number of rows of faces along the height of the cylinder. Default is 1.
+     * @param openEnded      — A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
+     */
+    public CylinderBufferGeometry(float radiusTop, float radiusBottom, float height, int radialSegments, int heightSegments,
+                                  boolean openEnded) {
+    }
+
+    /**
+     * @param radiusTop      — Radius of the cylinder at the top. Default is 1.
+     * @param radiusBottom   — Radius of the cylinder at the bottom. Default is 1.
+     * @param height         — Height of the cylinder. Default is 1.
+     * @param radialSegments — Number of segmented faces around the circumference of the cylinder. Default is 8
+     * @param heightSegments — Number of rows of faces along the height of the cylinder. Default is 1.
+     * @param openEnded      — A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
+     * @param thetaStart     — Start angle for first segment, default = 0 (three o'clock position).
+     */
+    public CylinderBufferGeometry(float radiusTop, float radiusBottom, float height, int radialSegments, int heightSegments,
+                                  boolean openEnded, float thetaStart) {
     }
 
     /**
