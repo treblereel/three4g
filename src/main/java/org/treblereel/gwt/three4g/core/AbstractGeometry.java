@@ -148,7 +148,7 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * @param points array of points
      * @return extends AbstractGeometry
      */
-    public native T setFromPoints(Vector3... points);
+    public native T setFromPoints(Vector3[] points);
 
     /**
      * Convert the geometry to JSON format.
