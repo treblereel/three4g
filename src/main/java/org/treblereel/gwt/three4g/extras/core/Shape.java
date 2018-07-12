@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.extras.core;
 
+import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
@@ -7,6 +8,8 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.math.Vector;
 import org.treblereel.gwt.three4g.math.Vector2;
+
+import java.util.List;
 
 /**
  * Defines an arbitrary 2d shape plane using paths with optional holes. It can be used with ExtrudeGeometry, ShapeGeometry, to get points, or to get triangulated faces.
@@ -20,7 +23,7 @@ public class Shape extends Path {
     /**
      * An array of paths that define the holes in the shape.
      */
-    public Path[] holes;
+    public JsArray<Path> holes;
 
     @JsConstructor
     public Shape() {
@@ -53,12 +56,12 @@ public class Shape extends Path {
     public native JsObject extractPoints(int divisions);
 
     @JsOverlay
-    public Vector[] getShape(int divisions) {
+    public final Vector[] getShape(int divisions) {
         return getPoints(divisions);
     }
 
     @JsOverlay
-    public Vector[] getHoles(int divisions) {
+    public final Vector[] getHoles(int divisions) {
         return getHoles(divisions);
     }
 
