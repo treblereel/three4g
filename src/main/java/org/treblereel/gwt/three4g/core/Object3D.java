@@ -404,6 +404,13 @@ public class Object3D extends EventDispatcher {
     /**
      * Convert the Object3D to three.js JSON format.
      *
+     * @return JSON String
+     */
+    public native String toJSON();
+
+    /**
+     * Convert the Object3D to three.js JSON format.
+     *
      * @param meta candidate
      * @return JSON String
      */
