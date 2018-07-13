@@ -209,6 +209,15 @@ public class Quaternion {
     public native Quaternion setFromEuler(Euler euler);
 
     /**
+     * Applies euler transform to this vector by converting the Euler object to a Quaternion and applying.
+     *
+     * @param euler source Euler
+     * @param update true, to call onChangeCallback
+     * @return instance of Quaternion
+     */
+    public native Quaternion setFromEuler(Euler euler, boolean update);
+
+    /**
      * Sets this quaternion from rotation component of m.
      * Adapted from the method here.
      *
