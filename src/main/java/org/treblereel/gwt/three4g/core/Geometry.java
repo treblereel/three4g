@@ -157,6 +157,15 @@ public class Geometry extends AbstractGeometry<Geometry> {
     }
 
     /**
+     * Creates a new clone of the BufferGeometry.
+     * <p>
+     * This method copies only vertices, faces and uvs. It does not copy any other properties of the geometry.
+     *
+     * @return extends AbstractGeometry
+     */
+    public native Geometry clone();
+
+    /**
      * Computes face normals.
      */
     public native void computeFaceNormals();

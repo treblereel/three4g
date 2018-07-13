@@ -10,9 +10,13 @@ import org.treblereel.gwt.three4g.geometries.parameters.BoxGeometryParameters;
  * Created by treblereel on 3/7/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class BoxBufferGeometry extends BufferGeometry {
+public class BoxBufferGeometry extends BufferGeometry<BoxBufferGeometry> {
 
     public BoxGeometryParameters parameters;
+
+    public BoxBufferGeometry() {
+
+    }
 
     /**
      * @param width  — Width of the sides on the X axis. Default is 1.

@@ -1,7 +1,11 @@
 package org.treblereel.gwt.three4g.core;
 
+import com.google.gwt.core.client.GWT;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.math.Vector3;
@@ -14,6 +18,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  */
 @JsType(isNative = true)
 public class AbstractGeometry<T> extends EventDispatcher {
+    T t;
 
     /**
      * Optional name for this bufferGeometry instance. Default is an empty string.
@@ -54,15 +59,6 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * @return instance, extends AbstractGeometry
      */
     public native T center();
-
-    /**
-     * Creates a new clone of the BufferGeometry.
-     * <p>
-     * This method copies only vertices, faces and uvs. It does not copy any other properties of the geometry.
-     *
-     * @return extends AbstractGeometry
-     */
-    public native T clone();
 
     /**
      * Copies vertices, faces and uvs into this geometry. It does not copy any other properties of the geometry.
@@ -141,14 +137,6 @@ public class AbstractGeometry<T> extends EventDispatcher {
      * @return extends AbstractGeometry
      */
     public native T scale(float x, float y, float z);
-
-    /**
-     * Sets the vertices for this Geometry from an array of points.
-     *
-     * @param points array of points
-     * @return extends AbstractGeometry
-     */
-    public native T setFromPoints(Vector3[] points);
 
     /**
      * Convert the geometry to JSON format.
