@@ -6,6 +6,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.math.Box3;
 import org.treblereel.gwt.three4g.math.Sphere;
+import org.treblereel.gwt.three4g.math.Vector3;
 
 import java.util.HashMap;
 
@@ -20,7 +21,7 @@ import java.util.HashMap;
  * Created by treblereel on 3/21/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
+public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T> {
 
     @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
     public static class Attributes extends JsObject{
@@ -127,6 +128,15 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
     public native void clearGroups();
 
     /**
+     * Creates a new clone of the BufferGeometry.
+     * <p>
+     * This method copies only vertices, faces and uvs. It does not copy any other properties of the geometry.
+     *
+     * @return extends AbstractGeometry
+     */
+    public native T clone();
+
+    /**
      * Convert a Geometry to a BufferGeometry.
      *
      * @param geometry instance of Geometry
@@ -199,7 +209,15 @@ public class BufferGeometry extends AbstractGeometry<BufferGeometry> {
      * @param object instance of Object3D
      * @return instance of BufferGeometry
      */
-    public native BufferGeometry setFromObject(Object3D object);
+    public native T setFromObject(Object3D object);
+
+    /**
+     * Sets the vertices for this Geometry from an array of points.
+     *
+     * @param points array of points
+     * @return extends AbstractGeometry
+     */
+    public native T setFromPoints(Vector3[] points);
 
     /**
      * Return a non-index version of an indexed BufferGeometry.
