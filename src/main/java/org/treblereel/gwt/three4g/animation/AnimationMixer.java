@@ -113,7 +113,7 @@ public class AnimationMixer extends EventDispatcher {
      * @param deltaTimeInSeconds is the time
      * @return instance of AnimationMixer
      */
-    public native AnimationMixer update(float deltaTimeInSeconds);
+    public native AnimationMixer update(double deltaTimeInSeconds);
 
     /**
      * Deallocates all memory resources for a clip.
