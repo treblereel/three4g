@@ -68,6 +68,31 @@ public class TextureLoader {
      * object which can directly be used for material creation. If you do it this way, the texture may pop up in your scene
      * once the respective loading process is finished.
      *
+     * @param url    — the path or URL to the file. This can also be a Data URI.
+     * @param onLoad — Will be called when load completes. The argument will be the loaded texture.
+     *               <p>
+     * @return Texture
+     */
+    public native Texture load(String url, OnLoadCallback<Texture> onLoad);
+
+    /**
+     * Begin loading from the given URL and pass the fully loaded texture to onLoad. The method also returns a new texture
+     * object which can directly be used for material creation. If you do it this way, the texture may pop up in your scene
+     * once the respective loading process is finished.
+     *
+     * @param url        — the path or URL to the file. This can also be a Data URI.
+     * @param onLoad     — Will be called when load completes. The argument will be the loaded texture.
+     * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
+     *                   <p>
+     * @return Texture
+     */
+    public native Texture load(String url, OnLoadCallback<Texture> onLoad, OnProgressCallback onProgress);
+
+    /**
+     * Begin loading from the given URL and pass the fully loaded texture to onLoad. The method also returns a new texture
+     * object which can directly be used for material creation. If you do it this way, the texture may pop up in your scene
+     * once the respective loading process is finished.
+     *
      * @param url        — the path or URL to the file. This can also be a Data URI.
      * @param onLoad     — Will be called when load completes. The argument will be the loaded texture.
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
