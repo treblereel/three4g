@@ -42,7 +42,7 @@ public class Font {
      *
      * @param text -- string of text.
      */
-    public native void generateShapes(String text);
+    public native Shape[] generateShapes(String text);
 
     /**
      * Creates an array of Shapes representing the text in the font.
@@ -50,5 +50,5 @@ public class Font {
      * @param text -- string of text.
      * @param size -- (optional) scale for the Shapes. Default is 100.
      */
-    public native void generateShapes(String text, float size);
+    public native Shape[] generateShapes(String text, float size);
 }
