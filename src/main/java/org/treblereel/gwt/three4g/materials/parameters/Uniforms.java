@@ -1,11 +1,13 @@
 package org.treblereel.gwt.three4g.materials.parameters;
 
+import com.google.gwt.core.client.GWT;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.utils.JSON;
 
 
 /**
@@ -25,9 +27,13 @@ public class Uniforms {
     }
 
     @JsOverlay
+    /**
+     * Left side must be non-primitive type
+     */
     public final <T> T get(String name) {
         JsPropertyMap instance = Js.uncheckedCast(this);
-        return (T) ((JsObject) instance.get(name)).getProperty("value");
+        Object result = ((JsObject) instance.get(name)).getProperty("value");
+        return (T) result;
     }
 
 }
