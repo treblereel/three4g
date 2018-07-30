@@ -1,7 +1,7 @@
 package org.treblereel.gwt.three4g.lights;
 
-import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Vector3;
 
 /**
@@ -23,12 +23,12 @@ public class HemisphereLight extends Light {
     /**
      * The light's sky color, as passed in the constructor. Default is a new Color set to white (0xffffff).
      */
-    public int color;
+    public Color color;
 
     /**
      * The light's ground color, as passed in the constructor. Default is a new Color set to white (0xffffff).
      */
-    public int groundColor;
+    public Color groundColor;
 
     /**
      * Used to check whether this or derived classes are hemisphere lights. Default is true.
@@ -44,7 +44,6 @@ public class HemisphereLight extends Light {
     /**
      * Creates a new HemisphereLight.
      */
-    @JsConstructor
     public HemisphereLight() {
 
     }
@@ -52,8 +51,7 @@ public class HemisphereLight extends Light {
     /**
      * @param skyColor - hexadecimal color of the sky. Default is 0xffffff.
      */
-    @JsConstructor
-    public HemisphereLight(float skyColor) {
+    public HemisphereLight(int skyColor) {
 
     }
 
@@ -61,7 +59,6 @@ public class HemisphereLight extends Light {
      * @param skyColor    - hexadecimal color of the sky. Default is 0xffffff.
      * @param groundColor - hexadecimal color of the ground. Default is 0xffffff.
      */
-    @JsConstructor
     public HemisphereLight(int skyColor, float groundColor) {
 
     }
@@ -71,7 +68,6 @@ public class HemisphereLight extends Light {
      * @param groundColor - hexadecimal color of the ground. Default is 0xffffff.
      * @param intensity   - numeric value of the light's strength/intensity. Default is 1.
      */
-    @JsConstructor
     public HemisphereLight(int skyColor, int groundColor, float intensity) {
 
     }
