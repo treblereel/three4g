@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.geometries.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.extras.core.Curve;
 
 /**
  * @author Dmitrii Tikhomirov
@@ -17,6 +18,6 @@ public class ExtrudeGeometryParameters {
     public float bevelThickness; // How deep into the original shape the bevel goes. Default is 6.
     public float bevelSize; // Distance from the shape outline that the bevel extends. Default is bevelThickness - 2.
     public int bevelSegments; // Number of bevel layers. Default is 3.
-    public int  extrudePath; // THREE.CurvePath. A 3D spline path along which the shape should be extruded.
+    public Curve extrudePath; // THREE.CurvePath. A 3D spline path along which the shape should be extruded.
     public Object UVGenerator; // — Object. object that provides UV generator functions
 }
