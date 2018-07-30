@@ -5,6 +5,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.materials.parameters.ShaderMaterialParameters;
+import org.treblereel.gwt.three4g.materials.parameters.Uniforms;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;
 
 /**
@@ -89,13 +90,13 @@ public class ShaderMaterial extends Material {
      * GLSL code. Note that uniforms are refreshed on every frame, so updating the value of the uniform will immediately
      * update the value available to the GLSL code.
      */
-    public JsObject uniforms;
+    public Uniforms uniforms;
 
     /**
      * Define how the vertices are colored, by defining how the colors attribute gets populated. Possible values
      * are Constants.NoColors, Constants.FaceColors and Constants.VertexColors. Default is Constants.NoColors.
      */
-    public Number vertexColors;
+    public int vertexColors;
 
     /**
      * Vertex shader GLSL code. This is the actual code for the shader. In the example above, the vertexShader and fragmentShader code is extracted from the DOM; it could be passed as a string directly or loaded via AJAX instead.
