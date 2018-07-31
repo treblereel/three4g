@@ -1,11 +1,11 @@
-package org.treblereel.gwt.three4g.demo.client.local.utils;
+package org.treblereel.gwt.three4g.utils;
 
 import jsinterop.annotations.JsType;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
 /**
- * @author Dmitrii Tikhomirov <chani@me.com>
+ * @author Dmitrii Tikhomirov
  * Created by treblereel on 12/7/17.
  */
 @JsType(isNative = true, namespace = GLOBAL)
