@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.cameras;
 
+import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderTargetCube;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
@@ -11,6 +12,7 @@ import org.treblereel.gwt.three4g.scenes.Scene;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
+@JsType(isNative = true, namespace = "THREE")
 public class CubeCamera extends Object3D {
 
     /**
@@ -25,7 +27,7 @@ public class CubeCamera extends Object3D {
      * @param far            -- The far clipping distance
      * @param cubeResolution -- Sets the length of the cube's edges.
      */
-    public CubeCamera(Number near, Number far, Number cubeResolution) {
+    public CubeCamera(float near, float far, float cubeResolution) {
 
     }
 
