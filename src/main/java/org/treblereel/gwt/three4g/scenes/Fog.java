@@ -1,7 +1,7 @@
 package org.treblereel.gwt.three4g.scenes;
 
-import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.math.Color;
 
 /**
@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * Created by treblereel on 2/27/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class Fog {
+public class Fog extends JsObject {
 
     /**
      * Optional name of the object (doesn't need to be unique). Default is an empty string.
@@ -33,7 +33,6 @@ public class Fog {
      */
     public float far;
 
-    @JsConstructor
     public Fog() {
 
     }
@@ -42,11 +41,8 @@ public class Fog {
      * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
      *
      * @param color color code
-     * @param near as float value
-     * @param far as float value
      */
-    @JsConstructor
-    public Fog(int color, float near, float far) {
+    public Fog(int color) {
 
     }
 
@@ -54,10 +50,20 @@ public class Fog {
      * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
      *
      * @param color color code
-     * @param near as float value
-     * @param far as float value
+     * @param near  as float value
      */
-    public Fog(Color color, float near, float far) {
+    public Fog(int color, float near) {
+
+    }
+
+    /**
+     * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
+     *
+     * @param color color code
+     * @param near  as float value
+     * @param far   as float value
+     */
+    public Fog(int color, float near, float far) {
 
     }
 
