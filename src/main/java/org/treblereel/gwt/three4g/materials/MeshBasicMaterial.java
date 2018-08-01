@@ -4,7 +4,6 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.MeshBasicMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
-import org.treblereel.gwt.three4g.textures.CubeTexture;
 import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
@@ -61,7 +60,7 @@ public class MeshBasicMaterial extends Material {
      * The environment map. Default is null.
      */
 
-    public CubeTexture envMap;
+    public Texture envMap;
 
     /**
      * The light map. Default is null. The lightMap requires a second set of UVs, and consequently will ignore the repeat
