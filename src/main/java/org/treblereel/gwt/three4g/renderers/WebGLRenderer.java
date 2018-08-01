@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.renderers;
 
+import elemental2.core.JsObject;
 import elemental2.core.Uint8Array;
 import elemental2.dom.HTMLElement;
 import elemental2.webgl.WebGLContextAttributes;
@@ -54,14 +55,14 @@ public class WebGLRenderer {
     public boolean autoClearStencil;
 
 
-    public Object capabilities; //TODO
+    public Capabilities capabilities;
 
 
     /**
      * User-defined clipping planes specified as THREE.Plane objects in world space. These planes apply globally.
      * Points in space whose dot product with the plane is negative are cut away. Default is [].
      */
-    public Plane[] clippingPlanes; //TODO
+    public Plane[] clippingPlanes;
 
 
     /**
@@ -82,12 +83,12 @@ public class WebGLRenderer {
     /**
      * A wrapper for the .extensions.get method, used to check whether various WebGL extensions are supported.
      */
-    public Object extensions;
+    public JsObject extensions;
 
     /**
      * Default is 2.
      */
-    public Float gammaFactor;
+    public double gammaFactor;
 
 
     /**
@@ -115,7 +116,7 @@ public class WebGLRenderer {
      * renderer.info.autoReset = false;
      * renderer.info.reset();
      */
-    public Object info;
+    public JsObject info;
 
     /**
      * Defines whether the renderer respects object-level clipping planes. Default is false.
@@ -141,12 +142,12 @@ public class WebGLRenderer {
     /**
      * Used internally by the renderer to keep track of various sub object properties.
      */
-    public Object properties;
+    public JsObject properties;
 
     /**
      * Used internally to handle ordering of scene object rendering.
      */
-    public Object renderLists; //WebGLRenderLists //TODO
+    public JsObject renderLists; //WebGLRenderLists //TODO
 
 
     /**
@@ -168,7 +169,7 @@ public class WebGLRenderer {
     /**
      * Contains functions for setting various properties of the WebGLRenderer.context state.
      */
-    public Object state;
+    public JsObject state;
 
     /**
      * Default is LinearToneMapping. See the Renderer constants for other choices.
@@ -178,12 +179,12 @@ public class WebGLRenderer {
     /**
      * Exposure level of tone mapping. Default is 1.
      */
-    public int toneMappingExposure;
+    public double toneMappingExposure;
 
     /**
      * Tone mapping white point. Default is 1.
      */
-    public int toneMappingWhitePoint;
+    public double toneMappingWhitePoint;
 
     /**
      * Instance of WebVRManager if presented
