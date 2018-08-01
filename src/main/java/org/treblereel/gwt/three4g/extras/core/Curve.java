@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.extras.core;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 import org.treblereel.gwt.three4g.math.Vector3;
@@ -128,6 +129,9 @@ public abstract class Curve {
      * @return tangent at t
      */
     public native Vector3 getTangentAt(float u);
+
+    @JsProperty
+    public final native String getType();
 
     /**
      * Generates the Frenet Frames. Used in geometries like TubeGeometry or ExtrudeGeometry.
