@@ -195,6 +195,15 @@ public class Vector2 implements Vector {
     public native float dot(Vector2 vector2);
 
     /**
+     * Calculates the cross product of this vector and v. Note that a 'cross-product' in 2D is not well-defined.
+     * This function computes a geometric cross-product often used in 2D graphics
+     *
+     * @param vector2 instance of Vector2
+     * @return cross product as float
+     */
+    public native float cross(Vector2 vector2);
+
+    /**
      * Checks for strict equality of this vector and v.
      *
      * @param vector2 targeting Vector2

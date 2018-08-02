@@ -31,6 +31,14 @@ public class Quaternion {
     }
 
     /**
+     * Returns the angle between this quaternion and quaternion q in radians.
+     *
+     * @param q in radians.
+     * @return
+     */
+    public native float angleTo(Quaternion q);
+
+    /**
      * Returns a new Quaternion with the same x and y values as this one.
      *
      * @return Quaternion
@@ -167,6 +175,16 @@ public class Quaternion {
     public native Quaternion premultiply(Quaternion quaternion);
 
     /**
+     * Rotates this quaternion by a given angular step to the defined quaternion q. The method ensures that the final
+     * quaternion will not overshoot q.
+     *
+     * @param q - The target quaternion.
+     * @param step - The angular step in radians.
+     * @return instance of Quaternion
+     */
+    public native Quaternion rotateTowards(Quaternion q, float step);
+
+    /**
      * Handles the spherical linear interpolation between quaternions. t represents the amount of rotation between this quaternion (where t is 0) and qb (where t is 1). This quaternion is set to the result. Also see the static version of the slerp below.
      * // rotate a mesh towards a target quaternion
      * mesh.quaternion.slerp( endQuaternion, 0.01 );
@@ -211,7 +229,7 @@ public class Quaternion {
     /**
      * Applies euler transform to this vector by converting the Euler object to a Quaternion and applying.
      *
-     * @param euler source Euler
+     * @param euler  source Euler
      * @param update true, to call onChangeCallback
      * @return instance of Quaternion
      */
