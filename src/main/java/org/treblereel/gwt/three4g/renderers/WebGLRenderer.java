@@ -332,12 +332,22 @@ public class WebGLRenderer {
 
     /**
      * Copies all pixels of a texture to an existing texture starting from the given position. Enables access to WebGLRenderingContext.texSubImage2D.
-     * @param position instance of Vector2
+     *
+     * @param position   instance of Vector2
      * @param srcTexture source Texture
      * @param dstTexture distinctional Texture
-     * @param level the level
      */
-    public native void  copyTextureToTexture (Vector2 position, Texture srcTexture, Texture dstTexture, int level);
+    public native void copyTextureToTexture(Vector2 position, Texture srcTexture, Texture dstTexture);
+
+    /**
+     * Copies all pixels of a texture to an existing texture starting from the given position. Enables access to WebGLRenderingContext.texSubImage2D.
+     *
+     * @param position   instance of Vector2
+     * @param srcTexture source Texture
+     * @param dstTexture distinctional Texture
+     * @param level      the level
+     */
+    public native void copyTextureToTexture(Vector2 position, Texture srcTexture, Texture dstTexture, int level);
 
     /**
      * Dispose of the current rendering context.
