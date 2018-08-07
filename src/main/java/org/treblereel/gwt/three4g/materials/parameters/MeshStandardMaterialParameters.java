@@ -4,7 +4,6 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Vector2;
-import org.treblereel.gwt.three4g.textures.CubeTexture;
 import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
@@ -86,7 +85,7 @@ public class MeshStandardMaterialParameters extends MaterialParameters{
     /**
      * The environment map. Default is null. Note that in order for the material roughness property to correctly blur out the environment map, the shader must have access to mipmaps of the env texture. TextureCubes created with default settings are correctly configured; if adjusting texture parameters manually, ensure minFilter is set to one of the MipMap options, and that mip maps have not been otherwise forcibly disabled.
      */
-    public CubeTexture envMap;
+    public Texture envMap;
 
     /**
      * Scales the effect of the environment map by multiplying its color.
