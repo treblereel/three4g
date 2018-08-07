@@ -17,12 +17,12 @@ public class WebGLRenderTarget extends RenderTarget {
     /**
      * The width of the render target.
      */
-    public Number width;
+    public double width;
 
     /**
      * The height of the render target.
      */
-    public Number height;
+    public double height;
 
     /**
      * A rectangular area inside the render target's viewport. Fragments that are outside the area will be discarded.
@@ -68,7 +68,7 @@ public class WebGLRenderTarget extends RenderTarget {
      * @param width  - The width of the renderTarget.
      * @param height - The height of the renderTarget.
      */
-    public WebGLRenderTarget(Number width, Number height) {
+    public WebGLRenderTarget(double width, double height) {
 
     }
 
