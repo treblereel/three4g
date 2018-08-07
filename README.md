@@ -1,4 +1,4 @@
-### Thee4g
+### Three4g
 
 ## A Three.js wrapper for GWT
 
