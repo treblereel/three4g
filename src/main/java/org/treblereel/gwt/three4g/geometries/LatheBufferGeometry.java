@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class LatheBufferGeometry extends BufferGeometry {
+public class LatheBufferGeometry extends BufferGeometry<LatheBufferGeometry> {
 
     public Vector2[] points;
     public int segments;

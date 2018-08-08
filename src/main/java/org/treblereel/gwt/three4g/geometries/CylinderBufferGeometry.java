@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * Created by treblereel on 3/21/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class CylinderBufferGeometry extends BufferGeometry {
+public class CylinderBufferGeometry extends BufferGeometry<CylinderBufferGeometry> {
 
     /**
      * Radius of the cylinder at the top. Default is 1.

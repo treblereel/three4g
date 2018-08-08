@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.TextGeometryParameters;
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class TextBufferGeometry extends BufferGeometry {
+public class TextBufferGeometry extends BufferGeometry<TextBufferGeometry> {
 
     public TextGeometryParameters parameters;
 

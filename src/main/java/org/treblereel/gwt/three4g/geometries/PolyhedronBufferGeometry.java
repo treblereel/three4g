@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.PolyhedronGeometryParame
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class PolyhedronBufferGeometry extends BufferGeometry {
+public class PolyhedronBufferGeometry extends BufferGeometry<PolyhedronBufferGeometry> {
 
     public PolyhedronGeometryParameters parameters;
 

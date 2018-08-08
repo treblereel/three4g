@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class TorusBufferGeometry extends BufferGeometry {
+public class TorusBufferGeometry extends BufferGeometry<TorusBufferGeometry> {
 
     public float radius;
     public float tube;

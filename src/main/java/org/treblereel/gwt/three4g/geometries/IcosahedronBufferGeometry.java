@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.IcosahedronGeometryParam
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class IcosahedronBufferGeometry extends BufferGeometry {
+public class IcosahedronBufferGeometry extends BufferGeometry<IcosahedronBufferGeometry> {
 
     public IcosahedronGeometryParameters parameters;
 

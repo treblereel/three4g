@@ -14,7 +14,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class TubeBufferGeometry extends BufferGeometry {
+public class TubeBufferGeometry extends BufferGeometry<TubeBufferGeometry> {
 
     /**
      * An object with all of the parameters that were used to generate the geometry

@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.TetrahedronGeometryParam
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class TetrahedronBufferGeometry extends BufferGeometry {
+public class TetrahedronBufferGeometry extends BufferGeometry<TextBufferGeometry> {
 
     public TetrahedronGeometryParameters parameters;
 

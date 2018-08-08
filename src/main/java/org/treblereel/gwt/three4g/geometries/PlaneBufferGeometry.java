@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * Created by treblereel on 3/12/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class PlaneBufferGeometry extends BufferGeometry {
+public class PlaneBufferGeometry extends BufferGeometry<PlaneBufferGeometry> {
 
     public float width; // — Width along the X axis. Default is 1.
 

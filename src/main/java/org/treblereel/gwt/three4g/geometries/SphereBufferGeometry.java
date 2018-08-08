@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class SphereBufferGeometry extends BufferGeometry {
+public class SphereBufferGeometry extends BufferGeometry<SphereBufferGeometry> {
 
     /**
      * sphere radius. Default is 1.
