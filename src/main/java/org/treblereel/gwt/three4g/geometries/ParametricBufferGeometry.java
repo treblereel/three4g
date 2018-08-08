@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * Created by treblereel on 3/22/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class ParametricBufferGeometry extends BufferGeometry {
+public class ParametricBufferGeometry extends BufferGeometry<ParametricBufferGeometry> {
 
     /**
      * @param func   — A function that takes in a u and v value each between 0 and 1 and returns a Vector3

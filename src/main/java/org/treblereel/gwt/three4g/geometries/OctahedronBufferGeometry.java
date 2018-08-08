@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.OctahedronGeometryParame
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class OctahedronBufferGeometry extends BufferGeometry {
+public class OctahedronBufferGeometry extends BufferGeometry<OctahedronBufferGeometry> {
 
     public OctahedronGeometryParameters parameters;
 

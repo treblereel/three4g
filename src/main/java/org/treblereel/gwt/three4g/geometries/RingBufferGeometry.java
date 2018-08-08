@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.RingGeometryParameters;
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class RingBufferGeometry extends BufferGeometry {
+public class RingBufferGeometry extends BufferGeometry<RingBufferGeometry> {
 
     public RingGeometryParameters parameters; //TODO CHECK if empty
 

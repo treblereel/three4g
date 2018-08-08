@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.ShapeGeometryParameters;
  * Created by treblereel on 5/3/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class ShapeBufferGeometry extends BufferGeometry {
+public class ShapeBufferGeometry extends BufferGeometry<ShapeBufferGeometry> {
 
     public ShapeGeometryParameters parameters;
 

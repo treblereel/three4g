@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class ConeBufferGeometry extends BufferGeometry {
+public class ConeBufferGeometry extends BufferGeometry<ConeBufferGeometry> {
 
     public float radius;
     public float height;

@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class CircleBufferGeometry extends BufferGeometry {
+public class CircleBufferGeometry extends BufferGeometry<CircleBufferGeometry> {
 
     /**
      * @param radius      — Radius of the circle, default = 1.

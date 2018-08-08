@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.DodecahedronGeometryPara
  * Created by treblereel on 5/2/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class DodecahedronBufferGeometry extends BufferGeometry {
+public class DodecahedronBufferGeometry extends BufferGeometry<DodecahedronBufferGeometry> {
 
     public DodecahedronGeometryParameters parameters;
 
