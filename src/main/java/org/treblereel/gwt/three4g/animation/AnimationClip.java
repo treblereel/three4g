@@ -1,8 +1,10 @@
 package org.treblereel.gwt.three4g.animation;
 
+import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.geometries.parameters.MorphTarget;
 import org.treblereel.gwt.three4g.objects.Bone;
 
 /**
@@ -63,7 +65,7 @@ public class AnimationClip {
      * @return instance of array of AnimationClips
      */
     @JsMethod(name = "CreateClipsFromMorphTargetSequences")
-    public native static AnimationClip[] createClipsFromMorphTargetSequences(String name, Object[] morphTargetSequence, int fps, boolean noLoop);
+    public native static AnimationClip[] createClipsFromMorphTargetSequences(String name, JsArray<MorphTarget> morphTargetSequence, int fps, boolean noLoop);
 
     /**
      * Returns a new AnimationClip from the passed morph targets array of a geometry, taking a name and the number of frames per second.
@@ -74,10 +76,10 @@ public class AnimationClip {
      * @param morphTargetSequence array of morphTargetSequences
      * @param fps as int value
      * @param noLoop true, if noLoop required
-     * @return instance of array of AnimationClips
+     * @return instance of AnimationClip
      */
     @JsMethod(name = "CreateFromMorphTargetSequence")
-    public native static AnimationClip[] createFromMorphTargetSequence(String name, Object[] morphTargetSequence, int fps, boolean noLoop);
+    public native static AnimationClip createFromMorphTargetSequence(String name, JsArray<MorphTarget> morphTargetSequence, int fps, boolean noLoop);
 
     /**
      * Searches for an AnimationClip by name, taking as its first parameter either an array of AnimationClips, or a mesh or geometry that contains an array named "animations".
