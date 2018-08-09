@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.geometries.parameters;
+package org.treblereel.gwt.three4g.core;
 
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsPackage;
@@ -13,5 +13,6 @@ import org.treblereel.gwt.three4g.math.Vector3;
 public class MorphTarget {
 
     public String name;
+
     public JsArray<Vector3> vertices;
 }

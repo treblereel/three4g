@@ -8,6 +8,7 @@ import org.treblereel.gwt.three4g.math.Box3;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.math.Vector3;
+import org.treblereel.gwt.three4g.math.Vector4;
 import org.treblereel.gwt.three4g.objects.Mesh;
 
 /**
@@ -70,13 +71,13 @@ public class Geometry extends AbstractGeometry<Geometry> {
      * Array of morph targets. Each morph target is a Javascript object:
      * { name: "targetName", vertices: [ new THREE.Vector3(), ... ] } Morph vertices match number and order of primary vertices.
      */
-    public Object[] morphTargets;//TODO
+    public JsArray<MorphTarget> morphTargets;
 
     /**
      * Array of morph normals. Morph normals have similar structure as morph targets, each normal set is a Javascript object:
      * morphNormal = { name: "NormalName", normals: [ new THREE.Vector3(), ... ] } See the WebGL / morphNormals example.
      */
-    public Object[] morphNormals;//TODO
+    public JsArray<MorphNormal> morphNormals;
 
     /**
      * When working with a SkinnedMesh, each vertex can have up to 4 bones affecting it. The skinWeights property is an
@@ -88,7 +89,7 @@ public class Geometry extends AbstractGeometry<Geometry> {
      * is only 1 bone associated with the vertex then you only need to worry about the first component of the vector,
      * the rest can be ignored and set to 0.
      */
-    public Object[] skinWeights;//TODO
+    public JsArray<Vector4> skinWeights;
 
     /**
      * Just like the skinWeights property, the skinIndices' values correspond to the geometry's vertices. Each vertex can have up to 4 bones associated with it. So if you look at the first vertex, and the first skinIndex, this will tell you the bones associated with that vertex. For example the first vertex could have a value of ( 10.05, 30.10, 12.12 ). Then the first skin index could have the value of ( 10, 2, 0, 0 ). The first skin weight could have the value of ( 0.8, 0.2, 0, 0 ). In affect this would take the first vertex, and then the bone mesh.bones[10] and apply it 80% of the way. Then it would take the bone skeleton.bones[2] and apply it 20% of the way. The next two values have a weight of 0, so they would have no affect.
@@ -106,7 +107,7 @@ public class Geometry extends AbstractGeometry<Geometry> {
      * skeleton.bones[9]; // weight of 0.3
      * skeleton.bones[10]; // weight of 0
      */
-    public Object[] skinIndices;//TODO
+    public JsArray<Vector4> skinIndices;
 
     /**
      * Array of vertices.

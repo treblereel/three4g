@@ -1,4 +1,4 @@
-package org.treblereel.gwt.three4g.geometries.parameters;
+package org.treblereel.gwt.three4g.core;
 
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsPackage;
