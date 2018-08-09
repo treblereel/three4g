@@ -43,12 +43,12 @@ public class Mesh extends Object3D {
      * An array of weights typically from 0-1 that specify how much of the morph is applied. Undefined by default,
      * but reset to a blank array by updateMorphTargets.
      */
-    public Object[] morphTargetInfluences; //TODO
+    public float[] morphTargetInfluences;
 
     /**
      * A dictionary of morphTargets based on the morphTarget.name property. Undefined by default, but rebuilt updateMorphTargets.
      */
-    public Object[] morphTargetDictionary;
+    public float[] morphTargetDictionary;
 
     @JsConstructor
     public Mesh() {

@@ -17,5 +17,6 @@ public class PointsMaterialParameters extends MaterialParameters {
     public Texture map;
     public Number size;
     public boolean sizeAttenuation;
+    public boolean morphTargets;
 
 }

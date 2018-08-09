@@ -34,7 +34,7 @@ public class Quaternion {
      * Returns the angle between this quaternion and quaternion q in radians.
      *
      * @param q in radians.
-     * @return
+     * @return float value
      */
     public native float angleTo(Quaternion q);
 
