@@ -16,6 +16,32 @@ public class Spherical {
 
     public float theta;
 
+    @JsConstructor
+    public Spherical() {
+
+    }
+
+    /**
+     * The poles (phi) are at the positive and negative y axis. The equator (theta) starts at positive z.
+     *
+     * @param radius - the radius, or the Euclidean distance (straight-line distance) from the point to the origin. Default is 1.0.
+     */
+    @JsConstructor
+    public Spherical(float radius) {
+
+    }
+
+    /**
+     * The poles (phi) are at the positive and negative y axis. The equator (theta) starts at positive z.
+     *
+     * @param radius - the radius, or the Euclidean distance (straight-line distance) from the point to the origin. Default is 1.0.
+     * @param phi    - polar angle from the y (up) axis. Default is 0.
+     */
+    @JsConstructor
+    public Spherical(float radius, float phi) {
+
+    }
+
     /**
      * The poles (phi) are at the positive and negative y axis. The equator (theta) starts at positive z.
      *
@@ -27,7 +53,6 @@ public class Spherical {
     public Spherical(float radius, float phi, float theta) {
 
     }
-
     /**
      * Returns a new plane with the same radius, phi and theta properties as this one.
      *
