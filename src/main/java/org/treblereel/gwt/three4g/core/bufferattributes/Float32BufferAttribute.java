@@ -2,6 +2,8 @@ package org.treblereel.gwt.three4g.core.bufferattributes;
 
 import elemental2.core.ArrayBuffer;
 import elemental2.core.Float32Array;
+import elemental2.core.JsArray;
+import elemental2.core.TypedArray;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
@@ -12,6 +14,28 @@ import org.treblereel.gwt.three4g.core.BufferAttribute;
  */
 @JsType(isNative = true, namespace = "THREE")
 public class Float32BufferAttribute extends BufferAttribute {
+
+    /**
+     * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
+     *                 This array should have
+     *                 itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
+     * @param itemSize -- the number of values of the array that should be associated with a particular vertex. For instance, if this
+     *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
+     */
+    public Float32BufferAttribute(JsArray<Float> array, int itemSize) {
+        super(null, itemSize);
+    }
+
+    /**
+     * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
+     *                 This array should have
+     *                 itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
+     * @param itemSize -- the number of values of the array that should be associated with a particular vertex. For instance, if this
+     *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
+     */
+    public Float32BufferAttribute(Float32Array array, int itemSize) {
+        super(null, itemSize);
+    }
 
     /**
      * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
