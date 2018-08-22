@@ -6,14 +6,15 @@ import jsinterop.annotations.JsType;
 
 /**
  * An instanced version of BufferAttribute.
+ *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class InstancedBufferAttribute extends BufferAttribute{
+public class InstancedBufferAttribute extends BufferAttribute<Number, InstancedBufferAttribute> {
 
     /**
-     *  Default is 1.
+     * Default is 1.
      */
     public int meshPerAttribute;
 
@@ -22,8 +23,11 @@ public class InstancedBufferAttribute extends BufferAttribute{
      */
     public boolean isInstancedBufferAttribute;
 
-    @JsConstructor
-    public InstancedBufferAttribute(TypedArray array, int itemSize, int meshPerAttribute){
+    public InstancedBufferAttribute(TypedArray array, int itemSize) {
+
+    }
+
+    public InstancedBufferAttribute(TypedArray array, int itemSize, int meshPerAttribute) {
 
     }
 

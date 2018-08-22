@@ -21,7 +21,7 @@ import org.treblereel.gwt.three4g.math.Vector4;
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class BufferAttribute {
+public class BufferAttribute<V extends Number, T extends BufferAttribute> {
 
     /**
      * The array holding data stored in the buffer.
@@ -90,10 +90,20 @@ public class BufferAttribute {
      */
     public int version;
 
-    BufferAttribute() {
+    protected BufferAttribute() {
 
     }
 
+    /**
+     * @param array    -- Must be a float[]. Used to instantiate the buffer.
+     *                 This array should have
+     *                 itemSize * numVertices elements, where numVertices is the number of vertices in the associated BufferGeometry.
+     * @param itemSize -- the number of values of the array that should be associated with a particular vertex. For instance, if this
+     *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
+     */
+    public BufferAttribute(float[] array, int itemSize) {
+
+    }
     /**
      * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
      *                 This array should have
@@ -101,7 +111,6 @@ public class BufferAttribute {
      * @param itemSize -- the number of values of the array that should be associated with a particular vertex. For instance, if this
      *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
-    @JsConstructor
     public BufferAttribute(TypedArray array, int itemSize) {
 
     }
@@ -118,7 +127,6 @@ public class BufferAttribute {
      *                   would map from -32767 - +32767 to -1.0f - +1.0f. If normalized is false, the values will be converted
      *                   to floats which contain the exact value, i.e. 32767 becomes 32767.0f.
      */
-    @JsConstructor
     public BufferAttribute(TypedArray array, int itemSize, boolean normalized) {
 
     }
@@ -128,7 +136,7 @@ public class BufferAttribute {
      *
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute clone();
+    public native T clone();
 
     /**
      * Copy the array given here (which can be a normal array or TypedArray) into array.
@@ -138,7 +146,7 @@ public class BufferAttribute {
      * @param array of int
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyArray(int[] array);
+    public native T copyArray(int[] array);
 
     /**
      * Copy the array given here (which can be a normal array or TypedArray) into array.
@@ -148,7 +156,7 @@ public class BufferAttribute {
      * @param array of double
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyArray(double[] array);
+    public native T copyArray(double[] array);
 
     /**
      * Copy the array given here (which can be a normal array or TypedArray) into array.
@@ -158,7 +166,7 @@ public class BufferAttribute {
      * @param array of float
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyArray(float[] array);
+    public native T copyArray(float[] array);
 
     /**
      * Copy the array given here (which can be a normal array or TypedArray) into array.
@@ -166,7 +174,7 @@ public class BufferAttribute {
      * @param array of JsArray
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyArray(JsArray array);
+    public native T copyArray(JsArray array);
 
     /**
      * Copy the array given here (which can be a normal array or TypedArray) into array.
@@ -174,7 +182,7 @@ public class BufferAttribute {
      * @param array of JsArray
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyArray(TypedArray array);
+    public native T copyArray(TypedArray array);
 
     /**
      * Copy a vector from bufferAttribute[index2] to array[index1].
@@ -191,7 +199,7 @@ public class BufferAttribute {
      * @param colors source array of colors
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyColorsArray(Color[] colors);
+    public native T copyColorsArray(Color[] colors);
 
     /**
      * Copy an array representing Vector2s into array.
@@ -199,7 +207,7 @@ public class BufferAttribute {
      * @param vectors source array of vector2s
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyVector2sArray(Vector2[] vectors);
+    public native T copyVector2sArray(Vector2[] vectors);
 
     /**
      * Copy an array representing Vector2s into array.
@@ -207,7 +215,7 @@ public class BufferAttribute {
      * @param vectors source array of vector3s
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyVector3sArray(Vector3[] vectors);
+    public native T copyVector3sArray(Vector3[] vectors);
 
     /**
      * Copy an array representing Vector4s into array.
@@ -215,7 +223,7 @@ public class BufferAttribute {
      * @param vectors source array of vector4s
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute copyVector4sArray(Vector4[] vectors);
+    public native T copyVector4sArray(Vector4[] vectors);
 
     /**
      * Returns the x component of the vector at the given index.
@@ -223,7 +231,7 @@ public class BufferAttribute {
      * @param index of x component
      * @return instance of Object
      */
-    public native Number getX(int index);
+    public native V getX(int index);
 
     /**
      * Returns the y component of the vector at the given index.
@@ -231,7 +239,7 @@ public class BufferAttribute {
      * @param index of y component
      * @return instance of Object
      */
-    public native Number getY(int index);
+    public native V getY(int index);
 
     /**
      * Returns the z component of the vector at the given index.
@@ -239,7 +247,7 @@ public class BufferAttribute {
      * @param index of z component
      * @return instance of Object
      */
-    public native Number getZ(int index);
+    public native V getZ(int index);
 
     /**
      * Sets the value of the onUploadCallback property.
@@ -256,7 +264,7 @@ public class BufferAttribute {
      *              In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(TypedArray value);
+    public native T set(TypedArray value);
 
     /**
      * @param value  -- TypedArray from which to copy values.
@@ -266,7 +274,7 @@ public class BufferAttribute {
      *               In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(TypedArray value, int offset);
+    public native T set(TypedArray value, int offset);
 
     /**
      * @param array -- an Array or JsArray from which to copy values.
@@ -274,7 +282,7 @@ public class BufferAttribute {
      *              In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(float[] array);
+    public native T set(float[] array);
 
     /**
      * @param array  -- an Array or JsArray from which to copy values.
@@ -283,7 +291,7 @@ public class BufferAttribute {
      *               In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(float[] array, int offset);
+    public native T set(float[] array, int offset);
 
     /**
      * @param array -- an Array or JsArray from which to copy values.
@@ -291,7 +299,7 @@ public class BufferAttribute {
      *              In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(int[] array);
+    public native T set(int[] array);
 
     /**
      * @param array  -- an Array or JsArray from which to copy values.
@@ -301,7 +309,7 @@ public class BufferAttribute {
      *               In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(int[] array, int offset);
+    public native T set(int[] array, int offset);
 
     /**
      * @param array -- an Array or JsArray from which to copy values.
@@ -309,7 +317,7 @@ public class BufferAttribute {
      *              In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(double[] array);
+    public native T set(double[] array);
 
     /**
      * @param array -- an Array or JsArray from which to copy values.
@@ -318,13 +326,13 @@ public class BufferAttribute {
      *              In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(double[] array, int offset);
+    public native T set(double[] array, int offset);
 
     /**
      * @param value -- JsArray from which to copy values.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(JsArray value);
+    public native T set(JsArray value);
 
     /**
      * @param value  -- JsArray from which to copy values.
@@ -334,7 +342,7 @@ public class BufferAttribute {
      *               In particular, see that page for requirements on value being a TypedArray.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute set(JsArray value, int offset);
+    public native T set(JsArray value, int offset);
 
 
     /**
@@ -343,7 +351,7 @@ public class BufferAttribute {
      * @param array to the TypedArray passed in here.
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setArray(TypedArray array);
+    public native T setArray(TypedArray array);
 
     /**
      * Set dynamic to value.
@@ -351,7 +359,7 @@ public class BufferAttribute {
      * @param value set it dynamic
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setDynamic(boolean value);
+    public native T setDynamic(boolean value);
 
     /**
      * Sets the x component of the vector at the given index.
@@ -360,7 +368,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setX(int index, Number x);
+    public native T setX(int index, V x);
 
     /**
      * Sets the y component of the vector at the given index.
@@ -369,7 +377,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setY(int index, Number y);
+    public native T setY(int index, V y);
 
     /**
      * Sets the z component of the vector at the given index.
@@ -378,7 +386,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setZ(int index, Number z);
+    public native T setZ(int index, V z);
 
     /**
      * Sets the w component of the vector at the given index.
@@ -387,7 +395,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setW(int index, Number w);
+    public native T setW(int index, V w);
 
     /**
      * Sets the x and y components of the vector at the given index.
@@ -397,7 +405,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setXY(int index, Number x, Number y);
+    public native T setXY(int index, V x, V y);
 
     /**
      * Sets the x, y and z components of the vector at the given index.
@@ -408,7 +416,7 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setXYZ(int index, Number x, Number y, Number z);
+    public native T setXYZ(int index, V x, V y, V z);
 
     /**
      * Sets the x, y, z and w components of the vector at the given index.
@@ -420,6 +428,6 @@ public class BufferAttribute {
      * @param index of component
      * @return instance of BufferAttribute
      */
-    public native BufferAttribute setXYZW(int index, Number x, Number y, Number z, Number w);
+    public native T setXYZW(int index, V x, V y, V z, V w);
 
 }

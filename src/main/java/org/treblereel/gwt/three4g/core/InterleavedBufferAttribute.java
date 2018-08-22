@@ -3,13 +3,14 @@ package org.treblereel.gwt.three4g.core;
 import elemental2.core.TypedArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.bufferattributes.Uint16BufferAttribute;
 
 /**
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class InterleavedBufferAttribute {
+public class InterleavedBufferAttribute extends BufferAttribute<Number, InterleavedBufferAttribute>{
 
     /**
      * The InterleavedBuffer instance passed in the constructor.
@@ -45,55 +46,12 @@ public class InterleavedBufferAttribute {
      */
     public boolean isInterleavedBufferAttribute;
 
-    @JsConstructor
-    public InterleavedBufferAttribute(InterleavedBuffer interleavedBuffer, int itemSize, int offset, boolean normalized) {
+    public InterleavedBufferAttribute(InterleavedBuffer interleavedBuffer, int itemSize, int offset) {
 
     }
 
-    /**
-     * Returns the x component of the item at the given index.
-     *
-     * @param index given index
-     * @return the x component
-     */
-    public native Number getX(Number index);
+    public InterleavedBufferAttribute(InterleavedBuffer interleavedBuffer, int itemSize, int offset, boolean normalized) {
 
-    /**
-     * Returns the y component of the item at the given index.
-     *
-     * @param index given index
-     * @return the y component
-     */
-    public native Number getY(Number index);
-
-    /**
-     * Returns the z component of the item at the given index.
-     *
-     * @param index given index
-     * @return the z component
-     */
-    public native Number getZ(Number index);
-
-    /**
-     * Returns the w component of the item at the given index.
-     *
-     * @param index given index
-     * @return the w component
-     */
-    public native Number getW(Number index);
-
-    public native void setX(Number index, Number x);
-
-    public native void setY(Number index, Number y);
-
-    public native void setZ(Number index, Number z);
-
-    public native void setW(Number index, Number w);
-
-    public native void setXY(Number index, Number x, Number y);
-
-    public native void setXYZ(Number index, Number x, Number y, Number z);
-
-    public native void setXYZW(Number index, Number x, Number y, Number z, Number w);
+    }
 
 }

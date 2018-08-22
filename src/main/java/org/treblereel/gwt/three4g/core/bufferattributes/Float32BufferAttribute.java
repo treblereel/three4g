@@ -23,7 +23,7 @@ public class Float32BufferAttribute extends BufferAttribute {
      *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
     public Float32BufferAttribute(JsArray<Float> array, int itemSize) {
-        super(null, itemSize);
+        super();
     }
 
     /**
@@ -34,7 +34,7 @@ public class Float32BufferAttribute extends BufferAttribute {
      *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
     public Float32BufferAttribute(Float32Array array, int itemSize) {
-        super(null, itemSize);
+        super();
     }
 
     /**
