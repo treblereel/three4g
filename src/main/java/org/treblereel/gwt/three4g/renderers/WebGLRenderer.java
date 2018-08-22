@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.renderers;
 
-import elemental2.core.JsObject;
 import elemental2.core.Uint8Array;
 import elemental2.dom.HTMLElement;
 import elemental2.webgl.WebGLContextAttributes;
@@ -10,6 +9,7 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.HeightWidth;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Color;
