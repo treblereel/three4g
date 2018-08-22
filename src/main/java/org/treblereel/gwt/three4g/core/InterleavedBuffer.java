@@ -13,7 +13,7 @@ import jsinterop.annotations.JsType;
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class InterleavedBuffer {
+public class InterleavedBuffer<T extends InterleavedBuffer> {
 
     /**
      * A typed array with a shared buffer. Stores the geometry data.
@@ -71,7 +71,7 @@ public class InterleavedBuffer {
      * @param array - must be a Typed Array.
      * @return instance of InterleavedBuffer
      */
-    public native InterleavedBuffer setArray(TypedArray array);
+    public native T setArray(TypedArray array);
 
     /**
      * Set dynamic to value.
@@ -79,7 +79,7 @@ public class InterleavedBuffer {
      * @param value true, to set dynamic
      * @return instance of InterleavedBuffer
      */
-    public native InterleavedBuffer setDynamic(boolean value);
+    public native T setDynamic(boolean value);
 
     /**
      * Copies another InterleavedBuffer to this InterleavedBuffer.
@@ -87,7 +87,7 @@ public class InterleavedBuffer {
      * @param source instance of InterleavedBuffer
      * @return instance of InterleavedBuffer
      */
-    public native InterleavedBuffer copy(InterleavedBuffer source);
+    public native T copy(InterleavedBuffer source);
 
     /**
      * Copies data from attribute[index2] to array[index1].
@@ -97,7 +97,7 @@ public class InterleavedBuffer {
      * @param attribute object //TODO
      * @return instance of InterleavedBuffer
      */
-    public native InterleavedBuffer copyAt(int index1, Object attribute, int index2); //TODO check object
+    public native T copyAt(int index1, Object attribute, int index2); //TODO check object
 
     /**
      * Stores multiple values in the buffer, reading input values from a specified array.
@@ -106,13 +106,13 @@ public class InterleavedBuffer {
      * @param offset - The offset into the target array at which to begin writing values from the source array. Default is 0.
      * @return instance of InterleavedBuffer
      */
-    public native InterleavedBuffer set(TypedArray value, int offset);
+    public native T set(TypedArray value, int offset);
 
     /**
      * Creates a clone of this InterleavedBuffer.
      *
      * @return instance of InterleavedBuffer
      */
-    public native InterleavedBuffer clone();
+    public native T clone();
 
 }

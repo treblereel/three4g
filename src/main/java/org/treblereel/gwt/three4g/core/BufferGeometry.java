@@ -3,7 +3,7 @@ package org.treblereel.gwt.three4g.core;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
+import jsinterop.base.JsArrayLike;
 import org.treblereel.gwt.three4g.math.Box3;
 import org.treblereel.gwt.three4g.math.Sphere;
 import org.treblereel.gwt.three4g.math.Vector3;
@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T> {
 
     @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
-    public static class Attributes extends JsObject{
+    public static class Attributes extends JsObject {
 
         public BufferAttribute position;
         public BufferAttribute normal;
@@ -32,7 +32,7 @@ public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T
         public BufferAttribute uv;
         public BufferAttribute lineDistance;
 
-        Attributes(){
+        Attributes() {
 
         }
 
@@ -116,8 +116,8 @@ public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T
     /**
      * Adds a group to this geometry; see the groups property for details.
      *
-     * @param start as int value
-     * @param count as int value
+     * @param start         as int value
+     * @param count         as int value
      * @param materialIndex as int value
      */
     public native void addGroup(int start, int count, int materialIndex);
@@ -171,7 +171,7 @@ public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T
      * Merge in another BufferGeometry with an optional offset of where to start merging in.
      *
      * @param bufferGeometry instance of BufferGeometry
-     * @param offset as int value
+     * @param offset         as int value
      */
     public native void merge(BufferGeometry bufferGeometry, int offset);
 
@@ -187,6 +187,13 @@ public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T
      * @return instance of BufferGeometry
      */
     public native BufferAttribute removeAttribute(String name);
+
+    /**
+     * Set the .index buffer.
+     *
+     * @param index instance of BufferGeometry
+     */
+    public native void setIndex(JsArrayLike index);
 
     /**
      * Set the .index buffer.

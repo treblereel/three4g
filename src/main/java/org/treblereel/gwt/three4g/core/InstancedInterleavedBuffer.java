@@ -11,7 +11,7 @@ import jsinterop.annotations.JsType;
  * Created by treblereel on 4/30/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class InstancedInterleavedBuffer extends InterleavedBuffer{
+public class InstancedInterleavedBuffer extends InterleavedBuffer<InstancedInterleavedBuffer>{
 
     /**
      * Default is 1.
@@ -23,7 +23,6 @@ public class InstancedInterleavedBuffer extends InterleavedBuffer{
      */
     public boolean isInstancedInterleavedBuffer;
 
-    @JsConstructor
     public InstancedInterleavedBuffer(TypedArray array, int itemSize, int meshPerAttribute) {
 
     }
