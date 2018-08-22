@@ -1,13 +1,11 @@
 package org.treblereel.gwt.three4g.materials.parameters;
 
-import com.google.gwt.core.client.GWT;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.core.JsObject;
-import org.treblereel.gwt.three4g.utils.JSON;
 
 
 /**

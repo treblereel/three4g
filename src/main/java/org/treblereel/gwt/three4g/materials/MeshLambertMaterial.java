@@ -79,7 +79,7 @@ public class MeshLambertMaterial extends Material {
     /**
      * The environment map. Default is null.
      */
-    public CubeTexture envMap;
+    public Texture envMap;
 
     /**
      * Used to check whether this or derived classes are mesh Lambert materials. Default is true.

@@ -7,6 +7,6 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
-@JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")
-public class RawShaderMaterialParameters extends MaterialParameters{
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public class RawShaderMaterialParameters extends ShaderMaterialParameters {
 }

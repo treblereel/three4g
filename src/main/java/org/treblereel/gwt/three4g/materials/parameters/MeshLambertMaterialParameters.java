@@ -68,7 +68,7 @@ public class MeshLambertMaterialParameters extends MaterialParameters {
     /**
      * The environment map. Default is null.
      */
-    public CubeTexture envMap;
+    public Texture envMap;
 
     /**
      * The light map. Default is null. The lightMap requires a second set of UVs, and consequently will ignore the repeat
