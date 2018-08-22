@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.math;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsArrayLike;
 
 /**
  * @author Dmitrii Tikhomirov
@@ -91,6 +92,23 @@ public class Quaternion {
      * @return Quaternion
      */
     public native Quaternion fromArray(float[] array, float offset);
+
+    /**
+     * Sets this quaternion's x, y,	z and w properties from an array.
+     *
+     * @param array - array of format (x, y, z, w) used to construct the quaternion.
+     * @return Quaternion
+     */
+    public native Quaternion fromArray(JsArrayLike array);
+
+    /**
+     * Sets this quaternion's x, y,	z and w properties from an array.
+     *
+     * @param array  - array of format (x, y, z, w) used to construct the quaternion.
+     * @param offset - (optional) offset into the array. Default is 0.
+     * @return Quaternion
+     */
+    public native Quaternion fromArray(JsArrayLike array, float offset);
 
     /**
      * Inverts this quaternion - calculate the conjugate and then normalizes the result.
