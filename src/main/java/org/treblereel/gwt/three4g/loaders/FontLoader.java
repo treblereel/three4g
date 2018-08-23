@@ -74,5 +74,5 @@ public class FontLoader {
     public native void load(String url, OnLoadCallback<Font> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
 
-    public native Font parse (JSONObject json);
+    public native Font parse (String json);
 }
