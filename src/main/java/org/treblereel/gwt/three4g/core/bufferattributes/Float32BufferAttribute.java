@@ -1,11 +1,8 @@
 package org.treblereel.gwt.three4g.core.bufferattributes;
 
-import elemental2.core.ArrayBuffer;
 import elemental2.core.Float32Array;
 import elemental2.core.JsArray;
-import elemental2.core.TypedArray;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
 
 /**
@@ -23,7 +20,6 @@ public class Float32BufferAttribute extends BufferAttribute {
      *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
     public Float32BufferAttribute(JsArray<Float> array, int itemSize) {
-        super();
     }
 
     /**
@@ -34,7 +30,6 @@ public class Float32BufferAttribute extends BufferAttribute {
      *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
     public Float32BufferAttribute(Float32Array array, int itemSize) {
-        super();
     }
 
     /**
@@ -45,31 +40,5 @@ public class Float32BufferAttribute extends BufferAttribute {
      *                 attribute is storing a 3-component vector (such as a position, normal, or color), then itemSize should be 3.
      */
     public Float32BufferAttribute(float[] array, int itemSize) {
-        super(new Float32Array((ArrayBuffer) Js.uncheckedCast(array)), itemSize);
     }
-
-    /**
-     * Returns the x component of the vector at the given index.
-     *
-     * @param index of x component
-     * @return instance of Float
-     */
-    public native Float getX(int index);
-
-    /**
-     * Returns the y component of the vector at the given index.
-     *
-     * @param index of y component
-     * @return instance of Float
-     */
-    public native Float getY(int index);
-
-    /**
-     * Returns the z component of the vector at the given index.
-     *
-     * @param index of z component
-     * @return instance of Float
-     */
-    public native Float getZ(int index);
-
 }
