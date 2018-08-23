@@ -30,6 +30,8 @@ public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T
         public BufferAttribute normal;
         public BufferAttribute color;
         public BufferAttribute uv;
+        public BufferAttribute uv2;
+        public BufferAttribute size;
         public BufferAttribute lineDistance;
 
         Attributes() {

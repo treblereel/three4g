@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.math;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsArrayLike;
 import org.treblereel.gwt.three4g.core.JsObject;
 
 /**
@@ -386,5 +387,22 @@ public class Color extends JsObject {
      * @return Color
      */
     public native float[] toArray(float[] array, int offset);
+
+    /**
+     * Returns an array of the form [ r, g, b ].
+     *
+     * @param array - An array to store the color to.
+     * @return Color
+     */
+    public native float[] toArray(JsArrayLike array);
+
+    /**
+     * Returns an array of the form [ r, g, b ].
+     *
+     * @param array  - An array to store the color to.
+     * @param offset - An offset into the array.
+     * @return Color
+     */
+    public native float[] toArray(JsArrayLike array, int offset);
 
 }
