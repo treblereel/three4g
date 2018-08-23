@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.scenes;
 
-import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
 
@@ -9,7 +8,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * Created by treblereel on 3/9/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class FogExp2 extends Fog{
+public class FogExp2 extends Fog {
 
     /**
      * Defines how fast the fog will grow dense.
@@ -20,11 +19,20 @@ public class FogExp2 extends Fog{
     /**
      * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
      *
-     * @param color instance of Coloe
+     * @param color   instance of Color
      * @param density as float value
      */
-    @JsConstructor
     public FogExp2(Color color, float density) {
+
+    }
+
+    /**
+     * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
+     *
+     * @param color   instance of Color
+     * @param density as float value
+     */
+    public FogExp2(int color, float density) {
 
     }
 
@@ -40,5 +48,5 @@ public class FogExp2 extends Fog{
      *
      * @return JSON String
      */
-    public native  String toJSON();
+    public native String toJSON();
 }
