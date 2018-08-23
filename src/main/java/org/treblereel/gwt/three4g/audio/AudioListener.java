@@ -72,5 +72,5 @@ public class AudioListener extends Object3D {
      * @param value Set the volume.
      * @return instance of AudioListener
      */
-    public native AudioListener setMasterVolume(Number value);
+    public native AudioListener setMasterVolume(float value);
 }
