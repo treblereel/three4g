@@ -52,5 +52,5 @@ public class AudioAnalyser {
      *
      * @return AverageFrequency
      */
-    public native Number getAverageFrequency();
+    public native float getAverageFrequency();
 }

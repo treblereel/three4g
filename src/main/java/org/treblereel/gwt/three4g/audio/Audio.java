@@ -48,7 +48,7 @@ public class Audio extends Object3D {
     /**
      * Speed of playback. Default is 1.
      */
-    public Number playbackRate;
+    public float playbackRate;
 
     /**
      * Whether the audio is currently playing.
@@ -58,12 +58,12 @@ public class Audio extends Object3D {
     /**
      * The time at which the sound should begin to play. Same as the when paramter of AudioBufferSourceNode.start(). Default is 0.
      */
-    public Number startTime;
+    public float startTime;
 
     /**
      * An offset to the time within the audio buffer that playback should begin. Same as the offset paramter of AudioBufferSourceNode.start(). Default is 0.
      */
-    public Number offset;
+    public float offset;
 
     /**
      * An AudioBufferSourceNode created using AudioContext.createBufferSource().
@@ -146,7 +146,7 @@ public class Audio extends Object3D {
      *
      * @return current volume
      */
-    public native Number getVolume();
+    public native float getVolume();
 
     /**
      * If hasPlaybackControl is true, starts playback.
@@ -217,7 +217,7 @@ public class Audio extends Object3D {
      * @param value playback rate
      * @return instance of Audio
      */
-    public native Audio setPlaybackRate(Number value);
+    public native Audio setPlaybackRate(float value);
 
     /**
      * Set the volume.
@@ -225,7 +225,7 @@ public class Audio extends Object3D {
      * @param value volume rate
      * @return instance of Audio
      */
-    public native Audio setVolume(Number value);
+    public native Audio setVolume(float value);
 
     /**
      * If hasPlaybackControl is enabled, stops playback, resets startTime to 0 and sets isPlaying to false.
