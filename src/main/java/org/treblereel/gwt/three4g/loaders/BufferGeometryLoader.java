@@ -71,5 +71,5 @@ public class BufferGeometryLoader {
      * @param json — The JSON structure to parse.
      * @return instance of BufferGeometry
      */
-    public native BufferGeometry parse(JSONObject json);
+    public native BufferGeometry parse(String json);
 }
