@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.math;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsArrayLike;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
 
 /**
@@ -180,11 +181,30 @@ public class Vector4 implements Vector {
      * Sets this vector's x value to be array[ offset + 0 ], y value to be array[ offset + 1 ] z value to be array[ offset + 2 ]
      * and w value to be array[ offset + 3 ].
      *
+     * @param array - the source array.
+     * @return Vector4
+     */
+    public native Vector4 fromArray(JsArrayLike array);
+
+    /**
+     * Sets this vector's x value to be array[ offset + 0 ], y value to be array[ offset + 1 ] z value to be array[ offset + 2 ]
+     * and w value to be array[ offset + 3 ].
+     *
      * @param array  - the source array.
      * @param offset - (optional) offset into the array. Default is 0.
      * @return Vector4
      */
     public native Vector4 fromArray(float[] array, float offset);
+
+    /**
+     * Sets this vector's x value to be array[ offset + 0 ], y value to be array[ offset + 1 ] z value to be array[ offset + 2 ]
+     * and w value to be array[ offset + 3 ].
+     *
+     * @param array  - the source array.
+     * @param offset - (optional) offset into the array. Default is 0.
+     * @return Vector4
+     */
+    public native Vector4 fromArray(JsArrayLike array, float offset);
 
     /**
      * Sets this vector's x, y, z and w values from the attribute.
@@ -435,10 +455,27 @@ public class Vector4 implements Vector {
     /**
      * Returns an array [x, y, z, w], or copies x, y, z and w into the provided array.
      *
+     * @param array - array to store the vector to. If this is not provided, a new array will be created.
+     * @return float[]
+     */
+    public native float[] toArray(JsArrayLike array);
+
+    /**
+     * Returns an array [x, y, z, w], or copies x, y, z and w into the provided array.
+     *
      * @param array  - array to store the vector to. If this is not provided, a new array will be created.
      * @param offset - optional offset into the array.
      * @return float[]
      */
     public native float[] toArray(float[] array, int offset);
+
+    /**
+     * Returns an array [x, y, z, w], or copies x, y, z and w into the provided array.
+     *
+     * @param array  - array to store the vector to. If this is not provided, a new array will be created.
+     * @param offset - optional offset into the array.
+     * @return float[]
+     */
+    public native float[] toArray(JsArrayLike array, int offset);
 
 }
