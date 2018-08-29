@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.core.BufferAttribute;
  * Created by treblereel on 5/29/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class Float32BufferAttribute extends BufferAttribute {
+public class Float32BufferAttribute extends BufferAttribute<Float, Float32BufferAttribute> {
 
     /**
      * @param array    -- Must be a TypedArray. Used to instantiate the buffer.
