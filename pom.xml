@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
-    <version>0.95-beta1</version>
+    <version>0.95-beta2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>GWT:Three</name>
     <description>Three.js jsipterop based library for GWT</description>
@@ -34,7 +34,7 @@
         <url>https://github.com/treblereel/three4g</url>
         <developerConnection>scm:git:git@github.com:treblereel/three4g.git</developerConnection>
         <connection>scm:git:git://github.com/treblereel/three4g.git</connection>
-      <tag>three4g-0.95-beta1</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
