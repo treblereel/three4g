@@ -1,7 +1,6 @@
 package org.treblereel.gwt.three4g.core;
 
 import elemental2.core.TypedArray;
-import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
@@ -27,7 +26,11 @@ public class InstancedBufferAttribute extends BufferAttribute<Number, InstancedB
 
     }
 
-    public InstancedBufferAttribute(TypedArray array, int itemSize, int meshPerAttribute) {
+    public InstancedBufferAttribute(TypedArray array, int itemSize, boolean normalized) {
+
+    }
+
+    public InstancedBufferAttribute(TypedArray array, int itemSize, boolean normalized, int meshPerAttribute) {
 
     }
 

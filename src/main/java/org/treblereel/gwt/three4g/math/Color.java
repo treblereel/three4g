@@ -280,6 +280,18 @@ public class Color extends JsObject {
     public native Color lerp(Color color, float alpha);
 
     /**
+     * Linearly interpolates this color's HSL values toward the HSL values of the passed argument.
+     * It differs from the classic .lerp by not interpolating straight from one color to the other,
+     * but instead going through all the hues in between those two colors. The alpha argument can
+     * be thought of as the ratio between the two colors, where 0.0 is this color and 1.0 is the first argument.
+     *
+     * @param color - color to converge on.
+     * @param alpha - interpolation factor in the closed interval [0, 1].
+     * @return Color
+     */
+    public native Color lerpHSL(Color color, float alpha);
+
+    /**
      * Multiplies this color's RGB values by the given color's RGB values.
      *
      * @param color Color

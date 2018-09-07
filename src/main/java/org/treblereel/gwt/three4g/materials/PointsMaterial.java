@@ -48,7 +48,7 @@ public class PointsMaterial extends Material{
     public float size;
 
     /**
-     * Specify whether points' size will get smaller with the distance. Default is true.
+     * Specify whether points' size is attenuated by the camera depth. (Perspective camera only.) Default is true.
      */
     public boolean sizeAttenuation;
 

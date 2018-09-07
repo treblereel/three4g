@@ -249,9 +249,10 @@ public class Texture extends EventDispatcher {
     public native void dispose();
 
     /**
-     *
+     * Transform the uv based on the value of this texture's .offset, .repeat, .wrapS, .wrapT and .flipY properties.
      * @param uv instance of Vector2
+     * @return Vector2
      */
-    public native void  transformUv(Vector2 uv);
+    public native Vector2  transformUv(Vector2 uv);
 
 }

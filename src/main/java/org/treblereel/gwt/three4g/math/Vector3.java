@@ -471,6 +471,16 @@ public class Vector3 implements Vector {
     public native Vector3 setFromCylindrical(Cylindrical cylindrical);
 
     /**
+     * Sets this vector from the cylindrical coordinates radius, theta and y.
+     *
+     * @param radius as float
+     * @param phi    as float
+     * @param theta  as float
+     * @return this instance of Vector3
+     */
+    public native Vector3 setFromCylindricalCoords(float radius, float phi, float theta);
+
+    /**
      * Sets this vector's x, y and z equal to the column of the matrix specified by the index.
      *
      * @param matrix4 instance of Matrix4
@@ -502,6 +512,16 @@ public class Vector3 implements Vector {
      * @return instance of Vector3
      */
     public native Vector3 setFromSpherical(Spherical spherical);
+
+    /**
+     * Sets this vector from the cylindrical coordinates radius, theta and y.
+     *
+     * @param radius as float
+     * @param phi    as float
+     * @param theta  as float
+     * @return this instance of Vector3
+     */
+    public native Vector3 setFromSphericalCoords(float radius, float phi, float theta);
 
     /**
      * Sets this vector to the vector with the same direction as this one, but length l.

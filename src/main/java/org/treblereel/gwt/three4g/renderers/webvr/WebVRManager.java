@@ -6,7 +6,6 @@ import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.ArrayCamera;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.math.Matrix4;
-import org.treblereel.gwt.three4g.objects.Group;
 import org.treblereel.gwt.three4g.renderers.OnAnimate;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 
@@ -20,10 +19,9 @@ public class WebVRManager {
     //default false
     public boolean enabled;
 
-    //default 1.6
-    public float userHeight;
-
     public boolean isPresenting;
+
+    public String frameOfReferenceType;
 
     public WebVRManager(WebGLRenderer renderer) {
 
@@ -52,4 +50,5 @@ public class WebVRManager {
      */
     public native void setAnimationLoop(OnAnimate callback);
 
+    public native void setFrameOfReferenceType(String frameOfReferenceType);
 }

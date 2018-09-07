@@ -19,6 +19,8 @@ public class WebXRManager {
 
     public boolean isPresenting;
 
+    public String frameOfReferenceType;
+
     public WebXRManager(WebGLRenderer renderer){
 
     }
@@ -29,6 +31,8 @@ public class WebXRManager {
 
     public native void setDevice(VRDisplay device);
 
+    public native void setSession(Object session);
+
     public native ArrayCamera getCamera();
 
     public native void dispose();
@@ -36,6 +40,8 @@ public class WebXRManager {
     public native void submitFrame();
 
     public native Matrix4 getStandingMatrix();
+
+    public native void setFrameOfReferenceType(String frameOfReferenceType);
 
     /**
      * A build in function that can be used instead of requestAnimationFrame. For WebVR projects this function must be used.
