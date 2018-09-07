@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
-    <version>0.95-beta2-SNAPSHOT</version>
+    <version>0.96-beta1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>GWT:Three</name>
-    <description>Three.js jsipterop based library for GWT</description>
+    <description>Three.js JsInterop based library for GWT</description>
     <url>https://github.com/treblereel</url>
 
     <developers>
