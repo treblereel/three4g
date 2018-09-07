@@ -3,13 +3,13 @@
 ## A Three.js wrapper for GWT
 
 # Maven
-Current Version 0.96-beta1, implements 0.96 version of three.js
+Current Version 0.96-beta2, implements 0.96 version of three.js
 
 ```xml
 <dependency>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
-    <version>0.96-beta1</version>
+    <version>0.96-beta2</version>
 </dependency>
 ```
 # Setup
@@ -28,7 +28,7 @@ If you need Objects from examples add the following to your pom
 <dependency>
    <groupId>org.treblereel.gwt</groupId>
    <artifactId>three4g-examples</artifactId>
-   <version>0.96-beta1</version>
+   <version>0.96-beta2</version>
 </dependency>
 ```
 and to your module:
