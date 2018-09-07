@@ -40,6 +40,11 @@ public class SpriteMaterial extends Material {
      */
     public float rotation;
 
+    /**
+     * Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is true.
+     */
+    public boolean sizeAttenuation;
+
     @JsConstructor
     public SpriteMaterial(){
 

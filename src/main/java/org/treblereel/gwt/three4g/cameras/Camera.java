@@ -31,6 +31,11 @@ public class Camera extends Object3D {
     public Matrix4 projectionMatrix;
 
     /**
+     * The inverse of projectionMatrix.
+     */
+    public Matrix4 projectionMatrixInverse;
+
+    /**
      * Return a new camera with the same properties as this one.
      *
      * @return Camera

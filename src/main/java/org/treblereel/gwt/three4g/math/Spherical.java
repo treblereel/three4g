@@ -53,6 +53,7 @@ public class Spherical {
     public Spherical(float radius, float phi, float theta) {
 
     }
+
     /**
      * Returns a new plane with the same radius, phi and theta properties as this one.
      *
@@ -93,5 +94,15 @@ public class Spherical {
      * @return instance of Spherical
      */
     public native Spherical setFromVector3(Vector3 vec3);
+
+    /**
+     * Sets values of this spherical's radius, phi and theta properties from Cartesian coordinates.
+     *
+     * @param x - coordinate x
+     * @param y - coordinate x
+     * @param z - coordinate x
+     * @return instance of Spherical
+     */
+    public native Spherical setFromCartesianCoords(float x, float y, float z);
 
 }

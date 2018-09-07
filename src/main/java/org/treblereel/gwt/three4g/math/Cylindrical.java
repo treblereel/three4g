@@ -42,8 +42,8 @@ public class Cylindrical {
      * Sets values of this cylindrical's radius, theta and y properties.
      *
      * @param radius - radius
-     * @param phi -   phi
-     * @param theta - theta
+     * @param phi    -   phi
+     * @param theta  - theta
      * @return Cylindrical
      */
     public native Cylindrical set(float radius, float phi, float theta);
@@ -56,4 +56,14 @@ public class Cylindrical {
      * @return Cylindrical
      */
     public native Cylindrical setFromVector3(Vector3 vec3);
+
+    /**
+     * Sets values of this cylindrical's radius, theta and y properties from Cartesian coordinates.
+     *
+     * @param x - coordinate x
+     * @param y - coordinate x
+     * @param z - coordinate x
+     * @return Cylindrical
+     */
+    public native Cylindrical setFromCartesianCoords(float x, float y, float z);
 }
