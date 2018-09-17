@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.MeshPhongMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -238,6 +239,18 @@ public class MeshPhongMaterial extends Material {
     @JsConstructor
     public MeshPhongMaterial(MeshPhongMaterialParameters parameters) {
 
+    }
+
+    @JsOverlay
+    public final MeshPhongMaterial setColor(int color) {
+        this.color = new Color(color);
+        return this;
+    }
+
+    @JsOverlay
+    public final MeshPhongMaterial setColor(Color color) {
+        this.color = color;
+        return this;
     }
 
 }

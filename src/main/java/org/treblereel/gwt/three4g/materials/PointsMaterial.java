@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.PointsMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -13,7 +14,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * Created by treblereel on 3/19/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class PointsMaterial extends Material{
+public class PointsMaterial extends Material {
 
     /**
      * Color of the material, by default set to white (0xffffff).
@@ -22,7 +23,7 @@ public class PointsMaterial extends Material{
 
     /**
      * Used to check whether this or derived classes are points materials. Default is true.
-     *
+     * <p>
      * You should not change this, as it used internally for optimisation.
      */
     public boolean isPointsMaterial;
@@ -54,13 +55,25 @@ public class PointsMaterial extends Material{
 
 
     @JsConstructor
-    public PointsMaterial(){
+    public PointsMaterial() {
 
     }
 
     @JsConstructor
-    public PointsMaterial(PointsMaterialParameters params){
+    public PointsMaterial(PointsMaterialParameters params) {
 
+    }
+
+    @JsOverlay
+    public final PointsMaterial setColor(int color) {
+        this.color = new Color(color);
+        return this;
+    }
+
+    @JsOverlay
+    public final PointsMaterial setColor(Color color) {
+        this.color = color;
+        return this;
     }
 
 

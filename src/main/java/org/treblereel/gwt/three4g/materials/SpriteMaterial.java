@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.ShaderMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -53,5 +54,17 @@ public class SpriteMaterial extends Material {
     @JsConstructor
     public SpriteMaterial(ShaderMaterialParameters parameters){
 
+    }
+
+    @JsOverlay
+    public final SpriteMaterial setColor(int color) {
+        this.color = new Color(color);
+        return this;
+    }
+
+    @JsOverlay
+    public final SpriteMaterial setColor(Color color) {
+        this.color = color;
+        return this;
     }
 }
