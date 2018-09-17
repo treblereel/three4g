@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.MeshLambertMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -179,5 +180,17 @@ public class MeshLambertMaterial extends Material {
     @JsConstructor
     public MeshLambertMaterial(MeshLambertMaterialParameters params) {
 
+    }
+
+    @JsOverlay
+    public final MeshLambertMaterial setColor(int color) {
+        this.color = new Color(color);
+        return this;
+    }
+
+    @JsOverlay
+    public final MeshLambertMaterial setColor(Color color) {
+        this.color = color;
+        return this;
     }
 }

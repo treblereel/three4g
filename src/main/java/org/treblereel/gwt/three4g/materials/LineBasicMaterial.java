@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.LineBasicMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -63,6 +64,18 @@ public class LineBasicMaterial extends Material {
     @JsConstructor
     public LineBasicMaterial(LineBasicMaterialParameters parameters) {
 
+    }
+
+    @JsOverlay
+    public final LineBasicMaterial setColor(int color) {
+        this.color = new Color(color);
+        return this;
+    }
+
+    @JsOverlay
+    public final LineBasicMaterial setColor(Color color) {
+        this.color = color;
+        return this;
     }
 
 

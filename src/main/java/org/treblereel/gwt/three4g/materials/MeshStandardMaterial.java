@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.materials;
 
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.MeshStandardMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -219,5 +220,17 @@ public class MeshStandardMaterial extends Material {
      */
     public MeshStandardMaterial(MeshStandardMaterialParameters parameters) {
 
+    }
+
+    @JsOverlay
+    public final MeshStandardMaterial setColor(int color) {
+        this.color = new Color(color);
+        return this;
+    }
+
+    @JsOverlay
+    public final MeshStandardMaterial setColor(Color color) {
+        this.color = color;
+        return this;
     }
 }
