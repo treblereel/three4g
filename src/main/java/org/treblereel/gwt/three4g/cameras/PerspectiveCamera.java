@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.cameras;
 
-import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Vector4;
 
@@ -84,8 +83,31 @@ public class PerspectiveCamera extends Camera {
      */
     public float zoom;
 
-    @JsConstructor
-    protected PerspectiveCamera() {
+    public PerspectiveCamera() {
+    }
+
+    /**
+     * @param fov — Camera frustum vertical field of view.
+     *            Together these define the camera's viewing frustum.
+     */
+    public PerspectiveCamera(float fov) {
+    }
+
+    /**
+     * @param fov    — Camera frustum vertical field of view.
+     * @param aspect — Camera frustum aspect ratio.
+     *               Together these define the camera's viewing frustum.
+     */
+    public PerspectiveCamera(float fov, float aspect) {
+    }
+
+    /**
+     * @param fov    — Camera frustum vertical field of view.
+     * @param aspect — Camera frustum aspect ratio.
+     * @param near   — Camera frustum near plane.
+     *               Together these define the camera's viewing frustum.
+     */
+    public PerspectiveCamera(float fov, float aspect, float near) {
     }
 
     /**
@@ -95,7 +117,6 @@ public class PerspectiveCamera extends Camera {
      * @param far    — Camera frustum far plane.
      *               Together these define the camera's viewing frustum.
      */
-    @JsConstructor
     public PerspectiveCamera(float fov, float aspect, float near, float far) {
     }
 
