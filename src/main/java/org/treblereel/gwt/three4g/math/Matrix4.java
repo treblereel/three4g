@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.math;
 
+import elemental2.core.Float32Array;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
@@ -145,11 +146,28 @@ public class Matrix4 implements Matrix {
     /**
      * Sets the elements of this matrix based on an array in column-major format.
      *
+     * @param array - the array to read the elements from.
+     * @return instance of Matrix4
+     */
+    public native Matrix4 fromArray(Float32Array array);
+
+    /**
+     * Sets the elements of this matrix based on an array in column-major format.
+     *
      * @param array  - the array to read the elements from.
      * @param offset - offset into the array. Default is 0.
      * @return instance of Matrix4
      */
-    public native Matrix4 fromArray(float[] array, float offset);
+    public native Matrix4 fromArray(float[] array, int offset);
+
+    /**
+     * Sets the elements of this matrix based on an array in column-major format.
+     *
+     * @param array  - the array to read the elements from.
+     * @param offset - offset into the array. Default is 0.
+     * @return instance of Matrix4
+     */
+    public native Matrix4 fromArray(Float32Array array, int offset);
 
     /**
      * Set this matrix to the inverse of the passed matrix m, using the method outlined here. If throwOnDegenerate is not
@@ -448,11 +466,28 @@ public class Matrix4 implements Matrix {
     /**
      * Writes the elements of this matrix to an array in column-major format.
      *
+     * @param array - array to store the resulting vector in.
+     * @return float[]
+     */
+    public native float[] toArray(Float32Array array);
+
+    /**
+     * Writes the elements of this matrix to an array in column-major format.
+     *
      * @param array  - array to store the resulting vector in.
      * @param offset - offset in the array at which to put the result.
      * @return float[]
      */
     public native float[] toArray(float[] array, int offset);
+
+    /**
+     * Writes the elements of this matrix to an array in column-major format.
+     *
+     * @param array  - array to store the resulting vector in.
+     * @param offset - offset in the array at which to put the result.
+     * @return float[]
+     */
+    public native float[] toArray(Float32Array array, int offset);
 
     /**
      * Transposes this matrix.
