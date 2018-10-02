@@ -1,4 +1,8 @@
 *.class
 .idea/
 three4g.iml
+processor/three4g-processor.iml
+extensions/three4g-extensions.iml
+core/three4g (1).iml
+annotations/three4g-annotations.iml
 target/
