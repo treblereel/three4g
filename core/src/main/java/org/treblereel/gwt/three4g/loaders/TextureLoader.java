@@ -73,7 +73,7 @@ public class TextureLoader {
      *               <p>
      * @return Texture
      */
-    public native Texture load(String url, OnLoadCallback<Texture> onLoad);
+    public native Texture load(String url, OnLoadCallback<? extends Texture> onLoad);
 
     /**
      * Begin loading from the given URL and pass the fully loaded texture to onLoad. The method also returns a new texture
@@ -86,7 +86,7 @@ public class TextureLoader {
      *                   <p>
      * @return Texture
      */
-    public native Texture load(String url, OnLoadCallback<Texture> onLoad, OnProgressCallback onProgress);
+    public native Texture load(String url, OnLoadCallback<? extends Texture> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from the given URL and pass the fully loaded texture to onLoad. The method also returns a new texture
@@ -100,7 +100,7 @@ public class TextureLoader {
      *                   <p>
      * @return Texture
      */
-    public native Texture load(String url, OnLoadCallback<Texture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native Texture load(String url, OnLoadCallback<? extends Texture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Set the .crossOrigin attribute.
@@ -117,14 +117,5 @@ public class TextureLoader {
      * @return instance of TextureLoader
      */
     public native TextureLoader setPath(String path);
-
-    /**
-     * Whether the XMLHttpRequest uses credentials such as cookies, authorization headers or TLS client certificates. See XMLHttpRequest.withCredentials.
-     * Note that this has no effect if you are loading files locally or from the same domain.
-     *
-     * @param value credentials
-     * @return instance of TextureLoader
-     */
-    public native TextureLoader setWithCredentials(String value);
 
 }

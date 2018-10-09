@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 
 /**
  * @author Dmitrii Tikhomirov
@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.core.JsObject;
  */
 
 @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
-public class OnProgressEvent extends JsObject {
+public class OnProgressEvent extends PropertyHolder {
 
     public boolean lengthComputable;
 

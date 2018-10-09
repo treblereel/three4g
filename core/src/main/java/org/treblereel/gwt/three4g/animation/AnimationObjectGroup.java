@@ -2,8 +2,8 @@ package org.treblereel.gwt.three4g.animation;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 
 /**
  * A group of objects that receives a shared animation state.
@@ -19,7 +19,7 @@ public class AnimationObjectGroup {
     /**
      * An object that contains some informations of this AnimationObjectGroup (total number, number in use, number of bindings per object)
      */
-    public JsObject stats;
+    public PropertyHolder stats;
 
     /**
      * The UUID of this AnimationObjectGroup. It gets automatically assigned and shouldn't be edited.

@@ -7,6 +7,7 @@ import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
+import org.treblereel.gwt.three4g.materials.Material;
 
 /**
  * A loader for loading a .obj resource.
@@ -15,7 +16,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/25/18.
  */
-@Three4gElement(paths = "js/loaders/OBJLoader.js")
+@Three4gElement(paths = {"js/loaders/OBJLoader.js", "js/loaders/LoaderSupport.js", "js/loaders/MTLLoader.js"})
 @JsType(isNative = true, namespace = "THREE")
 public class OBJLoader {
 
@@ -40,7 +41,7 @@ public class OBJLoader {
      * @param url    — A string containing the path/URL of the .obj file.
      * @param onLoad — A function to be called after the loading is successfully completed. The function receives the loaded Object3D as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad);
 
     /**
      * Begin loading from url and call the callback function with the parsed response content.
@@ -49,7 +50,7 @@ public class OBJLoader {
      * @param onLoad     — A function to be called after the loading is successfully completed. The function receives the loaded Object3D as an argument.
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and call the callback function with the parsed response content.
@@ -59,7 +60,7 @@ public class OBJLoader {
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
      * @param onError    — A function to be called if an error occurs during loading. The function receives error as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * @param text — The textual obj structure to parse.
@@ -68,6 +69,23 @@ public class OBJLoader {
      * If an obj object or group uses multiple materials while declaring faces, geometry groups and an array of materials are used.
      */
     public native Object3D parse(String text);
+
+    /**
+     * Sets materials loaded by MTLLoader or any other supplier of an Array of Materials.
+     *
+     * @param materials array of Materials
+     * @return this instance
+     */
+    public native OBJLoader setMaterials(Material[] materials);
+
+    /**
+     * Sets materials loaded by MTLLoader or any other supplier of an Array of Materials.
+     *
+     * @param materials loaded by MTLLoader
+     * @return this instance
+     */
+    public native OBJLoader setMaterials(MTLLoader.MaterialCreator materials);
+
 
     /**
      * The base path from which files will be loaded. See .setPath. Default is undefined.

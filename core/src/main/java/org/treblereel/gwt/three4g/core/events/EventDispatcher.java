@@ -1,13 +1,13 @@
 package org.treblereel.gwt.three4g.core.events;
 
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 
 /**
  * JavaScript events for custom objects.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class EventDispatcher extends JsObject {
+public class EventDispatcher extends PropertyHolder {
 
     /**
      * Creates EventDispatcher object.
@@ -16,14 +16,13 @@ public class EventDispatcher extends JsObject {
     }
 
     /**
-     * @param type - The type of event to listen to.
+     * @param type     - The type of event to listen to.
      * @param listener - The function that gets called when the event is fired.
      */
     public native void addEventListener(String type, EventListener listener);
 
     /**
-     *
-     * @param type - The type of event to listen to.
+     * @param type     - The type of event to listen to.
      * @param listener - The function that gets called when the event is fired.
      * @return Checks if listener is added to an event type.
      */
@@ -31,13 +30,15 @@ public class EventDispatcher extends JsObject {
 
     /**
      * Removes a listener from an event type.
-     * @param type - The type of the listener that gets removed.
+     *
+     * @param type     - The type of the listener that gets removed.
      * @param listener - The listener function that gets removed.
      */
     public native void removeEventListener(String type, EventListener listener);
 
     /**
      * Fire an event type.
+     *
      * @param event - The event that gets fired.
      */
     public native void dispatchEvent(Event event);

@@ -66,5 +66,11 @@ public class HDRCubeTextureLoader {
      */
     public native CubeTexture load(int type, String url[], OnLoadCallback<CubeTexture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
-
+    /**
+     * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
+     *
+     * @param path base path or URL
+     * @return instance of HDRCubeTextureLoader
+     */
+    public native HDRCubeTextureLoader setPath(String path);
 }

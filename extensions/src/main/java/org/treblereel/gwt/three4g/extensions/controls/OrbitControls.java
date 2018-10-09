@@ -180,8 +180,8 @@ public class OrbitControls extends EventDispatcher {
     }
 
     /**
-     * @param camera      The camera to be controlled.
-     * @param domElement: (optional) The HTML element used for event listeners. By default this is the whole document, however if you only want to the controls to work over a specific element (e.g. the canvas) you can specify that here.
+     * @param camera     The camera to be controlled.
+     * @param domElement The HTML element used for event listeners. By default this is the whole document, however if you only want to the controls to work over a specific element (e.g. the canvas) you can specify that here.
      */
     @JsConstructor
     public OrbitControls(Camera camera, HTMLElement domElement) {

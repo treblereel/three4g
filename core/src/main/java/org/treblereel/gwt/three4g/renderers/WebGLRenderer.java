@@ -9,8 +9,8 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.HeightWidth;
-import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Plane;
@@ -83,7 +83,7 @@ public class WebGLRenderer {
     /**
      * A wrapper for the .extensions.get method, used to check whether various WebGL extensions are supported.
      */
-    public JsObject extensions;
+    public PropertyHolder extensions;
 
     /**
      * Default is 2.
@@ -116,7 +116,7 @@ public class WebGLRenderer {
      * renderer.info.autoReset = false;
      * renderer.info.reset();
      */
-    public JsObject info;
+    public PropertyHolder info;
 
     /**
      * Defines whether the renderer respects object-level clipping planes. Default is false.
@@ -135,19 +135,19 @@ public class WebGLRenderer {
     public int maxMorphNormals;
 
     /**
-     * Whether to use physically correct lighting mode. Default is false.
+     * Whether to use physically correct lighting mode. Default is false. See the lights / physical example.
      */
     public boolean physicallyCorrectLights;
 
     /**
      * Used internally by the renderer to keep track of various sub object properties.
      */
-    public JsObject properties;
+    public PropertyHolder properties;
 
     /**
      * Used internally to handle ordering of scene object rendering.
      */
-    public JsObject renderLists; //WebGLRenderLists //TODO
+    public PropertyHolder renderLists; //WebGLRenderLists //TODO
 
 
     /**
@@ -169,7 +169,7 @@ public class WebGLRenderer {
     /**
      * Contains functions for setting various properties of the WebGLRenderer.context state.
      */
-    public JsObject state;
+    public PropertyHolder state;
 
     /**
      * Default is LinearToneMapping. See the Renderer constants for other choices.
@@ -272,6 +272,7 @@ public class WebGLRenderer {
      *
      * @param renderTargetl target to clear
      */
+    @Deprecated
     public native void clearTarget(WebGLRenderTarget renderTargetl);
 
     /**

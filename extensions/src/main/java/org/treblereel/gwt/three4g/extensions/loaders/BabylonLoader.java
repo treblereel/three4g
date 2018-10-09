@@ -40,7 +40,7 @@ public class BabylonLoader {
      * @param url    — A string containing the path/URL of the .babylon file.
      * @param onLoad — A function to be called after loading is successfully completed. The function receives the loaded Object3D as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad);
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
@@ -49,7 +49,7 @@ public class BabylonLoader {
      * @param onLoad     — A function to be called after loading is successfully completed. The function receives the loaded Object3D as an argument.
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
@@ -59,7 +59,7 @@ public class BabylonLoader {
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      * @param onError    — A function to be called if an error occurs during loading. The function receives the error as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Parse a JSON structure and return an object or a scene.
@@ -71,5 +71,13 @@ public class BabylonLoader {
      * @return instance of Object3D
      */
     public native Object3D parse(String json);
+
+    /**
+     * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
+     *
+     * @param path base path or URL
+     * @return instance of BabylonLoader
+     */
+    public native BabylonLoader setPath(String path);
 
 }

@@ -79,13 +79,13 @@ public class ImageLoader {
      * Set the .crossOrigin attribute.
      * @param origin crossOrigin attribute.
      */
-    public native void setCrossOrigin(String origin);
+    public native ImageLoader setCrossOrigin(String origin);
 
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many textures from the same directory.
      * @param path base path or URL
      * @return instance of FileLoader
      */
-    public native FileLoader setPath(String path);
+    public native ImageLoader setPath(String path);
 
 }

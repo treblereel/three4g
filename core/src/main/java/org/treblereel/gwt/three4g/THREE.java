@@ -109,6 +109,7 @@ public class THREE {
     public static String RGBEFormat;
     public static int DepthFormat;
     public static int DepthStencilFormat;
+    public static int RedFormat;
     public static int RGB_S3TC_DXT1_Format;
     public static int RGBA_S3TC_DXT1_Format;
     public static int RGBA_S3TC_DXT3_Format;

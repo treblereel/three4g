@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.materials.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Plane;
 
@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.math.Plane;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/7/18.
  */
-@JsType(isNative = true, namespace= JsPackage.GLOBAL, name="Object")
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public class MaterialParameters {
 
     /**
@@ -94,7 +94,7 @@ public class MaterialParameters {
     /**
      * Custom defines to be injected into the shader. These are passed in form of an object literal, with key/value pairs. { MY_CUSTOM_DEFINE: '' , PI2: Math.PI * 2 }. The pairs are defined in both vertex and fragment shaders. Default is undefined.
      */
-    public JsObject defines;
+    public PropertyHolder defines;
 
 
     /**
@@ -236,5 +236,5 @@ public class MaterialParameters {
     /**
      * An object that can be used to store custom data about the Material. It should not hold references to functions as these will not be cloned.
      */
-    public JsObject userData;
+    public PropertyHolder userData;
 }

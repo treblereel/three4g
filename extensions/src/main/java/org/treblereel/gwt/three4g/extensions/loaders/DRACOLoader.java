@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.extensions.loaders;
 
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
@@ -22,12 +23,20 @@ public class DRACOLoader {
 
     public static native void setDecoderConfig(DRACOLoaderDecoderConfig config);
 
-    public native void load(String url, OnLoadCallback onLoad);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad);
 
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad, OnProgressCallback onProgress);
 
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     public static native void releaseDecoderModule();
+
+    /**
+     * Set the base path for additional resources.
+     *
+     * @param path — Base path for loading additional resources e.g. textures and .bin data.
+     * @return instance of DRACOLoader
+     */
+    public native DRACOLoader setPath(String path);
 
 }

@@ -5,11 +5,20 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 
 /**
+ * Implementation of a quaternion. This is used for rotating things without encountering the dreaded gimbal lock issue, amongst other advantages.
+ *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
 @JsType(isNative = true, namespace = "THREE")
 public class Quaternion {
+
+    /**
+     * Used to check whether this or derived classes are Quaternion's. Default is true.
+     * <p>
+     * You should not change this, as it used internally for optimisation.
+     */
+    public boolean isQuaternion;
 
     /**
      * x - x coordinate
@@ -196,7 +205,7 @@ public class Quaternion {
      * Rotates this quaternion by a given angular step to the defined quaternion q. The method ensures that the final
      * quaternion will not overshoot q.
      *
-     * @param q - The target quaternion.
+     * @param q    - The target quaternion.
      * @param step - The angular step in radians.
      * @return instance of Quaternion
      */

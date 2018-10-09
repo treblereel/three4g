@@ -31,18 +31,13 @@ public class OBJLoader2 {
 
     }
 
-    //TODO
-/*    public OBJLoader2(LoadingManager manager, LoaderSupport.ConsoleLogger logger) {
-
-    }*/
-
     /**
      * Use this convenient method to load a file at the given URL. By default the fileLoader uses an ArrayBuffer.
      *
      * @param url    - A string containing the path/URL of the file to be loaded.
      * @param onLoad - A function to be called after loading is successfully completed. The function receives loaded Object3D as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad);
 
     /**
      * Use this convenient method to load a file at the given URL. By default the fileLoader uses an ArrayBuffer.
@@ -51,7 +46,7 @@ public class OBJLoader2 {
      * @param onLoad     - A function to be called after loading is successfully completed. The function receives loaded Object3D as an argument.
      * @param onProgress - A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress);
 
     /**
      * Use this convenient method to load a file at the given URL. By default the fileLoader uses an ArrayBuffer.
@@ -61,7 +56,7 @@ public class OBJLoader2 {
      * @param onProgress - A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      * @param onError    - A function to be called if an error occurs during loading. The function receives the error as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Use this convenient method to load a file at the given URL. By default the fileLoader uses an ArrayBuffer.
@@ -72,7 +67,7 @@ public class OBJLoader2 {
      * @param onError     - A function to be called if an error occurs during loading. The function receives the error as an argument.
      * @param onMeshAlter - A function to be called after a new mesh raw data becomes available for alteration.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError, OnMeshAlter onMeshAlter);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError, OnMeshAlter onMeshAlter);
 
     /**
      * Use this convenient method to load a file at the given URL. By default the fileLoader uses an ArrayBuffer.
@@ -84,7 +79,7 @@ public class OBJLoader2 {
      * @param onMeshAlter - A function to be called after a new mesh raw data becomes available for alteration.
      * @param useAsync    - If true, uses async loading with worker, if false loads data synchronously.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError, OnMeshAlter onMeshAlter, boolean useAsync);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError, OnMeshAlter onMeshAlter, boolean useAsync);
 
 
     /**
@@ -162,6 +157,13 @@ public class OBJLoader2 {
      * @param materials Array of materials - Array of Materials
      */
     public native void setMaterials(Material[] materials);
+
+    /**
+     * Sets materials loaded by MTLLoader or any other supplier of an Array of Materials.
+     *
+     * @param materials loaded by MTLLoader
+     */
+    public native void setMaterials(MTLLoader.MaterialCreator materials);
 
     /**
      * @param useIndices Instructs loaders to create indexed BufferGeometry.

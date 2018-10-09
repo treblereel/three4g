@@ -3,7 +3,7 @@ package org.treblereel.gwt.three4g.extensions.loaders;
 import elemental2.core.ArrayBuffer;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
-import org.treblereel.gwt.three4g.core.BufferGeometry;
+import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
@@ -42,7 +42,7 @@ public class PRWMLoader {
      * @param url    — A string containing the path/URL of the .prwm file. Any * character in the URL will be automatically replaced by le or be depending on the platform endianness.
      * @param onLoad —  A function to be called after the loading is successfully completed. The function receives the loaded BufferGeometry as an argument.
      */
-    public native void load(String url, OnLoadCallback onLoad);
+    public native void load(String url, OnLoadCallback<? extends AbstractGeometry> onLoad);
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
@@ -51,7 +51,7 @@ public class PRWMLoader {
      * @param onLoad     —  A function to be called after the loading is successfully completed. The function receives the loaded BufferGeometry as an argument.
      * @param onProgress —  A function to be called while the loading is in progress. The function receives a XMLHttpRequest instance, which contains total and loaded bytes.
      */
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends AbstractGeometry> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
@@ -61,7 +61,7 @@ public class PRWMLoader {
      * @param onProgress —  A function to be called while the loading is in progress. The function receives a XMLHttpRequest instance, which contains total and loaded bytes.
      * @param onError    —  A function to be called if an error occurs during loading. The function receives error as an argument.
      */
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends AbstractGeometry> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Parse a prwm file passed as an ArrayBuffer and directly return an instance of BufferGeometry.
@@ -69,7 +69,15 @@ public class PRWMLoader {
      * @param arrayBuffer — ArrayBuffer containing the prwm data.
      * @return instance of BufferGeometry
      */
-    public native BufferGeometry parse(ArrayBuffer arrayBuffer);
+    public native <T extends AbstractGeometry> T parse(ArrayBuffer arrayBuffer);
+
+    /**
+     * Set the base path for additional resources.
+     *
+     * @param path — Base path for loading additional resources e.g. textures and .bin data.
+     * @return instance of PRWMLoader
+     */
+    public native PRWMLoader setPath(String path);
 
     /**
      * @return true if the endianness of the platform is Big Endian, false otherwise.

@@ -3,7 +3,6 @@ package org.treblereel.gwt.three4g.materials;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.materials.parameters.ShaderMaterialParameters;
 import org.treblereel.gwt.three4g.materials.parameters.Uniforms;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;

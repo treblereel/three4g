@@ -67,4 +67,12 @@ public class PDBLoader {
      */
     public native PDB parse(String text);
 
+    /**
+     * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
+     *
+     * @param path base path or URL
+     * @return instance of PDBLoader
+     */
+    public native PDBLoader setPath(String path);
+
 }
