@@ -1,7 +1,7 @@
 package org.treblereel.gwt.three4g.scenes;
 
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.math.Color;
 
 /**
@@ -9,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * Created by treblereel on 2/27/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class Fog extends JsObject {
+public class Fog extends PropertyHolder {
 
     /**
      * Optional name of the object (doesn't need to be unique). Default is an empty string.

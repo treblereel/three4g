@@ -3,14 +3,14 @@ package org.treblereel.gwt.three4g.math;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 
 /**
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/28/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class Color extends JsObject {
+public class Color extends PropertyHolder {
 
     /**
      * Used to check whether this or derived classes are Colors. Default is true.

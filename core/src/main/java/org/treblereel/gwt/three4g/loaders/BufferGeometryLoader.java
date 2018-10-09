@@ -1,6 +1,5 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import com.google.gwt.json.client.JSONObject;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferGeometry;
@@ -43,7 +42,7 @@ public class BufferGeometryLoader {
      * @param url    — the path or URL to the file. This can also be a Data URI.
      * @param onLoad — Will be called when loading completes. The argument will be the loaded response.
      */
-    public native void load(String url, OnLoadCallback<BufferGeometry> onLoad);
+    public native void load(String url, OnLoadCallback<? extends BufferGeometry> onLoad);
 
     /**
      * Load the URL and pass the response to the onLoad function.
@@ -52,7 +51,7 @@ public class BufferGeometryLoader {
      * @param onLoad     — Will be called when loading completes. The argument will be the loaded response.
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest
      */
-    public native void load(String url, OnLoadCallback<BufferGeometry> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends BufferGeometry> onLoad, OnProgressCallback onProgress);
 
 
     /**
@@ -63,7 +62,7 @@ public class BufferGeometryLoader {
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest
      * @param onError    — Will be called if an error occurs.
      */
-    public native void load(String url, OnLoadCallback<BufferGeometry> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends BufferGeometry> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Parse a JSON structure and return a BufferGeometry.

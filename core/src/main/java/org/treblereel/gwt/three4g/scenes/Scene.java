@@ -2,15 +2,15 @@ package org.treblereel.gwt.three4g.scenes;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.materials.Material;
 
 /**
  * @author Dmitrii Tikhomirov
- *         Created by treblereel on 12/5/17.
+ * Created by treblereel on 12/5/17.
  */
-@JsType(isNative=true, namespace="THREE")
+@JsType(isNative = true, namespace = "THREE")
 public class Scene extends Object3D {
 
     /**
@@ -31,15 +31,16 @@ public class Scene extends Object3D {
     /**
      * If not null, sets the background used when rendering the scene, and is always rendered first. Can be set to a Color which sets the clear color, a Texture covering the canvas, or a CubeTexture. Default is null.
      */
-    public JsObject background;
+    public PropertyHolder background;
 
     @JsConstructor
-    public Scene(){
+    public Scene() {
 
     }
 
     /**
      * Return the scene data in JSON format.
+     *
      * @return to JSON String
      */
     public native String toJSON();

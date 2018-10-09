@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.treblereel.gwt</groupId>
         <artifactId>three4g-parent</artifactId>
-        <version>0.96-beta5-SNAPSHOT</version>
+        <version>0.97-beta1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 

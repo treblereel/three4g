@@ -144,7 +144,7 @@ public class Object3D extends EventDispatcher {
      * An object that can be used to store custom data about the Object3D. It should not hold references
      * to functions as these will not be cloned.
      */
-    public JsObject userData;
+    public PropertyHolder userData;
 
     /**
      * UUID of this object instance. This gets automatically assigned, so this shouldn't be edited.

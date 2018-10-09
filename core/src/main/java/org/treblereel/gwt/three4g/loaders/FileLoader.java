@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
 /**
@@ -72,7 +73,7 @@ public class FileLoader {
      * @param url    — the path or URL to the file. This can also be a Data URI.
      * @param onLoad — Will be called when loading completes. The argument will be the loaded response.
      */
-    public native void load(String url, OnLoadCallback<Object> onLoad);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad);
 
     /**
      * Load the URL and pass the response to the onLoad function.
@@ -81,7 +82,7 @@ public class FileLoader {
      * @param onLoad     — Will be called when loading completes. The argument will be the loaded response.
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest
      */
-    public native void load(String url, OnLoadCallback<Object> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad, OnProgressCallback onProgress);
 
     /**
      * Load the URL and pass the response to the onLoad function.
@@ -91,7 +92,7 @@ public class FileLoader {
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest
      * @param onError    — Will be called if an error occurs.
      */
-    public native void load(String url, OnLoadCallback<Object> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Set the expected mimeType of the file being loaded. Note that in many cases this will be determined automatically, so by default it is undefined.

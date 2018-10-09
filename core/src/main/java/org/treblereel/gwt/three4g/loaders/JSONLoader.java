@@ -2,8 +2,8 @@ package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
 /**
@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class JSONLoader extends AbstractLoader<JSONLoader, JsObject>{
+public class JSONLoader extends AbstractLoader<JSONLoader, PropertyHolder> {
 
     /**
      * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is "anonymous".

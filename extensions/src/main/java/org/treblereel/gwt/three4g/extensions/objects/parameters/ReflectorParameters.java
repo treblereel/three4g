@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.extensions.objects.parameters;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 
 /**
  * @author Dmitrii Tikhomirov
@@ -17,5 +17,5 @@ public class ReflectorParameters {
 
     public boolean recursion;
 
-    public JsObject shader;
+    public PropertyHolder shader;
 }

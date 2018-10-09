@@ -49,7 +49,7 @@ public class MaterialLoader {
      * @param url    — the path or URL to the file. This can also be a Data URI.
      * @param onLoad — Will be called when load completes. The argument will be the loaded Material.
      */
-    public native void load(String url, OnLoadCallback<Material> onLoad);
+    public native void load(String url, OnLoadCallback<? extends Material> onLoad);
 
     /**
      * Begin loading from url and return the Material object that will contain the data.
@@ -58,7 +58,7 @@ public class MaterialLoader {
      * @param onLoad     — Will be called when load completes. The argument will be the loaded Material.
      * @param onProgress — Will be called while load progresses. The argument will be the progress event.
      */
-    public native void load(String url, OnLoadCallback<Material> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends Material> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and return the Material object that will contain the data.
@@ -68,7 +68,7 @@ public class MaterialLoader {
      * @param onProgress — Will be called while load progresses. The argument will be the progress event.
      * @param onError    — Will be called when load errors.
      */
-    public native void load(String url, OnLoadCallback<Material> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends Material> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Parse a JSON structure and create a new Material of the type json.type with parameters defined in the json object.

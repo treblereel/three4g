@@ -18,7 +18,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  */
 @Three4gElement(paths = "js/loaders/PLYLoader.js")
 @JsType(isNative = true, namespace = "THREE")
-public class PLYLoader<T extends AbstractGeometry> {
+public class PLYLoader {
 
     public PLYLoader() {
 
@@ -41,7 +41,7 @@ public class PLYLoader<T extends AbstractGeometry> {
      * @param url    — A string containing the path/URL of the .ply file.
      * @param onLoad —  A function to be called after loading is successfully completed. The function receives the object having the following properties. geometryAtoms, geometryBonds and the JSON structure.
      */
-    public native void load(String url, OnLoadCallback<T> onLoad);
+    public native void load(String url, OnLoadCallback<? extends AbstractGeometry> onLoad);
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
@@ -50,7 +50,7 @@ public class PLYLoader<T extends AbstractGeometry> {
      * @param onLoad     —  A function to be called after loading is successfully completed. The function receives the object having the following properties. geometryAtoms, geometryBonds and the JSON structure.
      * @param onProgress —  A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      */
-    public native void load(String url, OnLoadCallback<T> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends AbstractGeometry> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and call onLoad with the parsed response content.
@@ -60,13 +60,13 @@ public class PLYLoader<T extends AbstractGeometry> {
      * @param onProgress —  A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      * @param onError    —  A function to be called if an error occurs during loading. The function receives the error as an argument.
      */
-    public native void load(String url, OnLoadCallback<T> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends AbstractGeometry> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * @param text — The textual ply structure to parse.
      * @return a geometry
      */
-    public native T parse(String text);
+    public native <T extends AbstractGeometry> T parse(String text);
 
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.

@@ -41,7 +41,7 @@ public class OBJLoader {
      * @param url    — A string containing the path/URL of the .obj file.
      * @param onLoad — A function to be called after the loading is successfully completed. The function receives the loaded Object3D as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad);
 
     /**
      * Begin loading from url and call the callback function with the parsed response content.
@@ -50,7 +50,7 @@ public class OBJLoader {
      * @param onLoad     — A function to be called after the loading is successfully completed. The function receives the loaded Object3D as an argument.
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and call the callback function with the parsed response content.
@@ -60,7 +60,7 @@ public class OBJLoader {
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
      * @param onError    — A function to be called if an error occurs during loading. The function receives error as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * @param text — The textual obj structure to parse.

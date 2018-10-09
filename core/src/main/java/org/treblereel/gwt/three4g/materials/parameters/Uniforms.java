@@ -5,7 +5,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 
 
 /**
@@ -17,7 +17,7 @@ public class Uniforms {
 
     @JsOverlay
     public final Uniforms set(String name, Object value) {
-        JsObject holder = Js.uncheckedCast(this);
+        PropertyHolder holder = Js.uncheckedCast(this);
         JsPropertyMap temp = JsPropertyMap.of();
         temp.set("value", value);
         holder.setProperty(name, temp);
@@ -30,7 +30,7 @@ public class Uniforms {
      */
     public final <T> T get(String name) {
         JsPropertyMap instance = Js.uncheckedCast(this);
-        Object result = ((JsObject) instance.get(name)).getProperty("value");
+        Object result = ((PropertyHolder) instance.get(name)).getProperty("value");
         return (T) result;
     }
 

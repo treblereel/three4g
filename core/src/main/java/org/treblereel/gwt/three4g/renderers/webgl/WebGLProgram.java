@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.renderers.webgl;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 import org.treblereel.gwt.three4g.renderers.parameters.WebGLRendererParameters;
@@ -36,12 +36,12 @@ public class WebGLProgram {
      *
      * @return JsPropertyMap
      */
-    public native JsObject getUniforms();
+    public native PropertyHolder getUniforms();
 
     /**
      * Returns a name-value mapping of all active vertex attribute locations.
      *
      * @return get all attrs
      */
-    public native JsObject getAttributes();
+    public native PropertyHolder getAttributes();
 }

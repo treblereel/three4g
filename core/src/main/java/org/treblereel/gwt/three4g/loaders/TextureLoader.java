@@ -73,7 +73,7 @@ public class TextureLoader {
      *               <p>
      * @return Texture
      */
-    public native Texture load(String url, OnLoadCallback<Texture> onLoad);
+    public native Texture load(String url, OnLoadCallback<? extends Texture> onLoad);
 
     /**
      * Begin loading from the given URL and pass the fully loaded texture to onLoad. The method also returns a new texture
@@ -86,7 +86,7 @@ public class TextureLoader {
      *                   <p>
      * @return Texture
      */
-    public native Texture load(String url, OnLoadCallback<Texture> onLoad, OnProgressCallback onProgress);
+    public native Texture load(String url, OnLoadCallback<? extends Texture> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from the given URL and pass the fully loaded texture to onLoad. The method also returns a new texture
@@ -100,7 +100,7 @@ public class TextureLoader {
      *                   <p>
      * @return Texture
      */
-    public native Texture load(String url, OnLoadCallback<Texture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native Texture load(String url, OnLoadCallback<? extends Texture> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Set the .crossOrigin attribute.

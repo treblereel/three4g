@@ -5,6 +5,7 @@ import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.MorphTarget;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.objects.Bone;
 
 /**
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.objects.Bone;
  * Created by treblereel on 3/12/18.
  */
 @JsType(namespace = "THREE", isNative = true)
-public class AnimationClip {
+public class AnimationClip extends PropertyHolder {
 
     public String name;
 
@@ -58,10 +59,10 @@ public class AnimationClip {
      * morph target names into animation-group-based patterns like "Walk_001, Walk_002, Run_001, Run_002 ..."
      * This method is called by the JSONLoader internally, and it uses CreateFromMorphTargetSequence.
      *
-     * @param name as String value
+     * @param name                as String value
      * @param morphTargetSequence array of morphTargetSequences
-     * @param fps as int value
-     * @param noLoop true, if noLoop required
+     * @param fps                 as int value
+     * @param noLoop              true, if noLoop required
      * @return instance of array of AnimationClips
      */
     @JsMethod(name = "CreateClipsFromMorphTargetSequences")
@@ -72,10 +73,10 @@ public class AnimationClip {
      * <p>
      * Note: The fps parameter is required, but the animation speed can be overridden in an AnimationAction via animationAction.setDuration.
      *
-     * @param name as String value
+     * @param name                as String value
      * @param morphTargetSequence array of morphTargetSequences
-     * @param fps as int value
-     * @param noLoop true, if noLoop required
+     * @param fps                 as int value
+     * @param noLoop              true, if noLoop required
      * @return instance of AnimationClip
      */
     @JsMethod(name = "CreateFromMorphTargetSequence")
@@ -83,22 +84,25 @@ public class AnimationClip {
 
     /**
      * Searches for an AnimationClip by name, taking as its first parameter either an array of AnimationClips, or a mesh or geometry that contains an array named "animations".
+     *
      * @param objectOrClipArray could array or object
-     * @param name the name of
+     * @param name              the name of
      * @return instance of AnimationClip
      */
     public native static AnimationClip findByName(Object objectOrClipArray, String name);
 
     /**
      * Parses a JSON representation of a clip and returns an AnimationClip.
+     *
      * @param json as String value
      * @return AnimationClip
      */
     public native static AnimationClip parse(Object json);
 
     /**
-     *Parses the animation.hierarchy format and returns an AnimationClip.
-     * @param json as String value
+     * Parses the animation.hierarchy format and returns an AnimationClip.
+     *
+     * @param json  as String value
      * @param bones array of bones
      * @return AnimationClip
      */
@@ -106,10 +110,11 @@ public class AnimationClip {
 
     /**
      * Takes an AnimationClip and returns a JSON object.
+     *
      * @param clip instance of AnimationClip
      * @return JSON
      */
-    public native static String toJSON (AnimationClip clip);
+    public native static String toJSON(AnimationClip clip);
 
 
 }

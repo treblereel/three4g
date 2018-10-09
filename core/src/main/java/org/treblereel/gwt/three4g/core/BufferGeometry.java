@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T> {
 
     @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
-    public static class Attributes extends JsObject {
+    public static class Attributes extends PropertyHolder {
 
         public BufferAttribute position;
         public BufferAttribute normal;
@@ -71,7 +71,13 @@ public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T
      * <p>
      * Use .addGroup to add groups, rather than modifying this array directly.
      */
-    public JsObject groups;
+    public Groups groups;
+
+    @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
+    public static class Groups extends PropertyHolder {
+        public int start, count, materialIndex;
+    }
+
 
     /**
      * Allows for vertices to be re-used across multiple triangles; this is called using "indexed triangles" and works
@@ -96,7 +102,7 @@ public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T
     /**
      * An object that can be used to store custom data about the BufferGeometry. It should not hold references to functions as these will not be cloned.
      */
-    public org.treblereel.gwt.three4g.core.JsObject userData;
+    public PropertyHolder userData;
 
     /**
      * This creates a new BufferGeometry. It also sets several properties to a default value.

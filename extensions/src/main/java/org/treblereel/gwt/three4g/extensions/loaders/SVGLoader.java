@@ -1,9 +1,8 @@
 package org.treblereel.gwt.three4g.extensions.loaders;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
-import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
@@ -41,7 +40,7 @@ public class SVGLoader {
      * @param url    — A string containing the path/URL of the .svg file.
      * @param onLoad —  A function to be called after loading is successfully completed. The function receives the loaded SVGDocument as an argument.
      */
-    public native void load(String url, OnLoadCallback onLoad);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad);
 
     /**
      * Begin loading from url and call onLoad with the response content.
@@ -50,7 +49,7 @@ public class SVGLoader {
      * @param onLoad     —  A function to be called after loading is successfully completed. The function receives the loaded SVGDocument as an argument.
      * @param onProgress —  A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      */
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and call onLoad with the response content.
@@ -60,13 +59,13 @@ public class SVGLoader {
      * @param onProgress —  A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, which contains total and loaded bytes.
      * @param onError    —  A function to be called if an error occurs during loading. The function receives the error as an argument.
      */
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * @param text — String to parse.
      * @return instance of JavaScriptObject
      */
-    public native JsObject parse(String text);
+    public native <T extends PropertyHolder> T parse(String text);
 
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
