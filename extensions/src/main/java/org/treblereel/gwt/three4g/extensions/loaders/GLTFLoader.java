@@ -3,9 +3,10 @@ package org.treblereel.gwt.three4g.extensions.loaders;
 import elemental2.core.ArrayBuffer;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
+import org.treblereel.gwt.three4g.core.JsObject;
+import org.treblereel.gwt.three4g.loaders.AbstractLoader;
 import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
-import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
 /**
@@ -29,7 +30,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  */
 @Three4gElement(paths = "js/loaders/GLTFLoader.js")
 @JsType(isNative = true, namespace = "THREE")
-public class GLTFLoader {
+public class GLTFLoader extends AbstractLoader<GLTFLoader, JsObject> {
 
     /**
      * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is anonymous.
@@ -43,45 +44,6 @@ public class GLTFLoader {
     public GLTFLoader(LoadingManager manager) {
 
     }
-
-    /**
-     * Begin loading from url and call the callback function with the parsed response content.
-     *
-     * @param url    — A string containing the path/URL of the .gltf or .glb file.
-     * @param onLoad — A function to be called after the loading is successfully completed. The function receives the loaded JSON response returned from parse.
-     */
-    public native void load(String url, OnLoadCallback onLoad);
-
-    /**
-     * Begin loading from url and call the callback function with the parsed response content.
-     *
-     * @param url        — A string containing the path/URL of the .gltf or .glb file.
-     * @param onLoad     — A function to be called after the loading is successfully completed. The function receives the loaded JSON response returned from parse.
-     * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
-     */
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress);
-
-    /**
-     * Begin loading from url and call the callback function with the parsed response content.
-     *
-     * @param url        — A string containing the path/URL of the .gltf or .glb file.
-     * @param onLoad     — A function to be called after the loading is successfully completed. The function receives the loaded JSON response returned from parse.
-     * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
-     * @param onError    — A function to be called if an error occurs during loading. The function receives error as an argument.
-     */
-    public native void load(String url, OnLoadCallback onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
-
-    /**
-     * Set the base path for additional resources.
-     *
-     * @param path — Base path for loading additional resources e.g. textures and .bin data.
-     */
-    public native void setPath(String path);
-
-    /**
-     * @param value — The crossOrigin string to implement CORS for loading the url from a different domain that allows CORS.
-     */
-    public native void setCrossOrigin(String value);
 
     /**
      * Refer to this readme for the details of Draco and its decoder.

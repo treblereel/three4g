@@ -31,11 +31,6 @@ public class OBJLoader2 {
 
     }
 
-    //TODO
-/*    public OBJLoader2(LoadingManager manager, LoaderSupport.ConsoleLogger logger) {
-
-    }*/
-
     /**
      * Use this convenient method to load a file at the given URL. By default the fileLoader uses an ArrayBuffer.
      *
@@ -162,6 +157,13 @@ public class OBJLoader2 {
      * @param materials Array of materials - Array of Materials
      */
     public native void setMaterials(Material[] materials);
+
+    /**
+     * Sets materials loaded by MTLLoader or any other supplier of an Array of Materials.
+     *
+     * @param materials loaded by MTLLoader
+     */
+    public native void setMaterials(MTLLoader.MaterialCreator materials);
 
     /**
      * @param useIndices Instructs loaders to create indexed BufferGeometry.

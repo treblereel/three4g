@@ -118,13 +118,4 @@ public class TextureLoader {
      */
     public native TextureLoader setPath(String path);
 
-    /**
-     * Whether the XMLHttpRequest uses credentials such as cookies, authorization headers or TLS client certificates. See XMLHttpRequest.withCredentials.
-     * Note that this has no effect if you are loading files locally or from the same domain.
-     *
-     * @param value credentials
-     * @return instance of TextureLoader
-     */
-    public native TextureLoader setWithCredentials(String value);
-
 }

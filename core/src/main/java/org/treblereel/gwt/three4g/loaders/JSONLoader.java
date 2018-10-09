@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * Created by treblereel on 4/26/18.
  */
 @JsType(isNative = true, namespace = "THREE")
-public class JSONLoader {
+public class JSONLoader extends AbstractLoader<JSONLoader, JsObject>{
 
     /**
      * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is "anonymous".
@@ -38,13 +39,6 @@ public class JSONLoader {
     public JSONLoader(LoadingManager manager) {
 
     }
-
-    /**
-     * Load the URL and pass the response to the onLoad function.
-     *
-     * @param url — the path or URL to the file. This can also be a Data URI.
-     */
-    public native void load(String url);
 
     /**
      * Load the URL and pass the response to the onLoad function.
@@ -126,4 +120,20 @@ public class JSONLoader {
      * @return instance of Object3D
      */
     public native Object3D parse(String json, String texturePath);
+
+    /**
+     * Set the base path for the original file.
+     *
+     * @param path base path or URL
+     * @return instance of FileLoader
+     */
+    public native JSONLoader setPath(String path);
+
+    /**
+     * Set the base path for dependent resources like textures.
+     *
+     * @param path the base
+     * @return instance of FileLoader
+     */
+    public native JSONLoader setResourcePath(String path);
 }

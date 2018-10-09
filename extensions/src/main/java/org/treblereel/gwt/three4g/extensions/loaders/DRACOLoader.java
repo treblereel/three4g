@@ -30,4 +30,12 @@ public class DRACOLoader {
 
     public static native void releaseDecoderModule();
 
+    /**
+     * Set the base path for additional resources.
+     *
+     * @param path — Base path for loading additional resources e.g. textures and .bin data.
+     * @return instance of DRACOLoader
+     */
+    public native DRACOLoader setPath(String path);
+
 }

@@ -8,6 +8,7 @@ import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
+import org.treblereel.gwt.three4g.objects.Points;
 
 /**
  * A loader for loading a .pcd resource.
@@ -19,7 +20,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  */
 @Three4gElement(paths = "js/loaders/PCDLoader.js")
 @JsType(isNative = true, namespace = "THREE")
-public class PCDLoader {
+public class PCDLoader<T extends Object3D> {
 
     public boolean littleEndian;
 
@@ -44,7 +45,7 @@ public class PCDLoader {
      * @param url    — A string containing the path/URL of the .pcd file.
      * @param onLoad — A function to be called after the loading is successfully completed. The function receives the loaded Object3D as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad);
+    public native void load(String url, OnLoadCallback<T> onLoad);
 
     /**
      * Begin loading from url and call the callback function with the parsed response content.
@@ -53,7 +54,7 @@ public class PCDLoader {
      * @param onLoad     — A function to be called after the loading is successfully completed. The function receives the loaded Object3D as an argument.
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<T> onLoad, OnProgressCallback onProgress);
 
     /**
      * Begin loading from url and call the callback function with the parsed response content.
@@ -63,15 +64,23 @@ public class PCDLoader {
      * @param onProgress — A function to be called while the loading is in progress. The argument will be the XMLHttpRequest instance, that contains .total and .loaded bytes.
      * @param onError    — A function to be called if an error occurs during loading. The function receives error as an argument.
      */
-    public native void load(String url, OnLoadCallback<Object3D> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    public native void load(String url, OnLoadCallback<T> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Parse an pcd binary structure and return an Object3D.
      * The object is converted to Points with a BufferGeometry and a PointsMaterial.
      *
      * @param data — The binary structure to parse.
-     * @param url — The file name or file url.
-     * @return instance of Object3D
+     * @param url  — The file name or file url.
+     * @return instance of Points
      */
-    public native Object3D parse(ArrayBuffer data, String url);
+    public native T parse(ArrayBuffer data, String url);
+
+    /**
+     * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
+     *
+     * @param path base path or URL
+     * @return instance of PCDLoader
+     */
+    public native PCDLoader setPath(String path);
 }

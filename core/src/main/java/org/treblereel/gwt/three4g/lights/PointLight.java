@@ -18,14 +18,19 @@ public class PointLight extends Light {
     public boolean isPointLightt;
 
     /**
-     * The distance from the light where the intensity is 0. When set to 0, then the light never stops. Default is 0.
-     */
-    public Number distance;
-
-    /**
      * The amount the light dims along the distance of the light. Default is 1. For physically correct lighting, set this to 2.
      */
     public float decay;
+
+    /**
+     * Default mode — When distance is zero, light does not attenuate. When distance is non-zero, light will attenuate
+     * linearly from maximum intensity at the light's position down to zero at this distance from the light.
+     * <p>
+     * Physically correct mode — When distance is zero, light will attenuate according to inverse-square law to infinite distance. When distance is non-zero, light will attenuate according to inverse-square law until near the distance cutoff, where it will then attenuate quickly and smoothly to 0. Inherently, cutoffs are not physically correct.
+     * <p>
+     * Default is 0.0.
+     */
+    public float distance;
 
     /**
      * A LightShadow used to calculate shadows for this light.
@@ -77,10 +82,10 @@ public class PointLight extends Light {
      *
      * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
      * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - The distance from the light where the intensity is 0. When set to 0, then the light never stops. Default is 0.
+     * @param distance  - Maximum range of the light. Default is 0 (no limit).
      */
     @JsConstructor
-    public PointLight(int color, float intensity, Number distance) {
+    public PointLight(int color, float intensity, float distance) {
 
     }
 
@@ -89,11 +94,11 @@ public class PointLight extends Light {
      *
      * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
      * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - The distance from the light where the intensity is 0. When set to 0, then the light never stops. Default is 0.
+     * @param distance  - Maximum range of the light. Default is 0 (no limit).
      * @param decay     - The amount the light dims along the distance of the light. Default is 1. For physically correct lighting, set this to 2.
      */
     @JsConstructor
-    public PointLight(int color, float intensity, Number distance, float decay) {
+    public PointLight(int color, float intensity, float distance, float decay) {
 
     }
 

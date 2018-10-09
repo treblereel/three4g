@@ -1,21 +1,15 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import com.google.gwt.json.client.JSONObject;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.extras.core.Font;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
 /**
- * Class for loading a font in JSON format. Returns a Font, which is an array of Shapes representing the font. This uses the FileLoader internally for loading files.
- * <p>
- * You can convert fonts online using facetype.js
+ * Abstract base class to load generic binary textures formats (rgbe, hdr, ...).
+ * This uses the FileLoader internally for loading files, and creates a new DataTexture.
  *
  * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/26/18.
+ * Created by treblereel on 10/9/18.
  */
-@JsType(isNative = true, namespace = "THREE")
-public class FontLoader {
+public abstract class DataTextureLoader<T, V> {
 
     /**
      * The loadingManager the loader is using. Default is DefaultLoadingManager.
@@ -27,54 +21,56 @@ public class FontLoader {
      */
     public String path;
 
-
-    @JsConstructor
-    public FontLoader(){
-
-    }
-
-    @JsConstructor
-    public FontLoader(LoadingManager manager){
+    /**
+     * Creates a new CompressedTextureLoader.
+     */
+    public DataTextureLoader() {
 
     }
 
     /**
-     * Load the URL and pass the response to the onLoad function.
+     * Creates a new CompressedTextureLoader.
+     *
+     * @param manager — The loadingManager for the loader to use. Default is THREE.DefaultLoadingManager.
+     */
+    public DataTextureLoader(LoadingManager manager) {
+
+    }
+
+    /**
+     * Begin loading from url and pass the loaded texture to onLoad.
      *
      * @param url — the path or URL to the file. This can also be a Data URI.
      */
     public native void load(String url);
 
     /**
-     * Load the URL and pass the response to the onLoad function.
+     * Begin loading from url and pass the loaded texture to onLoad.
      *
      * @param url    — the path or URL to the file. This can also be a Data URI.
      * @param onLoad — Will be called when loading completes. The argument will be the loaded response.
      */
-    public native void load(String url, OnLoadCallback<Font> onLoad);
+    public native void load(String url, OnLoadCallback<V> onLoad);
 
     /**
-     * Load the URL and pass the response to the onLoad function.
+     * Begin loading from url and pass the loaded texture to onLoad.
      *
      * @param url        — the path or URL to the file. This can also be a Data URI.
      * @param onLoad     — Will be called when loading completes. The argument will be the loaded response.
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest
      */
-    public native void load(String url, OnLoadCallback<Font> onLoad, OnProgressCallback onProgress);
+    public native void load(String url, OnLoadCallback<V> onLoad, OnProgressCallback onProgress);
 
 
     /**
-     * Load the URL and pass the response to the onLoad function.
+     * Begin loading from url and pass the loaded texture to onLoad.
      *
      * @param url        — the path or URL to the file. This can also be a Data URI.
      * @param onLoad     — Will be called when loading completes. The argument will be the loaded response.
      * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest
      * @param onError    — Will be called if an error occurs.
      */
-    public native void load(String url, OnLoadCallback<Font> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
-
-
-    public native Font parse (String json);
+    public native void load(String url, OnLoadCallback<V> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
     /**
      * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
@@ -82,5 +78,5 @@ public class FontLoader {
      * @param path base path or URL
      * @return instance of FileLoader
      */
-    public native FontLoader setPath(String path);
+    public native T setPath(String path);
 }

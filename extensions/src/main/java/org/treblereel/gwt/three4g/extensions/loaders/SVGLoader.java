@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.extensions.loaders;
 import com.google.gwt.core.client.JavaScriptObject;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
+import org.treblereel.gwt.three4g.core.JsObject;
 import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
@@ -65,5 +66,13 @@ public class SVGLoader {
      * @param text — String to parse.
      * @return instance of JavaScriptObject
      */
-    public native JavaScriptObject parse(String text);
+    public native JsObject parse(String text);
+
+    /**
+     * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
+     *
+     * @param path base path or URL
+     * @return instance of TDSLoader
+     */
+    public native SVGLoader setPath(String path);
 }

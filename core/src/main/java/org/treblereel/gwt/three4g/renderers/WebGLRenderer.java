@@ -135,7 +135,7 @@ public class WebGLRenderer {
     public int maxMorphNormals;
 
     /**
-     * Whether to use physically correct lighting mode. Default is false.
+     * Whether to use physically correct lighting mode. Default is false. See the lights / physical example.
      */
     public boolean physicallyCorrectLights;
 
@@ -272,6 +272,7 @@ public class WebGLRenderer {
      *
      * @param renderTargetl target to clear
      */
+    @Deprecated
     public native void clearTarget(WebGLRenderTarget renderTargetl);
 
     /**

@@ -7,6 +7,7 @@ import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.OnProgressCallback;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
+import org.treblereel.gwt.three4g.materials.Material;
 
 /**
  * A loader for loading a .obj resource.
@@ -15,7 +16,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/25/18.
  */
-@Three4gElement(paths = "js/loaders/OBJLoader.js")
+@Three4gElement(paths = {"js/loaders/OBJLoader.js", "js/loaders/LoaderSupport.js", "js/loaders/MTLLoader.js"})
 @JsType(isNative = true, namespace = "THREE")
 public class OBJLoader {
 
@@ -68,6 +69,23 @@ public class OBJLoader {
      * If an obj object or group uses multiple materials while declaring faces, geometry groups and an array of materials are used.
      */
     public native Object3D parse(String text);
+
+    /**
+     * Sets materials loaded by MTLLoader or any other supplier of an Array of Materials.
+     *
+     * @param materials array of Materials
+     * @return this instance
+     */
+    public native OBJLoader setMaterials(Material[] materials);
+
+    /**
+     * Sets materials loaded by MTLLoader or any other supplier of an Array of Materials.
+     *
+     * @param materials loaded by MTLLoader
+     * @return this instance
+     */
+    public native OBJLoader setMaterials(MTLLoader.MaterialCreator materials);
+
 
     /**
      * The base path from which files will be loaded. See .setPath. Default is undefined.
