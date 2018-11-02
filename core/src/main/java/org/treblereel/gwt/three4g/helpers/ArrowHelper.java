@@ -38,6 +38,21 @@ public class ArrowHelper extends Object3D {
     }
 
     /**
+     * Return a copy of this ArrowHelper.
+     *
+     * @param source instance of ArrowHelper
+     * @return instance of ArrowHelper
+     */
+    public native ArrowHelper copy(ArrowHelper source);
+
+    /**
+     * Return a copy of this ArrowHelper.
+     *
+     * @return instance of ArrowHelper
+     */
+    public native ArrowHelper clone();
+
+    /**
      * @param hex -- The hexadecimal value of the color.
      *            Sets the color of the arrowHelper.
      */

@@ -17,6 +17,8 @@ public class WebXRManager {
 
     public boolean enabled;
 
+    public float framebufferScaleFactor; // 1.0
+
     public boolean isPresenting;
 
     public String frameOfReferenceType;

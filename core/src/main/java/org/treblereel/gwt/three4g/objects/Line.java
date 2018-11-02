@@ -75,6 +75,14 @@ public class Line extends Object3D {
     public native void raycast(Raycaster raycaster, Object[] intersects);
 
     /**
+     * Return a copy of this Line.
+     *
+     * @param source instance of Line
+     * @return instance of Line
+     */
+    public native Line copy(Line source);
+
+    /**
      * Returns a clone of this Line object and its descendants.
      *
      * @return Line

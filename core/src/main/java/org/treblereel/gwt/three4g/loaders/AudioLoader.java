@@ -20,17 +20,17 @@ public class AudioLoader {
     public LoadingManager manager;
 
     @JsConstructor
-    public AudioLoader(){
+    public AudioLoader() {
 
     }
 
     @JsConstructor
-    public AudioLoader(String context){
+    public AudioLoader(String context) {
 
     }
 
     @JsConstructor
-    public AudioLoader(String context, LoadingManager manager){
+    public AudioLoader(String context, LoadingManager manager) {
 
     }
 
@@ -68,5 +68,13 @@ public class AudioLoader {
      * @param onError    — Will be called if an error occurs.
      */
     public native void load(String url, OnLoadCallback<AudioBuffer> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+
+    /**
+     * Sets the base path or URL from which to load files. This can be useful if you are loading many audios from the same directory.
+     *
+     * @param path — Base path of the file to load.
+     * @return instance of AudioLoader
+     */
+    public native AudioLoader setPath(String path);
 
 }
