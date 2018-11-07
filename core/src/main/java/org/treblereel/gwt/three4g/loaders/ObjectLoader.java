@@ -60,9 +60,9 @@ public class ObjectLoader {
     public LoadingManager manager;
 
     /**
-     * The base path or URL from which textures will be loaded. See .setTexturePath. Default is the empty string.
+     * The base path or URL from which additional resources like textuures will be loaded. See .setResourcePath. Default is the empty string.
      */
-    public String texturePath;
+    public String resourcePath;
 
     @JsConstructor
     public ObjectLoader() {
@@ -188,9 +188,19 @@ public class ObjectLoader {
     public native ObjectLoader setCrossOrigin(String value);
 
     /**
-     * @param value — The base path or URL from which textures will be loaded.
+     * Set the base path for the original file.
+     *
+     * @param path — Base path of the file to load.
+     * @return instance of MaterialLoader
+     */
+    public native ObjectLoader setPath(String path);
+
+    /**
+     * Set the base path for dependent resources like textures.
+     *
+     * @param value — The base path or URL from which resources will be loaded.
      * @return instance of ObjectLoader
      */
-    public native ObjectLoader setTexturePath(String value);
+    public native ObjectLoader setResourcePath(String value);
 
 }

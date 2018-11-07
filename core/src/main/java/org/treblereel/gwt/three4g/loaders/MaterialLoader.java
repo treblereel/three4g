@@ -80,7 +80,16 @@ public class MaterialLoader {
 
     /**
      * @param textures — object containing any textures used by the material.
+     * @return instance of MaterialLoader
      */
-    public native void setTextures(Texture[] textures);
+    public native MaterialLoader setTextures(Texture[] textures);
+
+    /**
+     * Sets the base path or URL from which to load files. This can be useful if you are loading many materials from the same directory.
+     *
+     * @param path — Base path of the file to load.
+     * @return instance of MaterialLoader
+     */
+    public native MaterialLoader setPath(String path);
 
 }

@@ -71,4 +71,13 @@ public class BufferGeometryLoader {
      * @return instance of BufferGeometry
      */
     public native BufferGeometry parse(String json);
+
+    /**
+     * Sets the base path or URL from which to load files. This can be useful if
+     * 			you are loading many geometries from the same directory.
+     *
+     * @param path — Base path of the file to load.
+     * @return instance of BufferGeometryLoader
+     */
+    public native BufferGeometryLoader setPath(String path);
 }

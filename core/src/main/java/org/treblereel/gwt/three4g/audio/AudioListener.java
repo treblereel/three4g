@@ -32,6 +32,11 @@ public class AudioListener extends Object3D {
     public AudioNode filter;
 
     /**
+     * Time delta value for audio entities. Use in context of AudioParam.linearRampToValueAtTimeDefault(). Default is 0.
+     */
+    public float timeDelta;
+
+    /**
      * Create a new AudioListener.
      */
     public AudioListener() {

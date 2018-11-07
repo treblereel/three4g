@@ -21,12 +21,12 @@ public class AnimationLoader {
     public LoadingManager manager;
 
     @JsConstructor
-    public AnimationLoader(){
+    public AnimationLoader() {
 
     }
 
     @JsConstructor
-    public AnimationLoader(LoadingManager manager){
+    public AnimationLoader(LoadingManager manager) {
 
     }
 
@@ -66,11 +66,20 @@ public class AnimationLoader {
     public native void load(String url, OnLoadCallback<AnimationClip> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
 
-
     /**
      * Parse the JSON object and pass the result to onLoad. Individual clips in the object will be parsed with AnimationClip.parse.
-     * @param json — required
+     *
+     * @param json   — required
      * @param onLoad — Will be called when parsing completes.
      */
-    public native void parse (JSONObject json, OnLoadCallback<AnimationClip> onLoad ); //TODO checkit
+    public native void parse(JSONObject json, OnLoadCallback<AnimationClip> onLoad); //TODO checkit
+
+    /**
+     * Sets the base path or URL from which to load files. This can be useful if
+     * 			you are loading many animations from the same directory.
+     *
+     * @param path — Base path of the file to load.
+     * @return instance of AnimationLoader
+     */
+    public native AnimationLoader setPath(String path);
 }

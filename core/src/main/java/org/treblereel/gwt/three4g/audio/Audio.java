@@ -46,14 +46,19 @@ public class Audio extends Object3D {
     public boolean hasPlaybackControl;
 
     /**
-     * Speed of playback. Default is 1.
-     */
-    public float playbackRate;
-
-    /**
      * Whether the audio is currently playing.
      */
     public boolean isPlaying;
+
+    /**
+     * A reference to the listener object of this audio.
+     */
+    public AudioListener listener;
+
+    /**
+     * Speed of playback. Default is 1.
+     */
+    public float playbackRate;
 
     /**
      * The time at which the sound should begin to play. Same as the when paramter of AudioBufferSourceNode.start(). Default is 0.

@@ -19,6 +19,8 @@ public class WebVRManager {
     //default false
     public boolean enabled;
 
+    public float framebufferScaleFactor; // 1.0
+
     public boolean isPresenting;
 
     public String frameOfReferenceType;

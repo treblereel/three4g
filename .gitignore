@@ -1,4 +1,7 @@
 *.class
+.project
+.settings/
+.classpath
 .idea/
 three4g-parent.iml
 three4g.iml

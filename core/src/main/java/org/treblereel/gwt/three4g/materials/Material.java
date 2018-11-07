@@ -161,11 +161,6 @@ public class Material extends EventDispatcher {
     public float opacity;
 
     /**
-     * Amount of triangle expansion at draw time. This is a workaround for cases when gaps appear between triangles when using CanvasRenderer. 0.5 tends to give good results across browsers. Default is 0.
-     */
-    public float overdraw;
-
-    /**
      * Whether to use polygon offset. Default is false. This corresponds to the GL_POLYGON_OFFSET_FILL WebGL feature.
      */
     public boolean polygonOffset;

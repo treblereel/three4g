@@ -76,7 +76,7 @@ public abstract class DataTextureLoader<T, V> {
      * Set the base path or URL from which to load files. This can be useful if you are loading many models from the same directory.
      *
      * @param path base path or URL
-     * @return instance of FileLoader
+     * @return instance of a Loader
      */
     public native T setPath(String path);
 }
