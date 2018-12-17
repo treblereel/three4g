@@ -57,7 +57,6 @@ public class AnimationClip extends PropertyHolder {
     /**
      * Returns an array of new AnimationClips created from the morph target sequences of a geometry, trying to sort
      * morph target names into animation-group-based patterns like "Walk_001, Walk_002, Run_001, Run_002 ..."
-     * This method is called by the JSONLoader internally, and it uses CreateFromMorphTargetSequence.
      *
      * @param name                as String value
      * @param morphTargetSequence array of morphTargetSequences
