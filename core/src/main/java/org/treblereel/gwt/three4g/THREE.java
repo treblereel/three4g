@@ -72,6 +72,7 @@ public class THREE {
     public static int ReinhardToneMapping;
     public static int Uncharted2ToneMapping;
     public static int CineonToneMapping;
+    public static int ACESFilmicToneMapping;
     public static int UVMapping;
     public static int CubeReflectionMapping;
     public static int CubeRefractionMapping;

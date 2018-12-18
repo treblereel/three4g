@@ -30,6 +30,11 @@ public class Audio extends Object3D {
     public AudioContext context;
 
     /**
+     * Modify pitch, measured in cents. +/- 100 is a semitone. +/- 1200 is an octave. Default is 0.
+     */
+    public float detune;
+
+    /**
      * Represents an array of BiquadFilterNodes. Can be used to apply a variety of low-order filters to create more complex sound effects. Filters are set via Audio.setFilter or Audio.setFilters.
      */
     public BiquadFilterNode[] filters;
@@ -90,7 +95,7 @@ public class Audio extends Object3D {
     }
 
     /**
-     * @param listener — (required) AudioListener instance.
+     * @param listener — AudioListener instance.
      */
     public Audio(AudioListener listener) {
 
@@ -118,11 +123,27 @@ public class Audio extends Object3D {
     public native BiquadFilterNode getFilter();
 
     /**
+     * Applies a single BiquadFilterNode to the audio.
+     *
+     * @param filter BiquadFilterNode
+     * @return instance of Audio
+     */
+    public native Audio setFilter(BiquadFilterNode filter);
+
+    /**
      * Returns the filters array.
      *
      * @return array of BiquadFilterNode
      */
     public native BiquadFilterNode[] getFilters();
+
+    /**
+     * Applies an array of BiquadFilterNodes to the audio.
+     *
+     * @param value - arrays of filters.
+     * @return this Audio instance
+     */
+    public native Audio setFilters(BiquadFilterNode[] value);
 
     /**
      * Return the value of source.loop (whether playback should loop).
@@ -132,10 +153,17 @@ public class Audio extends Object3D {
     public native boolean getLoop();
 
     /**
-     * Return the gainNode.
-     * Cast to GainNode
+     * Set source.loop to value (whether playback should loop).
      *
-     * @return AudioNode
+     * @param value boolean
+     * @return this Audio instance
+     */
+    public native Audio setLoop(boolean value);
+
+    /**
+     * Return the gainNode.
+     *
+     * @return GainNode
      */
     public native AudioNode getOutput();
 
@@ -147,11 +175,27 @@ public class Audio extends Object3D {
     public native float getPlaybackRate();
 
     /**
+     * If hasPlaybackControl is enabled, set the playbackRate to value.
+     *
+     * @param value playback rate
+     * @return instance of Audio
+     */
+    public native Audio setPlaybackRate(float value);
+
+    /**
      * Return the current volume.
      *
      * @return current volume
      */
     public native float getVolume();
+
+    /**
+     * Set the volume.
+     *
+     * @param value volume rate
+     * @return instance of Audio
+     */
+    public native Audio setVolume(float value);
 
     /**
      * If hasPlaybackControl is true, starts playback.
@@ -175,30 +219,6 @@ public class Audio extends Object3D {
     public native Audio setBuffer(AudioBuffer audioBuffer);
 
     /**
-     * Applies a single BiquadFilterNode to the audio.
-     *
-     * @param filter BiquadFilterNode
-     * @return instance of Audio
-     */
-    public native Audio setFilter(BiquadFilterNode filter);
-
-    /**
-     * Applies an array of BiquadFilterNodes to the audio.
-     *
-     * @param value - arrays of filters.
-     * @return this Audio instance
-     */
-    public native Audio setFilters(BiquadFilterNode[] value);
-
-    /**
-     * Set source.loop to value (whether playback should loop).
-     *
-     * @param value boolean
-     * @return this Audio instance
-     */
-    public native Audio setLoop(boolean value);
-
-    /**
      * Applies the given object of type HTMLMediaElement as the source of this audio.
      * Also sets hasPlaybackControl to false.
      *
@@ -217,26 +237,25 @@ public class Audio extends Object3D {
     public native Audio setNodeSource(AudioNode audioNode);
 
     /**
-     * If hasPlaybackControl is enabled, set the playbackRate to value.
-     *
-     * @param value playback rate
-     * @return instance of Audio
-     */
-    public native Audio setPlaybackRate(float value);
-
-    /**
-     * Set the volume.
-     *
-     * @param value volume rate
-     * @return instance of Audio
-     */
-    public native Audio setVolume(float value);
-
-    /**
      * If hasPlaybackControl is enabled, stops playback, resets startTime to 0 and sets isPlaying to false.
      *
      * @return instance of Audio
      */
     public native Audio stop();
+
+    /**
+     * Return the detune.
+     *
+     * @return as float value
+     */
+    public native float getDetune();
+
+    /**
+     * Set the detune.
+     *
+     * @param value detune rate
+     * @return instance of Audio
+     */
+    public native Audio setDetune(float value);
 
 }
