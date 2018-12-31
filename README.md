@@ -3,7 +3,7 @@
 ## A Three.js wrapper for GWT
 
 # Maven
-Current Version 0.97-beta2, implements 0.97 version of three.js
+Current Version 0.99, implements 0.99 version of three.js
 
 ```xml
 <dependency>
