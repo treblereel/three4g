@@ -9,7 +9,7 @@ Current Version 0.97-beta2, implements 0.97 version of three.js
 <dependency>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
-    <version>0.97-beta2</version>
+    <version>0.99</version>
 </dependency>
 ```
 # Setup
