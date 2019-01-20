@@ -40,9 +40,55 @@ public class GridHelper extends LineSegments {
      * @param size            -- The size of the grid. Default is 10.
      * @param divisions       -- The number of divisions across the grid. Default is 10.
      * @param colorCenterLine -- The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x444444
+     */
+    public GridHelper(int size, int divisions, int colorCenterLine) {
+
+    }
+
+    /**
+     * If no material is supplied, a randomized line material will be created and assigned to the object.
+     *
+     * @param size            -- The size of the grid. Default is 10.
+     * @param divisions       -- The number of divisions across the grid. Default is 10.
+     * @param colorCenterLine -- The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x444444
+     */
+    public GridHelper(int size, int divisions, String colorCenterLine) {
+
+    }
+
+    /**
+     * If no material is supplied, a randomized line material will be created and assigned to the object.
+     *
+     * @param size            -- The size of the grid. Default is 10.
+     * @param divisions       -- The number of divisions across the grid. Default is 10.
+     * @param colorCenterLine -- The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x444444
      * @param colorGrid       -- The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x888888
      */
     public GridHelper(int size, int divisions, Color colorCenterLine, Color colorGrid) {
+
+    }
+
+    /**
+     * If no material is supplied, a randomized line material will be created and assigned to the object.
+     *
+     * @param size            -- The size of the grid. Default is 10.
+     * @param divisions       -- The number of divisions across the grid. Default is 10.
+     * @param colorCenterLine -- The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x444444
+     * @param colorGrid       -- The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x888888
+     */
+    public GridHelper(int size, int divisions, int colorCenterLine, int colorGrid) {
+
+    }
+
+    /**
+     * If no material is supplied, a randomized line material will be created and assigned to the object.
+     *
+     * @param size            -- The size of the grid. Default is 10.
+     * @param divisions       -- The number of divisions across the grid. Default is 10.
+     * @param colorCenterLine -- The color of the centerline. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x444444
+     * @param colorGrid       -- The color of the lines of the grid. This can be a Color, a hexadecimal value and an CSS-Color name. Default is 0x888888
+     */
+    public GridHelper(int size, int divisions, String colorCenterLine, String colorGrid) {
 
     }
 }
