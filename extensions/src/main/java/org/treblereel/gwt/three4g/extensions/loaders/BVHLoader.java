@@ -19,9 +19,6 @@ public class BVHLoader {
 
   public BVHLoader(LoadingManager manager) {}
 
-  /** @param url — A string containing the path/URL of the .bvh file. */
-  public native void load(String url);
-
   /**
    * @param url — A string containing the path/URL of the .bvh file.
    * @param onLoad — A function to be called after loading is successfully completed. The function

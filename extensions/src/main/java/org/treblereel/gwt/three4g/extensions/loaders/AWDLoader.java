@@ -20,9 +20,6 @@ public class AWDLoader {
 
   public AWDLoader(LoadingManager manager) {}
 
-  /** @param url — A string containing the path/URL of the .awd file. */
-  public native void load(String url);
-
   /**
    * @param url — A string containing the path/URL of the .awd file.
    * @param onLoad — A function to be called after loading is successfully completed. The function

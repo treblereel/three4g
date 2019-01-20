@@ -18,9 +18,6 @@ public class AMFLoader {
 
   public AMFLoader(LoadingManager manager) {}
 
-  /** @param url — A string containing the path/URL of the .amf file. */
-  public native void load(String url);
-
   /**
    * @param url — A string containing the path/URL of the .amf file.
    * @param onLoad — A function to be called after loading is successfully completed. The function

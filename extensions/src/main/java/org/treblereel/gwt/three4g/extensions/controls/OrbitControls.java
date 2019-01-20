@@ -166,6 +166,8 @@ public class OrbitControls extends EventDispatcher {
      */
     public Vector3 target;
 
+    public Vector3 target0, position0;
+
     /**
      * Speed of zooming / dollying. Default is 1.
      */
