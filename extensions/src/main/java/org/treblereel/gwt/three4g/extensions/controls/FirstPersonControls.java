@@ -15,6 +15,7 @@ public class FirstPersonControls {
 
 
     public double movementSpeed;
+
     public double lookSpeed;
 
     public FirstPersonControls(Camera camera) {
