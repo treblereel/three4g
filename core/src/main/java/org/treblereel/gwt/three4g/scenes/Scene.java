@@ -29,6 +29,13 @@ public class Scene extends Object3D {
     public boolean autoUpdate;
 
     /**
+     * Used to check whether this or derived classes are Scene. Default is true.
+     * <p>
+     * You should not change this, as it used internally for optimisation.
+     */
+    public boolean isScene;
+
+    /**
      * If not null, sets the background used when rendering the scene, and is always rendered first. Can be set to a Color which sets the clear color, a Texture covering the canvas, or a CubeTexture. Default is null.
      */
     public PropertyHolder background;
@@ -45,4 +52,9 @@ public class Scene extends Object3D {
      */
     public native String toJSON();
 
+
+    /**
+     * Clears scene related data internally cached by WebGLRenderer.
+     */
+    public native void dispose();
 }
