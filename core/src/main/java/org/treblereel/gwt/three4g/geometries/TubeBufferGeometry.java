@@ -47,4 +47,11 @@ public class TubeBufferGeometry extends BufferGeometry<TubeBufferGeometry> {
     public TubeBufferGeometry(Curve path, int tubularSegments, float radius, int radialSegments, boolean closed) {
 
     }
+
+    /**
+     * Create a JSON structure with details of this TubeBufferGeometry object.
+     *
+     * @return JSON String
+     */
+    public native String toJSON();
 }
