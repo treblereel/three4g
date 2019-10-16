@@ -78,6 +78,7 @@ public class ImageLoader {
     /**
      * Set the .crossOrigin attribute.
      * @param origin crossOrigin attribute.
+     * @return ImageLoader
      */
     public native ImageLoader setCrossOrigin(String origin);
 

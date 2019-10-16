@@ -6,43 +6,78 @@ import org.treblereel.gwt.three4g.objects.Line;
 
 /**
  * This helper displays the directional cone of a PositionalAudio.
- *
- * @author Dmitrii Tikhomirov Created by treblereel 5/6/19
+ * @author Dmitrii Tikhomirov
+ * Created by treblereel 10/16/19
  */
 @JsType(isNative = true, namespace = "THREE")
 public class PositionalAudioHelper extends Line {
 
-  /** @param audio -- The PositionalAudio to be visualized. */
-  public PositionalAudioHelper(PositionalAudio audio) {}
+    /**
+     * PositionalAudio to be visualized.
+     */
+    public PositionalAudio audio;
 
-  /**
-   * @param audio -- The PositionalAudio to be visualized.
-   * @param range -- The range of the directional cone.
-   */
-  public PositionalAudioHelper(PositionalAudio audio, float range) {}
+    /**
+     * The range of the directional cone.
+     */
+    public Number range;
 
-  /**
-   * @param audio -- The PositionalAudio to be visualized.
-   * @param range -- The range of the directional cone.
-   * @param divisionsInnerAngle -- The amount of divisions of the inner part of the directional
-   *     cone.
-   */
-  public PositionalAudioHelper(PositionalAudio audio, float range, float divisionsInnerAngle) {}
+    /**
+     * The amount of divisions of the inner part of the directional cone.
+     */
+    public Number divisionsInnerAngle;
 
-  /**
-   * @param audio -- The PositionalAudio to be visualized.
-   * @param range -- The range of the directional cone.
-   * @param divisionsInnerAngle -- The amount of divisions of the inner part of the directional
-   *     cone.
-   * @param divisionsOuterAngle -- The amount of divisions of the outer part of the directional
-   *     cone.
-   */
-  public PositionalAudioHelper(
-      PositionalAudio audio, float range, float divisionsInnerAngle, float divisionsOuterAngle) {}
+    /**
+     * The amount of divisions of the outer part of the directional cone.
+     */
+    public Number divisionsOuterAngle;
 
-  /** Disposes of the helper. */
-  public native void dispose();
+    /**
+     * @param audio -- The PositionalAudio to be visualized.
+     */
+    public PositionalAudioHelper(PositionalAudio audio) {
 
-  /** Updates of the helper. */
-  public native void update();
+    }
+
+    /**
+     * @param audio -- The PositionalAudio to be visualized.
+     * @param range -- The range of the directional cone.
+     *
+     */
+    public PositionalAudioHelper(PositionalAudio audio, Number range) {
+
+    }
+
+    /**
+     * @param audio -- The PositionalAudio to be visualized.
+     * @param range -- The range of the directional cone.
+     * @param divisionsInnerAngle -- The amount of divisions of the inner part of the directional cone.
+     *
+     */
+    public PositionalAudioHelper(PositionalAudio audio, Number range, Number divisionsInnerAngle) {
+
+    }
+
+    /**
+     * @param audio -- The PositionalAudio to be visualized.
+     * @param range -- The range of the directional cone.
+     * @param divisionsInnerAngle -- The amount of divisions of the inner part of the directional cone.
+     * @param divisionsOuterAngle -- (optional) The amount of divisions of the outer part of the directional cone.
+     *
+     */
+    public PositionalAudioHelper(PositionalAudio audio, Number range, Number divisionsInnerAngle, Number divisionsOuterAngle) {
+
+    }
+
+    /**
+     * Disposes of the helper.
+     */
+    public native void dispose();
+
+    /**
+     * Updates the helper.
+     */
+    public native void update();
+
+
 }

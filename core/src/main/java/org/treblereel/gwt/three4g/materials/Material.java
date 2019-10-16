@@ -230,10 +230,7 @@ public class Material extends EventDispatcher {
     public int vertexColors;
 
     /**
-     * Defines whether precomputed vertex tangents, which must be provided in a vec4 "tangent"
-     * attribute, are used. When disabled, tangents are derived automatically. Using precomputed
-     * tangents will give more accurate normal map details in some cases, such as with mirrored UVs.
-     * Default is false.
+     * Defines whether precomputed vertex tangents are used. Default is false.
      */
     public boolean vertexTangents;
 
