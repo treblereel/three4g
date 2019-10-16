@@ -15,6 +15,7 @@ import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Plane;
 import org.treblereel.gwt.three4g.math.Vector2;
+import org.treblereel.gwt.three4g.math.Vector4;
 import org.treblereel.gwt.three4g.renderers.parameters.WebGLRendererParameters;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGLProgram;
 import org.treblereel.gwt.three4g.renderers.webgl.WebGlShadowMap;
@@ -26,13 +27,11 @@ import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
  * The WebGL renderer displays your beautifully crafted scenes using WebGL.
- *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/27/18.
  */
 @JsType(isNative = true, namespace = "THREE")
 public class WebGLRenderer {
-
 
     /**
      * Defines whether the renderer should automatically clear its output before rendering a frame.
@@ -54,16 +53,13 @@ public class WebGLRenderer {
      */
     public boolean autoClearStencil;
 
-
     public Capabilities capabilities;
-
 
     /**
      * User-defined clipping planes specified as THREE.Plane objects in world space. These planes apply globally.
      * Points in space whose dot product with the plane is negative are cut away. Default is [].
      */
     public Plane[] clippingPlanes;
-
 
     /**
      * The renderer obtains a RenderingContext context from its domElement by default, using HTMLCanvasElement.getContext().
@@ -79,7 +75,6 @@ public class WebGLRenderer {
      */
     public HTMLElement domElement;
 
-
     /**
      * A wrapper for the .extensions.get method, used to check whether various WebGL extensions are supported.
      */
@@ -89,7 +84,6 @@ public class WebGLRenderer {
      * Default is 2.
      */
     public double gammaFactor;
-
 
     /**
      * If set, then it expects that all textures and colors are premultiplied gamma. Default is false.
@@ -123,7 +117,6 @@ public class WebGLRenderer {
      */
     public boolean localClippingEnabled;
 
-
     /**
      * Default is 8. The maximum number of MorphTargets allowed in a shader. Keep in mind that the standard materials only allow 8 MorphTargets.
      */
@@ -149,7 +142,6 @@ public class WebGLRenderer {
      */
     public PropertyHolder renderLists; //WebGLRenderLists //TODO
 
-
     /**
      * This contains the reference to the shadow map, if used.
      */
@@ -164,7 +156,6 @@ public class WebGLRenderer {
      * rendering e.g. manually determining each object's rendering order.
      */
     public boolean sortObjects;
-
 
     /**
      * Contains functions for setting various properties of the WebGLRenderer.context state.
@@ -209,7 +200,6 @@ public class WebGLRenderer {
 
     /**
      * A build in function that can be used instead of requestAnimationFrame. For WebVR projects this function must be used.
-     *
      * @param callback — The function will be called every available frame. If `null` is passed it will stop any already ongoing animation.
      */
     public native void setAnimationLoop(OnAnimate callback);
@@ -225,7 +215,6 @@ public class WebGLRenderer {
      * Tells the renderer to clear its color, depth or stencil drawing buffer(s). This method initializes the color buffer
      * to the current clear color value.
      * Arguments default to true.
-     *
      * @param color clear the color buffer
      */
     public native void clear(boolean color);
@@ -234,7 +223,6 @@ public class WebGLRenderer {
      * Tells the renderer to clear its color, depth or stencil drawing buffer(s). This method initializes the color buffer
      * to the current clear color value.
      * Arguments default to true.
-     *
      * @param color clear the color buffer
      * @param depth clear the depth buffer
      */
@@ -244,13 +232,11 @@ public class WebGLRenderer {
      * Tells the renderer to clear its color, depth or stencil drawing buffer(s). This method initializes the color buffer
      * to the current clear color value.
      * Arguments default to true.
-     *
-     * @param color   clear the color buffer
-     * @param depth   clear the depth buffer
+     * @param color clear the color buffer
+     * @param depth clear the depth buffer
      * @param stencil clear the stencil buffer
      */
     public native void clear(boolean color, boolean depth, boolean stencil);
-
 
     /**
      * Clear the color buffer. Equivalent to calling .clear( true, false, false ).
@@ -269,7 +255,6 @@ public class WebGLRenderer {
 
     /**
      * This method clears a rendertarget. To do this, it activates the rendertarget.
-     *
      * @param renderTargetl target to clear
      */
     @Deprecated
@@ -277,64 +262,56 @@ public class WebGLRenderer {
 
     /**
      * This method clears a rendertarget. To do this, it activates the rendertarget.
-     *
      * @param renderTarget -- The renderTarget that needs to be cleared.
-     * @param color        -- If set, then the color gets cleared.
-     *                     This method clears a rendertarget. To do this, it activates the rendertarget.
+     * @param color -- If set, then the color gets cleared.
+     * This method clears a rendertarget. To do this, it activates the rendertarget.
      */
     public native void clearTarget(WebGLRenderTarget renderTarget, boolean color);
 
     /**
      * This method clears a rendertarget. To do this, it activates the rendertarget.
-     *
      * @param renderTarget -- The renderTarget that needs to be cleared.
-     * @param color        -- If set, then the color gets cleared.
-     * @param depth        -- If set, then the depth gets cleared.
-     *                     This method clears a rendertarget. To do this, it activates the rendertarget.
+     * @param color -- If set, then the color gets cleared.
+     * @param depth -- If set, then the depth gets cleared.
+     * This method clears a rendertarget. To do this, it activates the rendertarget.
      */
     public native void clearTarget(WebGLRenderTarget renderTarget, boolean color, boolean depth);
 
     /**
      * This method clears a rendertarget. To do this, it activates the rendertarget.
-     *
      * @param renderTarget -- The renderTarget that needs to be cleared.
-     * @param color        -- If set, then the color gets cleared.
-     * @param depth        -- If set, then the depth gets cleared.
-     * @param stencil      -- If set, then the stencil gets cleared.
-     *                     This method clears a rendertarget. To do this, it activates the rendertarget.
+     * @param color -- If set, then the color gets cleared.
+     * @param depth -- If set, then the depth gets cleared.
+     * @param stencil -- If set, then the stencil gets cleared.
+     * This method clears a rendertarget. To do this, it activates the rendertarget.
      */
     public native void clearTarget(WebGLRenderTarget renderTarget, boolean color, boolean depth, boolean stencil);
 
-
     /**
      * Compiles all materials in the scene with the camera. This is useful to precompile shaders before the first rendering.
-     *
-     * @param scene  instance of Scene
+     * @param scene instance of Scene
      * @param camera instance of Camera
      */
     public native void compile(Scene scene, Camera camera);
 
     /**
      * Copies pixels from the current WebGLFramebuffer into a 2D texture. Enables access to WebGLRenderingContext.copyTexImage2D.
-     *
      * @param position instance of Vector2
-     * @param texture  instance of Texture
+     * @param texture instance of Texture
      */
     public native void copyFramebufferToTexture(Vector2 position, Texture texture);
 
     /**
      * Copies pixels from the current WebGLFramebuffer into a 2D texture. Enables access to WebGLRenderingContext.copyTexImage2D.
-     *
      * @param position instance of Vector2
-     * @param texture  instance of Texture
-     * @param level    the level
+     * @param texture instance of Texture
+     * @param level the level
      */
     public native void copyFramebufferToTexture(Vector2 position, Texture texture, int level);
 
     /**
      * Copies all pixels of a texture to an existing texture starting from the given position. Enables access to WebGLRenderingContext.texSubImage2D.
-     *
-     * @param position   instance of Vector2
+     * @param position instance of Vector2
      * @param srcTexture source Texture
      * @param dstTexture distinctional Texture
      */
@@ -342,11 +319,10 @@ public class WebGLRenderer {
 
     /**
      * Copies all pixels of a texture to an existing texture starting from the given position. Enables access to WebGLRenderingContext.texSubImage2D.
-     *
-     * @param position   instance of Vector2
+     * @param position instance of Vector2
      * @param srcTexture source Texture
      * @param dstTexture distinctional Texture
-     * @param level      the level
+     * @param level the level
      */
     public native void copyTextureToTexture(Vector2 position, Texture srcTexture, Texture dstTexture, int level);
 
@@ -355,87 +331,155 @@ public class WebGLRenderer {
      */
     public native void dispose();
 
-
     /**
      * Simulate loss of the WebGL context. This requires support for the WEBGL_lose_context extensions. According to WebGLStats,
      * as of February 2016 90% of WebGL enabled devices support this.
      */
     public native void forceContextLoss();
 
-
     /**
      * Returns a float with the current clear alpha. Ranges from 0 to 1.
-     *
      * @return float
      */
     public native float getClearAlpha();
 
     /**
+     * Sets the clear alpha. Valid input is a float between 0.0 and 1.0.
+     * @param alpha the clear alpha
+     */
+    public native void setClearAlpha(float alpha);
+
+    /**
      * Returns a Color instance with the current clear color.
-     *
      * @return Color
      */
     public native Color getClearColor();
 
     /**
+     * Sets the clear color and opacity.
+     * @param color instance of String
+     */
+    public native void setClearColor(String color);
+
+    /**
+     * Sets the clear color and opacity.
+     * @param color instance of int
+     */
+    public native void setClearColor(int color);
+
+    /**
+     * Sets the clear color and opacity.
+     * @param color instance of Color
+     */
+    public native void setClearColor(Color color);
+
+    /**
      * Return the current WebGL context.
-     *
      * @return WebGLRenderingContext
      */
     public native WebGLRenderingContext getContext();
 
     /**
      * Returns an object that describes the attributes set on the WebGL context when it was created.
-     *
      * @return a WebGLContextAttributes object that contains the actual context parameters
      */
     public native WebGLContextAttributes getContextAttributes();
 
     /**
      * Returns the current RenderTarget, if any.
-     *
      * @return RenderTarget
      */
     public native RenderTarget getRenderTarget();
 
     /**
-     * Returns the current CurrentViewport.
-     *
-     * @return RenderTarget
+     * This method sets the active rendertarget. If the parameter is omitted the canvas is set as the active rendertarget.
+     * @param renderTarget -- The renderTarget that needs to be activated (optional).
      */
-    public native RenderTarget getCurrentViewport();
-
+    public native void setRenderTarget(WebGLRenderTarget renderTarget);
 
     /**
-     * Returns an object containing the width and height of the renderer's drawing buffer, in pixels.
-     *
-     * @return JsPropertyMap as a holder for width and height
+     * This method sets the active rendertarget. If the parameter is omitted the canvas is set as the active rendertarget.
+     * @param renderTarget -- The renderTarget that needs to be activated (optional).
+     * @param activeCubeFace -- Specifies the active cube side (PX 0, NX 1, PY 2, NY 3, PZ 4, NZ 5) of [page:WebGLRenderTargetCube] (optional).
      */
-    public native HeightWidth getDrawingBufferSize();
+    public native void setRenderTarget(WebGLRenderTarget renderTarget, int activeCubeFace);
+
+    /**
+     * This method sets the active rendertarget. If the parameter is omitted the canvas is set as the active rendertarget.
+     * @param renderTarget -- The renderTarget that needs to be activated (optional).
+     * @param activeCubeFace -- Specifies the active cube side (PX 0, NX 1, PY 2, NY 3, PZ 4, NZ 5) of [page:WebGLRenderTargetCube] (optional).
+     * @param activeMipMapLevel -- Specifies the active mipmap level (optional).
+     */
+    public native void setRenderTarget(WebGLRenderTarget renderTarget, int activeCubeFace, int activeMipMapLevel);
+
+    /**
+     * Returns the current CurrentViewport.
+     * @param target — the result will be copied into this Vector4.
+     * @return RenderTarget
+     */
+    public native RenderTarget getCurrentViewport(Vector4 target);
+
+    /**
+     * Returns the width and height of the renderer's drawing buffer, in pixels.
+     * @param target — the result will be copied into this Vector2.
+     * @return HeightWidth as a holder for width and height
+     */
+    public native HeightWidth getDrawingBufferSize(Vector2 target);
 
     /**
      * Returns current device pixel ratio used.
-     *
      * @return in pixel
      */
     public native double getPixelRatio();
 
     /**
-     * Returns an object containing the width and height of the renderer's output canvas, in pixels.
-     *
+     * Sets device pixel ratio. This is usually used for HiDPI device to prevent bluring output canvas.
+     * @param value pixel ratio
+     */
+    public native void setPixelRatio(double value);
+
+    /**
+     * Returns the scissor region.
+     * @param value — the result will be copied into this Vector4.
+     * @return scissor region
+     */
+    public native Vector4 getScissor(Vector4 value);
+
+    /**
+     * Returns *true* if scissor test is enabled; returns *false* otherwise.
+     * @return *true* if scissor test is enabled
+     */
+    public native boolean getScissorTest();
+
+    /**
+     * Enable or disable the scissor test. When this is enabled, only the pixels within the defined scissor area will be affected by further renderer actions.
+     * @param isTest Enable or disable the scissor test
+     */
+    public native void setScissorTest(boolean isTest);
+
+    /**
+     * Returns the width and height of the renderer's output canvas, in pixels.
+     * @param target — the result will be copied into this Vector2.
      * @return see getWidth and getHeight
      */
-    public native HeightWidth getSize();
+    public native HeightWidth getSize(Vector2 target);
 
     @JsOverlay
     public final double getWidth() {
-        return getSize().width;
+        return getSize(new Vector2()).width;
     }
 
     @JsOverlay
     public final double getHeight() {
-        return getSize().height;
+        return getSize(new Vector2()).height;
     }
+
+    /**
+     * Copies the viewport into target.
+     * @param target — the result will be copied into this Vector4.
+     * @return Returns the viewport.
+     */
+    public native Vector4 getViewport(Vector4 target);
 
     /**
      * Reset the GL state to default. Called internally if the WebGL context is lost.
@@ -447,92 +491,48 @@ public class WebGLRenderer {
      * instantiated with new Uint8Array( renderTargetWidth * renderTargetWidth * 4 ) to account for size and color information.
      * This is a wrapper around gl.readPixels.
      * See the interactive / cubes / gpu example.
-     *
      * @param renderTarget instance of WebGLRenderTarget
-     * @param x            as float
-     * @param y            as float
-     * @param width        as float
-     * @param height       as float
-     * @param buffer       instance of Uint8Array
+     * @param x as float
+     * @param y as float
+     * @param width as float
+     * @param height as float
+     * @param buffer instance of Uint8Array
      */
     public native void readRenderTargetPixels(WebGLRenderTarget renderTarget, float x, float y, float width, float height, Uint8Array buffer);
 
     /**
      * Render a scene using a camera.
-     * The render is done to the renderTarget (if specified) or to the canvas as usual.
-     * If forceClear is true, the depth, stencil and color buffers will be cleared before rendering even if the renderer's autoClear property is false.
-     * Even with forceClear set to true you can prevent certain buffers being cleared by setting either the autoClearColor, autoClearStencil or autoClearDepth properties to false.
-     *
-     * @param scene  instance of Scene
+     * The render is done to a previously specified [page:WebGLRenderTarget renderTarget] set by calling [page:WebGLRenderer.setRenderTarget .setRenderTarget] or to the canvas as usual.
+     * By default render buffers are cleared before rendering but you can prevent this by setting the property [page:WebGLRenderer.autoClear autoClear] to false.
+     * If you want to prevent only certain buffers being cleared you can set either the [page:WebGLRenderer.autoClearColor autoClearColor], [page:WebGLRenderer.autoClearStencil autoClearStencil] or
+     * [page:WebGLRenderer.autoClearDepth autoClearDepth] properties to false. To forcibly clear one ore more buffers call [page:WebGLRenderer.clear .clear].*
+     * @param scene instance of Scene
      * @param camera instance of Camera
      */
     public native void render(Scene scene, Camera camera);
 
     /**
-     * Render a scene using a camera.
-     * The render is done to the renderTarget (if specified) or to the canvas as usual.
-     * If forceClear is true, the depth, stencil and color buffers will be cleared before rendering even if the renderer's autoClear property is false.
-     * Even with forceClear set to true you can prevent certain buffers being cleared by setting either the autoClearColor, autoClearStencil or autoClearDepth properties to false.
-     *
-     * @param scene        instance of Scene
-     * @param camera       instance of Camera
-     * @param renderTarget instance of WebGLRenderTarget
-     */
-    public native void render(Scene scene, Camera camera, WebGLRenderTarget renderTarget);
-
-    /**
-     * Render a scene using a camera.
-     * The render is done to the renderTarget (if specified) or to the canvas as usual.
-     * If forceClear is true, the depth, stencil and color buffers will be cleared before rendering even if the renderer's autoClear property is false.
-     * Even with forceClear set to true you can prevent certain buffers being cleared by setting either the autoClearColor, autoClearStencil or autoClearDepth properties to false.
-     *
-     * @param scene        instance of Scene
-     * @param camera       instance of Camera
-     * @param renderTarget instance of WebGLRenderTarget
-     * @param forceClear   to force clear
-     */
-    public native void render(Scene scene, Camera camera, WebGLRenderTarget renderTarget, boolean forceClear);
-
-
-    /**
      * TODO:
      * Render a buffer geometry group using the camera and with the specified material.
-     *
-     * @param camera        instance of Camera
-     * @param lights        instance of lights //TODO ???
-     * @param fog           instance of Fog
-     * @param material      instance of Material
+     * @param camera instance of Camera
+     * @param lights instance of lights //TODO ???
+     * @param fog instance of Fog
+     * @param material instance of Material
      * @param geometryGroup instance of Material //TODO ???
-     * @param object        instance of Object3D
+     * @param object instance of Object3D
      */
     public native void renderBufferDirect(Camera camera, Object lights, Fog fog, Material material, Object geometryGroup, Object3D object); //TODO*/
 
     /**
      * Render an immediate buffer. Gets called by renderImmediateObject.
-     *
-     * @param object        - an instance of Object3D
+     * @param object - an instance of Object3D
      * @param shaderprogram - an instance of shaderProgram
-     * @param shading       - an instance of Material
+     * @param shading - an instance of Material
      */
     public native void renderBufferImmediate(Object3D object, WebGLProgram shaderprogram, Material shading);
 
     /**
-     * Sets the clear alpha. Valid input is a float between 0.0 and 1.0.
-     *
-     * @param alpha the clear alpha
-     */
-    public native void setClearAlpha(float alpha);
-
-    /**
      * Sets the clear color and opacity.
-     *
-     * @param color instance of String
-     */
-    public native void setClearColor(String color);
-
-    /**
-     * Sets the clear color and opacity.
-     *
      * @param alpha the clear alpha
      * @param color instance of String
      */
@@ -540,14 +540,6 @@ public class WebGLRenderer {
 
     /**
      * Sets the clear color and opacity.
-     *
-     * @param color instance of int
-     */
-    public native void setClearColor(int color);
-
-    /**
-     * Sets the clear color and opacity.
-     *
      * @param alpha the clear alpha
      * @param color instance of int
      */
@@ -555,25 +547,10 @@ public class WebGLRenderer {
 
     /**
      * Sets the clear color and opacity.
-     *
-     * @param color instance of Color
-     */
-    public native void setClearColor(Color color);
-
-    /**
-     * Sets the clear color and opacity.
-     *
      * @param alpha the clear alpha
      * @param color instance of Color
      */
     public native void setClearColor(Color color, float alpha);
-
-    /**
-     * Sets device pixel ratio. This is usually used for HiDPI device to prevent bluring output canvas.
-     *
-     * @param value pixel ratio
-     */
-    public native void setPixelRatio(double value);
 
     /**
      * This method sets the active rendertarget. If the parameter is omitted the canvas is set as the active rendertarget.
@@ -581,32 +558,22 @@ public class WebGLRenderer {
     public native void setRenderTarget();
 
     /**
-     * This method sets the active rendertarget. If the parameter is omitted the canvas is set as the active rendertarget.
-     *
-     * @param renderTarget -- The renderTarget that needs to be activated (optional).
+     * a 4-component vector specifying the parameters of the region.
+     * @param vector a Vector4
      */
-    public native void setRenderTarget(WebGLRenderTarget renderTarget);
+    public native void setScissor(Vector4 vector);
 
     /**
      * Sets the scissor area from (x, y) to (x + width, y + height)
-     *
-     * @param x      as int
-     * @param y      as int
-     * @param width  as int
+     * @param x as int
+     * @param y as int
+     * @param width as int
      * @param height as int
      */
     public native void setScissor(int x, int y, int width, int height);
 
     /**
-     * Enable or disable the scissor test. When this is enabled, only the pixels within the defined scissor area will be affected by further renderer actions.
-     *
-     * @param isTest Enable or disable the scissor test
-     */
-    public native void setScissorTest(boolean isTest);
-
-    /**
      * Return a Boolean true if the context supports vertex textures. This has been deprecated in favour of capabilities.vertexTexures.
-     *
      * @return Return a Boolean true if the context supports vertex textures
      */
     public native boolean supportsVertexTextures();
@@ -615,8 +582,7 @@ public class WebGLRenderer {
      * Resizes the output canvas to (width, height) with device pixel ratio taken into account,
      * and also sets the viewport to fit that size, starting in (0, 0). Setting updateStyle to
      * false prevents any style changes to the output canvas.
-     *
-     * @param width  as double
+     * @param width as double
      * @param height as double
      */
     public native void setSize(double width, double height);
@@ -625,9 +591,8 @@ public class WebGLRenderer {
      * Resizes the output canvas to (width, height) with device pixel ratio taken into account,
      * and also sets the viewport to fit that size, starting in (0, 0). Setting updateStyle to
      * false prevents any style changes to the output canvas.
-     *
-     * @param width       as double
-     * @param height      as double
+     * @param width as double
+     * @param height as double
      * @param updateStyle force style update
      */
     public native void setSize(double width, double height, boolean updateStyle);
@@ -636,29 +601,30 @@ public class WebGLRenderer {
      * This method sets the correct texture to the correct slot for the WebGL shader. The slot number can be found as a value of the uniform of the sampler.
      * <p>
      * Note: This method replaces the older # .setTexture method.
-     *
      * @param texture -- The texture that needs to be set.
-     * @param slot    -- The number indicating which slot should be used by the texture.
+     * @param slot -- The number indicating which slot should be used by the texture.
      */
     public native void setTexture2D(Texture texture, int slot);
 
     /**
      * This method sets the correct texture to the correct slot for the WebGL shader. The slot number can be found as a value of the uniform of the sampler.
-     *
      * @param texture -- The cubeTexture that needs to be set.
-     * @param slot    -- The number indicating which slot should be used by the texture.
+     * @param slot -- The number indicating which slot should be used by the texture.
      */
     public native void setTextureCube(CubeTexture texture, int slot);
 
+    /**
+     * 4-component vector specifying the parameters of a viewport
+     * @param viewport as Vector4 value
+     */
+    public native void setViewport(Vector4 viewport);
 
     /**
      * Sets the viewport to render from (x, y) to (x + width, y + height).
-     *
-     * @param x      as int value
-     * @param y      as int value
-     * @param width  as int value
+     * @param x as int value
+     * @param y as int value
+     * @param width as int value
      * @param height as int value
      */
     public native void setViewport(int x, int y, int width, int height);
-
 }

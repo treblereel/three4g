@@ -230,6 +230,11 @@ public class Material extends EventDispatcher {
     public int vertexColors;
 
     /**
+     * Defines whether precomputed vertex tangents are used. Default is false.
+     */
+    public boolean vertexTangents;
+
+    /**
      * Defines whether this material is visible. Default is true.
      */
     public boolean visible;
