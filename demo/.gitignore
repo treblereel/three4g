@@ -1,0 +1,6 @@
+*.class
+.idea/
+three4g-demo.iml
+.classpath
+.project
+.settings/
