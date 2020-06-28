@@ -1,10 +1,13 @@
 package org.treblereel.gwt.three4g.math;
 
+import jsinterop.annotations.JsType;
+
 /**
  * Represents a third-order spherical harmonics (SH). Light probes use this class to encode lighting information.
  * @author Dmitrii Tikhomirov
  * Created by treblereel 6/28/20
  */
+@JsType(isNative = true, namespace = "THREE")
 public class SphericalHarmonics3 {
 
     /**
