@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.extensions.quickhull;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
 import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.math.Ray;
 import org.treblereel.gwt.three4g.math.Vector3;
 
 /**
@@ -209,4 +210,6 @@ public class QuickHull {
      * @return instance of QuickHull
      */
     public native QuickHull compute();
+
+    public native boolean containsPoint(Ray ray, Vector3 target);
 }
