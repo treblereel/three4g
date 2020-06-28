@@ -77,10 +77,9 @@ public class Line extends Object3D {
     /**
      * Return a copy of this Line.
      *
-     * @param source instance of Line
      * @return instance of Line
      */
-    public native Line copy(Line source);
+    public native Line copy();
 
     /**
      * Returns a clone of this Line object and its descendants.

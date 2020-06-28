@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.treblereel.gwt</groupId>
         <artifactId>three4g-parent</artifactId>
-        <version>0.103</version>
+        <version>0.103-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -96,27 +96,27 @@
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
-            <version>1.0.0-RC1</version>
+            <version>${com.google.elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-media</artifactId>
-            <version>1.0.0-RC1</version>
+            <version>${com.google.elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-webgl</artifactId>
-            <version>1.0.0-RC1</version>
+            <version>${com.google.elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt</groupId>
             <artifactId>elemental2-vr</artifactId>
-            <version>0.1-beta2</version>
+            <version>${org.treblereel.gwt.elemental2.vr.version}</version>
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt</groupId>
             <artifactId>elemental2-gamepad</artifactId>
-            <version>0.1-beta1</version>
+            <version>${org.treblereel.gwt.elemental2.gamepad.version}</version>
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt</groupId>
