@@ -36,8 +36,9 @@ public class LOD extends Object3D {
      *
      * @param object   - The Object3D to display at this level.
      * @param distance - The distance at which to display this level of detail.
+     * @return instance of LOD
      */
-    public native void addLevel(Object3D object, float distance);
+    public native LOD addLevel(Object3D object, float distance);
 
     /**
      * Returns a clone of this LOD object and its associated distance specific objects.
@@ -76,4 +77,10 @@ public class LOD extends Object3D {
      * @param camera instance of a Camera
      */
     public native void update(Camera camera);
+
+    /**
+     *
+     * @return true if is LOD
+     */
+    public native boolean isLOD();
 }
