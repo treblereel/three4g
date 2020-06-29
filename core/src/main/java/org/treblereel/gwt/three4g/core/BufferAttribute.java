@@ -430,4 +430,11 @@ public class BufferAttribute<V extends Number, T extends BufferAttribute> {
      */
     public native T setXYZW(int index, V x, V y, V z, V w);
 
+    /**
+     * Return BufferAttribute data in JSON format.
+     *
+     * @return String
+     */
+    public native String toJSON();
+
 }

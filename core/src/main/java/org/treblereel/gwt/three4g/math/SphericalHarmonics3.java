@@ -1,10 +1,13 @@
 package org.treblereel.gwt.three4g.math;
 
+import jsinterop.annotations.JsType;
+
 /**
  * Represents a third-order spherical harmonics (SH). Light probes use this class to encode lighting information.
  * @author Dmitrii Tikhomirov
  * Created by treblereel 6/28/20
  */
+@JsType(isNative = true, namespace = "THREE")
 public class SphericalHarmonics3 {
 
     /**
@@ -91,14 +94,14 @@ public class SphericalHarmonics3 {
 
     /**
      * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
-     * @return
+     * @return instance of Vector3[]
      */
     public native Vector3[] toArray();
 
     /**
      * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
      * @param array - (optional) The target array.
-     * @return
+     * @return instance of Vector3[]
      */
     public native Vector3[] toArray(Vector3[] array);
 
@@ -106,7 +109,7 @@ public class SphericalHarmonics3 {
      * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
      * @param array - (optional) The target array.
      * @param offset - (optional) The array offset.
-     * @return
+     * @return instance of Vector3[]
      */
     public native Vector3[] toArray(Vector3[] array, int offset);
 

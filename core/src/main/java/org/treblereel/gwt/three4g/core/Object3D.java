@@ -194,6 +194,13 @@ public class Object3D extends EventDispatcher {
     public native void applyQuaternion(Quaternion quaternion);
 
     /**
+     * Adds object as a child of this, while maintaining the object's world transform.
+     * @param object3D an Object3D
+     * @return this instance of Object3D
+     */
+    public native Object3D attach(Object3D object3D);
+
+    /**
      * Returns a clone of this object and optionally all descendants.
      *
      * @return Object3D

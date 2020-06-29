@@ -6,6 +6,7 @@ import org.treblereel.gwt.three4g.Three4gElement;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.loaders.AbstractLoader;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
+import org.treblereel.gwt.three4g.materials.Material;
 
 /**
  * A loader for loading an .mtl resource, used internaly by OBJLoader. The Material Template Library
@@ -58,6 +59,8 @@ public class MTLLoader extends AbstractLoader<MTLLoader, MTLLoader.MaterialCreat
   @Three4gElement(paths = {"js/loaders/MTLLoader.js"})
   @JsType(isNative = true, namespace = "THREE.MTLLoader")
   public static class MaterialCreator extends PropertyHolder {
+
+    public Material[] materials;
 
     public MaterialCreator(String baseUrl, MaterialOptions materialOptions) {}
 

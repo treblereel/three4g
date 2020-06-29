@@ -499,6 +499,21 @@ public class WebGLRenderer {
      * @param buffer instance of Uint8Array
      */
     public native void readRenderTargetPixels(WebGLRenderTarget renderTarget, float x, float y, float width, float height, Uint8Array buffer);
+    /**
+     * Reads the pixel data from the renderTarget into the buffer you pass in. Buffer should be a Javascript Uint8Array
+     * instantiated with new Uint8Array( renderTargetWidth * renderTargetWidth * 4 ) to account for size and color information.
+     * This is a wrapper around gl.readPixels.
+     * See the interactive / cubes / gpu example.
+     * @param renderTarget instance of WebGLRenderTarget
+     * @param x as float
+     * @param y as float
+     * @param width as float
+     * @param height as float
+     * @param buffer instance of Uint8Array
+     * @param readRenderTargetPixels  as int
+     */
+    public native void readRenderTargetPixels(WebGLRenderTarget renderTarget, float x, float y, float width, float height, Uint8Array buffer, int readRenderTargetPixels);
+
 
     /**
      * Render a scene using a camera.
