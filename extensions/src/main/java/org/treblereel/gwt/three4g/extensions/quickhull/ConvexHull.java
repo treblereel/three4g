@@ -7,14 +7,14 @@ import org.treblereel.gwt.three4g.math.Ray;
 import org.treblereel.gwt.three4g.math.Vector3;
 
 /**
- * General information about the Quickhull algorithm: Dirk Gregorius. March 2014, Game Developers Conference: Implementing QuickHull.
+ * General information about the Quickhull algorithm: Dirk Gregorius. March 2014, Game Developers Conference: Implementing ConvexHull.
  *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/25/18.
  */
-@Three4gElement(paths = "js/quickhull/QuickHull.js")
+@Three4gElement(paths = "js/math/ConvexHull.js")
 @JsType(isNative = true, namespace = "THREE")
-public class QuickHull {
+public class ConvexHull {
 
     /**
      * The epsilon value that is used for internal comparative operations. The calculation of this value depends on the size of the geometry. Default is -1.
@@ -47,7 +47,7 @@ public class QuickHull {
     public VertexNode[] vertices;
 
 
-    public QuickHull() {
+    public ConvexHull() {
 
     }
 
@@ -55,43 +55,43 @@ public class QuickHull {
      * Computes to convex hull for the given array of points.
      *
      * @param points - Array of Vector3s that the resulting convex hull will contain.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull setFromPoints(Vector3[] points);
+    public native ConvexHull setFromPoints(Vector3[] points);
 
 
     /**
      * Computes the convex hull of an Object3D (including its children), accounting for the world transforms of both the object and its childrens.
      *
      * @param object - Object3D to compute the convex hull of.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull setFromObject(Object3D object);
+    public native ConvexHull setFromObject(Object3D object);
 
     /**
      * Makes this convex hull empty.
      *
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull makeEmpty();
+    public native ConvexHull makeEmpty();
 
     /**
      * Adds a vertex to the 'assigned' list of vertices and assigns it to the given face.
      *
      * @param vertex - The vetex to add.
      * @param face   - The target face.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull addVertexToFace(VertexNode vertex, Face face);
+    public native ConvexHull addVertexToFace(VertexNode vertex, Face face);
 
     /**
      * Removes a vertex from the 'assigned' list of vertices and from the given face. It also makes sure that the link from 'face' to the first vertex it sees in 'assigned' is linked correctly after the removal.
      *
      * @param vertex - The vetex to remove.
      * @param face   - The target face.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull removeVertexFromFace(VertexNode vertex, Face face);
+    public native ConvexHull removeVertexFromFace(VertexNode vertex, Face face);
 
     /**
      * Removes all the visible vertices that a given face is able to see which are stored in the 'assigned' vertext list.
@@ -110,17 +110,17 @@ public class QuickHull {
      *
      * @param face          - The given face.
      * @param absorbingFace - An optional face that tries to absorb the vertices of the first face.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull deleteFaceVertices(Face face, Face absorbingFace);
+    public native ConvexHull deleteFaceVertices(Face face, Face absorbingFace);
 
     /**
      * Reassigns as many vertices as possible from the unassigned list to the new faces.
      *
      * @param newFaces - An array of new faces.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull resolveUnassignedPoints(Face[] newFaces);
+    public native ConvexHull resolveUnassignedPoints(Face[] newFaces);
 
 
     /**
@@ -133,16 +133,16 @@ public class QuickHull {
     /**
      * Computes the initial simplex assigning to its faces all the points that are candidates to form part of the hull.
      *
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull computeInitialHull();
+    public native ConvexHull computeInitialHull();
 
     /**
      * Removes inactive (e.g. deleted) faces from the internal face list.
      *
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull reindexFaces();
+    public native ConvexHull reindexFaces();
 
     /**
      * Finds the next vertex to create faces with the current hull.
@@ -162,27 +162,27 @@ public class QuickHull {
      * @param crossEdge - The edge used to jump to the current face.
      * @param face      - The current face being tested.
      * @param horizon   - The edges that form part of the horizon in CCW order.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull computeHorizon(Vector3 eyePoint, HalfEdge crossEdge, Face face, VertexNode[] horizon);
+    public native ConvexHull computeHorizon(Vector3 eyePoint, HalfEdge crossEdge, Face face, VertexNode[] horizon);
 
     /**
      * Creates a face with the vertices 'eyeVertex.point', 'horizonEdge.tail' and 'horizonEdge.head' in CCW order. All the half edges are created in CCW order thus the face is always pointing outside the hull
      *
      * @param eyeVertex   - The vertex that is added to the hull.
      * @param horizonEdge - A single edge of the horizon.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull addAdjoiningFace(VertexNode eyeVertex, HalfEdge horizonEdge);
+    public native ConvexHull addAdjoiningFace(VertexNode eyeVertex, HalfEdge horizonEdge);
 
     /**
      * Adds 'horizon.length' faces to the hull, each face will be linked with the horizon opposite face and the face on the left/right.
      *
      * @param eyeVertex   - The vertex that is added to the hull.
      * @param horizonEdge - An array of half-edges that form the horizon.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull addNewFaces(VertexNode eyeVertex, HalfEdge[] horizonEdge);
+    public native ConvexHull addNewFaces(VertexNode eyeVertex, HalfEdge[] horizonEdge);
 
     /**
      * Adds a vertex to the hull with the following algorithm
@@ -193,23 +193,23 @@ public class QuickHull {
      * The vertices removed from all the visible faces are assigned to the new faces if possible.
      *
      * @param eyeVertex - The vertex that is added to the hull.
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull addVertexToHull(VertexNode eyeVertex);
+    public native ConvexHull addVertexToHull(VertexNode eyeVertex);
 
     /**
      * Cleans up internal properties after computing the convex hull.
      *
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull cleanup();
+    public native ConvexHull cleanup();
 
     /**
      * Starts the execution of the quick hull algorithm.
      *
-     * @return instance of QuickHull
+     * @return instance of ConvexHull
      */
-    public native QuickHull compute();
+    public native ConvexHull compute();
 
     public native boolean containsPoint(Ray ray, Vector3 target);
 }

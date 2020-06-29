@@ -1,8 +1,9 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.camera;
 
-import com.google.gwt.animation.client.AnimationScheduler;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gwt.animation.client.AnimationScheduler;
 import org.treblereel.gwt.three4g.cameras.ArrayCamera;
 import org.treblereel.gwt.three4g.cameras.OrthographicCamera;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
@@ -26,20 +27,22 @@ import org.treblereel.gwt.three4g.scenes.Scene;
  */
 public class WebglCameraArray extends Attachable {
 
-
     public static final String name = "camera / array";
     private Mesh mesh;
+    private float AMOUNT = 6;
+
+    private double WIDTH = (window.innerWidth / AMOUNT) * window.devicePixelRatio;
+    private double HEIGHT = (window.innerHeight / AMOUNT) * window.devicePixelRatio;
 
     public WebglCameraArray() {
         scene = new Scene();
 
-        float AMOUNT = 6;
         float SIZE = 1 / AMOUNT;
         List<PerspectiveCamera> cameras = new ArrayList<>();
         for (int y = 0; y < AMOUNT; y++) {
             for (int x = 0; x < AMOUNT; x++) {
                 PerspectiveCamera subcamera = new PerspectiveCamera(40f, aspect, 0.1f, 10f);
-                subcamera.bounds = new Vector4(x / AMOUNT, y / AMOUNT, SIZE, SIZE);
+                subcamera.viewport = new Vector4((float) Math.floor(x * WIDTH), (float) Math.floor(y * HEIGHT), (float) Math.ceil(WIDTH), (float) Math.ceil(HEIGHT));
                 subcamera.position.x = (x / AMOUNT) - 0.5f;
                 subcamera.position.y = 0.5f - (y / AMOUNT);
                 subcamera.position.z = 1.5f;

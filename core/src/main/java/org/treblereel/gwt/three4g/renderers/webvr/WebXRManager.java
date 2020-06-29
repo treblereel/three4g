@@ -21,7 +21,7 @@ public class WebXRManager {
 
     public boolean isPresenting;
 
-    public String frameOfReferenceType;
+    public String referenceSpaceType;
 
     public WebXRManager(WebGLRenderer renderer){
 

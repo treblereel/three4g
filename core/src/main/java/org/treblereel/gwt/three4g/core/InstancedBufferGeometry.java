@@ -21,5 +21,10 @@ public class InstancedBufferGeometry extends BufferGeometry {
      */
     public boolean isInstancedBufferGeometry;
 
-
+    /**
+     * Return InstancedBufferGeometry data in JSON format.
+     *
+     * @return String
+     */
+    public native String toJSON();
 }

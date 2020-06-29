@@ -23,5 +23,6 @@ public class WebGLRendererParameters {
     public String powerPreference; // Can be "high-performance", "low-power" or "default"
     public boolean depth;
     public boolean logarithmicDepthBuffer;
+    public boolean failIfMajorPerformanceCaveat;
 
 }
