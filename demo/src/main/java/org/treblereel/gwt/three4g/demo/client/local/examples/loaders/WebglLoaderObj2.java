@@ -9,8 +9,10 @@ import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.demo.client.local.AppSetup;
 import org.treblereel.gwt.three4g.demo.client.local.Attachable;
+import org.treblereel.gwt.three4g.demo.client.local.utils.JSON;
 import org.treblereel.gwt.three4g.demo.client.local.utils.StatsProducer;
 import org.treblereel.gwt.three4g.extensions.controls.TrackballControls;
+import org.treblereel.gwt.three4g.extensions.loaders.MTLLoader;
 import org.treblereel.gwt.three4g.extensions.loaders.OBJLoader2;
 import org.treblereel.gwt.three4g.helpers.GridHelper;
 import org.treblereel.gwt.three4g.lights.AmbientLight;
@@ -42,7 +44,6 @@ public class WebglLoaderObj2 extends Attachable {
         initContent();
 
         container.appendChild(renderer.domElement);
-
     }
 
     private void initGL() {
@@ -80,7 +81,7 @@ public class WebglLoaderObj2 extends Attachable {
 
         String modelName = "female02";
 
-        OBJLoader2 objLoader = new OBJLoader2();
+        OBJLoader2 objLoader2 = new OBJLoader2();
         OnLoadCallback callbackOnLoad = new OnLoadCallback<PropertyHolder>() {
             @Override
             public void onLoad(PropertyHolder event) {
@@ -90,23 +91,38 @@ public class WebglLoaderObj2 extends Attachable {
             }
         };
 
-        OnLoadCallback onLoadMtl = new OnLoadCallback<Material[]>() {
-
+        OnLoadCallback onLoadMtl = new OnLoadCallback() {
             @Override
-            public void onLoad(Material[] materials) {
-                objLoader.setModelName(modelName);
-                objLoader.setMaterials(materials);
-                objLoader.setLogging(true, true);
-                objLoader.load("models/obj/female02/female02.obj", callbackOnLoad, null, null, null, false);
+            public void onLoad(Object object) {
+
+                DomGlobal.console.log("1 " + JSON.stringify(object));
+                objLoader2.setModelName(modelName);
+                objLoader2.setLogging(true, true);
+                objLoader2.setMaterials(addMaterialsFromMtlLoader(object));
+                objLoader2.load("models/obj/female02/female02.obj", callbackOnLoad, null, null, null);
+
             }
         };
-        objLoader.loadMtl("models/obj/female02/female02.mtl", null, onLoadMtl);
+
+        MTLLoader mtlLoader = new MTLLoader();
+        mtlLoader.load( "models/obj/female02/female02.mtl", onLoadMtl );
+
+        //objLoader2.loadMtl("models/obj/female02/female02.mtl", null, onLoadMtl);
     }
 
     private void resetCamera() {
         camera.position.copy(new Vector3(0.0f, 175.0f, 500.0f));
         this.cameraTarget.copy(new Vector3(0, 0, 0));
         this.updateCamera();
+    }
+
+    private Material[] addMaterialsFromMtlLoader(Object materialCreator) {
+        if (materialCreator instanceof MTLLoader.MaterialCreator) {
+
+            ((MTLLoader.MaterialCreator) materialCreator).preload();
+            return ((MTLLoader.MaterialCreator) materialCreator).materials;
+        }
+        return null;
     }
 
     private void updateCamera() {
@@ -125,8 +141,6 @@ public class WebglLoaderObj2 extends Attachable {
     @Override
     protected void doAttachInfo() {
         AppSetup.infoDiv.show().setHrefToInfo("http://threejs.org").setTextContentToInfo("three.js").setInnetHtml(" - OBJLoader2 direct loader test");
-
-
     }
 
     private void animate() {
@@ -136,9 +150,7 @@ public class WebglLoaderObj2 extends Attachable {
                 trackballControls.update();
                 renderer.render(scene, camera);
                 animate();
-
             }
         });
     }
-
 }

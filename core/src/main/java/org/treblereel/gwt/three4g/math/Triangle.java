@@ -4,7 +4,6 @@ import jsinterop.annotations.JsType;
 
 /**
  * A geometric triangle as defined by three Vector3s representing its three corners.
- *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/30/18.
  */
@@ -28,7 +27,6 @@ public class Triangle {
 
     /**
      * Creates a new Triangle.
-     *
      * @param a - the first corner of the triangle. Default is a Vector3 at (0, 0, 0).
      * @param b - the second corner of the triangle. Default is a Vector3 at (0, 0, 0).
      * @param c - the final corner of the triangle. Default is a Vector3 at (0, 0, 0).
@@ -37,13 +35,15 @@ public class Triangle {
 
     }
 
+    public native static boolean isFrontFacing(Vector3 a, Vector3 b, Vector3 c, Vector3 direction);
+
     /**
      * @return Returns a new triangle with the same a, b and c properties as this one.
      */
     public native Triangle clone();
 
     /**
-     * @param point  - Vector3
+     * @param point - Vector3
      * @param target — the result will be copied into this Vector3.
      * @return Returns the closest point on the triangle to point.
      */
@@ -57,7 +57,6 @@ public class Triangle {
 
     /**
      * Copies the values of the passed triangles's a, b and c properties to this triangle.
-     *
      * @param triangle instance of Triangle
      * @return instance of Triangle
      */
@@ -75,7 +74,7 @@ public class Triangle {
     public native float getArea();
 
     /**
-     * @param point  - Vector3
+     * @param point - Vector3
      * @param target — the result will be copied into this Vector3.
      * @return Return a barycentric coordinate from the given vector.
      */
@@ -115,12 +114,13 @@ public class Triangle {
 
     /**
      * Sets the triangle's vectors to the vectors in the array.
-     *
      * @param points - Array of Vector3s
-     * @param i0     - Integer index
-     * @param i1     - Integer index
-     * @param i2     - Integer index
+     * @param i0 - Integer index
+     * @param i1 - Integer index
+     * @param i2 - Integer index
      * @return instance of Triangle
      */
     public native Triangle setFromPointsAndIndices(Vector3[] points, int i0, int i1, int i2);
+
+    public native boolean isFrontFacing(Vector3 direction);
 }

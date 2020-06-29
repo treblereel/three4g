@@ -12,7 +12,6 @@ import org.treblereel.gwt.three4g.math.Vector4;
  * See the base @see {@link Camera} class for common properties.
  * Note that after making changes to most of these poperties you will have to call .updateProjectionMatrix for the changes
  * to take effect.
- *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 12/6/17.
  */
@@ -25,9 +24,9 @@ public class PerspectiveCamera extends Camera {
     public float aspect;
 
     /**
-     * bounds
+     * viewport
      */
-    public Vector4 bounds;
+    public Vector4 viewport;
 
     /**
      * Camera frustum far plane. Default is 2000.
@@ -88,34 +87,34 @@ public class PerspectiveCamera extends Camera {
 
     /**
      * @param fov — Camera frustum vertical field of view.
-     *            Together these define the camera's viewing frustum.
+     * Together these define the camera's viewing frustum.
      */
     public PerspectiveCamera(float fov) {
     }
 
     /**
-     * @param fov    — Camera frustum vertical field of view.
+     * @param fov — Camera frustum vertical field of view.
      * @param aspect — Camera frustum aspect ratio.
-     *               Together these define the camera's viewing frustum.
+     * Together these define the camera's viewing frustum.
      */
     public PerspectiveCamera(float fov, float aspect) {
     }
 
     /**
-     * @param fov    — Camera frustum vertical field of view.
+     * @param fov — Camera frustum vertical field of view.
      * @param aspect — Camera frustum aspect ratio.
-     * @param near   — Camera frustum near plane.
-     *               Together these define the camera's viewing frustum.
+     * @param near — Camera frustum near plane.
+     * Together these define the camera's viewing frustum.
      */
     public PerspectiveCamera(float fov, float aspect, float near) {
     }
 
     /**
-     * @param fov    — Camera frustum vertical field of view.
+     * @param fov — Camera frustum vertical field of view.
      * @param aspect — Camera frustum aspect ratio.
-     * @param near   — Camera frustum near plane.
-     * @param far    — Camera frustum far plane.
-     *               Together these define the camera's viewing frustum.
+     * @param near — Camera frustum near plane.
+     * @param far — Camera frustum far plane.
+     * Together these define the camera's viewing frustum.
      */
     public PerspectiveCamera(float fov, float aspect, float near, float far) {
     }
@@ -127,7 +126,6 @@ public class PerspectiveCamera extends Camera {
 
     /**
      * Returns the current vertical field of view angle in degrees considering .zoom.
-     *
      * @return as float value
      */
     public native float getEffectiveFOV();
@@ -135,7 +133,6 @@ public class PerspectiveCamera extends Camera {
     /**
      * Returns the height of the image on the film. If .aspect is less than or equal to one (portrait format),
      * the result equals .filmGauge.
-     *
      * @return as float value
      */
     public native float getFilmHeight();
@@ -143,14 +140,12 @@ public class PerspectiveCamera extends Camera {
     /**
      * Returns the width of the image on the film. If .aspect is greater than or equal to one (landscape format),
      * the result equals .filmGauge.
-     *
      * @return as float value
      */
     public native float getFilmWidth();
 
     /**
      * Returns the focal length of the current .fov in respect to .filmGauge.
-     *
      * @return as float value
      */
     public native float getFocalLength();
@@ -158,7 +153,6 @@ public class PerspectiveCamera extends Camera {
     /**
      * Sets the FOV by focal length in respect to the current .filmGauge.
      * <p>
-     *
      * @param focalLength By default, the focal length is specified for a 35mm (full frame) camera.
      */
     public native void setFocalLength(float focalLength);
@@ -190,13 +184,12 @@ public class PerspectiveCamera extends Camera {
      * camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 1, w, h );
      * // F
      * camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 1, w, h ); Note there is no reason monitors have to be the same size or in a grid.
-     *
-     * @param fullWidth  — full width of multiview setup
+     * @param fullWidth — full width of multiview setup
      * @param fullHeight — full height of multiview setup
-     * @param x          — horizontal offset of subcamera
-     * @param y          — vertical offset of subcamera
-     * @param width      — width of subcamera
-     * @param height     — height of subcamera
+     * @param x — horizontal offset of subcamera
+     * @param y — vertical offset of subcamera
+     * @param width — width of subcamera
+     * @param height — height of subcamera
      */
     public native void setViewOffset(float fullWidth, float fullHeight, float x, float y, float width, float height);
 
@@ -207,7 +200,6 @@ public class PerspectiveCamera extends Camera {
 
     /**
      * Return camera data in JSON format.
-     *
      * @return String
      */
     public native String toJSON();

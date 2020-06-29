@@ -10,7 +10,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/25/18.
  */
-@Three4gElement(paths = "js/quickhull/QuickHull.js")
+@Three4gElement(paths = "js/quickhull/ConvexHull.js")
 @JsType(isNative = true, namespace = "THREE")
 public class Face {
 

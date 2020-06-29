@@ -94,14 +94,14 @@ public class SphericalHarmonics3 {
 
     /**
      * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
-     * @return
+     * @return instance of Vector3[]
      */
     public native Vector3[] toArray();
 
     /**
      * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
      * @param array - (optional) The target array.
-     * @return
+     * @return instance of Vector3[]
      */
     public native Vector3[] toArray(Vector3[] array);
 
@@ -109,7 +109,7 @@ public class SphericalHarmonics3 {
      * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
      * @param array - (optional) The target array.
      * @param offset - (optional) The array offset.
-     * @return
+     * @return instance of Vector3[]
      */
     public native Vector3[] toArray(Vector3[] array, int offset);
 

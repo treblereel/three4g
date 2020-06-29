@@ -449,6 +449,27 @@ public class Matrix4 implements Matrix {
     public native Matrix4 setPosition(Vector3 v);
 
     /**
+     * Sets the position component for this matrix from vector v, without affecting the rest of the matrix - i.e. if the matrix is currently:
+     * a, b, c, d,
+     * e, f, g, h,
+     * i, j, k, l,
+     * m, n, o, p
+     *
+     * This becomes:
+     * a, b, c, v.x,
+     * e, f, g, v.y,
+     * i, j, k, v.z,
+     * m, n, o, p
+     *
+     * @param x float value
+     * @param y float value
+     * @param z float value
+     * @return instance of Matrix4
+     */
+    public native Matrix4 setPosition(float x, float y, float z);
+
+
+    /**
      * Writes the elements of this matrix to an array in column-major format.
      *
      * @return float[]
