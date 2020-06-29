@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.treblereel.gwt</groupId>
         <artifactId>three4g-parent</artifactId>
-        <version>0.105-SNAPSHOT</version>
+        <version>0.105</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -38,7 +38,7 @@
         <url>https://github.com/treblereel/three4g</url>
         <developerConnection>scm:git:git@github.com:treblereel/three4g.git</developerConnection>
         <connection>scm:git:git://github.com/treblereel/three4g.git</connection>
-        <tag>three4g-parent-0.102</tag>
+        <tag>three4g-parent-0.105</tag>
     </scm>
 
     <dependencies>
