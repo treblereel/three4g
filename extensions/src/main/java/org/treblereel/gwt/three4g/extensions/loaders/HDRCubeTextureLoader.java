@@ -73,4 +73,9 @@ public class HDRCubeTextureLoader {
      * @return instance of HDRCubeTextureLoader
      */
     public native HDRCubeTextureLoader setPath(String path);
+
+
+    public native HDRCubeTextureLoader setType(int type);
+
+
 }

@@ -8,11 +8,10 @@ import org.treblereel.gwt.three4g.scenes.Scene;
 
 /**
  * Virtual Reality Modeling Language loader
- *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 10/9/18.
  */
-@Three4gElement(paths = "js/loaders/VRMLLoader.js")
+@Three4gElement(paths = {"js/libs/chevrotain.min.js", "js/loaders/VRMLLoader.js"})
 @JsType(isNative = true, namespace = "THREE")
 public class VRMLLoader extends AbstractLoader<VRMLLoader, Scene> {
 

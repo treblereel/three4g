@@ -26,6 +26,11 @@ public class LOD extends Object3D {
      */
     public LODLevel[] levels;
 
+    /**
+     * Whether the LOD object is updated automatically by the renderer per frame or not. If set to false, you have to call LOD.update() in the render loop by yourself. Default is true.
+     */
+    public boolean autoUpdate;
+
     @JsConstructor
     public LOD() {
 

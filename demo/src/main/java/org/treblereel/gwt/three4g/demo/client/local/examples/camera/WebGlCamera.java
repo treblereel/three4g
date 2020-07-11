@@ -1,15 +1,17 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.camera;
 
-import static elemental2.dom.DomGlobal.document;
+import java.util.Date;
 
 import com.google.gwt.animation.client.AnimationScheduler;
+import elemental2.core.JsArray;
+import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.KeyboardEvent;
-import java.util.Date;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.cameras.OrthographicCamera;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
-import org.treblereel.gwt.three4g.core.Geometry;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
+import org.treblereel.gwt.three4g.core.bufferattributes.Float32BufferAttribute;
 import org.treblereel.gwt.three4g.demo.client.local.AppSetup;
 import org.treblereel.gwt.three4g.demo.client.local.Attachable;
 import org.treblereel.gwt.three4g.demo.client.local.utils.StatsProducer;
@@ -20,11 +22,12 @@ import org.treblereel.gwt.three4g.materials.PointsMaterial;
 import org.treblereel.gwt.three4g.materials.parameters.MeshBasicMaterialParameters;
 import org.treblereel.gwt.three4g.materials.parameters.PointsMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
-import org.treblereel.gwt.three4g.math.Vector3;
 import org.treblereel.gwt.three4g.objects.Group;
 import org.treblereel.gwt.three4g.objects.Mesh;
 import org.treblereel.gwt.three4g.objects.Points;
 import org.treblereel.gwt.three4g.scenes.Scene;
+
+import static elemental2.dom.DomGlobal.document;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
@@ -51,7 +54,7 @@ public class WebGlCamera extends Attachable {
         cameraPerspectiveHelper = new CameraHelper(cameraPerspective);
         scene.add(cameraPerspectiveHelper);
 
-        cameraOrtho = new OrthographicCamera((float)(0.5 * frustumSize * aspect / -2), (float)(0.5 * frustumSize * aspect / 2), frustumSize / 2, frustumSize / -2, 150, 1000);
+        cameraOrtho = new OrthographicCamera((float) (0.5 * frustumSize * aspect / -2), (float) (0.5 * frustumSize * aspect / 2), frustumSize / 2, frustumSize / -2, 150, 1000);
         cameraOrthoHelper = new CameraHelper(cameraOrtho);
         scene.add(cameraOrthoHelper);
 
@@ -97,26 +100,27 @@ public class WebGlCamera extends Attachable {
         mesh3.position.z = 150f;
         cameraRig.add(mesh3);
 
-        Geometry geometry = new Geometry();
+        BufferGeometry geometry = new BufferGeometry();
+
+        JsArray<Float> vertices = new JsArray<>();
+
         for (int i = 0; i < 10000; i++) {
-            Vector3 vertex = new Vector3();
-            vertex.x = org.treblereel.gwt.three4g.math.Math.randFloatSpread(2000f);
-            vertex.y = org.treblereel.gwt.three4g.math.Math.randFloatSpread(2000f);
-            vertex.z = org.treblereel.gwt.three4g.math.Math.randFloatSpread(2000f);
-            geometry.vertices.push(vertex);
+            vertices.push(org.treblereel.gwt.three4g.math.Math.randFloatSpread(2000f)); // x
+            vertices.push(org.treblereel.gwt.three4g.math.Math.randFloatSpread(2000f)); // y
+            vertices.push(org.treblereel.gwt.three4g.math.Math.randFloatSpread(2000f)); // z
         }
 
+        geometry.attributes.position = new Float32BufferAttribute(vertices, 3);
         PointsMaterialParameters pointsMaterialParameters = new PointsMaterialParameters();
         pointsMaterialParameters.color = new Color(0x888888);
+
         Points particles = new Points(geometry, new PointsMaterial(pointsMaterialParameters));
         scene.add(particles);
 
         setupWebGLRenderer(renderer);
         renderer.autoClear = false;
 
-
         document.addEventListener("keydown", evt -> onKeyDown(evt), false);
-
     }
 
     private void onKeyDown(Event evt) {
@@ -136,6 +140,18 @@ public class WebGlCamera extends Attachable {
         }
     }
 
+    public void doAttachScene() {
+        root.appendChild(renderer.domElement);
+        onWindowResize();
+        animate();
+    }
+
+    @Override
+    protected void doAttachInfo() {
+        AppSetup.infoDiv.show().setHrefToInfo("http://threejs.org").setTextContentToInfo("three.js").setInnetHtml("- cameras<br/>\n" +
+                                                                                                                          "\t\t<b>O</b> orthographic <b>P</b> perspective");
+    }
+
     @Override
     public void onWindowResize() {
         if (camera != null && renderer != null) {
@@ -152,19 +168,6 @@ public class WebGlCamera extends Attachable {
             cameraOrtho.bottom = -frustumSize / 2f;
             cameraOrtho.updateProjectionMatrix();
         }
-    }
-
-    public void doAttachScene() {
-        root.appendChild(renderer.domElement);
-        onWindowResize();
-        animate();
-    }
-
-    @Override
-    protected void doAttachInfo() {
-        AppSetup.infoDiv.show().setHrefToInfo("http://threejs.org").setTextContentToInfo("three.js").setInnetHtml("- cameras<br/>\n" +
-                "\t\t<b>O</b> orthographic <b>P</b> perspective");
-
     }
 
     private void animate() {
@@ -211,6 +214,5 @@ public class WebGlCamera extends Attachable {
         activeHelper.visible = true;
         renderer.setViewport((int) getWidth() / 2, 0, (int) getWidth() / 2, (int) getHeight());
         renderer.render(scene, camera);
-
     }
 }
