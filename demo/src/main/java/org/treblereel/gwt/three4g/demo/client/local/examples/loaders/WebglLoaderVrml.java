@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.loaders;
 
+import com.google.gwt.core.client.GWT;
 import elemental2.dom.DomGlobal;
 import org.treblereel.gwt.three4g.InjectJavaScriptFor;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
@@ -8,6 +9,7 @@ import org.treblereel.gwt.three4g.demo.client.local.Attachable;
 import org.treblereel.gwt.three4g.demo.client.local.utils.StatsProducer;
 import org.treblereel.gwt.three4g.extensions.controls.OrbitControls;
 import org.treblereel.gwt.three4g.extensions.loaders.VRMLLoader;
+import org.treblereel.gwt.three4g.extensions.resources.Extensions;
 import org.treblereel.gwt.three4g.lights.DirectionalLight;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
@@ -22,6 +24,8 @@ import org.treblereel.gwt.three4g.scenes.Scene;
 public class WebglLoaderVrml extends Attachable {
 
     public static final String name = "loader / vrml";
+
+    Extensions extensions = GWT.create(Extensions.class);
 
     public WebglLoaderVrml() {
 

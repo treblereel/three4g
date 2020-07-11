@@ -28,6 +28,15 @@ public class Vector4 implements Vector {
      */
     public float x, y, z, w;
 
+    /**
+     * Alias for z.
+     */
+    public float width;
+
+    /**
+     * Alias for w.
+     */
+    public float height;
 
     @JsConstructor
     public Vector4() {

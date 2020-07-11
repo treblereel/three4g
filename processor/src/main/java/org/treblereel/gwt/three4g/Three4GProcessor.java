@@ -24,8 +24,6 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.TypeMirror;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
@@ -91,7 +89,15 @@ public class Three4GProcessor extends AbstractProcessor {
                 .build();
         body.addField(impl);
 
-        paths.forEach(p -> addJSImportToClientBundle(p));
+        paths.stream().sorted((o1, o2) -> {
+            if(o1.contains("js/lib")) {
+                return -1;
+            }
+            if(o2.contains("js/lib")) {
+                return 1;
+            }
+            return 0;
+        }).forEach(p -> addJSImportToClientBundle(p));
 
         TypeSpec bootstrap = TypeSpec.classBuilder("Three4G")
                 .addSuperinterface(EntryPoint.class)

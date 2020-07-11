@@ -1,16 +1,16 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.lights;
 
-import com.google.gwt.animation.client.AnimationScheduler;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import elemental2.dom.DomGlobal;
 import org.treblereel.gwt.datgui4g.GUI;
 import org.treblereel.gwt.datgui4g.GUIProperty;
 import org.treblereel.gwt.datgui4g.OnChange;
 import org.treblereel.gwt.three4g.InjectJavaScriptFor;
 import org.treblereel.gwt.three4g.THREE;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
-import org.treblereel.gwt.three4g.core.Clock;
 import org.treblereel.gwt.three4g.demo.client.local.AppSetup;
 import org.treblereel.gwt.three4g.demo.client.local.Attachable;
 import org.treblereel.gwt.three4g.demo.client.local.utils.StatsProducer;
@@ -20,14 +20,13 @@ import org.treblereel.gwt.three4g.geometries.PlaneBufferGeometry;
 import org.treblereel.gwt.three4g.geometries.SphereBufferGeometry;
 import org.treblereel.gwt.three4g.lights.HemisphereLight;
 import org.treblereel.gwt.three4g.lights.PointLight;
-import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.TextureLoader;
 import org.treblereel.gwt.three4g.materials.MeshStandardMaterial;
 import org.treblereel.gwt.three4g.materials.parameters.MeshStandardMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.objects.Mesh;
+import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 import org.treblereel.gwt.three4g.scenes.Scene;
-import org.treblereel.gwt.three4g.textures.Texture;
 
 /**
  * @author Dmitrii Tikhomirov <chani@me.com>
@@ -38,7 +37,6 @@ public class WebglLightsPhysical extends Attachable {
 
     public static final String name = "lights / physical";
 
-    private Clock clock = new Clock();
     private HemisphereLight hemiLight;
 
     private PointLight bulbLight;
@@ -56,7 +54,6 @@ public class WebglLightsPhysical extends Attachable {
         put("180 lm (25W)", 180);
         put("20 lm (4W)", 20);
         put("Off", 0);
-
     }};
 
     private Map<String, Float> hemiLuminousIrradiances = new HashMap<String, Float>() {{
@@ -78,7 +75,6 @@ public class WebglLightsPhysical extends Attachable {
     private double exposure = 0.68d;
     private String bulbPower = "400 lm (40W)";
     private String hemiIrradiance = "0.0001 lx (Moonless Night)";
-
 
     public WebglLightsPhysical() {
 
@@ -111,42 +107,31 @@ public class WebglLightsPhysical extends Attachable {
         floorMat = new MeshStandardMaterial(meshStandardMaterialParameters1);
 
         TextureLoader textureLoader = new TextureLoader();
-        textureLoader.load("textures/hardwood2_diffuse.jpg", new OnLoadCallback<Texture>() {
-            @Override
-            public void onLoad(Texture map) {
-                map.wrapS = THREE.RepeatWrapping;
-                map.wrapT = THREE.RepeatWrapping;
-                map.anisotropy = 4;
-                map.repeat.set(10, 24);
-                floorMat.map = map;
-                floorMat.needsUpdate = true;
-            }
+        textureLoader.load("textures/hardwood2_diffuse.jpg", map -> {
+            map.wrapS = THREE.RepeatWrapping;
+            map.wrapT = THREE.RepeatWrapping;
+            map.anisotropy = 4;
+            map.repeat.set(10, 24);
+            floorMat.map = map;
+            floorMat.needsUpdate = true;
         });
 
-
-        textureLoader.load("textures/hardwood2_bump.jpg", new OnLoadCallback<Texture>() {
-            @Override
-            public void onLoad(Texture map) {
-                map.wrapS = THREE.RepeatWrapping;
-                map.wrapT = THREE.RepeatWrapping;
-                map.anisotropy = 4;
-                map.repeat.set(10, 24);
-                floorMat.bumpMap = map;
-                floorMat.needsUpdate = true;
-            }
+        textureLoader.load("textures/hardwood2_bump.jpg", map -> {
+            map.wrapS = THREE.RepeatWrapping;
+            map.wrapT = THREE.RepeatWrapping;
+            map.anisotropy = 4;
+            map.repeat.set(10, 24);
+            floorMat.bumpMap = map;
+            floorMat.needsUpdate = true;
         });
 
-
-        textureLoader.load("textures/hardwood2_roughness.jpg", new OnLoadCallback<Texture>() {
-            @Override
-            public void onLoad(Texture map) {
-                map.wrapS = THREE.RepeatWrapping;
-                map.wrapT = THREE.RepeatWrapping;
-                map.anisotropy = 4;
-                map.repeat.set(10, 24);
-                floorMat.roughnessMap = map;
-                floorMat.needsUpdate = true;
-            }
+        textureLoader.load("textures/hardwood2_roughness.jpg", map -> {
+            map.wrapS = THREE.RepeatWrapping;
+            map.wrapT = THREE.RepeatWrapping;
+            map.anisotropy = 4;
+            map.repeat.set(10, 24);
+            floorMat.roughnessMap = map;
+            floorMat.needsUpdate = true;
         });
 
         MeshStandardMaterialParameters meshStandardMaterialParameters2 = new MeshStandardMaterialParameters();
@@ -157,34 +142,23 @@ public class WebglLightsPhysical extends Attachable {
 
         cubeMat = new MeshStandardMaterial(meshStandardMaterialParameters2);
 
-
-        textureLoader.load("textures/brick_diffuse.jpg", new OnLoadCallback<Texture>() {
-            @Override
-            public void onLoad(Texture map) {
-                map.wrapS = THREE.RepeatWrapping;
-                map.wrapT = THREE.RepeatWrapping;
-                map.anisotropy = 4;
-                map.repeat.set(1, 1);
-                cubeMat.map = map;
-                cubeMat.needsUpdate = true;
-            }
+        textureLoader.load("textures/brick_diffuse.jpg", map -> {
+            map.wrapS = THREE.RepeatWrapping;
+            map.wrapT = THREE.RepeatWrapping;
+            map.anisotropy = 4;
+            map.repeat.set(1, 1);
+            cubeMat.map = map;
+            cubeMat.needsUpdate = true;
         });
 
-
-        textureLoader.load("textures/brick_bump.jpg", new
-                OnLoadCallback<Texture>() {
-                    @Override
-                    public void onLoad(Texture map) {
-                        map.wrapS = THREE.RepeatWrapping;
-                        map.wrapT = THREE.RepeatWrapping;
-                        map.anisotropy = 4;
-                        map.repeat.set(1, 1);
-                        cubeMat.bumpMap = map;
-                        cubeMat.needsUpdate = true;
-
-                    }
-                });
-
+        textureLoader.load("textures/brick_bump.jpg", map -> {
+            map.wrapS = THREE.RepeatWrapping;
+            map.wrapT = THREE.RepeatWrapping;
+            map.anisotropy = 4;
+            map.repeat.set(1, 1);
+            cubeMat.bumpMap = map;
+            cubeMat.needsUpdate = true;
+        });
 
         MeshStandardMaterialParameters meshStandardMaterialParameters3 = new MeshStandardMaterialParameters();
         meshStandardMaterialParameters3.color = new Color(0xffffff);
@@ -193,25 +167,17 @@ public class WebglLightsPhysical extends Attachable {
 
         ballMat = new MeshStandardMaterial(meshStandardMaterialParameters3);
 
-        textureLoader.load("textures/planets/earth_atmos_2048.jpg", new OnLoadCallback<Texture>() {
-            @Override
-            public void onLoad(Texture map) {
-                map.anisotropy = 4;
-                ballMat.map = map;
-                ballMat.needsUpdate = true;
-
-            }
+        textureLoader.load("textures/planets/earth_atmos_2048.jpg", map -> {
+            map.anisotropy = 4;
+            ballMat.map = map;
+            ballMat.needsUpdate = true;
         });
 
-        textureLoader.load("textures/planets/earth_specular_2048.jpg", new OnLoadCallback<Texture>() {
-            @Override
-            public void onLoad(Texture map) {
-                map.anisotropy = 4;
-                ballMat.metalnessMap = map;
-                ballMat.needsUpdate = true;
-            }
+        textureLoader.load("textures/planets/earth_specular_2048.jpg", map -> {
+            map.anisotropy = 4;
+            ballMat.metalnessMap = map;
+            ballMat.needsUpdate = true;
         });
-
 
         PlaneBufferGeometry floorGeometry = new PlaneBufferGeometry(20, 20);
         Mesh floorMesh = new Mesh(floorGeometry, floorMat);
@@ -239,6 +205,7 @@ public class WebglLightsPhysical extends Attachable {
         boxMesh3.castShadow = true;
         scene.add(boxMesh3);
 
+        renderer = new WebGLRenderer();
         renderer.physicallyCorrectLights = true;
         renderer.gammaInput = true;
         renderer.gammaOutput = true;
@@ -255,7 +222,6 @@ public class WebglLightsPhysical extends Attachable {
         guiProperty.autoPlace = false;
 
         gui = new GUI(guiProperty);
-
 
         gui.add("hemiIrradiance", hemiLuminousIrradiances.keySet().toArray(new String[hemiLuminousIrradiances.size()]), hemiIrradiance).onChange(new OnChange<Object>() {
             @Override
@@ -282,7 +248,6 @@ public class WebglLightsPhysical extends Attachable {
 
         gui.finishAndBuild();
         AppSetup.guiDiv.get().appendChild(gui.getDomElement());
-
     }
 
     @Override
@@ -295,13 +260,12 @@ public class WebglLightsPhysical extends Attachable {
     @Override
     protected void doAttachInfo() {
         AppSetup.infoDiv.show().setHrefToInfo("http://threejs.org").setTextContentToInfo("three.js").setInnetHtml(" - Physically accurate lighting example using a incandescent bulb - by <a href=\"http://clara.io\" target=\"_blank\" rel=\"noopener\">Ben Houston</a><br />\n" +
-                "\t\t\tUsing real world scale: Brick cube is 1 meter in size.  Light is 2 meters from floor.  Globe is 25 cm in diameter.<br/>\n" +
-                "\t\t\tUsing Reinhard inline tonemapping with real-world light falloff (decay = 2).");
-
+                                                                                                                          "\t\t\tUsing real world scale: Brick cube is 1 meter in size.  Light is 2 meters from floor.  Globe is 25 cm in diameter.<br/>\n" +
+                                                                                                                          "\t\t\tUsing Reinhard inline tonemapping with real-world light falloff (decay = 2).");
     }
 
     private void animate() {
-        AnimationScheduler.get().requestAnimationFrame(timestamp -> {
+        DomGlobal.requestAnimationFrame(timestamp -> {
             if (root.parentNode != null) {
                 StatsProducer.getStats().update();
                 render();
@@ -327,7 +291,6 @@ public class WebglLightsPhysical extends Attachable {
         bulbLight.position.y = (float) Math.cos(time) * 0.75f + 1.25f;
         renderer.render(scene, camera);
     }
-
 }
 
 
