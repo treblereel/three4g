@@ -83,12 +83,12 @@ public class WebglMaterialsCubemapDynamic2 extends Attachable {
 
     cubeCamera1 = new CubeCamera(1, 1000, 256);
     cubeCamera1.renderTarget.texture.generateMipmaps = true;
-    cubeCamera1.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
+    cubeCamera1.renderTarget.texture.minFilter = THREE.LinearMipmapLinearFilter;
     scene.add(cubeCamera1);
 
     cubeCamera2 = new CubeCamera(1, 1000, 256);
     cubeCamera2.renderTarget.texture.generateMipmaps = true;
-    cubeCamera2.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
+    cubeCamera2.renderTarget.texture.minFilter = THREE.LinearMipmapLinearFilter;
     scene.add(cubeCamera2);
 
     MeshBasicMaterialParameters parameters = new MeshBasicMaterialParameters();

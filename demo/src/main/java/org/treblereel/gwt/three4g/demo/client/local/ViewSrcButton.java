@@ -11,7 +11,7 @@ import elemental2.dom.HTMLDivElement;
  */
 public class ViewSrcButton {
 
-    private static final String REPO_ADDR = "https://github.com/treblereel/three4g-demo/tree/master/src/main/java/";
+    private static final String REPO_ADDR = "https://github.com/treblereel/three4g/blob/master/demo/src/main/java/";
     private HTMLDivElement container = (HTMLDivElement) document.createElement("div");
     private HTMLAnchorElement info = (HTMLAnchorElement) document.createElement("a");
 

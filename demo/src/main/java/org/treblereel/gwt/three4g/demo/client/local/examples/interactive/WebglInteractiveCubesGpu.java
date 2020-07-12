@@ -114,7 +114,7 @@ public class WebglInteractiveCubesGpu extends Attachable {
             scale.y = rand.nextFloat() * 200 + 100;
             scale.z = rand.nextFloat() * 200 + 100;
 
-            quaternion.setFromEuler(rotation, false);
+            quaternion.setFromEuler(rotation);
             matrix.compose(position, quaternion, scale);
             geometry.applyMatrix(matrix);
             // give the geometry's vertices a random color, to be displayed

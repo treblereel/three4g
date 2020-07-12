@@ -79,7 +79,7 @@ public class WebglMaterialsTextureManualmipmap extends Attachable {
         textureCanvas1.wrapT = THREE.RepeatWrapping;
         CanvasTexture textureCanvas2 = (CanvasTexture) textureCanvas1.clone();
         textureCanvas2.magFilter = THREE.NearestFilter;
-        textureCanvas2.minFilter = THREE.NearestMipMapNearestFilter;
+        textureCanvas2.minFilter = THREE.NearestMipmapNearestFilter;
 
         MeshBasicMaterial materialCanvas1 = new MeshBasicMaterial();
         materialCanvas1.map = textureCanvas1;
@@ -154,7 +154,7 @@ public class WebglMaterialsTextureManualmipmap extends Attachable {
         lbl_left.className = "lbl";
         lbl_left.innerHTML = "Floor <span class=\"g\">(128x128)</span><br/>\n" +
                 "\t\tmag: <span class=\"c\">Linear</span><br/>\n" +
-                "\t\tmin: <span class=\"c\">LinearMipMapLinear</span><br/>\n" +
+                "\t\tmin: <span class=\"c\">LinearMipmapLinear</span><br/>\n" +
                 "\t\t<br/>\n" +
                 "\t\tPainting <span class=\"g\">(748x600)</span><br/>\n" +
                 "\t\tmag: <span class=\"c\">Linear</span><br/>\n" +
@@ -166,7 +166,7 @@ public class WebglMaterialsTextureManualmipmap extends Attachable {
         lbl_right.id = "lbl_right";
         lbl_right.innerHTML = "Floor <br/>\n" +
                 "\t\tmag: <span class=\"c\">Nearest</span><br/>\n" +
-                "\t\tmin: <span class=\"c\">NearestMipMapNearestFilter</span><br/>\n" +
+                "\t\tmin: <span class=\"c\">NearestMipmapNearestFilter</span><br/>\n" +
                 "\t\t<br/>\n" +
                 "\t\tPainting <br/>\n" +
                 "\t\tmag: <span class=\"c\">Nearest</span><br/>\n" +

@@ -75,7 +75,7 @@ public class HDRCubeTextureLoader {
     public native HDRCubeTextureLoader setPath(String path);
 
 
-    public native HDRCubeTextureLoader setType(int type);
+    public native HDRCubeTextureLoader setDataType(int type);
 
 
 }

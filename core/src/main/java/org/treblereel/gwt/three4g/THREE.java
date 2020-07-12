@@ -85,11 +85,11 @@ public class THREE {
     public static int ClampToEdgeWrapping;
     public static int MirroredRepeatWrapping;
     public static int NearestFilter;
-    public static int NearestMipMapNearestFilter;
-    public static int NearestMipMapLinearFilter;
+    public static int NearestMipmapNearestFilter;
+    public static int NearestMipmapLinearFilter;
     public static int LinearFilter;
-    public static int LinearMipMapNearestFilter;
-    public static int LinearMipMapLinearFilter;
+    public static int LinearMipmapNearestFilter;
+    public static int LinearMipmapLinearFilter;
     public static int UnsignedByteType;
     public static int ByteType;
     public static int ShortType;
@@ -158,5 +158,25 @@ public class THREE {
     public static int RGBADepthPacking;
     public static int TangentSpaceNormalMap;
     public static int ObjectSpaceNormalMap;
+
+    public static int NeverStencilFunc;
+    public static int LessStencilFunc;
+    public static int EqualStencilFunc;
+    public static int LessEqualStencilFunc;
+    public static int GreaterStencilFunc;
+    public static int NotEqualStencilFunc;
+    public static int GreaterEqualStencilFunc;
+    public static int AlwaysStencilFunc;
+
+    public static int ZeroStencilOp;
+    public static int KeepStencilOp;
+    public static int ReplaceStencilOp;
+    public static int IncrementStencilOp;
+    public static int DecrementStencilOp;
+    public static int IncrementWrapStencilOp;
+    public static int DecrementWrapStencilOp;
+    public static int InvertStencilOp;
+
+
 
 }

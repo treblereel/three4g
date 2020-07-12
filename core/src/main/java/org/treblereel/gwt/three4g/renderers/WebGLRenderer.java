@@ -62,12 +62,6 @@ public class WebGLRenderer {
     public Plane[] clippingPlanes;
 
     /**
-     * The renderer obtains a RenderingContext context from its domElement by default, using HTMLCanvasElement.getContext().
-     * You can create this manually, however it must correspond to the domElement in order to render to the screen.
-     */
-    public WebGLRenderingContext context;
-
-    /**
      * A canvas where the renderer draws its output.
      * This is automatically created by the renderer in the constructor (if not provided already); you just need to
      * add it to your page like so:
@@ -386,6 +380,18 @@ public class WebGLRenderer {
     public native WebGLContextAttributes getContextAttributes();
 
     /**
+     * Returns the current active cube face.
+     * @return int value
+     */
+    public native int getActiveCubeFace();
+
+    /**
+     * Returns the current active mipmap level.
+     * @return int value
+     */
+    public native int getActiveMipmapLevel();
+
+    /**
      * Returns the current RenderTarget, if any.
      * @return RenderTarget
      */
@@ -408,9 +414,9 @@ public class WebGLRenderer {
      * This method sets the active rendertarget. If the parameter is omitted the canvas is set as the active rendertarget.
      * @param renderTarget -- The renderTarget that needs to be activated (optional).
      * @param activeCubeFace -- Specifies the active cube side (PX 0, NX 1, PY 2, NY 3, PZ 4, NZ 5) of [page:WebGLRenderTargetCube] (optional).
-     * @param activeMipMapLevel -- Specifies the active mipmap level (optional).
+     * @param activeMipmapLevel -- Specifies the active mipmap level (optional).
      */
-    public native void setRenderTarget(WebGLRenderTarget renderTarget, int activeCubeFace, int activeMipMapLevel);
+    public native void setRenderTarget(WebGLRenderTarget renderTarget, int activeCubeFace, int activeMipmapLevel);
 
     /**
      * Returns the current CurrentViewport.

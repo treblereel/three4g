@@ -21,4 +21,6 @@ public class RGBELoader extends DataTextureLoader<RGBELoader, PropertyHolder> {
     public RGBELoader(LoadingManager manager) {
 
     }
+
+    public native HDRCubeTextureLoader setDataType(int type);
 }

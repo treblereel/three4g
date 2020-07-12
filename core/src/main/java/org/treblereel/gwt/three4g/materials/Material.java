@@ -115,6 +115,46 @@ public class Material extends EventDispatcher {
     public boolean depthWrite;
 
     /**
+     * Whether stencil operations are performed against the stencil buffer. In order to perform writes or comparisons against the stencil buffer this value must be true. Default is false.
+     */
+    public boolean stencilWrite;
+
+    /**
+     * The bit mask to use when writing to the stencil buffer. Default is 0xFF.
+     */
+    public int stencilWriteMask;
+
+    /**
+     * The stencil comparison function to use. Default is AlwaysStencilFunc. See stencil function constants for all possible values.
+     */
+    public int stencilFunc;
+
+    /**
+     * The bit mask to use when comparing against the stencil buffer. Default is 0xFF.
+     */
+    public int stencilFuncMask;
+
+    /**
+     * The value to use when performing stencil comparisons or stencil operations. Default is 0.
+     */
+    public int stencilRef;
+
+    /**
+     * Which stencil operation to perform when the comparison function returns false. Default is KeepStencilOp. See the stencil operations constants for all possible values.
+     */
+    public int stencilFail;
+
+    /**
+     * Which stencil operation to perform when the comparison function returns true but the depth test fails. Default is KeepStencilOp. See the stencil operations constants for all possible values.
+     */
+    public int stencilZFail;
+
+    /**
+     * Which stencil operation to perform when the comparison function returns true and the depth test passes. Default is KeepStencilOp. See the stencil operations constants for all possible values.
+     */
+    public int stencilZPass;
+
+    /**
      * Define whether the material is rendered with flat shading. Default is false.
      */
     public boolean flatShading;

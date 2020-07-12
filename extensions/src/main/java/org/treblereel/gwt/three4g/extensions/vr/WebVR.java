@@ -12,7 +12,7 @@ import org.treblereel.gwt.three4g.renderers.webvr.WebXROptions;
  * Created by treblereel on 5/28/18.
  */
 @Three4gElement(paths = "js/vr/WebVR.js")
-@JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "WEBVR")
+@JsType(namespace = "THREE", isNative = true, name = "WEBVR")
 public class WebVR {
 
     public native static HTMLElement createButton(WebGLRenderer renderer);
