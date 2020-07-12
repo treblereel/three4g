@@ -154,16 +154,6 @@ public class Euler {
     public native Euler setFromRotationMatrix(Matrix4 m, String order);
 
     /**
-     * Sets the angles of this euler transform from a pure rotation matrix based on the orientation specified by order.
-     *
-     * @param m      - a Matrix4 of which the upper 3x3 of matrix is a pure rotation matrix (i.e. unscaled).
-     * @param order  - a string representing the order that the rotations are applied.
-     * @param update - whether to call onChangeCallback() after applying the matrix.
-     * @return Euler
-     */
-    public native Euler setFromRotationMatrix(Matrix4 m, String order, boolean update);
-
-    /**
      * Sets the angles of this euler transform from a normalized quaternion based on the orientation specified by order.
      *
      * @param q - a normalized quaternion.
@@ -179,16 +169,6 @@ public class Euler {
      * @return Euler
      */
     public native Euler setFromQuaternion(Quaternion q, String order);
-
-    /**
-     * Sets the angles of this euler transform from a normalized quaternion based on the orientation specified by order.
-     *
-     * @param q      - a normalized quaternion.
-     * @param order  - a string representing the order that the rotations are applied.
-     * @param update - whether to call onChangeCallback() after applying the matrix.
-     * @return Euler
-     */
-    public native Euler setFromQuaternion(Quaternion q, String order, boolean update);
 
     /**
      * Set the x, y and z, and optionally update the order. onChangeCallback() is called after these changes are made.

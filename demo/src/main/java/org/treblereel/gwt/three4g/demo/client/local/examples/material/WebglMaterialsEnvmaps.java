@@ -71,7 +71,7 @@ public class WebglMaterialsEnvmaps extends Attachable {
         textureEquirec = textureLoader.load("textures/2294472375_24a3b8ef46_o.jpg");
         textureEquirec.mapping = THREE.EquirectangularReflectionMapping;
         textureEquirec.magFilter = THREE.LinearFilter;
-        textureEquirec.minFilter = THREE.LinearMipMapLinearFilter;
+        textureEquirec.minFilter = THREE.LinearMipmapLinearFilter;
         textureSphere = textureLoader.load("textures/metal.jpg");
         textureSphere.mapping = THREE.SphericalReflectionMapping;
 

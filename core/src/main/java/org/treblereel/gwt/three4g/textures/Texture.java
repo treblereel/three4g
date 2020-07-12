@@ -69,7 +69,7 @@ public class Texture extends EventDispatcher {
     public int magFilter;
 
     /**
-     * How the texture is sampled when a texel covers less than one pixel. The default is THREE.LinearMipMapLinearFilter,
+     * How the texture is sampled when a texel covers less than one pixel. The default is THREE.LinearMipmapLinearFilter,
      * which uses mipmapping and a trilinear filter.
      * <p>
      * See the texture constants page for all possible choices.

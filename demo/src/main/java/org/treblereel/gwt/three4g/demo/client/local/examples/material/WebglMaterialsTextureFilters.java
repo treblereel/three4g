@@ -141,7 +141,7 @@ public class WebglMaterialsTextureFilters extends Attachable {
         lbl_left.className = "lbl";
         lbl_left.innerHTML = "Floor <span class=\"g\">(128x128)</span><br/>\n" +
                 "\t\tmag: <span class=\"c\">Linear</span><br/>\n" +
-                "\t\tmin: <span class=\"c\">LinearMipMapLinear</span><br/>\n" +
+                "\t\tmin: <span class=\"c\">LinearMipmapLinear</span><br/>\n" +
                 "\t\t<br/>\n" +
                 "\t\tPainting <span class=\"g\">(748x600)</span><br/>\n" +
                 "\t\tmag: <span class=\"c\">Linear</span><br/>\n" +

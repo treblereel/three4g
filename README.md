@@ -3,13 +3,13 @@
 ## A Three.js wrapper for GWT
 
 # Maven
-Current Version 0.106, implements 0.106 version of three.js
+Current Version 0.107, implements 0.107 version of three.js
 
 ```xml
 <dependency>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
-    <version>0.106</version>
+    <version>0.107</version>
 </dependency>
 ```
 # Setup

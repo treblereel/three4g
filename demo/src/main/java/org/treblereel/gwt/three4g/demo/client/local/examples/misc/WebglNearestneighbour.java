@@ -102,7 +102,7 @@ public class WebglNearestneighbour extends Attachable {
         // create the custom shader
         TextureLoader textureLoader = new TextureLoader();
         Texture imagePreviewTexture = textureLoader.load("textures/crate.gif");
-        imagePreviewTexture.minFilter = THREE.LinearMipMapLinearFilter;
+        imagePreviewTexture.minFilter = THREE.LinearMipmapLinearFilter;
         imagePreviewTexture.magFilter = THREE.LinearFilter;
 
         ShaderMaterialParameters shaderMaterialParameters = new ShaderMaterialParameters();
