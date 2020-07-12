@@ -4,7 +4,7 @@ import elemental2.core.ArrayBuffer;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
-import org.treblereel.gwt.three4g.loaders.AbstractLoader;
+import org.treblereel.gwt.three4g.loaders.Loader;
 import org.treblereel.gwt.three4g.loaders.OnErrorCallback;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
@@ -30,7 +30,7 @@ import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
  */
 @Three4gElement(paths = "js/loaders/GLTFLoader.js")
 @JsType(isNative = true, namespace = "THREE")
-public class GLTFLoader<T extends PropertyHolder> extends AbstractLoader<GLTFLoader, T> {
+public class GLTFLoader<T extends PropertyHolder> extends Loader<GLTFLoader, T> {
 
   /**
    * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to

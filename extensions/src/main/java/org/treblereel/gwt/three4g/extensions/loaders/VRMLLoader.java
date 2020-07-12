@@ -2,7 +2,7 @@ package org.treblereel.gwt.three4g.extensions.loaders;
 
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
-import org.treblereel.gwt.three4g.loaders.AbstractLoader;
+import org.treblereel.gwt.three4g.loaders.Loader;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 import org.treblereel.gwt.three4g.scenes.Scene;
 
@@ -13,7 +13,7 @@ import org.treblereel.gwt.three4g.scenes.Scene;
  */
 @Three4gElement(paths = {"js/libs/chevrotain.min.js", "js/loaders/VRMLLoader.js"})
 @JsType(isNative = true, namespace = "THREE")
-public class VRMLLoader extends AbstractLoader<VRMLLoader, Scene> {
+public class VRMLLoader extends Loader<VRMLLoader, Scene> {
 
     public VRMLLoader() {
 

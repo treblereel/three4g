@@ -1,16 +1,11 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.animation;
 
-import com.google.gwt.animation.client.AnimationScheduler;
-import com.google.gwt.json.client.JSONObject;
-import elemental2.core.JsObject;
 import elemental2.dom.DomGlobal;
-import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.InjectJavaScriptFor;
 import org.treblereel.gwt.three4g.animation.AnimationClip;
 import org.treblereel.gwt.three4g.animation.AnimationMixer;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
 import org.treblereel.gwt.three4g.core.Clock;
-import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.demo.client.local.AppSetup;
 import org.treblereel.gwt.three4g.demo.client.local.Attachable;
@@ -115,9 +110,10 @@ public class WebglAnimationScene extends Attachable {
     }
 
     private void animate() {
-        StatsProducer.getStats().update();
-        AnimationScheduler.get().requestAnimationFrame(timestamp -> {
+        DomGlobal.requestAnimationFrame(timestamp -> {
             if (root.parentNode != null && mixer != null) {
+                StatsProducer.getStats().update();
+
                 double delta = clock.getDelta();
                 mixer.update(delta);
                 orbitControls.update();

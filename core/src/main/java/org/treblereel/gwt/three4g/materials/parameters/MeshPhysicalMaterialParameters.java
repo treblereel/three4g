@@ -13,12 +13,12 @@ public class MeshPhysicalMaterialParameters extends MeshStandardMaterialParamete
     /**
      * ClearCoat level, from 0.0 to 1.0. Default is 0.0.
      */
-    public float clearCoat;
+    public float clearcoat;
 
     /**
      * How rough the clearCoat appears, from 0.0 to 1.0. Default is 0.0.
      */
-    public float clearCoatRoughness;
+    public float clearcoatRoughness;
 
     /**
      * An object of the form:

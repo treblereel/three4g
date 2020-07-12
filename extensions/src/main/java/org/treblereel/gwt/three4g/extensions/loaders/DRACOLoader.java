@@ -19,9 +19,9 @@ public class DRACOLoader {
 
     }
 
-    public static native void setDecoderPath(String path);
+    public native void setDecoderPath(String path);
 
-    public static native void setDecoderConfig(DRACOLoaderDecoderConfig config);
+    public native void setDecoderConfig(DRACOLoaderDecoderConfig config);
 
     public native void load(String url, OnLoadCallback<? extends PropertyHolder> onLoad);
 

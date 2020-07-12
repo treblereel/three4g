@@ -4,6 +4,7 @@ import static elemental2.dom.DomGlobal.document;
 
 import com.google.gwt.animation.client.AnimationScheduler;
 import elemental2.core.JsArray;
+import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import elemental2.dom.HTMLDivElement;
@@ -67,6 +68,9 @@ public class MiscControlsPointerlock extends Attachable {
 
     public MiscControlsPointerlock() {
 
+        DomGlobal.console.log("1");
+
+
         instructions.innerHTML = content;
         instructions.id = "instructions";
         blocker.appendChild(instructions);
@@ -80,14 +84,24 @@ public class MiscControlsPointerlock extends Attachable {
         camera = new PerspectiveCamera(75, aspect, 1, 1000);
         scene = new Scene();
         scene.background = new Color(0xffffff);
+        DomGlobal.console.log("1.1");
+
+
         scene.fog = new Fog(0xffffff, 0, 750);
         HemisphereLight light = new HemisphereLight(0xeeeeff, 0x777788, 0.75f);
         light.position.set(0.5f, 1, 0.75f);
+
         scene.add(light);
-        controls = new PointerLockControls(camera);
+        DomGlobal.console.log("1.1.4 ");
+
+        controls = new PointerLockControls(camera, document.body);
+        DomGlobal.console.log("1.2");
 
 
         instructions.addEventListener("click", evt -> controls.lock(), false);
+
+        DomGlobal.console.log("2");
+
 
         controls.addEventListener("lock", evt -> {
             instructions.style.display = "none";
@@ -101,6 +115,9 @@ public class MiscControlsPointerlock extends Attachable {
 
 
         scene.add(controls.getObject());
+
+        DomGlobal.console.log("3");
+
 
         raycaster = new Raycaster(new Vector3(), new Vector3(0, -1, 0), 0, 10);
         // floor
@@ -116,6 +133,7 @@ public class MiscControlsPointerlock extends Attachable {
             vertex.z += Math.random() * 20 - 10;
             position.setXYZ(i, vertex.x, vertex.y, vertex.z);
         }
+        DomGlobal.console.log("4");
 
         floorGeometry = floorGeometry.toNonIndexed(); // ensure each face has unique vertices
 
@@ -128,6 +146,9 @@ public class MiscControlsPointerlock extends Attachable {
 
             colors.push(color.r, color.g, color.b);
         }
+
+        DomGlobal.console.log("5");
+
         floorGeometry.addAttribute("color", new Float32BufferAttribute(colors, 3));
         MeshBasicMaterial floorMaterial = new MeshBasicMaterial();
         floorMaterial.vertexColors = THREE.VertexColors;
@@ -143,6 +164,7 @@ public class MiscControlsPointerlock extends Attachable {
             colors.push(color.r, color.g, color.b);
         }
         boxGeometry.addAttribute("color", new Float32BufferAttribute(colors, 3));
+        DomGlobal.console.log("6");
 
         MeshPhongMaterialParameters meshPhongMaterialParameters = new MeshPhongMaterialParameters();
         meshPhongMaterialParameters.specular = new Color(0xffffff);
@@ -160,6 +182,7 @@ public class MiscControlsPointerlock extends Attachable {
             objects[i] = box;
         }
 
+        DomGlobal.console.log("7");
 
         setupWebGLRenderer(renderer);
         renderer.shadowMap.enabled = true;
@@ -223,6 +246,7 @@ public class MiscControlsPointerlock extends Attachable {
     @Override
     public void detach() {
         super.detach();
+        blocker.style.display = "none";
         blocker.parentNode.removeChild(blocker);
         document.removeEventListener("keyup", keyup);
         document.removeEventListener("keydown", keydown);
@@ -230,9 +254,9 @@ public class MiscControlsPointerlock extends Attachable {
     }
 
     private void animate() {
-        StatsProducer.getStats().update();
         AnimationScheduler.get().requestAnimationFrame(timestamp -> {
             if (root.parentNode != null) {
+                StatsProducer.getStats().update();
                 render();
                 animate();
             }
@@ -241,6 +265,7 @@ public class MiscControlsPointerlock extends Attachable {
 
     private void render() {
         if (controls.isLocked) {
+            DomGlobal.console.log("1111");
             raycaster.ray.origin.copy(controls.getObject().position);
             raycaster.ray.origin.y -= 10;
             Intersect[] intersections = raycaster.intersectObjects(objects);
@@ -280,6 +305,7 @@ public class MiscControlsPointerlock extends Attachable {
 
     @Override
     protected void doAttachScene() {
+        blocker.style.display = "block";
         root.appendChild(renderer.domElement);
         onWindowResize();
         animate();
