@@ -1,15 +1,18 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.performance;
 
-import com.google.gwt.animation.client.AnimationScheduler;
-import elemental2.dom.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gwt.animation.client.AnimationScheduler;
+import elemental2.dom.MouseEvent;
 import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.demo.client.local.AppSetup;
 import org.treblereel.gwt.three4g.demo.client.local.Attachable;
 import org.treblereel.gwt.three4g.demo.client.local.utils.StatsProducer;
 import org.treblereel.gwt.three4g.loaders.BufferGeometryLoader;
+import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
 import org.treblereel.gwt.three4g.materials.MeshNormalMaterial;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Vector2;
@@ -29,7 +32,6 @@ public class WebglPerformance extends Attachable {
     private int windowHalfY = window.innerHeight / 2;
     private List<Mesh> objects = new ArrayList<>();
 
-
     public WebglPerformance() {
 
         camera = new PerspectiveCamera(60, aspect, 1, 10000);
@@ -38,7 +40,8 @@ public class WebglPerformance extends Attachable {
         scene.background = new Color(0xffffff);
         MeshNormalMaterial material = new MeshNormalMaterial();
         BufferGeometryLoader loader = new BufferGeometryLoader();
-        loader.load("json/suzanne_buffergeometry.json", geometry -> {
+
+        loader.load("json/suzanne_buffergeometry.json", (OnLoadCallback<BufferGeometry>) geometry -> {
             geometry.computeVertexNormals();
             for (int i = 0; i < 5000; i++) {
                 Mesh mesh = new Mesh(geometry, material);
@@ -67,19 +70,8 @@ public class WebglPerformance extends Attachable {
     private void onDocumentMouseMove(MouseEvent event) {
         event.preventDefault();
 
-        mouse.x = (float)( event.clientX - windowHalfX ) * 10;
-        mouse.y = (float)( event.clientY - windowHalfY ) * 10;
-    }
-
-    @Override
-    public void onWindowResize() {
-        if (camera != null && renderer != null) {
-            windowHalfX = window.innerWidth / 2;
-            windowHalfY = window.innerHeight / 2;
-            camera.aspect = aspect;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
+        mouse.x = (float) (event.clientX - windowHalfX) * 10;
+        mouse.y = (float) (event.clientY - windowHalfY) * 10;
     }
 
     public void doAttachScene() {
@@ -91,6 +83,17 @@ public class WebglPerformance extends Attachable {
     @Override
     protected void doAttachInfo() {
         AppSetup.infoDiv.hide();
+    }
+
+    @Override
+    public void onWindowResize() {
+        if (camera != null && renderer != null) {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+            camera.aspect = aspect;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
     }
 
     private void animate() {
@@ -105,14 +108,14 @@ public class WebglPerformance extends Attachable {
 
     private void render() {
 
-        camera.position.x += ( mouse.x - camera.position.x ) * .05;
-        camera.position.y += ( - mouse.y - camera.position.y ) * .05;
-        camera.lookAt( scene.position );
-        for ( int i = 0, il = objects.size(); i < il; i ++ ) {
+        camera.position.x += (mouse.x - camera.position.x) * .05;
+        camera.position.y += (-mouse.y - camera.position.y) * .05;
+        camera.lookAt(scene.position);
+        for (int i = 0, il = objects.size(); i < il; i++) {
             objects.get(i).rotation.x += 0.01;
             objects.get(i).rotation.y += 0.02;
         }
-        renderer.render( scene, camera );
+        renderer.render(scene, camera);
     }
 }
 

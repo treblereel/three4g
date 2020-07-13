@@ -17,12 +17,12 @@ public class MeshPhysicalMaterial extends MeshStandardMaterial {
     /**
      * ClearCoat level, from 0.0 to 1.0. Default is 0.0.
      */
-    public float clearCoat;
+    public float clearcoat;
 
     /**
      * How rough the clearCoat appears, from 0.0 to 1.0. Default is 0.0.
      */
-    public float clearCoatRoughness;
+    public float clearcoatRoughness;
 
     /**
      * Used to check whether this or derived classes are mesh physical materials. Default is true.

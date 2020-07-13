@@ -1,8 +1,8 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.material;
 
-import elemental2.core.ArrayBuffer;
 import elemental2.core.Uint8Array;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.File;
 import elemental2.dom.HTMLCanvasElement;
 import elemental2.dom.HTMLScriptElement;
 import elemental2.webgl.WebGLRenderingContext;
@@ -102,9 +102,9 @@ public class Webgl2MaterialsTexture2darray extends Attachable {
         // width 256, height 256, depth 109, 8-bit, zip archived raw data
         new FileLoader()
                 .setResponseType("arraybuffer")
-                .load("textures/3d/head256x256x109.zip", new OnLoadCallback<ArrayBuffer>() {
+                .load("textures/3d/head256x256x109.zip", new OnLoadCallback<File>() {
                     @Override
-                    public void onLoad(ArrayBuffer object) {
+                    public void onLoad(File object) {
 
                         DomGlobal.console.log("onLoad 1 " + object);
                         DomGlobal.console.log("onLoad 2 " + JSON.stringify(object));

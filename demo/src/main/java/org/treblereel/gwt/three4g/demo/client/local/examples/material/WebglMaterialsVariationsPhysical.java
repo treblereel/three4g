@@ -94,8 +94,8 @@ public class WebglMaterialsVariationsPhysical extends Attachable {
                             parameters.color = diffuseColor;
                             parameters.metalness = 0;
                             parameters.roughness = 0.5f;
-                            parameters.clearCoat = 1.0f - alpha;
-                            parameters.clearCoatRoughness = 1.0f - beta;
+                            parameters.clearcoat = 1.0f - alpha;
+                            parameters.clearcoatRoughness = 1.0f - beta;
                             parameters.reflectivity = 1.0f - gamma;
 
                             if (index % 2 == 0)

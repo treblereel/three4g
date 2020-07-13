@@ -82,7 +82,7 @@ public abstract class Attachable extends GwtEvent<Attachable.EventHandler> {
         window.removeEventListener("resize", onResize);
     }
 
-    private void detachControls() {
+    protected void detachControls() {
         if (orbitControls != null) {
             orbitControls.dispose();
         }
@@ -97,7 +97,7 @@ public abstract class Attachable extends GwtEvent<Attachable.EventHandler> {
         }
     }
 
-    private void detachGui() {
+    protected void detachGui() {
         if (gui != null) {
             gui.getDomElement().parentNode.removeChild(gui.getDomElement());
             gui = null;

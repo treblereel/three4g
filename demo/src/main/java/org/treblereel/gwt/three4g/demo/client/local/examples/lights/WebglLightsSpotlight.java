@@ -1,12 +1,11 @@
 package org.treblereel.gwt.three4g.demo.client.local.examples.lights;
 
-import com.google.gwt.animation.client.AnimationScheduler;
+import elemental2.dom.DomGlobal;
 import org.treblereel.gwt.datgui4g.GUI;
 import org.treblereel.gwt.datgui4g.GUIProperty;
 import org.treblereel.gwt.three4g.InjectJavaScriptFor;
 import org.treblereel.gwt.three4g.THREE;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
-import org.treblereel.gwt.three4g.core.Clock;
 import org.treblereel.gwt.three4g.demo.client.local.AppSetup;
 import org.treblereel.gwt.three4g.demo.client.local.Attachable;
 import org.treblereel.gwt.three4g.demo.client.local.utils.StatsProducer;
@@ -33,16 +32,13 @@ public class WebglLightsSpotlight extends Attachable {
 
     public static final String name = "lights / spotlight";
 
-    private Clock clock = new Clock();
     private SpotLight spotLight;
     private SpotLightHelper lightHelper;
     private CameraHelper shadowCameraHelper;
-
+    private Scene scene = new Scene();
+    private PerspectiveCamera camera;
 
     public WebglLightsSpotlight() {
-
-
-        scene = new Scene();
         camera = new PerspectiveCamera(35, aspect, 1, 1000);
         camera.position.set(65, 8, -10);
 
@@ -98,12 +94,15 @@ public class WebglLightsSpotlight extends Attachable {
         orbitControls.target.copy(mesh.position);
         orbitControls.update();
 
-        renderer = new WebGLRenderer();
-        setupWebGLRenderer(renderer);
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
         buildGui();
+    }
+
+    private void render() {
+        if (renderer.domElement != null) {
+            lightHelper.update();
+            shadowCameraHelper.update();
+            renderer.render(scene, camera);
+        }
     }
 
     private void buildGui() {
@@ -149,26 +148,36 @@ public class WebglLightsSpotlight extends Attachable {
 
         gui.finishAndBuild();
         AppSetup.guiDiv.get().appendChild(gui.getDomElement());
-
     }
-
 
     @Override
     public void doAttachScene() {
+        renderer = new WebGLRenderer();
+        setupWebGLRenderer(renderer);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
         root.appendChild(renderer.domElement);
         onWindowResize();
         animate();
     }
 
+    public void doDetach() {
+        AppSetup.infoDiv.hide();
+        AppSetup.menuDiv.hide();
+        detachControls();
+        detachGui();
+        window.removeEventListener("resize", onResize);
+    }
+
     @Override
     protected void doAttachInfo() {
         AppSetup.infoDiv.show().setHrefToInfo("http://threejs.org").setTextContentToInfo("three.js").setInnetHtml(" - webgl - spotlight by <a style=' color: orange;'" +
-                " href=\"http://master-domain.com\" target=\"_blank\" rel=\"noopener\">Master James</a>");
-
+                                                                                                                          " href=\"http://master-domain.com\" target=\"_blank\" rel=\"noopener\">Master James</a>");
     }
 
     private void animate() {
-        AnimationScheduler.get().requestAnimationFrame(timestamp -> {
+        DomGlobal.requestAnimationFrame(timestamp -> {
             if (root.parentNode != null) {
                 StatsProducer.getStats().update();
                 render();
@@ -176,12 +185,5 @@ public class WebglLightsSpotlight extends Attachable {
             }
         });
     }
-
-    private void render() {
-        lightHelper.update();
-        shadowCameraHelper.update();
-        renderer.render(scene, camera);
-    }
-
 }
 

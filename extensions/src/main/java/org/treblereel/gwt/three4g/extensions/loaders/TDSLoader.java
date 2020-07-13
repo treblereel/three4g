@@ -5,7 +5,7 @@ import elemental2.core.TypedArray;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
 import org.treblereel.gwt.three4g.core.Object3D;
-import org.treblereel.gwt.three4g.loaders.AbstractLoader;
+import org.treblereel.gwt.three4g.loaders.Loader;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 import org.treblereel.gwt.three4g.objects.Group;
 
@@ -15,7 +15,7 @@ import org.treblereel.gwt.three4g.objects.Group;
  */
 @Three4gElement(paths = "js/loaders/TDSLoader.js")
 @JsType(isNative = true, namespace = "THREE")
-public class TDSLoader extends AbstractLoader<TDSLoader, Object3D> {
+public class TDSLoader extends Loader<TDSLoader, Object3D> {
 
     public TDSLoader() {
 

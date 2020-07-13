@@ -4,7 +4,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
-import org.treblereel.gwt.three4g.loaders.AbstractLoader;
+import org.treblereel.gwt.three4g.loaders.Loader;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 import org.treblereel.gwt.three4g.materials.Material;
 
@@ -17,7 +17,7 @@ import org.treblereel.gwt.three4g.materials.Material;
  */
 @Three4gElement(paths = {"js/loaders/MTLLoader.js"})
 @JsType(isNative = true, namespace = "THREE")
-public class MTLLoader extends AbstractLoader<MTLLoader, MTLLoader.MaterialCreator> {
+public class MTLLoader extends Loader<MTLLoader, MTLLoader.MaterialCreator> {
 
   /** The loadingManager the loader is using. Default is DefaultLoadingManager. */
   public LoadingManager manager;
