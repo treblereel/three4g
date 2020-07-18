@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.core.bufferattributes;
 
 import elemental2.core.Int16Array;
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
 
@@ -9,7 +10,7 @@ import org.treblereel.gwt.three4g.core.BufferAttribute;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/29/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Int16BufferAttribute", namespace = JsPackage.GLOBAL)
 public class Int16BufferAttribute extends BufferAttribute<Integer, Int16BufferAttribute> {
 
     /**

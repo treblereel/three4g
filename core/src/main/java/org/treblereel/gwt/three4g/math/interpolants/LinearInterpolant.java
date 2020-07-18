@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.math.interpolants;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Interpolant;
 
@@ -8,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Interpolant;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/13/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.LinearInterpolant", namespace = JsPackage.GLOBAL)
 public class LinearInterpolant extends Interpolant {
     /**
      * @param parameterPositions -- array of positions

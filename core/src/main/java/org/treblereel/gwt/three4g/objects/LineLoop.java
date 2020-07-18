@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.AbstractGeometry;
 import org.treblereel.gwt.three4g.materials.Material;
@@ -14,7 +15,7 @@ import org.treblereel.gwt.three4g.materials.Material;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.LineLoop", namespace = JsPackage.GLOBAL)
 public class LineLoop extends Line {
 
     /**

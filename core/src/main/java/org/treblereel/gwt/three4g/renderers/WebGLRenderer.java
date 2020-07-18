@@ -6,6 +6,7 @@ import elemental2.webgl.WebGLContextAttributes;
 import elemental2.webgl.WebGLRenderingContext;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.HeightWidth;
@@ -30,7 +31,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/27/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.WebGLRenderer", namespace = JsPackage.GLOBAL)
 public class WebGLRenderer {
 
     /**

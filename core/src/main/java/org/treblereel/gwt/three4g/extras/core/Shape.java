@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.extras.core;
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
@@ -15,7 +16,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/27/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Shape", namespace = JsPackage.GLOBAL)
 public class Shape extends Path {
 
     /**

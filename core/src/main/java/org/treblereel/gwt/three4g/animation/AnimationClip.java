@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.animation;
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.MorphTarget;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.objects.Bone;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
-@JsType(namespace = "THREE", isNative = true)
+@JsType(name = "THREE.AnimationClip", namespace = JsPackage.GLOBAL, isNative = true)
 public class AnimationClip extends PropertyHolder {
 
     public String name;

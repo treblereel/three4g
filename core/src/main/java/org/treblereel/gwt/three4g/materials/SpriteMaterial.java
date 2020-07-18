@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.ShaderMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -11,7 +12,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.SpriteMaterial", namespace = JsPackage.GLOBAL)
 public class SpriteMaterial extends Material {
 
     /**

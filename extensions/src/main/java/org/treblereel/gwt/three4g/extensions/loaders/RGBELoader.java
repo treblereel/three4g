@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.extensions.loaders;
 
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.Three4gElement;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
@@ -18,6 +19,7 @@ public class RGBELoader extends DataTextureLoader<RGBELoader, PropertyHolder> {
 
     }
 
+    @JsConstructor
     public RGBELoader(LoadingManager manager) {
 
     }

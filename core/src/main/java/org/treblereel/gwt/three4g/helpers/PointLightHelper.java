@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.lights.PointLight;
 import org.treblereel.gwt.three4g.math.Color;
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.objects.Mesh;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.PointLightHelper", namespace = JsPackage.GLOBAL)
 public class PointLightHelper extends Mesh {
 
     /**

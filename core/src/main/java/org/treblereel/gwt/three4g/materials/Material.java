@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.materials;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.core.events.EventDispatcher;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.math.Plane;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/27/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Material", namespace = JsPackage.GLOBAL)
 public class Material extends EventDispatcher {
 
     /**

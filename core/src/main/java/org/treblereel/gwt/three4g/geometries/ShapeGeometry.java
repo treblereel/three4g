@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;
 import org.treblereel.gwt.three4g.extras.core.Shape;
@@ -9,7 +10,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.ShapeGeometryParameters;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.ShapeGeometry", namespace = JsPackage.GLOBAL)
 public class ShapeGeometry extends Geometry {
 
     public ShapeGeometryParameters parameters;

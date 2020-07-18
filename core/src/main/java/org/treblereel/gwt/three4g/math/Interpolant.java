@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.math;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -18,7 +19,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/13/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Interpolant", namespace = JsPackage.GLOBAL)
 public abstract class Interpolant {
 
     public float[] parameterPositions;

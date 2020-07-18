@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.renderers;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Vector4;
 import org.treblereel.gwt.three4g.renderers.parameters.WebGLRenderTargetParameters;
@@ -11,7 +12,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.WebGLRenderTarget", namespace = JsPackage.GLOBAL)
 public class WebGLRenderTarget extends RenderTarget {
 
     /**

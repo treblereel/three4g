@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;
 
@@ -13,7 +14,7 @@ import org.treblereel.gwt.three4g.core.Geometry;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.CircleGeometry", namespace = JsPackage.GLOBAL)
 public class CircleGeometry extends Geometry {
 
     /**

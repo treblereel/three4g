@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.cameras;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -13,7 +14,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/18/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.OrthographicCamera", namespace = JsPackage.GLOBAL)
 public class OrthographicCamera extends Camera {
 
 

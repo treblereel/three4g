@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.math;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -8,7 +9,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/19/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Math", namespace = JsPackage.GLOBAL)
 public class Math {
 
     public static float DEG2RAD, RAD2DEG;

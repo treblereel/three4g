@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.lights;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.lights.shadows.LightShadow;
 
@@ -8,7 +9,7 @@ import org.treblereel.gwt.three4g.lights.shadows.LightShadow;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.PointLight", namespace = JsPackage.GLOBAL)
 public class PointLight extends Light {
 
 

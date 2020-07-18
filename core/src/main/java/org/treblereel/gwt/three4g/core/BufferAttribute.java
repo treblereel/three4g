@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.core;
 import elemental2.core.JsArray;
 import elemental2.core.TypedArray;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Vector2;
@@ -20,7 +21,7 @@ import org.treblereel.gwt.three4g.math.Vector4;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.BufferAttribute", namespace = JsPackage.GLOBAL)
 public class BufferAttribute<V extends Number, T extends BufferAttribute> {
 
     /**

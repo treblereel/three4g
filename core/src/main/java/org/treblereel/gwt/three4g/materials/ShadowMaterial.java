@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.materials;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.ShadowMaterialParameters;
 
@@ -7,7 +8,7 @@ import org.treblereel.gwt.three4g.materials.parameters.ShadowMaterialParameters;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.ShadowMaterial", namespace = JsPackage.GLOBAL)
 public class ShadowMaterial extends Material {
 
     /**

@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;
 import org.treblereel.gwt.three4g.extras.core.Curve;
@@ -13,7 +14,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/11/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.TubeGeometry", namespace = JsPackage.GLOBAL)
 public class TubeGeometry extends Geometry {
 
     /**

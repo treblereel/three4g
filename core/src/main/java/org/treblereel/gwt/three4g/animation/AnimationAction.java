@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.animation;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 
@@ -15,7 +16,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
-@JsType(namespace = "THREE", isNative = true)
+@JsType(name = "THREE.AnimationAction", namespace = JsPackage.GLOBAL, isNative = true)
 public class AnimationAction {
 
     /**

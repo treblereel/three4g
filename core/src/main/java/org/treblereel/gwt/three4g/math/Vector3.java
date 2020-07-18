@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.math;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 import org.treblereel.gwt.three4g.cameras.Camera;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferAttribute;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 2/28/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Vector3", namespace = JsPackage.GLOBAL)
 public class Vector3 implements Vector {
 
     /**
@@ -22,7 +23,6 @@ public class Vector3 implements Vector {
 
     public float x, y, z;
 
-    @JsConstructor
     public Vector3() {
 
     }

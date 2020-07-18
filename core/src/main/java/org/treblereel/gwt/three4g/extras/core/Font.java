@@ -1,7 +1,8 @@
 package org.treblereel.gwt.three4g.extras.core;
 
-import com.google.gwt.json.client.JSONObject;
+import elemental2.core.JsObject;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -12,7 +13,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Font", namespace = JsPackage.GLOBAL)
 public class Font {
 
     /**
@@ -25,7 +26,7 @@ public class Font {
     /**
      * The JSON data passed in the constructor.
      */
-    public JSONObject data;
+    public JsObject data;
 
     /**
      * This constructor creates a new Font, which is an array of Shapes.
@@ -33,7 +34,7 @@ public class Font {
      * @param data as JSONObject
      */
     @JsConstructor
-    public Font(JSONObject data) {
+    public Font(JsObject data) {
 
     }
 

@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;
 import org.treblereel.gwt.three4g.geometries.parameters.DodecahedronGeometryParameters;
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.geometries.parameters.DodecahedronGeometryPara
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.DodecahedronGeometry", namespace = JsPackage.GLOBAL)
 public class DodecahedronGeometry extends Geometry {
 
     public DodecahedronGeometryParameters parameters;

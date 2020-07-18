@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.scenes;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.core.PropertyHolder;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.materials.Material;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 12/5/17.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Scene", namespace = JsPackage.GLOBAL)
 public class Scene extends Object3D {
 
     /**

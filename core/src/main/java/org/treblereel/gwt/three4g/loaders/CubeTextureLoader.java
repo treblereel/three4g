@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.loaders;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 import org.treblereel.gwt.three4g.textures.CubeTexture;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.textures.CubeTexture;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.CubeTextureLoader", namespace = JsPackage.GLOBAL)
 public class CubeTextureLoader extends Loader<CubeTextureLoader, CubeTexture> {
 
     @JsConstructor

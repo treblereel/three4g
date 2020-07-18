@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.math.Color;
@@ -14,7 +15,7 @@ import org.treblereel.gwt.three4g.objects.LineSegments;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.FaceNormalsHelper", namespace = JsPackage.GLOBAL)
 public class FaceNormalsHelper extends LineSegments {
 
     /**

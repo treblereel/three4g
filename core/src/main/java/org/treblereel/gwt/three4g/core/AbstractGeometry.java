@@ -1,11 +1,8 @@
 package org.treblereel.gwt.three4g.core;
 
-import com.google.gwt.core.client.GWT;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.math.Vector3;
@@ -16,7 +13,7 @@ import org.treblereel.gwt.three4g.math.Vector3;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
-@JsType(isNative = true)
+@JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
 public class AbstractGeometry<T> extends EventDispatcher {
     T t;
 

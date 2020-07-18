@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.cameras;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -9,7 +10,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/21/18.
  */
-@JsType(namespace = "THREE", isNative = true)
+@JsType(name = "THREE.ArrayCamera", isNative = true, namespace = JsPackage.GLOBAL)
 public class ArrayCamera extends PerspectiveCamera{
 
     /**

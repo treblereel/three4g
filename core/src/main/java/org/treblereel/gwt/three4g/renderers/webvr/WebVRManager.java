@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.renderers.webvr;
 
 import elemental2.gamepad.Gamepad;
 import elemental2.vr.VRDisplay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.ArrayCamera;
 import org.treblereel.gwt.three4g.core.Object3D;
@@ -13,7 +14,7 @@ import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/28/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.WebVRManager", namespace = JsPackage.GLOBAL)
 public class WebVRManager {
 
     //default false

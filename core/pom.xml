@@ -90,10 +90,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
             <version>${com.google.elemental2.version}</version>
@@ -124,11 +120,11 @@
             <version>${project.version}</version>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.treblereel.gwt</groupId>
             <artifactId>three4g-processor</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>junit</groupId>

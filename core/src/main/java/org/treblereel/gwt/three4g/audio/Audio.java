@@ -5,6 +5,7 @@ import elemental2.media.AudioBuffer;
 import elemental2.media.AudioNode;
 import elemental2.media.BiquadFilterNode;
 import elemental2.media.GainNode;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 
@@ -16,7 +17,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "THREE.Audio")
 public class Audio extends Object3D {
 
     /**

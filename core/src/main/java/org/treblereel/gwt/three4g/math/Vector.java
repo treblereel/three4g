@@ -5,8 +5,9 @@ package org.treblereel.gwt.three4g.math;
  * Created by treblereel on 2/28/18.
  */
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true)
+@JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
 public interface Vector {
 }

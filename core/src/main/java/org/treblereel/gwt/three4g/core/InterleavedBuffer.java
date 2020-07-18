@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.core;
 
 import elemental2.core.TypedArray;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -12,7 +13,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.InterleavedBuffer", namespace = JsPackage.GLOBAL)
 public class InterleavedBuffer<T extends InterleavedBuffer> {
 
     /**

@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.LineBasicMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/27/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.LineBasicMaterial", namespace = JsPackage.GLOBAL)
 public class LineBasicMaterial extends Material {
 
     /**

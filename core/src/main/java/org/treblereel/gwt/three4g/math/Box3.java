@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.math;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferAttribute;
 import org.treblereel.gwt.three4g.core.Object3D;
@@ -11,8 +12,8 @@ import org.treblereel.gwt.three4g.core.Object3D;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
-@JsType(isNative = true, namespace = "THREE")
-public class Box3 implements Box {
+@JsType(isNative = true, name = "THREE.Box3", namespace = JsPackage.GLOBAL)
+public class Box3 {
 
     /**
      * Used to check whether this or derived classes are Box3s. Default is true.

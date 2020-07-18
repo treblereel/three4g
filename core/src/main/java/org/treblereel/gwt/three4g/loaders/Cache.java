@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.loaders;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -8,7 +9,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/26/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Cache", namespace = JsPackage.GLOBAL)
 public class Cache {
 
     /**

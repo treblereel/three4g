@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.animation.tracks;
 
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.animation.KeyframeTrack;
 
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.animation.KeyframeTrack;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/2/18.
  */
-@JsType(namespace = "THREE", isNative = true)
+@JsType(name = "THREE.NumberKeyframeTrack", namespace = JsPackage.GLOBAL, isNative = true)
 public class NumberKeyframeTrack extends KeyframeTrack {
 
     /**

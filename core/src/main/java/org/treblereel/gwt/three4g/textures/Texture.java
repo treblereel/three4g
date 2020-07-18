@@ -1,8 +1,9 @@
 package org.treblereel.gwt.three4g.textures;
 
-import elemental2.dom.HTMLCanvasElement;
+import elemental2.dom.HTMLImageElement;
 import elemental2.dom.ImageData;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.events.EventDispatcher;
@@ -11,11 +12,10 @@ import org.treblereel.gwt.three4g.math.Vector2;
 
 /**
  * Create a texture to apply to a surface or as a reflection or refraction map.
- *
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Texture", namespace = JsPackage.GLOBAL)
 public class Texture extends EventDispatcher {
 
     /**
@@ -181,20 +181,18 @@ public class Texture extends EventDispatcher {
     public boolean needsUpdate;
 
     public Texture() {
-
     }
 
-    public Texture(HTMLCanvasElement image) {
-
+    public Texture(HTMLImageElement image) {
     }
 
-    public Texture(HTMLCanvasElement image, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy, int encoding) {
+    @JsConstructor
+    public Texture(HTMLImageElement image, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy, int encoding) {
 
     }
 
     /**
      * Readonly - unique number for this texture instance.
-     *
      * @return id - unique number for this texture instance.
      */
     @JsProperty
@@ -202,7 +200,6 @@ public class Texture extends EventDispatcher {
 
     /**
      * UUID of this object instance. This gets automatically assigned, so this shouldn't be edited.
-     *
      * @return uuid of this object instance
      */
     @JsProperty
@@ -210,7 +207,6 @@ public class Texture extends EventDispatcher {
 
     /**
      * This starts at 0 and counts how many times # .needsUpdate is set to true.
-     *
      * @return version of this object instance
      */
     @JsProperty
@@ -223,21 +219,18 @@ public class Texture extends EventDispatcher {
 
     /**
      * Make copy of the texture. Note this is not a "deep copy", the image is shared.
-     *
      * @return instance of texture
      */
     public native Texture clone();
 
     /**
      * Convert the material to three.js JSON format.
-     *
      * @return JSON String
      */
     public native String toJSON();
 
     /**
      * Convert the material to three.js JSON format.
-     *
      * @param meta -- optional object containing metadata.
      * @return JSON String
      */
@@ -253,6 +246,5 @@ public class Texture extends EventDispatcher {
      * @param uv instance of Vector2
      * @return Vector2
      */
-    public native Vector2  transformUv(Vector2 uv);
-
+    public native Vector2 transformUv(Vector2 uv);
 }

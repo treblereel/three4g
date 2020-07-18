@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.lights.shadows;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.math.Matrix4;
@@ -13,7 +14,7 @@ import org.treblereel.gwt.three4g.renderers.WebGLRenderTarget;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/16/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.LightShadow", namespace = JsPackage.GLOBAL)
 public class LightShadow {
 
     /**

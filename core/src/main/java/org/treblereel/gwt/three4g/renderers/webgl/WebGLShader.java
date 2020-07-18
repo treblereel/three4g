@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.renderers.webgl;
 
 import elemental2.webgl.WebGLRenderingContext;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -9,7 +10,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/13/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.WebGLShader", namespace = JsPackage.GLOBAL)
 public class WebGLShader {
 
     /**

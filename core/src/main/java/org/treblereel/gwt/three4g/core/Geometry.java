@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.core;
 
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Box3;
@@ -21,7 +22,7 @@ import org.treblereel.gwt.three4g.objects.Mesh;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE", namespace = JsPackage.GLOBAL)
 public class Geometry extends AbstractGeometry<Geometry> {
 
     /**

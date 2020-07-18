@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.lights.RectAreaLight;
 import org.treblereel.gwt.three4g.math.Color;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.RectAreaLightHelper", namespace = JsPackage.GLOBAL)
 public class RectAreaLightHelper extends RectAreaLight {
 
 

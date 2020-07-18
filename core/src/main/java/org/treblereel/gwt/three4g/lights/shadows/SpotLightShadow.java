@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.lights.shadows;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.lights.SpotLight;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.lights.SpotLight;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/25/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.SpotLightShadow", namespace = JsPackage.GLOBAL)
 public class SpotLightShadow extends LightShadow {
 
     /**

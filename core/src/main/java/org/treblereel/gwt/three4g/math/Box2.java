@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.math;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -8,8 +9,8 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/30/18.
  */
-@JsType(isNative = true, namespace = "THREE")
-public class Box2 implements Box {
+@JsType(isNative = true, name = "THREE.Box2", namespace = JsPackage.GLOBAL)
+public class Box2 {
 
     /**
      * Vector2 representing the lower (x, y) boundary of the box.

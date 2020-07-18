@@ -4,6 +4,7 @@ import elemental2.core.ArrayBuffer;
 import elemental2.core.TypedArray;
 import elemental2.dom.Image;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -18,7 +19,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.DataTexture", namespace = JsPackage.GLOBAL)
 public class DataTexture extends Texture {
 
     /**

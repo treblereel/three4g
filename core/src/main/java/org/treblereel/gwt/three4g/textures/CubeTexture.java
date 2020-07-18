@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.textures;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -13,7 +14,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/1/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.CubeTexture", namespace = JsPackage.GLOBAL)
 public class CubeTexture extends Texture {
 
     @JsConstructor

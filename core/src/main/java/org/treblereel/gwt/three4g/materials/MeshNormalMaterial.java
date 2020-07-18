@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.materials;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.materials.parameters.MeshNormalMaterialParameters;
 import org.treblereel.gwt.three4g.math.Vector2;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/25/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.MeshNormalMaterial", namespace = JsPackage.GLOBAL)
 public class MeshNormalMaterial extends Material {
 
     /**

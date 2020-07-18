@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Geometry;
 import org.treblereel.gwt.three4g.math.Vector2;
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.math.Vector2;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name= "THREE.LatheGeometry", namespace = JsPackage.GLOBAL)
 public class LatheGeometry extends Geometry {
 
     public Vector2[] points;

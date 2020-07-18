@@ -3,6 +3,7 @@ package org.treblereel.gwt.three4g.animation;
 import elemental2.core.Float32Array;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.interpolants.CubicInterpolant;
@@ -13,7 +14,7 @@ import org.treblereel.gwt.three4g.math.interpolants.LinearInterpolant;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/12/18.
  */
-@JsType(namespace = "THREE", isNative = true)
+@JsType(name = "THREE.KeyframeTrack", namespace = JsPackage.GLOBAL, isNative = true)
 public class KeyframeTrack {  //TODO check it
 
     /**

@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.extras.core;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -8,7 +9,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/11/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.CurvePath", namespace = JsPackage.GLOBAL)
 public abstract class CurvePath extends Curve {
 
     /**

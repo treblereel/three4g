@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.materials;
 
 import elemental2.core.ArrayBufferView;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.textures.Texture;
 
@@ -12,7 +13,7 @@ import org.treblereel.gwt.three4g.textures.Texture;
  * @author Dmitrii Tikhomirov
  * Created by treblereel 6/28/20
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.DataTexture2DArray", namespace = JsPackage.GLOBAL)
 public class DataTexture2DArray extends Texture {
 
     /**

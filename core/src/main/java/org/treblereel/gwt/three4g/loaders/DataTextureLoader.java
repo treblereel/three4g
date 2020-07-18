@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.loaders;
 
+import jsinterop.annotations.JsConstructor;
 import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
 /**
@@ -14,13 +15,14 @@ public abstract class DataTextureLoader<L extends DataTextureLoader, V> extends 
      * Creates a new CompressedTextureLoader.
      */
     public DataTextureLoader() {
-
+        this(null);
     }
 
     /**
      * Creates a new CompressedTextureLoader.
      * @param manager — The loadingManager for the loader to use. Default is THREE.DefaultLoadingManager.
      */
+    @JsConstructor
     public DataTextureLoader(LoadingManager manager) {
 
     }

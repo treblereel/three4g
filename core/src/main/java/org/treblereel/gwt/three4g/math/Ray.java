@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.math;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -10,7 +11,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/24/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Ray", namespace = JsPackage.GLOBAL)
 public class Ray {
 
     /**

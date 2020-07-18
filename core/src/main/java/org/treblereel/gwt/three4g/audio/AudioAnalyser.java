@@ -2,6 +2,7 @@ package org.treblereel.gwt.three4g.audio;
 
 import elemental2.core.Uint8Array;
 import elemental2.media.AnalyserNode;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
@@ -12,7 +13,7 @@ import jsinterop.annotations.JsType;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/4/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.AudioAnalyser", namespace = JsPackage.GLOBAL)
 public class AudioAnalyser {
 
     /**

@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.textures.DataTexture;
@@ -11,7 +12,7 @@ import org.treblereel.gwt.three4g.textures.DataTexture;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 4/30/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Skeleton", namespace = JsPackage.GLOBAL)
 public class Skeleton {
 
     /**

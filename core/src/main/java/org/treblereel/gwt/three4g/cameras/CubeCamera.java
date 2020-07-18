@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.cameras;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.params.CubeCameraOptions;
 import org.treblereel.gwt.three4g.core.Object3D;
@@ -13,7 +14,7 @@ import org.treblereel.gwt.three4g.scenes.Scene;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 5/3/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.CubeCamera", namespace = JsPackage.GLOBAL)
 public class CubeCamera extends Object3D {
 
     /**

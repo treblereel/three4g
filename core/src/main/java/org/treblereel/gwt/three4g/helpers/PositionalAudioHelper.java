@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.audio.PositionalAudio;
 import org.treblereel.gwt.three4g.objects.Line;
@@ -9,7 +10,7 @@ import org.treblereel.gwt.three4g.objects.Line;
  * @author Dmitrii Tikhomirov
  * Created by treblereel 10/16/19
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.PositionalAudioHelper", namespace = JsPackage.GLOBAL)
 public class PositionalAudioHelper extends Line {
 
     /**

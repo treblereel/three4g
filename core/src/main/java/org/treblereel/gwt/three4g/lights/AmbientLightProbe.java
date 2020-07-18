@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.lights;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
 
@@ -8,7 +9,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * @author Dmitrii Tikhomirov
  * Created by treblereel 6/28/20
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.AmbientLightProbe", namespace = JsPackage.GLOBAL)
 public class AmbientLightProbe extends LightProbe {
 
     /**

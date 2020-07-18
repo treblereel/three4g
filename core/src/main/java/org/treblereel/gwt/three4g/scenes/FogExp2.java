@@ -1,5 +1,6 @@
 package org.treblereel.gwt.three4g.scenes;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
 
@@ -7,7 +8,7 @@ import org.treblereel.gwt.three4g.math.Color;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/9/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.FogExp2", namespace = JsPackage.GLOBAL)
 public class FogExp2 extends Fog {
 
     /**

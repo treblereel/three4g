@@ -1,6 +1,7 @@
 package org.treblereel.gwt.three4g.geometries;
 
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.BufferGeometry;
 
@@ -10,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferGeometry;
  * @author Dmitrii Tikhomirov
  * Created by treblereel on 3/22/18.
  */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.ParametricBufferGeometry", namespace = JsPackage.GLOBAL)
 public class ParametricBufferGeometry extends BufferGeometry<ParametricBufferGeometry> {
 
     /**
