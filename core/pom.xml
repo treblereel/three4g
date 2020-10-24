@@ -5,22 +5,22 @@
     <parent>
         <groupId>org.treblereel.gwt</groupId>
         <artifactId>three4g-parent</artifactId>
-        <version>0.109-SNAPSHOT</version>
+        <version>0.126.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
-    <artifactId>three4g</artifactId>
+    <artifactId>three4g-core</artifactId>
     <packaging>jar</packaging>
 
     <name>three4g-core</name>
-    <description>Three.js JsInterop based library for GWT</description>
+    <description>Three.js JsInteroped based library for GWT3</description>
     <url>https://github.com/treblereel</url>
 
     <developers>
         <developer>
             <id>treblereel</id>
             <name>Dmitrii Tikhomirov</name>
-            <email>chani@me.com</email>
+            <email>chani.liet@gmail.com</email>
         </developer>
     </developers>
 
@@ -44,12 +44,43 @@
         <tag>three4g-parent-0.102</tag>
     </scm>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.treblereel.j2cl.processors</groupId>
+            <artifactId>annotations</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.treblereel.j2cl.processors</groupId>
+            <artifactId>processors</artifactId>
+            <scope>provided</scope>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.jsinterop</groupId>
+            <artifactId>jsinterop-annotations</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.java</include>
+                    <include>**/*.js</include>
                 </includes>
             </resource>
             <resource>
@@ -57,6 +88,14 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -85,53 +124,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/target/generated-sources/annotations/</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-dom</artifactId>
-            <version>${com.google.elemental2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-media</artifactId>
-            <version>${com.google.elemental2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-webgl</artifactId>
-            <version>${com.google.elemental2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>elemental2-vr</artifactId>
-            <version>${org.treblereel.gwt.elemental2.vr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>elemental2-gamepad</artifactId>
-            <version>${org.treblereel.gwt.elemental2.gamepad.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>three4g-annotations</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-<!--        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>three4g-processor</artifactId>
-            <version>${project.version}</version>
-        </dependency>-->
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>
