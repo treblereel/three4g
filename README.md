@@ -49,9 +49,10 @@ WebGLRenderer  webGLRenderer = new WebGLRenderer();
 ```
 Like we do in Java world and pretty close to javascript original.
 
-# DEMO
-[here is a demo page with lots of examples](https://env-7073819.cloud.unispace.io)
+For a complete "hello world" app, have a look at [hello-three4g/](./hello-three4g/).
 
+# DEMO
+[here is a demo page with lots of examples](https://env-7073819.cloud-fr1.unispace.io)
 
 # License
  Licensed under the Apache License, Version 2.0
