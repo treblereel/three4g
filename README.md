@@ -9,7 +9,7 @@ Current Version 0.108, implements 0.108 version of three.js
 <dependency>
     <groupId>org.treblereel.gwt</groupId>
     <artifactId>three4g</artifactId>
-    <version>0.108-SNAPSHOT</version>
+    <version>0.108</version>
 </dependency>
 ```
 # Setup
