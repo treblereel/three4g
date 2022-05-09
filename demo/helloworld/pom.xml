@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.treblereel.gwt.demo</groupId>
+  <artifactId>helloworld</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <j2cl.maven.plugin.version>0.19</j2cl.maven.plugin.version>
+    <elemental2.version>1.1.0</elemental2.version>
+
+    <jsinterop.base.version>1.0.0</jsinterop.base.version>
+    <j2cl.version>0.10.0-3c97afeac</j2cl.version>
+
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.jetty.plugin.version>9.4.44.v20210927</maven.jetty.plugin.version>
+    <maven.war.plugin.version>3.3.2</maven.war.plugin.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.treblereel.j2cl.processors</groupId>
+      <artifactId>processors</artifactId>
+      <version>0.3</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.j2cl.processors</groupId>
+      <artifactId>annotations</artifactId>
+      <version>0.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.gwt</groupId>
+      <artifactId>three4g</artifactId>
+      <version>0.135-SNAPSHOT</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${maven.war.plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>com.vertispan.j2cl</groupId>
+        <artifactId>j2cl-maven-plugin</artifactId>
+        <version>${j2cl.maven.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>build</id>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>watch</id>
+            <goals>
+              <goal>watch</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <compilationLevel>ADVANCED</compilationLevel>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${maven.jetty.plugin.version}</version>
+        <configuration>
+          <webApp>
+            <resourceBases>
+              <!-- Serve static content without copying from src/main/webapp -->
+              <resourceBase>src/main/webapp</resourceBase>
+              <!-- Serve compiled JS built by J2CL -->
+              <resourceBase>${project.build.directory}/${project.build.finalName}</resourceBase>
+            </resourceBases>
+          </webApp>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
