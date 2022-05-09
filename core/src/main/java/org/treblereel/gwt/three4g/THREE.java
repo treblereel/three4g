@@ -1418,206 +1418,206 @@ public class THREE {
     void setSpecularmap(THREE.UniformsLibType.SpecularmapFieldType specularmap);
   }
 
-  public static double ACESFilmicToneMapping;
-  public static double AddEquation;
-  public static double AddOperation;
-  public static double AdditiveAnimationBlendMode;
-  public static double AdditiveBlending;
-  public static double AlphaFormat;
-  public static double AlwaysDepth;
-  public static double AlwaysStencilFunc;
-  public static double BackSide;
-  public static double BasicDepthPacking;
-  public static double BasicShadowMap;
+  public static int ACESFilmicToneMapping;
+  public static int AddEquation;
+  public static int AddOperation;
+  public static int AdditiveAnimationBlendMode;
+  public static int AdditiveBlending;
+  public static int AlphaFormat;
+  public static int AlwaysDepth;
+  public static int AlwaysStencilFunc;
+  public static int BackSide;
+  public static int BasicDepthPacking;
+  public static int BasicShadowMap;
   public static String BuiltinShaderAttributeName;
-  public static double ByteType;
-  public static double CineonToneMapping;
-  public static double ClampToEdgeWrapping;
-  public static double CubeReflectionMapping;
-  public static double CubeRefractionMapping;
-  public static double CubeUVReflectionMapping;
-  public static double CubeUVRefractionMapping;
-  public static double CullFaceBack;
-  public static double CullFaceFront;
-  public static double CullFaceFrontBack;
-  public static double CullFaceNone;
-  public static double CustomBlending;
-  public static double DecrementStencilOp;
-  public static double DecrementWrapStencilOp;
-  public static double DepthFormat;
-  public static double DepthStencilFormat;
-  public static double DoubleSide;
-  public static double DstAlphaFactor;
-  public static double DstColorFactor;
-  public static double DynamicCopyUsage;
-  public static double DynamicDrawUsage;
-  public static double DynamicReadUsage;
-  public static double EqualDepth;
-  public static double EqualStencilFunc;
-  public static double EquirectangularReflectionMapping;
-  public static double EquirectangularRefractionMapping;
-  public static double FlatShading;
-  public static double FloatType;
-  public static double FrontSide;
-  public static double GLSL1;
-  public static double GLSL3;
-  public static double GammaEncoding;
-  public static double GreaterDepth;
-  public static double GreaterEqualDepth;
-  public static double GreaterEqualStencilFunc;
-  public static double GreaterStencilFunc;
-  public static double HalfFloatType;
-  public static double IncrementStencilOp;
-  public static double IncrementWrapStencilOp;
-  public static double IntType;
-  public static double InterpolateDiscrete;
-  public static double InterpolateLinear;
-  public static double InterpolateSmooth;
-  public static double InvertStencilOp;
-  public static double KeepStencilOp;
-  public static double LessDepth;
-  public static double LessEqualDepth;
-  public static double LessEqualStencilFunc;
-  public static double LessStencilFunc;
-  public static double LinearEncoding;
-  public static double LinearFilter;
-  public static double LinearMipMapLinearFilter;
-  public static double LinearMipMapNearestFilter;
-  public static double LinearMipmapLinearFilter;
-  public static double LinearMipmapNearestFilter;
-  public static double LinearToneMapping;
-  public static double LogLuvEncoding;
-  public static double LoopOnce;
-  public static double LoopPingPong;
-  public static double LoopRepeat;
-  public static double LuminanceAlphaFormat;
-  public static double LuminanceFormat;
+  public static int ByteType;
+  public static int CineonToneMapping;
+  public static int ClampToEdgeWrapping;
+  public static int CubeReflectionMapping;
+  public static int CubeRefractionMapping;
+  public static int CubeUVReflectionMapping;
+  public static int CubeUVRefractionMapping;
+  public static int CullFaceBack;
+  public static int CullFaceFront;
+  public static int CullFaceFrontBack;
+  public static int CullFaceNone;
+  public static int CustomBlending;
+  public static int DecrementStencilOp;
+  public static int DecrementWrapStencilOp;
+  public static int DepthFormat;
+  public static int DepthStencilFormat;
+  public static int DoubleSide;
+  public static int DstAlphaFactor;
+  public static int DstColorFactor;
+  public static int DynamicCopyUsage;
+  public static int DynamicDrawUsage;
+  public static int DynamicReadUsage;
+  public static int EqualDepth;
+  public static int EqualStencilFunc;
+  public static int EquirectangularReflectionMapping;
+  public static int EquirectangularRefractionMapping;
+  public static int FlatShading;
+  public static int FloatType;
+  public static int FrontSide;
+  public static int GLSL1;
+  public static int GLSL3;
+  public static int GammaEncoding;
+  public static int GreaterDepth;
+  public static int GreaterEqualDepth;
+  public static int GreaterEqualStencilFunc;
+  public static int GreaterStencilFunc;
+  public static int HalfFloatType;
+  public static int IncrementStencilOp;
+  public static int IncrementWrapStencilOp;
+  public static int IntType;
+  public static int InterpolateDiscrete;
+  public static int InterpolateLinear;
+  public static int InterpolateSmooth;
+  public static int InvertStencilOp;
+  public static int KeepStencilOp;
+  public static int LessDepth;
+  public static int LessEqualDepth;
+  public static int LessEqualStencilFunc;
+  public static int LessStencilFunc;
+  public static int LinearEncoding;
+  public static int LinearFilter;
+  public static int LinearMipMapLinearFilter;
+  public static int LinearMipMapNearestFilter;
+  public static int LinearMipmapLinearFilter;
+  public static int LinearMipmapNearestFilter;
+  public static int LinearToneMapping;
+  public static int LogLuvEncoding;
+  public static int LoopOnce;
+  public static int LoopPingPong;
+  public static int LoopRepeat;
+  public static int LuminanceAlphaFormat;
+  public static int LuminanceFormat;
   public static JsArray<Double> Matrix3Tuple;
   public static JsArray<Double> Matrix4Tuple;
-  public static double MaxEquation;
-  public static double MinEquation;
-  public static double MirroredRepeatWrapping;
-  public static double MixOperation;
-  public static double MultiplyBlending;
-  public static double MultiplyOperation;
-  public static double NearestFilter;
-  public static double NearestMipMapLinearFilter;
-  public static double NearestMipMapNearestFilter;
-  public static double NearestMipmapLinearFilter;
-  public static double NearestMipmapNearestFilter;
-  public static double NeverDepth;
-  public static double NeverStencilFunc;
-  public static double NoBlending;
-  public static double NoToneMapping;
-  public static double NormalAnimationBlendMode;
-  public static double NormalBlending;
-  public static double NotEqualDepth;
-  public static double NotEqualStencilFunc;
-  public static double ObjectSpaceNormalMap;
-  public static double OneFactor;
-  public static double OneMinusDstAlphaFactor;
-  public static double OneMinusDstColorFactor;
-  public static double OneMinusSrcAlphaFactor;
-  public static double OneMinusSrcColorFactor;
-  public static double PCFShadowMap;
-  public static double PCFSoftShadowMap;
+  public static int MaxEquation;
+  public static int MinEquation;
+  public static int MirroredRepeatWrapping;
+  public static int MixOperation;
+  public static int MultiplyBlending;
+  public static int MultiplyOperation;
+  public static int NearestFilter;
+  public static int NearestMipMapLinearFilter;
+  public static int NearestMipMapNearestFilter;
+  public static int NearestMipmapLinearFilter;
+  public static int NearestMipmapNearestFilter;
+  public static int NeverDepth;
+  public static int NeverStencilFunc;
+  public static int NoBlending;
+  public static int NoToneMapping;
+  public static int NormalAnimationBlendMode;
+  public static int NormalBlending;
+  public static int NotEqualDepth;
+  public static int NotEqualStencilFunc;
+  public static int ObjectSpaceNormalMap;
+  public static int OneFactor;
+  public static int OneMinusDstAlphaFactor;
+  public static int OneMinusDstColorFactor;
+  public static int OneMinusSrcAlphaFactor;
+  public static int OneMinusSrcColorFactor;
+  public static int PCFShadowMap;
+  public static int PCFSoftShadowMap;
   public static String PixelFormatGPU;
   public static String REVISION;
-  public static double RGBADepthPacking;
-  public static double RGBAFormat;
-  public static double RGBAIntegerFormat;
-  public static double RGBA_ASTC_10x10_Format;
-  public static double RGBA_ASTC_10x5_Format;
-  public static double RGBA_ASTC_10x6_Format;
-  public static double RGBA_ASTC_10x8_Format;
-  public static double RGBA_ASTC_12x10_Format;
-  public static double RGBA_ASTC_12x12_Format;
-  public static double RGBA_ASTC_4x4_Format;
-  public static double RGBA_ASTC_5x4_Format;
-  public static double RGBA_ASTC_5x5_Format;
-  public static double RGBA_ASTC_6x5_Format;
-  public static double RGBA_ASTC_6x6_Format;
-  public static double RGBA_ASTC_8x5_Format;
-  public static double RGBA_ASTC_8x6_Format;
-  public static double RGBA_ASTC_8x8_Format;
-  public static double RGBA_BPTC_Format;
-  public static double RGBA_ETC2_EAC_Format;
-  public static double RGBA_PVRTC_2BPPV1_Format;
-  public static double RGBA_PVRTC_4BPPV1_Format;
-  public static double RGBA_S3TC_DXT1_Format;
-  public static double RGBA_S3TC_DXT3_Format;
-  public static double RGBA_S3TC_DXT5_Format;
-  public static double RGBDEncoding;
-  public static double RGBEEncoding;
-  public static double RGBEFormat;
-  public static double RGBFormat;
-  public static double RGBIntegerFormat;
-  public static double RGBM16Encoding;
-  public static double RGBM7Encoding;
-  public static double RGB_ETC1_Format;
-  public static double RGB_ETC2_Format;
-  public static double RGB_PVRTC_2BPPV1_Format;
-  public static double RGB_PVRTC_4BPPV1_Format;
-  public static double RGB_S3TC_DXT1_Format;
-  public static double RGFormat;
-  public static double RGIntegerFormat;
-  public static double RedFormat;
-  public static double RedIntegerFormat;
-  public static double ReinhardToneMapping;
-  public static double RepeatWrapping;
-  public static double ReplaceStencilOp;
-  public static double ReverseSubtractEquation;
-  public static double SRGB8_ALPHA8_ASTC_10x10_Format;
-  public static double SRGB8_ALPHA8_ASTC_10x5_Format;
-  public static double SRGB8_ALPHA8_ASTC_10x6_Format;
-  public static double SRGB8_ALPHA8_ASTC_10x8_Format;
-  public static double SRGB8_ALPHA8_ASTC_12x10_Format;
-  public static double SRGB8_ALPHA8_ASTC_12x12_Format;
-  public static double SRGB8_ALPHA8_ASTC_4x4_Format;
-  public static double SRGB8_ALPHA8_ASTC_5x4_Format;
-  public static double SRGB8_ALPHA8_ASTC_5x5_Format;
-  public static double SRGB8_ALPHA8_ASTC_6x5_Format;
-  public static double SRGB8_ALPHA8_ASTC_6x6_Format;
-  public static double SRGB8_ALPHA8_ASTC_8x5_Format;
-  public static double SRGB8_ALPHA8_ASTC_8x6_Format;
-  public static double SRGB8_ALPHA8_ASTC_8x8_Format;
-  public static double ShortType;
-  public static double SmoothShading;
-  public static double SrcAlphaFactor;
-  public static double SrcAlphaSaturateFactor;
-  public static double SrcColorFactor;
-  public static double StaticCopyUsage;
-  public static double StaticDrawUsage;
-  public static double StaticReadUsage;
-  public static double StreamCopyUsage;
-  public static double StreamDrawUsage;
-  public static double StreamReadUsage;
-  public static double SubtractEquation;
-  public static double SubtractiveBlending;
-  public static double TangentSpaceNormalMap;
-  public static double TriangleFanDrawMode;
-  public static double TriangleStripDrawMode;
-  public static double TrianglesDrawMode;
-  public static double UVMapping;
+  public static int RGBADepthPacking;
+  public static int RGBAFormat;
+  public static int RGBAIntegerFormat;
+  public static int RGBA_ASTC_10x10_Format;
+  public static int RGBA_ASTC_10x5_Format;
+  public static int RGBA_ASTC_10x6_Format;
+  public static int RGBA_ASTC_10x8_Format;
+  public static int RGBA_ASTC_12x10_Format;
+  public static int RGBA_ASTC_12x12_Format;
+  public static int RGBA_ASTC_4x4_Format;
+  public static int RGBA_ASTC_5x4_Format;
+  public static int RGBA_ASTC_5x5_Format;
+  public static int RGBA_ASTC_6x5_Format;
+  public static int RGBA_ASTC_6x6_Format;
+  public static int RGBA_ASTC_8x5_Format;
+  public static int RGBA_ASTC_8x6_Format;
+  public static int RGBA_ASTC_8x8_Format;
+  public static int RGBA_BPTC_Format;
+  public static int RGBA_ETC2_EAC_Format;
+  public static int RGBA_PVRTC_2BPPV1_Format;
+  public static int RGBA_PVRTC_4BPPV1_Format;
+  public static int RGBA_S3TC_DXT1_Format;
+  public static int RGBA_S3TC_DXT3_Format;
+  public static int RGBA_S3TC_DXT5_Format;
+  public static int RGBDEncoding;
+  public static int RGBEEncoding;
+  public static int RGBEFormat;
+  public static int RGBFormat;
+  public static int RGBIntegerFormat;
+  public static int RGBM16Encoding;
+  public static int RGBM7Encoding;
+  public static int RGB_ETC1_Format;
+  public static int RGB_ETC2_Format;
+  public static int RGB_PVRTC_2BPPV1_Format;
+  public static int RGB_PVRTC_4BPPV1_Format;
+  public static int RGB_S3TC_DXT1_Format;
+  public static int RGFormat;
+  public static int RGIntegerFormat;
+  public static int RedFormat;
+  public static int RedIntegerFormat;
+  public static int ReinhardToneMapping;
+  public static int RepeatWrapping;
+  public static int ReplaceStencilOp;
+  public static int ReverseSubtractEquation;
+  public static int SRGB8_ALPHA8_ASTC_10x10_Format;
+  public static int SRGB8_ALPHA8_ASTC_10x5_Format;
+  public static int SRGB8_ALPHA8_ASTC_10x6_Format;
+  public static int SRGB8_ALPHA8_ASTC_10x8_Format;
+  public static int SRGB8_ALPHA8_ASTC_12x10_Format;
+  public static int SRGB8_ALPHA8_ASTC_12x12_Format;
+  public static int SRGB8_ALPHA8_ASTC_4x4_Format;
+  public static int SRGB8_ALPHA8_ASTC_5x4_Format;
+  public static int SRGB8_ALPHA8_ASTC_5x5_Format;
+  public static int SRGB8_ALPHA8_ASTC_6x5_Format;
+  public static int SRGB8_ALPHA8_ASTC_6x6_Format;
+  public static int SRGB8_ALPHA8_ASTC_8x5_Format;
+  public static int SRGB8_ALPHA8_ASTC_8x6_Format;
+  public static int SRGB8_ALPHA8_ASTC_8x8_Format;
+  public static int ShortType;
+  public static int SmoothShading;
+  public static int SrcAlphaFactor;
+  public static int SrcAlphaSaturateFactor;
+  public static int SrcColorFactor;
+  public static int StaticCopyUsage;
+  public static int StaticDrawUsage;
+  public static int StaticReadUsage;
+  public static int StreamCopyUsage;
+  public static int StreamDrawUsage;
+  public static int StreamReadUsage;
+  public static int SubtractEquation;
+  public static int SubtractiveBlending;
+  public static int TangentSpaceNormalMap;
+  public static int TriangleFanDrawMode;
+  public static int TriangleStripDrawMode;
+  public static int TrianglesDrawMode;
+  public static int UVMapping;
   public static THREE.UniformsLibType UniformsLib;
-  public static double UnsignedByteType;
-  public static double UnsignedInt248Type;
-  public static double UnsignedIntType;
-  public static double UnsignedShort4444Type;
-  public static double UnsignedShort5551Type;
-  public static double UnsignedShort565Type;
-  public static double UnsignedShortType;
-  public static double VSMShadowMap;
+  public static int UnsignedByteType;
+  public static int UnsignedInt248Type;
+  public static int UnsignedIntType;
+  public static int UnsignedShort4444Type;
+  public static int UnsignedShort5551Type;
+  public static int UnsignedShort565Type;
+  public static int UnsignedShortType;
+  public static int VSMShadowMap;
   public static JsArray<JsObject> Vector2Tuple;
   public static JsArray<JsObject> Vector3Tuple;
   public static JsArray<JsObject> Vector4Tuple;
-  public static double WrapAroundEnding;
+  public static int WrapAroundEnding;
   public static String XRControllerEventType;
-  public static double ZeroCurvatureEnding;
-  public static double ZeroFactor;
-  public static double ZeroSlopeEnding;
-  public static double ZeroStencilOp;
-  public static double sRGBEncoding;
+  public static int ZeroCurvatureEnding;
+  public static int ZeroFactor;
+  public static int ZeroSlopeEnding;
+  public static int ZeroStencilOp;
+  public static int sRGBEncoding;
 
   public static native Object CatmullRomCurve3();
 
@@ -1627,4 +1627,300 @@ public class THREE {
 
   public static native WebGLShader WebGLShader(
       WebGLRenderingContext gl, String type, String string);
+
+
+  // GL STATE CONSTANTS
+  public static class CullFace {
+    public static int CullFaceBack = THREE.CullFaceBack;
+    public static int CullFaceFront = THREE.CullFaceFront;
+    public static int CullFaceFrontBack = THREE.CullFaceFrontBack;
+    public static int CullFaceNone = THREE.CullFaceNone;
+  }
+
+  // Shadowing Type
+  public static class ShadowMapType {
+    public static int BasicShadowMap = THREE.BasicShadowMap;
+    public static int PCFShadowMap = THREE.PCFShadowMap;
+    public static int PCFSoftShadowMap = THREE.PCFSoftShadowMap;
+    public static int VSMShadowMap = THREE.VSMShadowMap;
+  }
+
+  // MATERIAL CONSTANTS
+
+  // side
+  public static class Side {
+    public static int FrontSide = THREE.FrontSide;
+    public static int BackSide = THREE.BackSide;
+    public static int DoubleSide = THREE.DoubleSide;
+  }
+
+  // shading
+  public static class Shading {
+    public static int FlatShading = THREE.FlatShading;
+    public static int SmoothShading = THREE.SmoothShading;
+  }
+
+  // blending modes
+  public static class Blending {
+    public static int NoBlending = THREE.NoBlending;
+    public static int NormalBlending = THREE.NormalBlending;
+    public static int AdditiveBlending = THREE.AdditiveBlending;
+    public static int SubtractiveBlending = THREE.SubtractiveBlending;
+    public static int MultiplyBlending = THREE.MultiplyBlending;
+    public static int CustomBlending = THREE.CustomBlending;
+  }
+
+  // custom blending equations
+  // (numbers start from 100 not to clash with other
+  // mappings to OpenGL constants defined in Texture.js)
+  public static class BlendingEquation {
+    public static int AddEquation = THREE.AddEquation;
+    public static int SubtractEquation = THREE.SubtractEquation;
+    public static int ReverseSubtractEquation = THREE.ReverseSubtractEquation;
+    public static int MinEquation = THREE.MinEquation;
+    public static int MaxEquation = THREE.MaxEquation;
+  }
+
+  // custom blending destination factors
+  public static class BlendingDstFactor {
+    public static int ZeroFactor = THREE.ZeroFactor;
+    public static int OneFactor = THREE.OneFactor;
+    public static int SrcColorFactor = THREE.SrcColorFactor;
+    public static int OneMinusSrcColorFactor = THREE.OneMinusSrcColorFactor;
+    public static int SrcAlphaFactor = THREE.SrcAlphaFactor;
+    public static int OneMinusSrcAlphaFactor = THREE.OneMinusSrcAlphaFactor;
+    public static int DstAlphaFactor = THREE.DstAlphaFactor;
+    public static int OneMinusDstAlphaFactor = THREE.OneMinusDstAlphaFactor;
+    public static int DstColorFactor = THREE.DstColorFactor;
+    public static int OneMinusDstColorFactor = THREE.OneMinusDstColorFactor;
+  }
+
+  // custom blending src factors
+  public static class BlendingSrcFactor {
+    public static int SrcAlphaSaturateFactor = THREE.SrcAlphaSaturateFactor;
+  }
+
+  // depth modes
+  public static class DepthModes {
+    public static int NeverDepth = THREE.NeverDepth;
+    public static int AlwaysDepth = THREE.AlwaysDepth;
+    public static int LessDepth = THREE.LessDepth;
+    public static int LessEqualDepth = THREE.LessEqualDepth;
+    public static int EqualDepth = THREE.EqualDepth;
+    public static int GreaterEqualDepth = THREE.GreaterEqualDepth;
+    public static int GreaterDepth = THREE.GreaterDepth;
+    public static int NotEqualDepth = THREE.NotEqualDepth;
+  }
+
+  // TEXTURE CONSTANTS
+  // Operations
+  public static class Combine {
+    public static int MultiplyOperation = THREE.MultiplyOperation;
+    public static int MixOperation = THREE.MixOperation;
+    public static int AddOperation = THREE.AddOperation;
+  }
+
+  // Tone Mapping modes
+  public static class ToneMapping {
+    public static int NoToneMapping = THREE.NoToneMapping;
+    public static int LinearToneMapping = THREE.LinearToneMapping;
+    public static int ReinhardToneMapping = THREE.ReinhardToneMapping;
+    public static int CineonToneMapping = THREE.CineonToneMapping;
+    public static int ACESFilmicToneMapping = THREE.ACESFilmicToneMapping;
+    //public static int CustomToneMapping = THREE.CustomToneMapping;
+  }
+
+  // Mapping modes
+  public static class Mapping {
+    public static int UVMapping = THREE.UVMapping;
+    public static int CubeReflectionMapping = THREE.CubeReflectionMapping;
+    public static int CubeRefractionMapping = THREE.CubeRefractionMapping;
+    public static int EquirectangularReflectionMapping = THREE.EquirectangularReflectionMapping;
+    public static int EquirectangularRefractionMapping = THREE.EquirectangularRefractionMapping;
+    public static int CubeUVReflectionMapping = THREE.CubeUVReflectionMapping;
+  }
+
+  // Wrapping modes
+  public static class Wrapping {
+    public static int RepeatWrapping = THREE.RepeatWrapping;
+    public static int ClampToEdgeWrapping = THREE.ClampToEdgeWrapping;
+    public static int MirroredRepeatWrapping = THREE.MirroredRepeatWrapping;
+  }
+
+  // Filters
+  public static class TextureFilter {
+    public static int NearestFilter = THREE.NearestFilter;
+    public static int NearestMipmapNearestFilter = THREE.NearestMipmapNearestFilter;
+    public static int NearestMipMapNearestFilter = THREE.NearestMipMapNearestFilter;
+    public static int NearestMipmapLinearFilter = THREE.NearestMipmapLinearFilter;
+    public static int NearestMipMapLinearFilter = THREE.NearestMipMapLinearFilter;
+    public static int LinearFilter = THREE.LinearFilter;
+    public static int LinearMipmapNearestFilter = THREE.LinearMipmapNearestFilter;
+    public static int LinearMipMapNearestFilter = THREE.LinearMipMapNearestFilter;
+    public static int LinearMipmapLinearFilter = THREE.LinearMipmapLinearFilter;
+    public static int LinearMipMapLinearFilter = THREE.LinearMipMapLinearFilter;
+  }
+
+  // Data types
+  public static class TextureDataType {
+    public static int UnsignedByteType = THREE.UnsignedByteType;
+    public static int ByteType = THREE.ByteType;
+    public static int ShortType = THREE.ShortType;
+    public static int UnsignedShortType = THREE.UnsignedShortType;
+    public static int IntType = THREE.IntType;
+    public static int UnsignedIntType = THREE.UnsignedIntType;
+    public static int FloatType = THREE.FloatType;
+    public static int HalfFloatType = THREE.HalfFloatType;
+    public static int UnsignedShort4444Type = THREE.UnsignedShort4444Type;
+    public static int UnsignedShort5551Type = THREE.UnsignedShort5551Type;
+    public static int UnsignedInt248Type = THREE.UnsignedInt248Type;
+  }
+
+  // Pixel formats
+  public static class PixelFormat {
+    public static int AlphaFormat = THREE.AlphaFormat;
+    public static int RGBFormat = THREE.RGBFormat;
+    public static int RGBAFormat = THREE.RGBAFormat;
+    public static int LuminanceFormat = THREE.LuminanceFormat;
+    public static int LuminanceAlphaFormat = THREE.LuminanceAlphaFormat;
+    public static int DepthFormat = THREE.DepthFormat;
+    public static int DepthStencilFormat = THREE.DepthStencilFormat;
+    public static int RedFormat = THREE.RedFormat;
+    public static int RedIntegerFormat = THREE.RedIntegerFormat;
+    public static int RGFormat = THREE.RGFormat;
+    public static int RGIntegerFormat = THREE.RGIntegerFormat;
+    public static int RGBAIntegerFormat = THREE.RGBAIntegerFormat;
+    //public static int _SRGBFormat = THREE._SRGBFormat;
+    //public static int _SRGBAFormat = THREE._SRGBAFormat;
+  }
+
+  // Loop styles for AnimationAction
+  public static class AnimationActionLoopStyles {
+    public static int LoopOnce = THREE.LoopOnce;
+    public static int LoopRepeat = THREE.LoopRepeat;
+    public static int LoopPingPong = THREE.LoopPingPong;
+  }
+
+  // Interpolation
+  public static class InterpolationModes {
+    public static int InterpolateDiscrete = THREE.InterpolateDiscrete;
+    public static int InterpolateLinear = THREE.InterpolateLinear;
+    public static int InterpolateSmooth = THREE.InterpolateSmooth;
+  }
+
+  // Interpolant ending modes
+  public static class InterpolationEndingModes {
+    public static int ZeroCurvatureEnding = THREE.ZeroCurvatureEnding;
+    public static int ZeroSlopeEnding = THREE.ZeroSlopeEnding;
+    public static int WrapAroundEnding = THREE.WrapAroundEnding;
+  }
+
+  // Animation blending modes
+  public static class AnimationBlendMode {
+    public static int NormalAnimationBlendMode = THREE.NormalAnimationBlendMode;
+    public static int AdditiveAnimationBlendMode = THREE.AdditiveAnimationBlendMode;
+  }
+
+  // Triangle Draw modes
+  public static class TrianglesDrawModes {
+    public static int TrianglesDrawMode = THREE.TrianglesDrawMode;
+    public static int TriangleStripDrawMode = THREE.TriangleStripDrawMode;
+    public static int TriangleFanDrawMode = THREE.TriangleFanDrawMode;
+  }
+
+  // Texture Encodings
+  public static class TextureEncoding {
+    public static int LinearEncoding = THREE.LinearEncoding;
+    public static int sRGBEncoding = THREE.sRGBEncoding;
+  }
+
+  // Depth packing strategies
+  public static class DepthPackingStrategies {
+    public static int BasicDepthPacking = THREE.BasicDepthPacking;
+    public static int RGBADepthPacking = THREE.RGBADepthPacking;
+  }
+
+  // Normal Map types
+  public static class NormalMapTypes {
+    public static int TangentSpaceNormalMap = THREE.TangentSpaceNormalMap;
+    public static int ObjectSpaceNormalMap = THREE.ObjectSpaceNormalMap;
+  }
+
+  // Stencil Op types
+  public static class StencilOp {
+    public static int ZeroStencilOp = THREE.ZeroStencilOp;
+    public static int KeepStencilOp = THREE.KeepStencilOp;
+    public static int ReplaceStencilOp = THREE.ReplaceStencilOp;
+    public static int IncrementStencilOp = THREE.IncrementStencilOp;
+    public static int DecrementStencilOp = THREE.DecrementStencilOp;
+    public static int IncrementWrapStencilOp = THREE.IncrementWrapStencilOp;
+    public static int DecrementWrapStencilOp = THREE.DecrementWrapStencilOp;
+    public static int InvertStencilOp = THREE.InvertStencilOp;
+  }
+
+  // Stencil Func types
+  public static class StencilFunc {
+    public static int NeverStencilFunc = THREE.NeverStencilFunc;
+    public static int LessStencilFunc = THREE.LessStencilFunc;
+    public static int EqualStencilFunc = THREE.EqualStencilFunc;
+    public static int LessEqualStencilFunc = THREE.LessEqualStencilFunc;
+    public static int GreaterStencilFunc = THREE.GreaterStencilFunc;
+    public static int NotEqualStencilFunc = THREE.NotEqualStencilFunc;
+    public static int GreaterEqualStencilFunc = THREE.GreaterEqualStencilFunc;
+    public static int AlwaysStencilFunc = THREE.AlwaysStencilFunc;
+  }
+
+  // usage types
+  public static class Usage {
+    public static int StaticDrawUsage = THREE.StaticDrawUsage;
+    public static int DynamicDrawUsage = THREE.DynamicDrawUsage;
+    public static int StreamDrawUsage = THREE.StreamDrawUsage;
+    public static int StaticReadUsage = THREE.StaticReadUsage;
+    public static int DynamicReadUsage = THREE.DynamicReadUsage;
+    public static int StreamReadUsage = THREE.StreamReadUsage;
+    public static int StaticCopyUsage = THREE.StaticCopyUsage;
+    public static int DynamicCopyUsage = THREE.DynamicCopyUsage;
+    public static int StreamCopyUsage = THREE.StreamCopyUsage;
+  }
+
+  // Compressed texture formats
+  // DDS / ST3C Compressed texture formats
+  public static class CompressedPixelFormat {
+    public static int RGB_S3TC_DXT1_Format = THREE.RGB_S3TC_DXT1_Format;
+    public static int RGBA_S3TC_DXT1_Format = THREE.RGBA_S3TC_DXT1_Format;
+    public static int RGBA_S3TC_DXT3_Format = THREE.RGBA_S3TC_DXT3_Format;
+    public static int RGBA_S3TC_DXT5_Format = THREE.RGBA_S3TC_DXT5_Format;
+
+    public static int RGB_PVRTC_4BPPV1_Format = THREE.RGB_PVRTC_4BPPV1_Format;
+    public static int RGB_PVRTC_2BPPV1_Format = THREE.RGB_PVRTC_2BPPV1_Format;
+    public static int RGBA_PVRTC_4BPPV1_Format = THREE.RGBA_PVRTC_4BPPV1_Format;
+    public static int RGBA_PVRTC_2BPPV1_Format = THREE.RGBA_PVRTC_2BPPV1_Format;
+
+    public static int RGB_ETC1_Format = THREE.RGB_ETC1_Format;
+    public static int RGB_ETC2_Format = THREE.RGB_ETC2_Format;
+    public static int RGBA_ETC2_EAC_Format = THREE.RGBA_ETC2_EAC_Format;
+
+    public static int RGBA_ASTC_4x4_Format = THREE.RGBA_ASTC_4x4_Format;
+    public static int RGBA_ASTC_5x4_Format = THREE.RGBA_ASTC_5x4_Format;
+    public static int RGBA_ASTC_5x5_Format = THREE.RGBA_ASTC_5x5_Format;
+    public static int RGBA_ASTC_6x5_Format = THREE.RGBA_ASTC_6x5_Format;
+    public static int RGBA_ASTC_6x6_Format = THREE.RGBA_ASTC_6x6_Format;
+    public static int RGBA_ASTC_8x5_Format = THREE.RGBA_ASTC_8x5_Format;
+    public static int RGBA_ASTC_8x6_Format = THREE.RGBA_ASTC_8x6_Format;
+    public static int RGBA_ASTC_8x8_Format = THREE.RGBA_ASTC_8x8_Format;
+    public static int RGBA_ASTC_10x5_Format = THREE.RGBA_ASTC_10x5_Format;
+    public static int RGBA_ASTC_10x6_Format = THREE.RGBA_ASTC_10x6_Format;
+    public static int RGBA_ASTC_10x8_Format = THREE.RGBA_ASTC_10x8_Format;
+    public static int RGBA_ASTC_10x10_Format = THREE.RGBA_ASTC_10x10_Format;
+    public static int RGBA_ASTC_12x10_Format = THREE.RGBA_ASTC_12x10_Format;
+    public static int RGBA_ASTC_12x12_Format = THREE.RGBA_ASTC_12x12_Format;
+
+    public static int RGBA_BPTC_Format = THREE.RGBA_BPTC_Format;
+  }
+
+  // Normal Map types
+  public static class GLSLVersion {
+    public static int GLSL1 = THREE.GLSL1;
+    public static int GLSL3 = THREE.GLSL3;
+  }
 }
