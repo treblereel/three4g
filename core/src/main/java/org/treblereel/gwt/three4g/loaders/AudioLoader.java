@@ -1,27 +1,51 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import elemental2.media.AudioBuffer;
-import jsinterop.annotations.JsConstructor;
+import elemental2.dom.ErrorEvent;
+import elemental2.dom.EventTarget;
+import elemental2.dom.ProgressEvent;
+import elemental2.promise.Promise;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
 
-/**
- * Class for loading an AudioBuffer. This uses the FileLoader internally for loading files.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/26/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class AudioLoader extends Loader<AudioLoader, AudioBuffer> {
+@JsType(isNative = true, name = "THREE.AudioLoader", namespace = JsPackage.GLOBAL)
+public class AudioLoader extends Loader {
+  @JsFunction
+  public interface LoadAsyncOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
 
-    @JsConstructor
-    public AudioLoader() {
+  @JsFunction
+  public interface LoadOnErrorFn {
+    void onInvoke(ErrorEvent p0);
+  }
 
-    }
+  @JsFunction
+  public interface LoadOnLoadFn {
+    void onInvoke(Object p0);
+  }
 
-    @JsConstructor
-    public AudioLoader(LoadingManager manager) {
+  @JsFunction
+  public interface LoadOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
 
-    }
+  public AudioLoader() {}
 
+  public AudioLoader(LoadingManager manager) {}
+
+  public native void load(
+      String url,
+      AudioLoader.LoadOnLoadFn onLoad,
+      AudioLoader.LoadOnProgressFn onProgress,
+      AudioLoader.LoadOnErrorFn onError);
+
+  public native void load(
+      String url, AudioLoader.LoadOnLoadFn onLoad, AudioLoader.LoadOnProgressFn onProgress);
+
+  public native void load(String url, AudioLoader.LoadOnLoadFn onLoad);
+
+  public native Promise<Object> loadAsync(String url, AudioLoader.LoadAsyncOnProgressFn onProgress);
+
+  public native Promise<Object> loadAsync(String url);
 }

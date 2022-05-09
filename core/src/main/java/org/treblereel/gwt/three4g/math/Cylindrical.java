@@ -1,69 +1,31 @@
 package org.treblereel.gwt.three4g.math;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-/**
- * A point's cylindrical coordinates.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/1/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Cylindrical", namespace = JsPackage.GLOBAL)
 public class Cylindrical {
+  public double radius;
+  public double theta;
+  public double y;
 
-    public float radius;
+  public Cylindrical() {}
 
-    public float theta;
+  public Cylindrical(double radius, double theta, double y) {}
 
-    public float y;
+  public Cylindrical(double radius, double theta) {}
 
-    @JsConstructor
-    public Cylindrical(float radius, float theta, float y) {
+  public Cylindrical(double radius) {}
 
-    }
+  @JsMethod(name = "clone")
+  public native Cylindrical clone_();
 
-    /**
-     * Returns a new cylindrical with the same radius, theta and y properties as this one.
-     *
-     * @return Cylindrical
-     */
-    public native Cylindrical clone();
+  public native Cylindrical copy(Cylindrical other);
 
-    /**
-     * Copies the values of the passed Cylindrical's radius, theta and y properties to this cylindrical.
-     *
-     * @param other Cylindrical
-     * @return Cylindrical
-     */
-    public native Cylindrical copy(Cylindrical other);
+  public native Cylindrical set(double radius, double theta, double y);
 
-    /**
-     * Sets values of this cylindrical's radius, theta and y properties.
-     *
-     * @param radius - radius
-     * @param phi    -   phi
-     * @param theta  - theta
-     * @return Cylindrical
-     */
-    public native Cylindrical set(float radius, float phi, float theta);
+  public native Cylindrical setFromCartesianCoords(double x, double y, double z);
 
-    /**
-     * Sets values of this cylindrical's radius, theta and y properties from the Vector3.
-     * The radius is set the vector's distance from the origin as measured along the the x-z plane, while theta is set from its direction on the the x-z plane and y is set from the vector's y component.
-     *
-     * @param vec3 Vector3
-     * @return Cylindrical
-     */
-    public native Cylindrical setFromVector3(Vector3 vec3);
-
-    /**
-     * Sets values of this cylindrical's radius, theta and y properties from Cartesian coordinates.
-     *
-     * @param x - coordinate x
-     * @param y - coordinate x
-     * @param z - coordinate x
-     * @return Cylindrical
-     */
-    public native Cylindrical setFromCartesianCoords(float x, float y, float z);
+  public native Cylindrical setFromVector3(Vector3 vec3);
 }

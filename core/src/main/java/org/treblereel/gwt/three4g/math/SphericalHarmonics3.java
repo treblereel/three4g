@@ -1,121 +1,206 @@
 package org.treblereel.gwt.three4g.math;
 
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 
-/**
- * Represents a third-order spherical harmonics (SH). Light probes use this class to encode lighting information.
- * @author Dmitrii Tikhomirov
- * Created by treblereel 6/28/20
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.SphericalHarmonics3", namespace = JsPackage.GLOBAL)
 public class SphericalHarmonics3 {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface FromArrayArrayUnionType {
+    @JsOverlay
+    static SphericalHarmonics3.FromArrayArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * An array holding the (9) SH coefficients. A single coefficient is represented as an instance of Vector3.
-     */
-    public Vector[] coefficients;
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * @param normal - The normal vector (assumed to be unit length).
-     * @param shBasis - The resulting SH basis.
-     */
-    public native static void getBasisAt(Vector3 normal, Vector3[] shBasis);
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Adds the given SH to this instance.
-     * @param sh - The SH to add.
-     */
-    public native void add(SphericalHarmonics3 sh);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * A convenience method for performing .add() and .scale() at once.
-     * @param sh - The SH to add.
-     * @param scale - The scale factor.
-     */
-    public native void addScaledSH(SphericalHarmonics3 sh, float scale);
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * @return Returns a new instance of SphericalHarmonics3 with equal coefficients.
-     */
-    public native SphericalHarmonics3 clone();
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ToArrayArrayUnionType {
+    @JsOverlay
+    static SphericalHarmonics3.ToArrayArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * @param sh - The SH to copy.
-     * @return Copies the given SH to this instance.
-     */
-    public native SphericalHarmonics3 copy(SphericalHarmonics3 sh);
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * @param sh - The SH to compare with.
-     * @return Returns true if the given SH and this instance have equal coefficients.
-     */
-    public native SphericalHarmonics3 equals(SphericalHarmonics3 sh);
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * @param array - The array holding the numbers of the SH coefficients.
-     * @param offset - (optional) The array offset.
-     * @return Sets the coefficients of this instance from the given array.
-     */
-    public native SphericalHarmonics3 fromArray(Vector3[] array, int offset);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * @param normal - The normal vector (assumed to be unit length).
-     * @param target - The result vector.
-     * @return Returns the radiance in the direction of the given normal.
-     */
-    public native Vector3 getAt(Vector3 normal, Vector3 target);
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * @param normal - The normal vector (assumed to be unit length).
-     * @param target - The result vector.
-     * @return Returns the irradiance (radiance convolved with cosine lobe) in the direction of the given normal.
-     */
-    public native Vector3 getIrradianceAt(Vector3 normal, Vector3 target);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ToArrayUnionType {
+    @JsOverlay
+    static SphericalHarmonics3.ToArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * @param sh - The SH to interpolate with.
-     * @param alpha - The alpha factor.
-     * @return Linear interpolates between the given SH and this instance by the given alpha factor.
-     */
-    public native SphericalHarmonics3 lerp(SphericalHarmonics3 sh, float alpha);
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Scales this SH by the given scale factor.
-     * @param scale - The scale factor.
-     * @return instance of SphericalHarmonics3.
-     */
-    public native SphericalHarmonics3 scale(float scale);
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * @param coefficients - An array of SH coefficients.
-     * @return instance of SphericalHarmonics3.
-     */
-    public native SphericalHarmonics3 set(Vector3[] coefficients);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
-     * @return instance of Vector3[]
-     */
-    public native Vector3[] toArray();
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
-     * @param array - (optional) The target array.
-     * @return instance of Vector3[]
-     */
-    public native Vector3[] toArray(Vector3[] array);
+  public static native void getBasisAt(Vector3 normal, JsArray<Double> shBasis);
 
-    /**
-     * Returns an array with the coefficients, or copies them into the provided array. The coefficients are represented as numbers.
-     * @param array - (optional) The target array.
-     * @param offset - (optional) The array offset.
-     * @return instance of Vector3[]
-     */
-    public native Vector3[] toArray(Vector3[] array, int offset);
+  @JsOverlay
+  public static final void getBasisAt(Vector3 normal, double[] shBasis) {
+    getBasisAt(normal, Js.<JsArray<Double>>uncheckedCast(shBasis));
+  }
 
-    /**
-     * Sets all SH coefficients to 0.
-     * @return instance of SphericalHarmonics3.
-     */
-    public native SphericalHarmonics3 zero();
+  public JsArray<Vector3> coefficients;
+  public boolean isSphericalHarmonics3;
+
+  public native SphericalHarmonics3 add(SphericalHarmonics3 sh);
+
+  public native SphericalHarmonics3 addScaledSH(SphericalHarmonics3 sh, double s);
+
+  @JsMethod(name = "clone")
+  public native SphericalHarmonics3 clone_();
+
+  public native SphericalHarmonics3 copy(SphericalHarmonics3 sh);
+
+  public native boolean equals(SphericalHarmonics3 sh);
+
+  public native SphericalHarmonics3 fromArray(
+      SphericalHarmonics3.FromArrayArrayUnionType array, double offset);
+
+  public native SphericalHarmonics3 fromArray(SphericalHarmonics3.FromArrayArrayUnionType array);
+
+  @JsOverlay
+  public final SphericalHarmonics3 fromArray(JsArray<Double> array, double offset) {
+    return fromArray(Js.<SphericalHarmonics3.FromArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3 fromArray(JsArray<Double> array) {
+    return fromArray(Js.<SphericalHarmonics3.FromArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3 fromArray(Object array, double offset) {
+    return fromArray(Js.<SphericalHarmonics3.FromArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3 fromArray(Object array) {
+    return fromArray(Js.<SphericalHarmonics3.FromArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3 fromArray(double[] array, double offset) {
+    return fromArray(Js.<JsArray<Double>>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3 fromArray(double[] array) {
+    return fromArray(Js.<JsArray<Double>>uncheckedCast(array));
+  }
+
+  public native Vector3 getAt(Vector3 normal, Vector3 target);
+
+  public native Vector3 getIrradianceAt(Vector3 normal, Vector3 target);
+
+  public native SphericalHarmonics3 lerp(SphericalHarmonics3 sh, double alpha);
+
+  public native SphericalHarmonics3 scale(double s);
+
+  public native SphericalHarmonics3 set(JsArray<Vector3> coefficients);
+
+  @JsOverlay
+  public final SphericalHarmonics3 set(Vector3[] coefficients) {
+    return set(Js.<JsArray<Vector3>>uncheckedCast(coefficients));
+  }
+
+  public native SphericalHarmonics3.ToArrayUnionType toArray();
+
+  @JsOverlay
+  public final SphericalHarmonics3.ToArrayUnionType toArray(JsArray<Double> array, double offset) {
+    return toArray(Js.<SphericalHarmonics3.ToArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3.ToArrayUnionType toArray(JsArray<Double> array) {
+    return toArray(Js.<SphericalHarmonics3.ToArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3.ToArrayUnionType toArray(Object array, double offset) {
+    return toArray(Js.<SphericalHarmonics3.ToArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3.ToArrayUnionType toArray(Object array) {
+    return toArray(Js.<SphericalHarmonics3.ToArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  public native SphericalHarmonics3.ToArrayUnionType toArray(
+      SphericalHarmonics3.ToArrayArrayUnionType array, double offset);
+
+  public native SphericalHarmonics3.ToArrayUnionType toArray(
+      SphericalHarmonics3.ToArrayArrayUnionType array);
+
+  @JsOverlay
+  public final SphericalHarmonics3.ToArrayUnionType toArray(double[] array, double offset) {
+    return toArray(Js.<JsArray<Double>>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final SphericalHarmonics3.ToArrayUnionType toArray(double[] array) {
+    return toArray(Js.<JsArray<Double>>uncheckedCast(array));
+  }
+
+  public native SphericalHarmonics3 zero();
 }

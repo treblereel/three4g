@@ -1,73 +1,131 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import elemental2.dom.File;
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.ArrayBuffer;
+import elemental2.dom.ErrorEvent;
+import elemental2.dom.EventTarget;
+import elemental2.dom.MimeType;
+import elemental2.dom.ProgressEvent;
+import elemental2.promise.Promise;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
+import jsinterop.base.Js;
 
-/**
- * A low level class for loading resources with XMLHttpRequest, used internaly by most loaders. It can also be used directly
- * to load any file type that does not have a loader.
- * <p>
- * Note: The cache must be enabled using
- * Cache.enabled = true; This is a global property and only needs to be set once to be used by all loaders that use
- * FileLoader internally. Cache is a cache module that holds the response from each request made through this loader,
- * so each file is requested once.
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/26/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class FileLoader extends Loader<FileLoader, File> {
+@JsType(isNative = true, name = "THREE.FileLoader", namespace = JsPackage.GLOBAL)
+public class FileLoader extends Loader {
+  @JsFunction
+  public interface LoadAsyncOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
 
-    /**
-     * The expected mimeType. See .setMimeType. Default is undefined.
-     */
-    public String mimeType;
-
-    /**
-     * The expected response type. See .setResponseType. Default is undefined.
-     */
-    public String responseType;
-
-    /**
-     * Whether the XMLHttpRequest uses credentials. See .setWithCredentials. Default is undefined.
-     */
-    public String withCredentials;
-
-    @JsConstructor
-    public FileLoader() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface LoadAsyncPromiseTypeParameterUnionType {
+    @JsOverlay
+    static FileLoader.LoadAsyncPromiseTypeParameterUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    @JsConstructor
-    public FileLoader(LoadingManager loadingManager) {
-
+    @JsOverlay
+    default ArrayBuffer asArrayBuffer() {
+      return Js.cast(this);
     }
 
-    /**
-     * Set the expected mimeType of the file being loaded. Note that in many cases this will be determined automatically, so by default it is undefined.
-     * @param mimeType as String value
-     * @return instance of FileLoader
-     */
-    public native FileLoader setMimeType(String mimeType);
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
 
-    /**
-     * Change the response type. Valid values are:
-     * text or empty string (default) - returns the data as string.
-     * arraybuffer - loads the data into a ArrayBuffer and returns that.
-     * blob - returns the data as a Blob.
-     * document - parses the file using the DOMParser.
-     * json - parses the file using JSON.parse.
-     * @param responseType type of type
-     * @return instance of FileLoader
-     */
-    public native FileLoader setResponseType(String responseType);
+    @JsOverlay
+    default boolean isArrayBuffer() {
+      return (Object) this instanceof ArrayBuffer;
+    }
 
-    /**
-     * Whether the XMLHttpRequest uses credentials such as cookies, authorization headers or TLS client certificates. See XMLHttpRequest.withCredentials.
-     * Note that this has no effect if you are loading files locally or from the same domain.
-     * @param value if true, use credentials
-     * @return instance of FileLoader
-     */
-    public native FileLoader setWithCredentials(boolean value);
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsFunction
+  public interface LoadOnErrorFn {
+    void onInvoke(ErrorEvent p0);
+  }
+
+  @JsFunction
+  public interface LoadOnLoadFn {
+    @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+    public interface P0UnionType {
+      @JsOverlay
+      static FileLoader.LoadOnLoadFn.P0UnionType of(Object o) {
+        return Js.cast(o);
+      }
+
+      @JsOverlay
+      default ArrayBuffer asArrayBuffer() {
+        return Js.cast(this);
+      }
+
+      @JsOverlay
+      default String asString() {
+        return Js.asString(this);
+      }
+
+      @JsOverlay
+      default boolean isArrayBuffer() {
+        return (Object) this instanceof ArrayBuffer;
+      }
+
+      @JsOverlay
+      default boolean isString() {
+        return (Object) this instanceof String;
+      }
+    }
+
+    @JsOverlay
+    default void onInvoke(ArrayBuffer p0) {
+      onInvoke(Js.<FileLoader.LoadOnLoadFn.P0UnionType>uncheckedCast(p0));
+    }
+
+    void onInvoke(FileLoader.LoadOnLoadFn.P0UnionType p0);
+
+    @JsOverlay
+    default void onInvoke(String p0) {
+      onInvoke(Js.<FileLoader.LoadOnLoadFn.P0UnionType>uncheckedCast(p0));
+    }
+  }
+
+  @JsFunction
+  public interface LoadOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
+
+  public MimeType mimeType;
+  public String responseType;
+
+  public FileLoader() {}
+
+  public FileLoader(LoadingManager manager) {}
+
+  public native double load(
+      String url,
+      FileLoader.LoadOnLoadFn onLoad,
+      FileLoader.LoadOnProgressFn onProgress,
+      FileLoader.LoadOnErrorFn onError);
+
+  public native double load(
+      String url, FileLoader.LoadOnLoadFn onLoad, FileLoader.LoadOnProgressFn onProgress);
+
+  public native double load(String url, FileLoader.LoadOnLoadFn onLoad);
+
+  public native double load(String url);
+
+  public native Promise<FileLoader.LoadAsyncPromiseTypeParameterUnionType> loadAsync(
+      String url, FileLoader.LoadAsyncOnProgressFn onProgress);
+
+  public native Promise<FileLoader.LoadAsyncPromiseTypeParameterUnionType> loadAsync(String url);
+
+  public native FileLoader setMimeType(MimeType mimeType);
+
+  public native FileLoader setResponseType(String responseType);
 }

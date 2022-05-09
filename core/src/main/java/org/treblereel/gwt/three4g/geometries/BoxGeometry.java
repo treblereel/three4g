@@ -1,46 +1,88 @@
 package org.treblereel.gwt.three4g.geometries;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
-import org.treblereel.gwt.three4g.geometries.parameters.BoxGeometryParameters;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
-/**
- * BoxGeometry is the quadrilateral primitive geometry class. It is typically used for creating a cube or irregular
- * quadrilateral of the dimensions provided with the 'width', 'height', and 'depth' constructor arguments.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/7/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class BoxGeometry extends Geometry {
-
-    public BoxGeometryParameters parameters;
-
-    @JsConstructor
-    public BoxGeometry() {
+@JsType(isNative = true, name = "THREE.BoxGeometry", namespace = JsPackage.GLOBAL)
+public class BoxGeometry extends BufferGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static BoxGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param width  — Width of the sides on the X axis. Default is 1.
-     * @param height — Height of the sides on the Y axis. Default is 1.
-     * @param depth  — Depth of the sides on the Z axis. Default is 1.
-     */
-    @JsConstructor
-    public BoxGeometry(float width, float height, float depth) {
+    @JsProperty
+    double getDepth();
 
-    }
+    @JsProperty
+    double getDepthSegments();
 
-    /**
-     * @param width          — Width of the sides on the X axis. Default is 1.
-     * @param height         — Height of the sides on the Y axis. Default is 1.
-     * @param depth          — Depth of the sides on the Z axis. Default is 1.
-     * @param widthSegments  — Optional. Number of segmented faces along the width of the sides. Default is 1.
-     * @param heightSegments — Optional. Number of segmented faces along the height of the sides. Default is 1.
-     * @param depthSegments  — Optional. Number of segmented faces along the depth of the sides. Default is 1.
-     */
-    @JsConstructor
-    public BoxGeometry(float width, float height, float depth, int widthSegments, int heightSegments, int depthSegments) {
+    @JsProperty
+    double getHeight();
 
-    }
+    @JsProperty
+    double getHeightSegments();
+
+    @JsProperty
+    double getWidth();
+
+    @JsProperty
+    double getWidthSegments();
+
+    @JsProperty
+    void setDepth(double depth);
+
+    @JsProperty
+    void setDepthSegments(double depthSegments);
+
+    @JsProperty
+    void setHeight(double height);
+
+    @JsProperty
+    void setHeightSegments(double heightSegments);
+
+    @JsProperty
+    void setWidth(double width);
+
+    @JsProperty
+    void setWidthSegments(double widthSegments);
+  }
+
+  public static native BoxGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final BoxGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public BoxGeometry.ParametersFieldType parameters;
+  public String type;
+
+  public BoxGeometry() {}
+
+  public BoxGeometry(
+      double width,
+      double height,
+      double depth,
+      double widthSegments,
+      double heightSegments,
+      double depthSegments) {}
+
+  public BoxGeometry(
+      double width, double height, double depth, double widthSegments, double heightSegments) {}
+
+  public BoxGeometry(double width, double height, double depth, double widthSegments) {}
+
+  public BoxGeometry(double width, double height, double depth) {}
+
+  public BoxGeometry(double width, double height) {}
+
+  public BoxGeometry(double width) {}
 }

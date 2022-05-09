@@ -1,80 +1,124 @@
 package org.treblereel.gwt.three4g.geometries;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/2/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class CylinderGeometry extends Geometry {
-
-    /**
-     * Radius of the cylinder at the top. Default is 1.
-     */
-    public float radiusTop;
-
-    /**
-     * Radius of the cylinder at the bottom. Default is 1.
-     */
-    public float radiusBottom;
-
-    /**
-     * Height of the cylinder. Default is 1.
-     */
-    public float height;
-
-    /**
-     * Number of segmented faces around the circumference of the cylinder. Default is 8
-     */
-    public int radialSegments;
-
-    /**
-     * Number of rows of faces along the height of the cylinder. Default is 1.
-     */
-    public int heightSegments;
-
-    /**
-     * A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
-     */
-    public boolean openEnded;
-
-    /**
-     * Start angle for first segment, default = 0 (three o'clock position).
-     */
-    public float thetaStart;
-
-    /**
-     * The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete cylinder.
-     */
-    public float thetaLength;
-
-    /**
-     * @param radiusTop      — Radius of the cylinder at the top. Default is 1.
-     * @param radiusBottom   — Radius of the cylinder at the bottom. Default is 1.
-     * @param height         — Height of the cylinder. Default is 1.
-     * @param radialSegments — Number of segmented faces around the circumference of the cylinder. Default is 8
-     */
-    @JsConstructor
-    public CylinderGeometry(float radiusTop, float radiusBottom, float height, int radialSegments) {
-
+@JsType(isNative = true, name = "THREE.CylinderGeometry", namespace = JsPackage.GLOBAL)
+public class CylinderGeometry extends BufferGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static CylinderGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param radiusTop      — Radius of the cylinder at the top. Default is 1.
-     * @param radiusBottom   — Radius of the cylinder at the bottom. Default is 1.
-     * @param height         — Height of the cylinder. Default is 1.
-     * @param radialSegments — Number of segmented faces around the circumference of the cylinder. Default is 8
-     * @param heightSegments — Number of rows of faces along the height of the cylinder. Default is 1.
-     * @param openEnded      — A Boolean indicating whether the ends of the cylinder are open or capped. Default is false, meaning capped.
-     * @param thetaStart     — Start angle for first segment, default = 0 (three o'clock position).
-     * @param thetaLength    — The central angle, often called theta, of the circular sector. The default is 2*Pi, which makes for a complete cylinder.
-     */
-    @JsConstructor
-    public CylinderGeometry(float radiusTop, float radiusBottom, float height, int radialSegments, int heightSegments,
-                                  boolean openEnded, float thetaStart, float thetaLength) {
+    @JsProperty
+    double getHeight();
 
-    }
+    @JsProperty
+    double getHeightSegments();
+
+    @JsProperty
+    double getRadialSegments();
+
+    @JsProperty
+    double getRadiusBottom();
+
+    @JsProperty
+    double getRadiusTop();
+
+    @JsProperty
+    double getThetaLength();
+
+    @JsProperty
+    double getThetaStart();
+
+    @JsProperty
+    boolean isOpenEnded();
+
+    @JsProperty
+    void setHeight(double height);
+
+    @JsProperty
+    void setHeightSegments(double heightSegments);
+
+    @JsProperty
+    void setOpenEnded(boolean openEnded);
+
+    @JsProperty
+    void setRadialSegments(double radialSegments);
+
+    @JsProperty
+    void setRadiusBottom(double radiusBottom);
+
+    @JsProperty
+    void setRadiusTop(double radiusTop);
+
+    @JsProperty
+    void setThetaLength(double thetaLength);
+
+    @JsProperty
+    void setThetaStart(double thetaStart);
+  }
+
+  public static native CylinderGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final CylinderGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public CylinderGeometry.ParametersFieldType parameters;
+  public String type;
+
+  public CylinderGeometry() {}
+
+  public CylinderGeometry(
+      double radiusTop,
+      double radiusBottom,
+      double height,
+      double radialSegments,
+      double heightSegments,
+      boolean openEnded,
+      double thetaStart,
+      double thetaLength) {}
+
+  public CylinderGeometry(
+      double radiusTop,
+      double radiusBottom,
+      double height,
+      double radialSegments,
+      double heightSegments,
+      boolean openEnded,
+      double thetaStart) {}
+
+  public CylinderGeometry(
+      double radiusTop,
+      double radiusBottom,
+      double height,
+      double radialSegments,
+      double heightSegments,
+      boolean openEnded) {}
+
+  public CylinderGeometry(
+      double radiusTop,
+      double radiusBottom,
+      double height,
+      double radialSegments,
+      double heightSegments) {}
+
+  public CylinderGeometry(
+      double radiusTop, double radiusBottom, double height, double radialSegments) {}
+
+  public CylinderGeometry(double radiusTop, double radiusBottom, double height) {}
+
+  public CylinderGeometry(double radiusTop, double radiusBottom) {}
+
+  public CylinderGeometry(double radiusTop) {}
 }

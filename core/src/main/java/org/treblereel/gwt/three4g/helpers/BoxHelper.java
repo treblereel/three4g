@@ -1,66 +1,68 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.objects.LineSegments;
 
-/**
- * Helper object to show the world-axis-aligned bounding box around an object. Note that the object must have a Geometry
- * or BufferGeometry for this to work, so it won't work with Sprites.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.BoxHelper", namespace = JsPackage.GLOBAL)
 public class BoxHelper extends LineSegments {
-
-    /**
-     * Creates a new wireframe box that bounds the passed object. Internally this uses Box3.setFromObject to calculate the dimensions. Note that this includes any children.
-     */
-    public BoxHelper() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static BoxHelper.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * Creates a new wireframe box that bounds the passed object. Internally this uses Box3.setFromObject to calculate the dimensions. Note that this includes any children.
-     *
-     * @param object -- the object3D to show the world-axis-aligned boundingbox.
-     */
-    public BoxHelper(Object3D object) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * Creates a new wireframe box that bounds the passed object. Internally this uses Box3.setFromObject to calculate the dimensions. Note that this includes any children.
-     *
-     * @param color -- hexadecimal value that defines the box's color. Default is 0xffff00.
-     */
-    public BoxHelper(Color color) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * Creates a new wireframe box that bounds the passed object. Internally this uses Box3.setFromObject to calculate the dimensions. Note that this includes any children.
-     *
-     * @param object -- the object3D to show the world-axis-aligned boundingbox.
-     * @param color  -- hexadecimal value that defines the box's color. Default is 0xffff00.
-     */
-    public BoxHelper(Object3D object, Color color) {
-
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
     }
 
-    /**
-     * Updates the helper's geometry to match the dimensions of the object, including any children. See Box3.setFromObject.
-     */
-    public native void update();
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
 
-    /**
-     * Updates the wireframe box for the passed object.
-     *
-     * @param object - Object3D to create the helper of.
-     * @return BoxHelper
-     */
-    public native BoxHelper setFromObject(Object3D object);
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
 
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public String type;
+
+  public BoxHelper(Object3D object, Color color) {}
+
+  public BoxHelper(Object3D object, BoxHelper.ConstructorColorUnionType color) {}
+
+  public BoxHelper(Object3D object, String color) {}
+
+  public BoxHelper(Object3D object, double color) {}
+
+  public BoxHelper(Object3D object) {}
+
+  public native BoxHelper setFromObject(Object3D object);
+
+  public native void update();
+
+  public native void update(Object3D object);
 }

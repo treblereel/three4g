@@ -1,26 +1,25 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
-import org.treblereel.gwt.three4g.geometries.parameters.IcosahedronGeometryParameters;
+import jsinterop.base.Js;
 
-/**
- * A class for generating an icosahedron geometry.
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class IcosahedronGeometry extends Geometry {
+@JsType(isNative = true, name = "THREE.IcosahedronGeometry", namespace = JsPackage.GLOBAL)
+public class IcosahedronGeometry extends PolyhedronGeometry {
+  public static native IcosahedronGeometry fromJSON(JsObject data);
 
-    public IcosahedronGeometryParameters parameters;
+  @JsOverlay
+  public static final IcosahedronGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
 
-    /**
-     * @param radius — Default is 1.
-     * @param detail — Default is 0. Setting this to a value greater than 0 adds more vertices making it no longer an
-     *               icosahedron. When detail is greater than 1, it's effectively a sphere.
-     */
-    public IcosahedronGeometry(float radius, int detail) {
+  public String type;
 
-    }
+  public IcosahedronGeometry() {}
 
+  public IcosahedronGeometry(double radius, double detail) {}
+
+  public IcosahedronGeometry(double radius) {}
 }

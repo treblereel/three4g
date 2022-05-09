@@ -1,161 +1,144 @@
 package org.treblereel.gwt.three4g.lights;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.Object3D;
-import org.treblereel.gwt.three4g.lights.shadows.SpotLightShadow;
+import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Vector3;
 
-/**
- * This light gets emitted from a single point in one direction, along a cone that increases in size the further from the light it gets.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/25/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.SpotLight", namespace = JsPackage.GLOBAL)
 public class SpotLight extends Light {
-
-    /**
-     * Maximum extent of the spotlight, in radians, from its direction. Should be no more than Math.PI/2. The default is Math.PI/3.
-     */
-    public float angle;
-
-    /**
-     * If set to true light will cast dynamic shadows. Warning: This is expensive and requires tweaking to get shadows
-     * looking right. See the SpotLightShadow for details. The default is false.
-     */
-    public boolean castShadow;
-
-    /**
-     * The amount the light dims along the distance of the light.
-     * In physically correct mode, decay = 2 leads to physically realistic light falloff. The default is 1.
-     */
-    public float decay;
-
-    /**
-     * If non-zero, light will attenuate linearly from maximum intensity at the light's position down to zero at this distance from the light. Default is 0.0.
-     */
-    public float distance;
-
-    /**
-     * Used to check whether this or derived classes are spot lights. Default is true.
-     */
-    public boolean isSpotLight;
-
-    /**
-     * Percent of the spotlight cone that is attenuated due to penumbra. Takes values between zero and 1. The default is 0.0.
-     */
-    public float penumbra;
-
-    /**
-     * This is set equal to Object3D.DefaultUp (0, 1, 0), so that the light shines from the top down.
-     */
-    public Vector3 position;
-
-    /**
-     * The light's power.
-     * In physically correct mode, the luminous power of the light measured in lumens. Default is 4Math.PI.
-     * <p>
-     * This is directly related to the intensity in the ratio
-     * power = intensity * π and changing this will also change the intensity.
-     */
-    public float power;
-
-    /**
-     * A SpotLightShadow used to calculate shadows for this light.
-     */
-    public SpotLightShadow shadow;
-
-    /**
-     * The Spotlight points from its position to target.position. The default position of the target is (0, 0, 0).
-     * Note: For the target's position to be changed to anything other than the default, it must be added to the scene using
-     * scene.add( light.target ); This is so that the target's matrixWorld gets automatically updated each frame.
-     * <p>
-     * It is also possible to set the target to be another object in the scene (anything with a position property), like so:
-     * var targetObject = new THREE.Object3D();
-     * scene.add(targetObject);
-     * <p>
-     * light.target = targetObject; The spotlight will now track the target object.
-     */
-    public Object3D target;
-
-    /**
-     * Creates a new SpotLight.
-     */
-    @JsConstructor
-    public SpotLight() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static SpotLight.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * @param color - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     */
-    @JsConstructor
-    public SpotLight(int color) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     */
-    @JsConstructor
-    public SpotLight(int color, float intensity) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - Maximum distance from origin where light will shine whose intensity is attenuated linearly based on distance from origin.
-     */
-    @JsConstructor
-    public SpotLight(int color, float intensity, float distance) {
-
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
     }
 
-    /**
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - Maximum distance from origin where light will shine whose intensity is attenuated linearly based on distance from origin.
-     * @param angle     - Maximum angle of light dispersion from its direction whose upper bound is Math.PI/2.
-     */
-    @JsConstructor
-    public SpotLight(int color, float intensity, float distance, float angle) {
-
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
     }
 
-    /**
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - Maximum distance from origin where light will shine whose intensity is attenuated linearly based on distance from origin.
-     * @param angle     - Maximum angle of light dispersion from its direction whose upper bound is Math.PI/2.
-     * @param penumbra  - Percent of the spotlight cone that is attenuated due to penumbra. Takes values between zero
-     */
-    @JsConstructor
-    public SpotLight(int color, float intensity, float distance, float angle, float penumbra) {
-
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
     }
 
-    /**
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - Maximum distance from origin where light will shine whose intensity is attenuated linearly based on distance from origin.
-     * @param angle     - Maximum angle of light dispersion from its direction whose upper bound is Math.PI/2.
-     * @param penumbra  - Percent of the spotlight cone that is attenuated due to penumbra. Takes values between zero
-     * @param decay     - The amount the light dims along the distance of the light.
-     */
-    @JsConstructor
-    public SpotLight(int color, float intensity, float distance, float angle, float penumbra, float decay) {
-
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
     }
+  }
 
-    /**
-     * Copies value of all the properties from the source to this SpotLight.
-     *
-     * @param source instance of SpotLight
-     * @return instance of SpotLight
-     */
-    public native SpotLight copy(SpotLight source);
+  public double angle;
+  public double decay;
+  public double distance;
+  public double intensity;
+  public boolean isSpotLight;
+  public double penumbra;
+  public Vector3 position;
+  public double power;
+  public SpotLightShadow shadow;
+  public Object3D target;
+  public String type;
 
+  public SpotLight() {}
+
+  public SpotLight(
+      Color color,
+      double intensity,
+      double distance,
+      double angle,
+      double penumbra,
+      double decay) {}
+
+  public SpotLight(Color color, double intensity, double distance, double angle, double penumbra) {}
+
+  public SpotLight(Color color, double intensity, double distance, double angle) {}
+
+  public SpotLight(Color color, double intensity, double distance) {}
+
+  public SpotLight(Color color, double intensity) {}
+
+  public SpotLight(Color color) {}
+
+  public SpotLight(
+      SpotLight.ConstructorColorUnionType color,
+      double intensity,
+      double distance,
+      double angle,
+      double penumbra,
+      double decay) {}
+
+  public SpotLight(
+      SpotLight.ConstructorColorUnionType color,
+      double intensity,
+      double distance,
+      double angle,
+      double penumbra) {}
+
+  public SpotLight(
+      SpotLight.ConstructorColorUnionType color, double intensity, double distance, double angle) {}
+
+  public SpotLight(SpotLight.ConstructorColorUnionType color, double intensity, double distance) {}
+
+  public SpotLight(SpotLight.ConstructorColorUnionType color, double intensity) {}
+
+  public SpotLight(SpotLight.ConstructorColorUnionType color) {}
+
+  public SpotLight(
+      String color,
+      double intensity,
+      double distance,
+      double angle,
+      double penumbra,
+      double decay) {}
+
+  public SpotLight(
+      String color, double intensity, double distance, double angle, double penumbra) {}
+
+  public SpotLight(String color, double intensity, double distance, double angle) {}
+
+  public SpotLight(String color, double intensity, double distance) {}
+
+  public SpotLight(String color, double intensity) {}
+
+  public SpotLight(String color) {}
+
+  public SpotLight(
+      double color,
+      double intensity,
+      double distance,
+      double angle,
+      double penumbra,
+      double decay) {}
+
+  public SpotLight(
+      double color, double intensity, double distance, double angle, double penumbra) {}
+
+  public SpotLight(double color, double intensity, double distance, double angle) {}
+
+  public SpotLight(double color, double intensity, double distance) {}
+
+  public SpotLight(double color, double intensity) {}
+
+  public SpotLight(double color) {}
 }

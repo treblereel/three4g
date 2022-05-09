@@ -1,40 +1,18 @@
 package org.treblereel.gwt.three4g.objects;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.AbstractGeometry;
-import org.treblereel.gwt.three4g.materials.Material;
 
-/**
- * A series of lines drawn between pairs of vertices.
- * <p>
- * This is nearly the same	as Line; the only difference is that it is rendered using gl.LINES instead of gl.LINE_STRIP.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/16/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class LineSegments extends Line {
+@JsType(isNative = true, name = "THREE.LineSegments", namespace = JsPackage.GLOBAL)
+public class LineSegments<TGeometry, TMaterial> extends Line {
+  public static double LinePieces;
+  public static double LineStrip;
+  public boolean isLineSegments;
+  public String type;
 
-    /**
-     *
-     */
-    public boolean isLineSegments;
+  public LineSegments() {}
 
-    @JsConstructor
-    public LineSegments() {
+  public LineSegments(TGeometry geometry, TMaterial material) {}
 
-    }
-
-    /**
-     * If no material is supplied, a randomized line material will be created and assigned to the object.
-     *
-     * @param geometry — vertices representing the line segment(s). Default is a new BufferGeometry.
-     * @param material — material for the line. Default is a new LineBasicMaterial with random color.
-     */
-    @JsConstructor
-    public LineSegments(AbstractGeometry geometry, Material material) {
-
-    }
-
+  public LineSegments(TGeometry geometry) {}
 }

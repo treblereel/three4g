@@ -1,69 +1,141 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.core.Object3D;
-import org.treblereel.gwt.three4g.lights.SpotLight;
+import org.treblereel.gwt.three4g.lights.Light;
+import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.objects.LineSegments;
 
-/**
- * This displays a cone shaped helper object for a SpotLight.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.SpotLightHelper", namespace = JsPackage.GLOBAL)
 public class SpotLightHelper extends Object3D {
-
-    /**
-     * LineSegments used to visualize the light.
-     */
-    public LineSegments cone;
-
-    /**
-     * Reference to the SpotLight being visualized.
-     */
-    public SpotLight light;
-
-    /**
-     * Reference to the spotLight's matrixWorld.
-     */
-    public Matrix4 matrix;
-
-    /**
-     * See Object3D.matrixAutoUpdate. Set to false here as the helper is using the spotLight's matrixWorld.
-     */
-    public boolean matrixAutoUpdate;
-
-    /**
-     * The color parameter passed in the constructor. Default is undefined. If this is changed, the helper's color will update the next time update is called.
-     */
-    public Color color;
-
-
-    /**
-     * @param light -- The SpotLight to be visualized.
-     */
-    public SpotLightHelper(SpotLight light) {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ColorUnionType {
+    @JsOverlay
+    static SpotLightHelper.ColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * @param light -- The SpotLight to be visualized.
-     * @param color -- if this is not the set the helper will take the color of the light.
-     */
-    public SpotLightHelper(SpotLight light, Color color) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * Dispose of the SpotLightHelper.
-     */
-    public native void dispose();
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
 
-    /**
-     * Updates the helper to match the position and direction of the SpotLightHelper being visualized.
-     */
-    public native void update();
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConeLineSegmentsTypeParameter1UnionType {
+    @JsOverlay
+    static SpotLightHelper.ConeLineSegmentsTypeParameter1UnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default JsArray<Material> asJsArray() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default Material asMaterial() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
+
+    @JsOverlay
+    default boolean isMaterial() {
+      return (Object) this instanceof Material;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static SpotLightHelper.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public SpotLightHelper.ColorUnionType color;
+  public LineSegments<BufferGeometry, ConeLineSegmentsTypeParameter1UnionType> cone;
+  public Light light;
+  public Matrix4 matrix;
+  public boolean matrixAutoUpdate;
+
+  public SpotLightHelper(Light light, Color color) {}
+
+  public SpotLightHelper(Light light, SpotLightHelper.ConstructorColorUnionType color) {}
+
+  public SpotLightHelper(Light light, String color) {}
+
+  public SpotLightHelper(Light light, double color) {}
+
+  public SpotLightHelper(Light light) {}
+
+  public native void dispose();
+
+  public native void update();
 }

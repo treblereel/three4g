@@ -1,39 +1,16 @@
 package org.treblereel.gwt.three4g.materials;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.materials.parameters.ShadowMaterialParameters;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class ShadowMaterial extends Material {
+@JsType(isNative = true, name = "THREE.ShadowMaterial", namespace = JsPackage.GLOBAL)
+public class ShadowMaterial {
+  public Color color;
+  public boolean transparent;
+  public String type;
 
-    /**
-     * Used to check whether this or derived classes are shadow materials. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isShadowMaterial;
+  public ShadowMaterial() {}
 
-    /**
-     * Whether the material is affected by lights. Default is true.
-     */
-    public boolean lights;
-
-    /**
-     * Defines whether this material is transparent. Default is true.
-     */
-    public boolean transparent;
-
-    public ShadowMaterial() {
-
-    }
-
-    public ShadowMaterial(ShadowMaterialParameters parameters) {
-
-    }
-
-    public native ShadowMaterial copy(ShadowMaterial source);
+  public ShadowMaterial(ShadowMaterialParameters parameters) {}
 }

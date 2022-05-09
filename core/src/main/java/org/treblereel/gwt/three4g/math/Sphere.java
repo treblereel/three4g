@@ -1,171 +1,72 @@
 package org.treblereel.gwt.three4g.math;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/1/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Sphere", namespace = JsPackage.GLOBAL)
 public class Sphere {
+  public Vector3 center;
+  public double radius;
 
-    /**
-     * A Vector3 defining the center of the sphere. Default is (0, 0, 0).
-     */
-    public Vector3 center;
+  public Sphere() {}
 
-    /**
-     * The radius of the sphere. Default is 0.
-     */
-    public float radius;
+  public Sphere(Vector3 center, double radius) {}
 
-    /**
-     * Creates a new Sphere.
-     */
-    @JsConstructor
-    public Sphere() {
+  public Sphere(Vector3 center) {}
 
-    }
+  public native Sphere applyMatrix4(Matrix4 matrix);
 
-    /**
-     * Creates a new Sphere.
-     *
-     * @param center - center of the sphere. Default is a Vector3 at (0, 0, 0).
-     * @param radius - radius of the sphere. Default is 0.
-     */
-    @JsConstructor
-    public Sphere(Vector3 center, Vector3 radius) {
+  public native Vector3 clampPoint(Vector3 point, Vector3 target);
 
-    }
+  @JsMethod(name = "clone")
+  public native Sphere clone_();
 
-    /**
-     * Transforms this sphere with the provided Matrix4.
-     *
-     * @param matrix - the Matrix4 to apply
-     * @return instance of Sphere
-     */
-    public native Sphere applyMatrix4(Matrix4 matrix);
+  public native boolean containsPoint(Vector3 point);
 
-    /**
-     * Clamps a point within the sphere. If the point is is outside the sphere, it will clamp it to the closets point on the edge of the sphere. Points already inside the sphere will not be affected.
-     *
-     * @param point  - Vector3 The point to clamp.
-     * @param target — the result will be copied into this Vector3.
-     * @return instance of Vector3
-     */
-    public native Vector3 clampPoint(Vector3 point, Vector3 target);
+  public native Sphere copy(Sphere sphere);
 
-    /**
-     * Returns a new sphere with the same center and radius as this one.
-     *
-     * @return instance of Sphere
-     */
-    public native Sphere clone();
+  public native double distanceToPoint(Vector3 point);
 
-    /**
-     * Checks to see if the sphere contains the provided point inclusive of the surface of the sphere.
-     *
-     * @param point - the Vector3 to be checked
-     * @return true if contains point
-     */
-    public native boolean containsPoint(Vector3 point);
+  @Deprecated
+  public native double empty();
 
-    /**
-     * Copies the values of the passed sphere's center and radius properties to this sphere.
-     *
-     * @param sphere source Sphere
-     * @return instance of Sphere
-     */
-    public native Sphere copy(Sphere sphere);
+  public native boolean equals(Sphere sphere);
 
-    /**
-     * Returns the closest distance from the boundary of the sphere to the point. If the sphere contains the point, the distance will be negative.
-     *
-     * @param point Vector3
-     * @return distance to the point
-     */
-    public native float distanceToPoint(Vector3 point);
+  public native Sphere expandByPoint(Vector3 point);
 
-    /**
-     * Checks to see if the sphere is empty (the radius set to 0).
-     *
-     * @return true if empty
-     */
-    public native boolean empty();
+  public native Box3 getBoundingBox(Box3 target);
 
-    /**
-     * Checks to see if the two spheres' centers and radii are equal.
-     *
-     * @param sphere targeting Sphere
-     * @return true if equals
-     */
-    public native boolean equals(Sphere sphere);
+  public native boolean intersectsBox(Box3 box);
 
-    /**
-     * Returns aMinimum Bounding Box for the sphere.
-     *
-     * @param target — the result will be copied into this Box3.
-     * @return instance of Box3
-     */
-    public native Box3 getBoundingBox(Box3 target);
+  public native boolean intersectsPlane(Plane plane);
 
-    /**
-     * Determines whether or not this sphere intersects a given box.
-     *
-     * @param box - Box3 to check for intersection against.
-     * @return true if intersects with the Box3
-     */
-    public native boolean intersectsBox(Box3 box);
+  public native boolean intersectsSphere(Sphere sphere);
 
-    /**
-     * Determines whether or not this sphere intersects a given plane.
-     *
-     * @param plane - Plane to check for intersection against.
-     * @return true if intersects with the Plane
-     */
-    public native boolean intersectsPlane(Plane plane);
+  public native boolean isEmpty();
 
-    /**
-     * Checks to see if two spheres intersect.
-     *
-     * @param sphere - Sphere to check for intersection against.
-     * @return true if intersects with the Sphere
-     */
-    public native boolean intersectsSphere(Sphere sphere);
+  public native Sphere makeEmpty();
 
-    /**
-     * Sets the center and radius properties of this sphere.
-     *
-     * @param center - center of the sphere.
-     * @param radius - radius of the sphere.
-     * @return instance of Sphere
-     */
-    public native Sphere set(Vector3 center, float radius);
+  public native Sphere set(Vector3 center, double radius);
 
+  public native Sphere setFromPoints(JsArray<Vector3> points, Vector3 optionalCenter);
 
-    /**
-     * Computes the minimum bounding sphere for an array of points. If optionalCenteris given, it is used as the sphere's center. Otherwise, the center of the axis-aligned bounding box encompassing points is calculated.
-     *
-     * @param points - an Array of Vector3 positions.
-     * @return instance of Sphere
-     */
-    public native Sphere setFromPoints(Vector3[] points);
+  public native Sphere setFromPoints(JsArray<Vector3> points);
 
-    /**
-     * Computes the minimum bounding sphere for an array of points. If optionalCenteris given, it is used as the sphere's center. Otherwise, the center of the axis-aligned bounding box encompassing points is calculated.
-     *
-     * @param points         - an Array of Vector3 positions.
-     * @param optionalCenter - Optional Vector3 position for the sphere's center.
-     * @return instance of Sphere
-     */
-    public native Sphere setFromPoints(Vector3[] points, Vector3 optionalCenter);
+  @JsOverlay
+  public final Sphere setFromPoints(Vector3[] points, Vector3 optionalCenter) {
+    return setFromPoints(Js.<JsArray<Vector3>>uncheckedCast(points), optionalCenter);
+  }
 
-    /**
-     * Translate the sphere's center by the provided offset Vector3.
-     *
-     * @param offset Vector3
-     * @return instance of Sphere
-     */
-    public native Sphere translate(Vector3 offset);
+  @JsOverlay
+  public final Sphere setFromPoints(Vector3[] points) {
+    return setFromPoints(Js.<JsArray<Vector3>>uncheckedCast(points));
+  }
+
+  public native Sphere translate(Vector3 offset);
+
+  public native Sphere union(Sphere sphere);
 }

@@ -1,60 +1,74 @@
 package org.treblereel.gwt.three4g.scenes;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.cameras.Camera;
 import org.treblereel.gwt.three4g.core.Object3D;
-import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.materials.Material;
+import org.treblereel.gwt.three4g.math.Color;
+import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
+import org.treblereel.gwt.three4g.textures.Texture;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 12/5/17.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Scene", namespace = JsPackage.GLOBAL)
 public class Scene extends Object3D {
-
-    /**
-     * A fog instance defining the type of fog that affects everything rendered in the scene. Default is null.
-     */
-    public Fog fog;
-
-    /**
-     * If not null, it will force everything in the scene to be rendered with that material. Default is null.
-     */
-    public Material overrideMaterial;
-
-    /**
-     * Default is true. If set, then the renderer checks every frame if the scene and its objects needs matrix updates. When it isn't, then you have to maintain all matrices in the scene yourself.
-     */
-    public boolean autoUpdate;
-
-    /**
-     * Used to check whether this or derived classes are Scene. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isScene;
-
-    /**
-     * If not null, sets the background used when rendering the scene, and is always rendered first. Can be set to a Color which sets the clear color, a Texture covering the canvas, or a CubeTexture. Default is null.
-     */
-    public PropertyHolder background;
-
-    @JsConstructor
-    public Scene() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface BackgroundUnionType {
+    @JsOverlay
+    static Scene.BackgroundUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * Return the scene data in JSON format.
-     *
-     * @return to JSON String
-     */
-    public native String toJSON();
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
 
+    @JsOverlay
+    default Texture asTexture() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Clears scene related data internally cached by WebGLRenderer.
-     */
-    public native void dispose();
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isTexture() {
+      return (Object) this instanceof Texture;
+    }
+  }
+
+  @JsFunction
+  public interface OnAfterRenderFn {
+    void onInvoke(WebGLRenderer p0, Scene p1, Camera p2);
+  }
+
+  @JsFunction
+  public interface OnBeforeRenderFn {
+    void onInvoke(WebGLRenderer p0, Scene p1, Camera p2, JsObject p3);
+
+    @JsOverlay
+    default void onInvoke(WebGLRenderer p0, Scene p1, Camera p2, Object p3) {
+      onInvoke(p0, p1, p2, Js.<JsObject>uncheckedCast(p3));
+    }
+  }
+
+  public boolean autoUpdate;
+  public Scene.BackgroundUnionType background;
+  public Texture environment;
+  public FogBase fog;
+  public boolean isScene;
+  public Scene.OnAfterRenderFn onAfterRender;
+  public Scene.OnBeforeRenderFn onBeforeRender;
+  public Material overrideMaterial;
+  public String type;
+
+  public native Object toJSON();
+
+  public native Object toJSON(String key);
 }

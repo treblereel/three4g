@@ -1,58 +1,69 @@
 package org.treblereel.gwt.three4g.lights;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * This light globally illuminates all objects in the scene equally.
- * <p>
- * This light cannot be used to cast shadows as it does not have a direction.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/16/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.AmbientLight", namespace = JsPackage.GLOBAL)
 public class AmbientLight extends Light {
-
-    /**
-     * This is set to undefined in the constructor as ambient lights cannot cast shadows.
-     */
-    public boolean  castShadow;
-
-    /**
-     * Used to check whether this or derived classes are AmbientLight. Default is true.
-     */
-    public boolean isAmbientLight;
-
-    /**
-     * Creates a new AmbientLight.
-     *
-     * @param color Numeric value of the RGB component of the color.
-     */
-    @JsConstructor
-    public AmbientLight(int color){
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static AmbientLight.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * Creates a new AmbientLight.
-     *
-     * @param intensity -- Numeric value of the light's strength/intensity.
-     */
-    @JsConstructor
-    public AmbientLight(float intensity){
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * Creates a new AmbientLight.
-     *
-     * @param color Numeric value of the RGB component of the color.
-     * @param intensity -- Numeric value of the light's strength/intensity.
-     */
-    @JsConstructor
-    public AmbientLight(int color, float intensity){
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public boolean isAmbientLight;
+  public String type;
+
+  public AmbientLight() {}
+
+  public AmbientLight(Color color, double intensity) {}
+
+  public AmbientLight(Color color) {}
+
+  public AmbientLight(AmbientLight.ConstructorColorUnionType color, double intensity) {}
+
+  public AmbientLight(AmbientLight.ConstructorColorUnionType color) {}
+
+  public AmbientLight(String color, double intensity) {}
+
+  public AmbientLight(String color) {}
+
+  public AmbientLight(double color, double intensity) {}
+
+  public AmbientLight(double color) {}
 }

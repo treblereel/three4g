@@ -1,51 +1,80 @@
 package org.treblereel.gwt.three4g.geometries;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.extras.core.Curve;
-import org.treblereel.gwt.three4g.geometries.parameters.TubeGeometryParameters;
 import org.treblereel.gwt.three4g.math.Vector3;
 
-/**
- * Creates a tube that extrudes along a 3d curve.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/11/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class TubeGeometry extends Geometry {
-
-    /**
-     * An object with all of the parameters that were used to generate the geometry
-     */
-    public TubeGeometryParameters parameters;
-
-    /**
-     * An array of Vector3 tangents
-     */
-    public Vector3[] tangents;
-
-    /**
-     * An array of Vector3 normals
-     */
-    public Vector3[] normals;
-
-    /**
-     * An array of Vector3 binormals
-     */
-    public Vector3[] binormals;
-
-    /**
-     * @param path            — Curve - A path that inherits from the Curve base class
-     * @param tubularSegments — Integer - The number of segments that make up the tube, default is 64
-     * @param radius          — Float - The radius of the tube, default is 1
-     * @param radialSegments  — Integer - The number of segments that make up the cross-section, default is 8
-     * @param closed          — Boolean Is the tube open or closed, default is false
-     */
-    @JsConstructor
-    public TubeGeometry(Curve path, int tubularSegments, float radius, int radialSegments, boolean closed) {
-
+@JsType(isNative = true, name = "THREE.TubeGeometry", namespace = JsPackage.GLOBAL)
+public class TubeGeometry extends BufferGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static TubeGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
+    @JsProperty
+    Curve getPath();
+
+    @JsProperty
+    double getRadialSegments();
+
+    @JsProperty
+    double getRadius();
+
+    @JsProperty
+    double getTubularSegments();
+
+    @JsProperty
+    boolean isClosed();
+
+    @JsProperty
+    void setClosed(boolean closed);
+
+    @JsProperty
+    void setPath(Curve path);
+
+    @JsProperty
+    void setRadialSegments(double radialSegments);
+
+    @JsProperty
+    void setRadius(double radius);
+
+    @JsProperty
+    void setTubularSegments(double tubularSegments);
+  }
+
+  public static native TubeGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final TubeGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public JsArray<Vector3> binormals;
+  public JsArray<Vector3> normals;
+  public TubeGeometry.ParametersFieldType parameters;
+  public JsArray<Vector3> tangents;
+  public String type;
+
+  public TubeGeometry() {}
+
+  public TubeGeometry(
+      Curve path, double tubularSegments, double radius, double radiusSegments, boolean closed) {}
+
+  public TubeGeometry(Curve path, double tubularSegments, double radius, double radiusSegments) {}
+
+  public TubeGeometry(Curve path, double tubularSegments, double radius) {}
+
+  public TubeGeometry(Curve path, double tubularSegments) {}
+
+  public TubeGeometry(Curve path) {}
 }

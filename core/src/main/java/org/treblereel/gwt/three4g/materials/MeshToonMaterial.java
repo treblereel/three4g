@@ -1,50 +1,44 @@
 package org.treblereel.gwt.three4g.materials;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.materials.parameters.MeshToonMaterialParameters;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.textures.Texture;
+import org.treblereel.gwt.three4g.math.Vector2;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * An extension of the MeshPhongMaterial with toon shading.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class MeshToonMaterial extends MeshPhongMaterial {
+@JsType(isNative = true, name = "THREE.MeshToonMaterial", namespace = JsPackage.GLOBAL)
+public class MeshToonMaterial extends Material {
+  public Texture alphaMap;
+  public Texture aoMap;
+  public double aoMapIntensity;
+  public Texture bumpMap;
+  public double bumpScale;
+  public Color color;
+  public JsPropertyMap<JsObject> defines;
+  public double displacementBias;
+  public Texture displacementMap;
+  public double displacementScale;
+  public Color emissive;
+  public double emissiveIntensity;
+  public Texture emissiveMap;
+  public Texture gradientMap;
+  public Texture lightMap;
+  public double lightMapIntensity;
+  public Texture map;
+  public Texture normalMap;
+  public double normalMapType;
+  public Vector2 normalScale;
+  public String type;
+  public boolean wireframe;
+  public String wireframeLinecap;
+  public String wireframeLinejoin;
+  public double wireframeLinewidth;
 
-    /**
-     * Gradient map for the toon shading. Default is null.
-     */
-    public Texture gradientMap;
+  public MeshToonMaterial() {}
 
-    /**
-     * Used to check whether this or derived classes are mesh toon materials. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isMeshToonMaterial;
+  public MeshToonMaterial(MeshToonMaterialParameters parameters) {}
 
-    /**
-     * An object of the form:
-     * { 'TOON': '' };
-     * This is used by the WebGLRenderer for selecting shaders.
-     */
-    public Object defines;
-
-
-    public MeshToonMaterial() {
-
-    }
-
-    /**
-     * @param parameters - (optional) an object with one or more properties defining the material's appearance. Any property
-     *                   of the material (including any property inherited from Material and MeshStandardMaterial) can be passed in here.
-     *                   <p>
-     *                   The exception is the property color, which can be passed in as a hexadecimal string and is 0xffffff
-     *                   (white) by default. Color.set( color ) is called internally.
-     */
-    public MeshToonMaterial(MeshToonMaterialParameters parameters) {
-
-    }
+  public native void setValues(MeshToonMaterialParameters parameters);
 }

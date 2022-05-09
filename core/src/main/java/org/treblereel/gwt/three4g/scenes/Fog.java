@@ -1,83 +1,99 @@
 package org.treblereel.gwt.three4g.scenes;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.PropertyHolder;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 2/27/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class Fog extends PropertyHolder {
-
-    /**
-     * Optional name of the object (doesn't need to be unique). Default is an empty string.
-     */
-    public String name;
-
-    /**
-     * Fog color. Example: If set to black, far away objects will be rendered black.
-     */
-    public Color color;
-
-    /**
-     * The minimum distance to start applying fog. Objects that are less than 'near' units from the active camera won't be affected by fog.
-     * Default is 1.
-     */
-    public float near;
-
-    /**
-     * The maximum distance at which fog stops being calculated and applied. Objects that are more than 'far' units away from the active camera won't be affected by fog.
-     * Default is 1000.
-     */
-    public float far;
-
-    public Fog() {
-
+@JsType(isNative = true, name = "THREE.Fog", namespace = JsPackage.GLOBAL)
+public class Fog implements FogBase {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static Fog.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
-     *
-     * @param color color code
-     */
-    public Fog(int color) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
-     *
-     * @param color color code
-     * @param near  as float value
-     */
-    public Fog(int color, float near) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * The color parameter is passed to the Color constructor to set the color property. Color can be a hexadecimal integer or a CSS-style string.
-     *
-     * @param color color code
-     * @param near  as float value
-     * @param far   as float value
-     */
-    public Fog(int color, float near, float far) {
-
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
     }
 
-    /**
-     * Returns a new fog instance with the same parameters as this one.
-     *
-     * @return instance of Fog
-     */
-    public native Fog clone();
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
 
-    /**
-     * Convert the fog to three.js JSON format.
-     *
-     * @return JSON String
-     */
-    public native Object toJSON();
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public Color color;
+  public double far;
+  public boolean isFog;
+  public String name;
+  public double near;
+
+  public Fog(Color color, double near, double far) {}
+
+  public Fog(Color color, double near) {}
+
+  public Fog(Color color) {}
+
+  public Fog(Fog.ConstructorColorUnionType color, double near, double far) {}
+
+  public Fog(Fog.ConstructorColorUnionType color, double near) {}
+
+  public Fog(Fog.ConstructorColorUnionType color) {}
+
+  public Fog(String color, double near, double far) {}
+
+  public Fog(String color, double near) {}
+
+  public Fog(String color) {}
+
+  public Fog(double color, double near, double far) {}
+
+  public Fog(double color, double near) {}
+
+  public Fog(double color) {}
+
+  @JsMethod(name = "clone")
+  public native Fog clone_();
+
+  @JsProperty
+  public native Color getColor();
+
+  @JsProperty
+  public native String getName();
+
+  @JsProperty
+  public native void setColor(Color color);
+
+  @JsProperty
+  public native void setName(String name);
+
+  public native Object toJSON();
+
+  public native Object toJSON(String key);
 }

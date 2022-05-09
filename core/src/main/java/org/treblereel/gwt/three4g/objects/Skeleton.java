@@ -1,76 +1,46 @@
 package org.treblereel.gwt.three4g.objects;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.Float32Array;
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.textures.DataTexture;
 
-/**
- * Use an array of bones to create a skeleton that can be used by a SkinnedMesh.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/30/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Skeleton", namespace = JsPackage.GLOBAL)
 public class Skeleton {
+  public JsArray<Matrix4> boneInverses;
+  public Float32Array boneMatrices;
+  public DataTexture boneTexture;
+  public double boneTextureSize;
+  public JsArray<Bone> bones;
+  public double frame;
+  public boolean useVertexTexture;
+  public String uuid;
 
-    /**
-     * The array of bones. Note this is a copy of the original array, not a reference, so you can modify the original array without effecting this one.
-     */
-    public Bone[] bones;
+  public Skeleton(Bone[] bones, Matrix4[] boneInverses) {}
 
-    /**
-     * An array of Matrix4s that represent the inverse of the matrixWorld of the individual bones.
-     */
-    public Matrix4[] boneInverses;
+  public Skeleton(Bone[] bones) {}
 
-    /**
-     * The array buffer holding the bone data when using a vertex texture.
-     */
-    public float[] boneMatrices;
+  public Skeleton(JsArray<Bone> bones, JsArray<Matrix4> boneInverses) {}
 
-    /**
-     * The DataTexture holding the bone data when using a vertex texture.
-     */
-    public DataTexture boneTexture;
+  public Skeleton(JsArray<Bone> bones) {}
 
-    @JsConstructor
-    public Skeleton(Bone[] bones) {
+  public native void calculateInverses();
 
-    }
+  @JsMethod(name = "clone")
+  public native Skeleton clone_();
 
-    @JsConstructor
-    public Skeleton(Bone[] bones, Matrix4 boneInverses) {
+  public native Skeleton computeBoneTexture();
 
-    }
+  public native void dispose();
 
-    /**
-     * Returns a clone of this Skeleton object.
-     *
-     * @return instance of Skeleton
-     */
-    public native Skeleton clone();
+  public native Bone getBoneByName(String name);
 
-    /**
-     * Generates the boneInverses array if not provided in the constructor.
-     */
-    public native void calculateInverses();
+  public native void init();
 
-    /**
-     * Returns the skeleton to the base pose.
-     */
-    public native void pose();
+  public native void pose();
 
-    /**
-     * Updates the boneMatrices and boneTexture after changing the bones. This is called automatically by the WebGLRenderer if the skeleton is used with a SkinnedMesh.
-     */
-    public native void update();
-
-    /**
-     * Searches through the skeleton's bone array and returns the first with a matching name.
-     *
-     * @param name -- String to match to the Bone's .name property.
-     * @return instance of Bone
-     */
-    public native Bone getBoneByName(String name);
+  public native void update();
 }

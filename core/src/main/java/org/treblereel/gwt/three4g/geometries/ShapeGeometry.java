@@ -1,46 +1,68 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsArray;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.extras.core.Shape;
-import org.treblereel.gwt.three4g.geometries.parameters.ShapeGeometryParameters;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class ShapeGeometry extends Geometry {
-
-    public ShapeGeometryParameters parameters;
-
-    /**
-     * @param shape — a single shape.
-     */
-    public ShapeGeometry(Shape shape) {
-
+@JsType(isNative = true, name = "THREE.ShapeGeometry", namespace = JsPackage.GLOBAL)
+public class ShapeGeometry extends BufferGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorShapesUnionType {
+    @JsOverlay
+    static ShapeGeometry.ConstructorShapesUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * @param shape         — a single shape.
-     * @param curveSegments - Integer - Number of segments per shape. Default is 12.
-     */
-    public ShapeGeometry(Shape shape, int curveSegments) {
-
+    @JsOverlay
+    default JsArray<Shape> asJsArray() {
+      return Js.cast(this);
     }
 
-    /**
-     * @param shapes - Array of shapes.
-     */
-    public ShapeGeometry(Shape[] shapes) {
-
+    @JsOverlay
+    default Shape asShape() {
+      return Js.cast(this);
     }
 
-    /**
-     * @param shapes        —  Array of shapes.
-     * @param curveSegments - Integer - Number of segments per shape. Default is 12.
-     */
-    public ShapeGeometry(Shape[] shapes, int curveSegments) {
-
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
     }
+
+    @JsOverlay
+    default boolean isShape() {
+      return (Object) this instanceof Shape;
+    }
+  }
+
+  public static native ShapeGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final ShapeGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public String type;
+
+  public ShapeGeometry() {}
+
+  public ShapeGeometry(ShapeGeometry.ConstructorShapesUnionType shapes, double curveSegments) {}
+
+  public ShapeGeometry(ShapeGeometry.ConstructorShapesUnionType shapes) {}
+
+  public ShapeGeometry(JsArray<Shape> shapes, double curveSegments) {}
+
+  public ShapeGeometry(JsArray<Shape> shapes) {}
+
+  public ShapeGeometry(Shape shapes, double curveSegments) {}
+
+  public ShapeGeometry(Shape[] shapes, double curveSegments) {}
+
+  public ShapeGeometry(Shape shapes) {}
+
+  public ShapeGeometry(Shape[] shapes) {}
 }

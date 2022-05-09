@@ -1,26 +1,18 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.objects.LineSegments;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * An axis object to visualize the 3 axes in a simple way.
- * The X axis is red. The Y axis is green. The Z axis is blue.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class AxesHelper extends LineSegments {
+@JsType(isNative = true, name = "THREE.AxesHelper", namespace = JsPackage.GLOBAL)
+public class AxesHelper {
+  public String type;
 
-    public AxesHelper() {
+  public AxesHelper() {}
 
-    }
+  public AxesHelper(double size) {}
 
-    /**
-     * @param size --  size of the lines representing the axes. Default is 1.
-     */
-    public AxesHelper(Number size) {
+  public native void dispose();
 
-    }
+  public native AxesHelper setColors(Color xAxisColor, Color yAxisColor, Color zAxisColor);
 }

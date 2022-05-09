@@ -1,30 +1,55 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import elemental2.core.TypedArray;
+import elemental2.core.ArrayBuffer;
+import elemental2.core.ArrayBufferView;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 
-/**
- * An object with several loader utility functions.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/26/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class LoaderUtils {
+@JsType(isNative = true, name = "THREE.LoaderUtils", namespace = JsPackage.GLOBAL)
+public interface LoaderUtils {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface DecodeTextArrayUnionType {
+    @JsOverlay
+    static LoaderUtils.DecodeTextArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * The function takes a stream of bytes as input and returns a string representation.
-     *
-     * @param array — A stream of bytes as a typed array.
-     * @return string representation
-     */
-    public native String decodeText(TypedArray array);
+    @JsOverlay
+    default ArrayBuffer asArrayBuffer() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Extract the base from the URL.
-     *
-     * @param url — The url to extract the base url from.
-     * @return url base as String value
-     */
-    public native String extractUrlBase(String url);
+    @JsOverlay
+    default ArrayBufferView asArrayBufferView() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isArrayBuffer() {
+      return (Object) this instanceof ArrayBuffer;
+    }
+
+    @JsOverlay
+    default boolean isArrayBufferView() {
+      return (Object) this instanceof ArrayBufferView;
+    }
+  }
+
+  @JsOverlay
+  default String decodeText(ArrayBuffer array) {
+    return decodeText(Js.<LoaderUtils.DecodeTextArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  default String decodeText(ArrayBufferView array) {
+    return decodeText(Js.<LoaderUtils.DecodeTextArrayUnionType>uncheckedCast(array));
+  }
+
+  String decodeText(LoaderUtils.DecodeTextArrayUnionType array);
+
+  String extractUrlBase(String url);
+
+  String resolveURL(String url, String path);
 }

@@ -1,236 +1,300 @@
 package org.treblereel.gwt.three4g.math;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.BufferAttribute;
+import jsinterop.base.Js;
 
-/**
- * A class representing a 3x3 matrix.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/1/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class Matrix3 implements Matrix {
-
-    /**
-     * A column-major list of matrix values.
-     */
-    public float[] elements;
-
-    /**
-     * Used to check whether this or derived classes are Matrix3s. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isMatrix3;
-
-    @JsConstructor
-    public Matrix3() {
-
+@JsType(isNative = true, name = "THREE.Matrix3", namespace = JsPackage.GLOBAL)
+public class Matrix3 {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface FromArrayArrayUnionType {
+    @JsOverlay
+    static Matrix3.FromArrayArrayUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * Multiplies (applies) this matrix to every 3D vector in the attribute.
-     *
-     * @param attribute - An attribute of floats that represent 3D vectors.
-     * @return todo
-     */
-    public native Object[] applyToBufferAttribute(BufferAttribute attribute); //TODO
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Creates a new Matrix3 with identical elements to this one.
-     *
-     * @return clone of this Matrix
-     */
-    public native Matrix3 clone();
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Copies the elements of matrix m into this matrix.
-     *
-     * @param m original matrix
-     * @return Matrix3
-     */
-    public native Matrix3 copy(Matrix3 m);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * Computes and returns the determinant of this matrix.
-     *
-     * @return determinant of this matrix
-     */
-    public native float determinant();
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * Return true if this matrix and m are equal.
-     *
-     * @param m - matrix to compare
-     * @return is equal
-     */
-    public native boolean equals(Matrix3 m);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface GetInverseMatrixUnionType {
+    @JsOverlay
+    static Matrix3.GetInverseMatrixUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Sets the elements of this matrix based on an array in column-major format.
-     *
-     * @param array - the array to read the elements from.
-     * @return instance of Matrix3
-     */
-    public native Matrix3 fromArray(float[] array);
+    @JsOverlay
+    default Matrix3 asMatrix3() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Sets the elements of this matrix based on an array in column-major format.
-     *
-     * @param array  - the array to read the elements from.
-     * @param offset - offset into the array. Default is 0.
-     * @return instance of Matrix3
-     */
-    public native Matrix3 fromArray(float[] array, float offset);
+    @JsOverlay
+    default Matrix4 asMatrix4() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Set this matrix to the inverse of the passed matrix m, using the analytic method. If throwOnDegenerate is not set
-     * and the matrix is not invertible, set this to the 3x3 identity matrix.
-     *
-     * @param m - the matrix to take the inverse of.
-     * @return instance of Matrix3
-     */
-    public native Matrix3 getInverse(Matrix3 m);
+    @JsOverlay
+    default boolean isMatrix3() {
+      return (Object) this instanceof Matrix3;
+    }
 
-    /**
-     * Set this matrix to the inverse of the passed matrix m, using the analytic method. If throwOnDegenerate is not set
-     * and the matrix is not invertible, set this to the 3x3 identity matrix.
-     *
-     * @param m                 - the matrix to take the inverse of.
-     * @param throwOnDegenerate - If true, throw an error if the matrix is degenerate (not invertible).
-     * @return instance of Matrix3
-     */
-    public native Matrix3 getInverse(Matrix3 m, boolean throwOnDegenerate);
+    @JsOverlay
+    default boolean isMatrix4() {
+      return (Object) this instanceof Matrix4;
+    }
+  }
 
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ToArrayArrayUnionType {
+    @JsOverlay
+    static Matrix3.ToArrayArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Sets this matrix as the upper left 3x3 of the normal matrix of the passed matrix4. The normal matrix is the
-     * inverse transpose of the matrix m.
-     *
-     * @param m - Matrix4
-     * @return instance of Matrix3
-     */
-    public native Matrix3 getNormalMatrix(Matrix4 m);
+    @JsOverlay
+    default JsArray<Object> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Resets this matrix to the identity matrix:
-     * 1, 0, 0
-     * 0, 1, 0
-     * 0, 0, 1
-     *
-     * @return instance of Matrix3
-     */
-    public native Matrix3 identity();
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Post-multiplies this matrix by m.
-     *
-     * @param m instance of Matrix3
-     * @return instance of Matrix3
-     */
-    public native Matrix3 multiply(Matrix3 m);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * Sets this matrix to a x b.
-     *
-     * @param a instance of Matrix3
-     * @param b instance of Matrix3
-     * @return instance of Matrix3
-     */
-    public native Matrix3 multiplyMatrices(Matrix3 a, Matrix3 b);
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * Multiplies every component of the matrix by a scalar value s.
-     *
-     * @param s scalar
-     * @return instance of Matrix3
-     */
-    public native Matrix3 multiplyScalar(float s);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ToArrayUnionType {
+    @JsOverlay
+    static Matrix3.ToArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Sets the 3x3 matrix values to the given row-major sequence of values.
-     *
-     * @param n11 float value
-     * @param n12 float value
-     * @param n13 float value
-     * @param n21 float value
-     * @param n22 float value
-     * @param n23 float value
-     * @param n31 float value
-     * @param n32 float value
-     * @param n33 float value
-     * @return instance of Matrix3
-     */
-    public native Matrix3 set(float n11, float n12, float n13, float n21, float n22, float n23, float n31, float n32, float n33);
+    @JsOverlay
+    default JsArray<Object> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Pre-multiplies this matrix by m.
-     *
-     * @param m instance of Matrix3
-     * @return instance of Matrix3
-     */
-    public native Matrix3 premultiply(Matrix3 m);
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Set this matrix to the upper 3x3 matrix of the Matrix4 m.
-     *
-     * @param m instance of Matrix4
-     * @return instance of Matrix3
-     */
-    public native Matrix3 setFromMatrix4(Matrix4 m);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * Sets the UV transform matrix from offset, repeat, rotation, and center.
-     *
-     * @param tx       - offset x
-     * @param ty       - offset y
-     * @param sx       - repeat x
-     * @param sy       - repeat y
-     * @param rotation - rotation (in radians)
-     * @param cx       - center x of rotation
-     * @param cy       - center y of rotation
-     * @return instance of Matrix3
-     */
-    public native Matrix3 setUvTransform(float tx, float ty, float sx, float sy, float rotation, float cx, float cy);
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * Writes the elements of this matrix to an array in column-major format.
-     *
-     * @return array of a float[] representing this instance of Matrix3
-     */
-    public native float[] toArray();
+  public JsArray<Double> elements;
 
-    /**
-     * Writes the elements of this matrix to an array in column-major format.
-     *
-     * @param array - array to store the resulting vector in.
-     * @return array of a float[] representing this instance of Matrix3
-     */
-    public native float[] toArray(float[] array);
+  @JsMethod(name = "clone")
+  public native Matrix3 clone_();
 
-    /**
-     * Writes the elements of this matrix to an array in column-major format.
-     *
-     * @param array  - array to store the resulting vector in.
-     * @param offset - offset in the array at which to put the result.
-     * @return array of a float[] representing this instance of Matrix3
-     */
-    public native float[] toArray(float[] array, int offset);
+  public native Matrix3 copy(Matrix3 m);
 
-    /**
-     * Transposes this matrix.
-     *
-     * @return instance of Matrix3
-     */
-    public native Matrix3 transpose();
+  public native double determinant();
 
-    /**
-     * Transposes this matrix into the supplied array, and returns itself unchanged.
-     * @param array - array to store the resulting vector in.
-     * @return instance of Matrix3
-     */
-    public native Matrix3 transposeIntoArray (float[] array);
+  public native boolean equals(Matrix3 matrix);
 
+  public native Matrix3 extractBasis(Vector3 xAxis, Vector3 yAxis, Vector3 zAxis);
+
+  @Deprecated
+  public native JsArray<Double> flattenToArrayOffset(JsArray<Double> array, double offset);
+
+  @JsOverlay
+  @Deprecated
+  public final JsArray<Double> flattenToArrayOffset(double[] array, double offset) {
+    return flattenToArrayOffset(Js.<JsArray<Double>>uncheckedCast(array), offset);
+  }
+
+  public native Matrix3 fromArray(Matrix3.FromArrayArrayUnionType array, double offset);
+
+  public native Matrix3 fromArray(Matrix3.FromArrayArrayUnionType array);
+
+  @JsOverlay
+  public final Matrix3 fromArray(JsArray<Double> array, double offset) {
+    return fromArray(Js.<Matrix3.FromArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Matrix3 fromArray(JsArray<Double> array) {
+    return fromArray(Js.<Matrix3.FromArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final Matrix3 fromArray(Object array, double offset) {
+    return fromArray(Js.<Matrix3.FromArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Matrix3 fromArray(Object array) {
+    return fromArray(Js.<Matrix3.FromArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final Matrix3 fromArray(double[] array, double offset) {
+    return fromArray(Js.<JsArray<Double>>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Matrix3 fromArray(double[] array) {
+    return fromArray(Js.<JsArray<Double>>uncheckedCast(array));
+  }
+
+  @Deprecated
+  public native Matrix3 getInverse(
+      Matrix3.GetInverseMatrixUnionType matrix, boolean throwOnDegenerate);
+
+  @Deprecated
+  public native Matrix3 getInverse(Matrix3.GetInverseMatrixUnionType matrix);
+
+  @JsOverlay
+  @Deprecated
+  public final Matrix3 getInverse(Matrix3 matrix, boolean throwOnDegenerate) {
+    return getInverse(
+        Js.<Matrix3.GetInverseMatrixUnionType>uncheckedCast(matrix), throwOnDegenerate);
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final Matrix3 getInverse(Matrix3 matrix) {
+    return getInverse(Js.<Matrix3.GetInverseMatrixUnionType>uncheckedCast(matrix));
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final Matrix3 getInverse(Matrix4 matrix, boolean throwOnDegenerate) {
+    return getInverse(
+        Js.<Matrix3.GetInverseMatrixUnionType>uncheckedCast(matrix), throwOnDegenerate);
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final Matrix3 getInverse(Matrix4 matrix) {
+    return getInverse(Js.<Matrix3.GetInverseMatrixUnionType>uncheckedCast(matrix));
+  }
+
+  public native Matrix3 getNormalMatrix(Matrix4 matrix4);
+
+  public native Matrix3 identity();
+
+  public native Matrix3 invert();
+
+  public native Matrix3 multiply(Matrix3 m);
+
+  public native Matrix3 multiplyMatrices(Matrix3 a, Matrix3 b);
+
+  public native Matrix3 multiplyScalar(double s);
+
+  @Deprecated
+  public native double multiplyVector3(Vector3 vector);
+
+  @Deprecated
+  public native double multiplyVector3Array(double a);
+
+  public native Matrix3 premultiply(Matrix3 m);
+
+  public native Matrix3 rotate(double theta);
+
+  public native Matrix3 scale(double sx, double sy);
+
+  public native Matrix3 set(
+      double n11,
+      double n12,
+      double n13,
+      double n21,
+      double n22,
+      double n23,
+      double n31,
+      double n32,
+      double n33);
+
+  public native Matrix3 setFromMatrix4(Matrix4 m);
+
+  public native Matrix3 setUvTransform(
+      double tx, double ty, double sx, double sy, double rotation, double cx, double cy);
+
+  public native Matrix3.ToArrayUnionType toArray();
+
+  @JsOverlay
+  public final Matrix3.ToArrayUnionType toArray(JsArray<Object> array, double offset) {
+    return toArray(Js.<Matrix3.ToArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Matrix3.ToArrayUnionType toArray(JsArray<Object> array) {
+    return toArray(Js.<Matrix3.ToArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final Matrix3.ToArrayUnionType toArray(Object array, double offset) {
+    return toArray(Js.<Matrix3.ToArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Matrix3.ToArrayUnionType toArray(Object[] array, double offset) {
+    return toArray(Js.<JsArray<Object>>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Matrix3.ToArrayUnionType toArray(Object array) {
+    return toArray(Js.<Matrix3.ToArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final Matrix3.ToArrayUnionType toArray(Object[] array) {
+    return toArray(Js.<JsArray<Object>>uncheckedCast(array));
+  }
+
+  public native Matrix3.ToArrayUnionType toArray(
+      Matrix3.ToArrayArrayUnionType array, double offset);
+
+  public native Matrix3.ToArrayUnionType toArray(Matrix3.ToArrayArrayUnionType array);
+
+  public native Matrix3 translate(double tx, double ty);
+
+  public native Matrix3 transpose();
+
+  public native Matrix3 transposeIntoArray(JsArray<Double> r);
+
+  @JsOverlay
+  public final Matrix3 transposeIntoArray(double[] r) {
+    return transposeIntoArray(Js.<JsArray<Double>>uncheckedCast(r));
+  }
 }

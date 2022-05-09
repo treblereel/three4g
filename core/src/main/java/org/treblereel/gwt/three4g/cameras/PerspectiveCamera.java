@@ -1,206 +1,110 @@
 package org.treblereel.gwt.three4g.cameras;
 
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.math.Vector4;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 
-/**
- * Camera that uses perspective projection.
- * <p>
- * This projection mode is designed to mimic the way the human eye sees. It is the most common projection mode used for
- * rendering a 3D scene.
- * <p>
- * See the base @see {@link Camera} class for common properties.
- * Note that after making changes to most of these poperties you will have to call .updateProjectionMatrix for the changes
- * to take effect.
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 12/6/17.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.PerspectiveCamera", namespace = JsPackage.GLOBAL)
 public class PerspectiveCamera extends Camera {
-
-    /**
-     * Camera frustum aspect ratio, usually the canvas width / canvas height. Default is 1 (square canvas).
-     */
-    public float aspect;
-
-    /**
-     * viewport
-     */
-    public Vector4 viewport;
-
-    /**
-     * Camera frustum far plane. Default is 2000.
-     * <p>
-     * The valid range is between the current value of the near plane and infinity.
-     */
-    public float far;
-
-    /**
-     * Film size used for the larger axis. Default is 35 (millimeters). This parameter does not influence the projection
-     * matrix unless .filmOffset is set to a nonzero value.
-     */
-    public float filmGauge;
-
-    /**
-     * Horizontal off-center offset in the same unit as .filmGauge. Default is 0.
-     */
-    public float filmOffset;
-
-    /**
-     * Object distance used for stereoscopy and depth-of-field effects. This parameter does not influence the projection
-     * matrix unless a StereoCamera is being used. Default is 10.
-     */
-    public float focus;
-
-    /**
-     * Camera frustum vertical field of view, from bottom to top of view, in degrees. Default is 50.
-     */
-    public float fov;
-
-    /**
-     * Used to test whether this or derived classes are PerspectiveCameras. Default is true.
-     * <p>
-     * This should not be changed as it is used internally by the renderer for optimisation.
-     */
-    public boolean isPerspectiveCamera;
-
-    /**
-     * Camera frustum near plane. Default is 0.1.
-     * <p>
-     * The valid range is greater than 0 and less than the current value of the far plane. Note that, unlike for the
-     * OrthographicCamera, 0 is not a valid value for a PerspectiveCamera's near plane.
-     */
-    public float near;
-
-    /**
-     * Frustum window specification or null. This is set using the .setViewOffset method and cleared using .clearViewOffset.
-     */
-    public Object view;
-
-    /**
-     * Gets or sets the zoom factor of the camera. Default is 1.
-     */
-    public float zoom;
-
-    public PerspectiveCamera() {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ViewFieldType {
+    @JsOverlay
+    static PerspectiveCamera.ViewFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param fov — Camera frustum vertical field of view.
-     * Together these define the camera's viewing frustum.
-     */
-    public PerspectiveCamera(float fov) {
-    }
+    @JsProperty
+    double getFullHeight();
 
-    /**
-     * @param fov — Camera frustum vertical field of view.
-     * @param aspect — Camera frustum aspect ratio.
-     * Together these define the camera's viewing frustum.
-     */
-    public PerspectiveCamera(float fov, float aspect) {
-    }
+    @JsProperty
+    double getFullWidth();
 
-    /**
-     * @param fov — Camera frustum vertical field of view.
-     * @param aspect — Camera frustum aspect ratio.
-     * @param near — Camera frustum near plane.
-     * Together these define the camera's viewing frustum.
-     */
-    public PerspectiveCamera(float fov, float aspect, float near) {
-    }
+    @JsProperty
+    double getHeight();
 
-    /**
-     * @param fov — Camera frustum vertical field of view.
-     * @param aspect — Camera frustum aspect ratio.
-     * @param near — Camera frustum near plane.
-     * @param far — Camera frustum far plane.
-     * Together these define the camera's viewing frustum.
-     */
-    public PerspectiveCamera(float fov, float aspect, float near, float far) {
-    }
+    @JsProperty
+    double getOffsetX();
 
-    /**
-     * Removes any offset set by the .setViewOffset method.
-     */
-    public native void clearViewOffset();
+    @JsProperty
+    double getOffsetY();
 
-    /**
-     * Returns the current vertical field of view angle in degrees considering .zoom.
-     * @return as float value
-     */
-    public native float getEffectiveFOV();
+    @JsProperty
+    double getWidth();
 
-    /**
-     * Returns the height of the image on the film. If .aspect is less than or equal to one (portrait format),
-     * the result equals .filmGauge.
-     * @return as float value
-     */
-    public native float getFilmHeight();
+    @JsProperty
+    boolean isEnabled();
 
-    /**
-     * Returns the width of the image on the film. If .aspect is greater than or equal to one (landscape format),
-     * the result equals .filmGauge.
-     * @return as float value
-     */
-    public native float getFilmWidth();
+    @JsProperty
+    void setEnabled(boolean enabled);
 
-    /**
-     * Returns the focal length of the current .fov in respect to .filmGauge.
-     * @return as float value
-     */
-    public native float getFocalLength();
+    @JsProperty
+    void setFullHeight(double fullHeight);
 
-    /**
-     * Sets the FOV by focal length in respect to the current .filmGauge.
-     * <p>
-     * @param focalLength By default, the focal length is specified for a 35mm (full frame) camera.
-     */
-    public native void setFocalLength(float focalLength);
+    @JsProperty
+    void setFullWidth(double fullWidth);
 
-    /**
-     * Sets an offset in a larger frustum. This is useful for multi-window or multi-monitor/multi-machine setups.
-     * For example, if you have 3x2 monitors and each monitor is 1920x1080 and the monitors are in grid like this:
-     * +---+---+---+
-     * | A | B | C |
-     * +---+---+---+
-     * | D | E | F |
-     * +---+---+---+
-     * <p>
-     * then for each monitor you would call it like this:
-     * var w = 1920;
-     * var h = 1080;
-     * var fullWidth = w * 3;
-     * var fullHeight = h * 2;
-     * <p>
-     * // A
-     * camera.setViewOffset( fullWidth, fullHeight, w * 0, h * 0, w, h );
-     * // B
-     * camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 0, w, h );
-     * // C
-     * camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 0, w, h );
-     * // D
-     * camera.setViewOffset( fullWidth, fullHeight, w * 0, h * 1, w, h );
-     * // E
-     * camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 1, w, h );
-     * // F
-     * camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 1, w, h ); Note there is no reason monitors have to be the same size or in a grid.
-     * @param fullWidth — full width of multiview setup
-     * @param fullHeight — full height of multiview setup
-     * @param x — horizontal offset of subcamera
-     * @param y — vertical offset of subcamera
-     * @param width — width of subcamera
-     * @param height — height of subcamera
-     */
-    public native void setViewOffset(float fullWidth, float fullHeight, float x, float y, float width, float height);
+    @JsProperty
+    void setHeight(double height);
 
-    /**
-     * Updates the camera projection matrix. Must be called after any change of parameters.
-     */
-    public native void updateProjectionMatrix();
+    @JsProperty
+    void setOffsetX(double offsetX);
 
-    /**
-     * Return camera data in JSON format.
-     * @return String
-     */
-    public native String toJSON();
+    @JsProperty
+    void setOffsetY(double offsetY);
+
+    @JsProperty
+    void setWidth(double width);
+  }
+
+  public double aspect;
+  public double far;
+  public double filmGauge;
+  public double filmOffset;
+  public double focus;
+  public double fov;
+  public boolean isPerspectiveCamera;
+  public double near;
+  public String type;
+  public PerspectiveCamera.ViewFieldType view;
+  public double zoom;
+
+  public PerspectiveCamera() {}
+
+  public PerspectiveCamera(double fov, double aspect, double near, double far) {}
+
+  public PerspectiveCamera(double fov, double aspect, double near) {}
+
+  public PerspectiveCamera(double fov, double aspect) {}
+
+  public PerspectiveCamera(double fov) {}
+
+  public native void clearViewOffset();
+
+  public native double getEffectiveFOV();
+
+  public native double getFilmHeight();
+
+  public native double getFilmWidth();
+
+  public native double getFocalLength();
+
+  public native void setFocalLength(double focalLength);
+
+  @Deprecated
+  public native void setLens(double focalLength, double frameHeight);
+
+  @Deprecated
+  public native void setLens(double focalLength);
+
+  public native void setViewOffset(
+      double fullWidth, double fullHeight, double x, double y, double width, double height);
+
+  public native Object toJSON();
+
+  public native Object toJSON(String key);
+
+  public native void updateProjectionMatrix();
 }

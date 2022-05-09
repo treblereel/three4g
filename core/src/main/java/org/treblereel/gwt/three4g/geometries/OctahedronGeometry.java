@@ -1,25 +1,25 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
-import org.treblereel.gwt.three4g.geometries.parameters.OctahedronGeometryParameters;
+import jsinterop.base.Js;
 
-/**
- * A class for generating an octahedron geometry.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class OctahedronGeometry extends Geometry {
+@JsType(isNative = true, name = "THREE.OctahedronGeometry", namespace = JsPackage.GLOBAL)
+public class OctahedronGeometry {
+  public static native OctahedronGeometry fromJSON(JsObject data);
 
-    public OctahedronGeometryParameters parameters;
+  @JsOverlay
+  public static final OctahedronGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
 
-    /**
-     * @param radius — Radius of the octahedron. Default is 1.
-     * @param detail — Default is 0. Setting this to a value greater than zero add vertices making it no longer an octahedron.
-     */
-    public OctahedronGeometry(float radius, int detail) {
+  public String type;
 
-    }
+  public OctahedronGeometry() {}
+
+  public OctahedronGeometry(double radius, double detail) {}
+
+  public OctahedronGeometry(double radius) {}
 }

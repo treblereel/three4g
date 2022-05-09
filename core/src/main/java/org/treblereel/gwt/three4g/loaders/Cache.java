@@ -1,50 +1,18 @@
 package org.treblereel.gwt.three4g.loaders;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-/**
- * A simple caching system, used internally by FileLoader.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/26/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Cache", namespace = JsPackage.GLOBAL)
 public class Cache {
+  public static boolean enabled;
+  public static double files;
 
-    /**
-     * Whether caching is enabled. Default is false.
-     */
-    public boolean enabled;
+  public static native void add(String key, double file);
 
-    /**
-     * An object that holds cached files.
-     */
-    public Object files;
+  public static native void clear();
 
-    /**
-     * Adds a cache entry with a key to reference the file. If this key already holds a file, it is overwritten.
-     *
-     * @param key  — the key to reference the cached file by.
-     * @param file — The file to be cached.
-     */
-    public native void add(String key, Object file);
+  public static native double get(String key);
 
-    /**
-     * Get the value of key. If the key does not exist undefined is returned.
-     *
-     * @param key — A string key
-     */
-    public native void get(String key);
-
-    /**
-     * Remove the cached file associated with the key.
-     *
-     * @param key — A string key that references a cached file.
-     */
-    public native void remove(String key);
-
-    /**
-     * Remove all values from the cache.
-     */
-    public native void clear();
+  public static native void remove(String key);
 }

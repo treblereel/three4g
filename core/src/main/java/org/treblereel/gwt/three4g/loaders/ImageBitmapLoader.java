@@ -1,38 +1,70 @@
 package org.treblereel.gwt.three4g.loaders;
 
+import elemental2.core.JsObject;
+import elemental2.dom.ErrorEvent;
+import elemental2.dom.EventTarget;
 import elemental2.dom.ImageBitmap;
-import jsinterop.annotations.JsConstructor;
+import elemental2.dom.ProgressEvent;
+import elemental2.promise.Promise;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
+import jsinterop.base.Js;
 
-/**
- * A loader for loading an Image as an ImageBitmap. An ImageBitmap provides an asynchronous and resource efficient pathway
- * to prepare textures for rendering in WebGL.
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/26/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class ImageBitmapLoader extends Loader<ImageBitmapLoader, ImageBitmap> {
+@JsType(isNative = true, name = "THREE.ImageBitmapLoader", namespace = JsPackage.GLOBAL)
+public class ImageBitmapLoader extends Loader {
+  @JsFunction
+  public interface LoadAsyncOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
 
-    /**
-     * An optional object that sets options for the internally used createImageBitmap factory method. Default is undefined.
-     */
-    public String options;
+  @JsFunction
+  public interface LoadOnErrorFn {
+    void onInvoke(ErrorEvent p0);
+  }
 
-    @JsConstructor
-    public ImageBitmapLoader() {
+  @JsFunction
+  public interface LoadOnLoadFn {
+    void onInvoke(ImageBitmap p0);
+  }
 
-    }
+  @JsFunction
+  public interface LoadOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
 
-    @JsConstructor
-    public ImageBitmapLoader(LoadingManager manager) {
+  public boolean isImageBitmapLoader;
+  public JsObject options;
 
-    }
+  public ImageBitmapLoader() {}
 
-    /**
-     * Sets the options object for createImageBitmap.
-     * @param options object
-     * @return instance of ImageBitmapLoader
-     */
-    public native ImageBitmapLoader setOptions(String options);
+  public ImageBitmapLoader(LoadingManager manager) {}
+
+  public native double load(
+      String url,
+      ImageBitmapLoader.LoadOnLoadFn onLoad,
+      ImageBitmapLoader.LoadOnProgressFn onProgress,
+      ImageBitmapLoader.LoadOnErrorFn onError);
+
+  public native double load(
+      String url,
+      ImageBitmapLoader.LoadOnLoadFn onLoad,
+      ImageBitmapLoader.LoadOnProgressFn onProgress);
+
+  public native double load(String url, ImageBitmapLoader.LoadOnLoadFn onLoad);
+
+  public native double load(String url);
+
+  public native Promise<ImageBitmap> loadAsync(
+      String url, ImageBitmapLoader.LoadAsyncOnProgressFn onProgress);
+
+  public native Promise<ImageBitmap> loadAsync(String url);
+
+  public native ImageBitmapLoader setOptions(JsObject options);
+
+  @JsOverlay
+  public final ImageBitmapLoader setOptions(Object options) {
+    return setOptions(Js.<JsObject>uncheckedCast(options));
+  }
 }

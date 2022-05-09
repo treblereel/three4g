@@ -1,25 +1,25 @@
 package org.treblereel.gwt.three4g.geometries;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
-import org.treblereel.gwt.three4g.geometries.parameters.DodecahedronGeometryParameters;
+import jsinterop.base.Js;
 
-/**
- * A class for generating a dodecahedron geometries.
+@JsType(isNative = true, name = "THREE.DodecahedronGeometry", namespace = JsPackage.GLOBAL)
+public class DodecahedronGeometry extends PolyhedronGeometry {
+  public static native DodecahedronGeometry fromJSON(JsObject data);
 
+  @JsOverlay
+  public static final DodecahedronGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
 
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/2/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class DodecahedronGeometry extends Geometry {
+  public String type;
 
-    public DodecahedronGeometryParameters parameters;
+  public DodecahedronGeometry() {}
 
-    @JsConstructor
-    public DodecahedronGeometry(float radius, int detail) {
+  public DodecahedronGeometry(double radius, double detail) {}
 
-    }
-
+  public DodecahedronGeometry(double radius) {}
 }

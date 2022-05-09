@@ -1,56 +1,80 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsArray;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.math.Vector2;
 
-/**
- * Creates meshes with axial symmetry like vases. The lathe rotates around the Y axis.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class LatheGeometry extends Geometry {
-
-    public Vector2[] points;
-    public int segments;
-    public float phiStart;
-    public float phiLength;
-
-    /**
-     * @param points — Array of Vector2s. The x-coordinate of each point must be greater than zero.
-     */
-    public LatheGeometry(Vector2[] points) {
-
+@JsType(isNative = true, name = "THREE.LatheGeometry", namespace = JsPackage.GLOBAL)
+public class LatheGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static LatheGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param points   — Array of Vector2s. The x-coordinate of each point must be greater than zero.
-     * @param segments — the number of circumference segments to generate. Default is 12.
-     */
-    public LatheGeometry(Vector2[] points, int segments) {
+    @JsProperty
+    double getPhiLength();
 
+    @JsProperty
+    double getPhiStart();
+
+    @JsProperty
+    JsArray<Vector2> getPoints();
+
+    @JsProperty
+    double getSegments();
+
+    @JsProperty
+    void setPhiLength(double phiLength);
+
+    @JsProperty
+    void setPhiStart(double phiStart);
+
+    @JsProperty
+    void setPoints(JsArray<Vector2> points);
+
+    @JsOverlay
+    default void setPoints(Vector2[] points) {
+      setPoints(Js.<JsArray<Vector2>>uncheckedCast(points));
     }
 
-    /**
-     * @param points   — Array of Vector2s. The x-coordinate of each point must be greater than zero.
-     * @param segments — the number of circumference segments to generate. Default is 12.
-     * @param phiStart — the starting angle in radians. Default is 0.
-     */
-    public LatheGeometry(Vector2[] points, int segments, float phiStart) {
+    @JsProperty
+    void setSegments(double segments);
+  }
 
-    }
+  public static native LatheGeometry fromJSON(JsObject data);
 
-    /**
-     * @param points    — Array of Vector2s. The x-coordinate of each point must be greater than zero.
-     * @param segments  — the number of circumference segments to generate. Default is 12.
-     * @param phiStart  — the starting angle in radians. Default is 0.
-     * @param phiLength — the radian (0 to 2PI) range of the lathed section 2PI is a closed lathe, less than 2PI is a portion. Default is 2PI.
-     */
-    public LatheGeometry(Vector2[] points, int segments, float phiStart, float phiLength) {
+  @JsOverlay
+  public static final LatheGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
 
-    }
+  public LatheGeometry.ParametersFieldType parameters;
+  public String type;
 
+  public LatheGeometry() {}
+
+  public LatheGeometry(
+      JsArray<Vector2> points, double segments, double phiStart, double phiLength) {}
+
+  public LatheGeometry(JsArray<Vector2> points, double segments, double phiStart) {}
+
+  public LatheGeometry(JsArray<Vector2> points, double segments) {}
+
+  public LatheGeometry(JsArray<Vector2> points) {}
+
+  public LatheGeometry(Vector2[] points, double segments, double phiStart, double phiLength) {}
+
+  public LatheGeometry(Vector2[] points, double segments, double phiStart) {}
+
+  public LatheGeometry(Vector2[] points, double segments) {}
+
+  public LatheGeometry(Vector2[] points) {}
 }
-

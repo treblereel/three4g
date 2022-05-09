@@ -1,333 +1,307 @@
 package org.treblereel.gwt.three4g.math;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsArrayLike;
+import jsinterop.base.Js;
 
-/**
- * Implementation of a quaternion. This is used for rotating things without encountering the dreaded gimbal lock issue, amongst other advantages.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/1/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Quaternion", namespace = JsPackage.GLOBAL)
 public class Quaternion {
-
-    /**
-     * Used to check whether this or derived classes are Quaternion's. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isQuaternion;
-
-    /**
-     * x - x coordinate
-     * y - y coordinate
-     * z - z coordinate
-     * w - w coordinate
-     * <p>
-     * Changing this property will result in onChangeCallback being called.
-     */
-    public float x, y, z, w;
-
-    @JsConstructor
-    public Quaternion() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface FromArrayArrayUnionType {
+    @JsOverlay
+    static Quaternion.FromArrayArrayUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    @JsConstructor
-    public Quaternion(float x, float y, float z, float w) {
-
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
     }
 
-    /**
-     * Returns the angle between this quaternion and quaternion q in radians.
-     *
-     * @param q in radians.
-     * @return float value
-     */
-    public native float angleTo(Quaternion q);
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Returns a new Quaternion with the same x and y values as this one.
-     *
-     * @return Quaternion
-     */
-    public native Quaternion clone();
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * Returns the rotational conjugate of this quaternion. The conjugate of a quaternion represents the same rotation in
-     * the opposite direction about the rotational axis.
-     *
-     * @return Quaternion
-     */
-    public native Quaternion conjugate();
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * Copies the x, y,	z and w properties of q into this quaternion.
-     *
-     * @param quaternion target Quaternion
-     * @return instance of Quaternion
-     */
-    public native Quaternion copy(Quaternion quaternion);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ToArrayArrayUnionType {
+    @JsOverlay
+    static Quaternion.ToArrayArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * @param quaternion - Quaternion that this quaternion will be compared to.
-     * @return boolean
-     */
-    public native boolean equals(Quaternion quaternion);
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Calculates the dot product of quaternions v and this one.
-     *
-     * @param quaternion Quaternion
-     * @return float
-     */
-    public native float dot(Quaternion quaternion);
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Sets this quaternion's x, y,	z and w properties from an array.
-     *
-     * @param array - array of format (x, y, z, w) used to construct the quaternion.
-     * @return Quaternion
-     */
-    public native Quaternion fromArray(float[] array);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * Sets this quaternion's x, y,	z and w properties from an array.
-     *
-     * @param array  - array of format (x, y, z, w) used to construct the quaternion.
-     * @param offset - (optional) offset into the array. Default is 0.
-     * @return Quaternion
-     */
-    public native Quaternion fromArray(float[] array, float offset);
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * Sets this quaternion's x, y,	z and w properties from an array.
-     *
-     * @param array - array of format (x, y, z, w) used to construct the quaternion.
-     * @return Quaternion
-     */
-    public native Quaternion fromArray(JsArrayLike array);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ToArrayUnionType {
+    @JsOverlay
+    static Quaternion.ToArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Sets this quaternion's x, y,	z and w properties from an array.
-     *
-     * @param array  - array of format (x, y, z, w) used to construct the quaternion.
-     * @param offset - (optional) offset into the array. Default is 0.
-     * @return Quaternion
-     */
-    public native Quaternion fromArray(JsArrayLike array, float offset);
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Inverts this quaternion - calculate the conjugate and then normalizes the result.
-     *
-     * @return Quaternion
-     */
-    public native Quaternion inverse();
+    @JsOverlay
+    default Object asObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Computes the Euclidean length (straight-line length) of this quaternion, considered as a 4 dimensional vector.
-     *
-     * @return float
-     */
-    public native float length();
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
-    /**
-     * Computes the Euclidean length (straight-line length) of this quaternion, considered as a 4 dimensional vector.
-     * This can be useful if you are comparing the lengths of two quaternions, as this is a slightly more efficient
-     * calculation than length().
-     *
-     * @return float
-     */
-    public native float lengthSq();
+    @JsOverlay
+    default boolean isObject() {
+      return (Object) this instanceof Object;
+    }
+  }
 
-    /**
-     * Normalizes this quaternion - that is, calculated the quaternion that performs the same rotation as this one,
-     * but has length equal to 1.
-     *
-     * @return instance of Quaternion
-     */
-    public native Quaternion normalize();
+  @JsFunction
+  public interface _onChangeCallbackFn {
+    void onInvoke();
+  }
 
-    /**
-     * Multiplies this quaternion by q.
-     *
-     * @param quaternion Quaternion
-     * @return instance of Quaternion
-     */
-    public native Quaternion multiply(Quaternion quaternion);
+  @JsFunction
+  public interface _onChangeCallbackFn0 {
+    void onInvoke();
+  }
 
-    /**
-     * Sets this quaternion to a x b.
-     * Adapted from the method outlined here.
-     *
-     * @param quaternion1 Quaternion
-     * @param quaternion2 Quaternion
-     * @return instance of Quaternion
-     */
-    public native Quaternion multiplyQuaternions(Quaternion quaternion1, Quaternion quaternion2);
+  public static native JsArray<Double> multiplyQuaternionsFlat(
+      JsArray<Double> dst,
+      double dstOffset,
+      JsArray<Double> src0,
+      double srcOffset,
+      JsArray<Double> src1,
+      double stcOffset1);
 
-    /**
-     * This function is called whenever any of the following occurs:
-     * The x, y, z or w properties are changed.
-     * The set(), copy(), clone(), setFromAxisAngle(), setFromRotationMatrix(), conjugate(), normalize(), multiplyQuaternions(), slerp() or fromArray() functions are called.
-     * setFromEuler() function is called with its update argument set to true.
-     * By default it is the empty function, however you can change it if needed using onChange( onChangeCallback ).
-     *
-     * @param onChangeCallback onChangeCallback
-     * @return instance of Quaternion
-     */
-    public native Quaternion onChange(OnChangeCallback onChangeCallback);
+  @JsOverlay
+  public static final JsArray<Double> multiplyQuaternionsFlat(
+      double[] dst,
+      double dstOffset,
+      double[] src0,
+      double srcOffset,
+      double[] src1,
+      double stcOffset1) {
+    return multiplyQuaternionsFlat(
+        Js.<JsArray<Double>>uncheckedCast(dst),
+        dstOffset,
+        Js.<JsArray<Double>>uncheckedCast(src0),
+        srcOffset,
+        Js.<JsArray<Double>>uncheckedCast(src1),
+        stcOffset1);
+  }
 
+  @Deprecated
+  public static native double slerp(Quaternion qa, Quaternion qb, Quaternion qm, double t);
 
-    /**
-     * This function is called whenever any of the following occurs:
-     * The x, y, z or w properties are changed.
-     * The set(), copy(), clone(), setFromAxisAngle(), setFromRotationMatrix(), conjugate(), normalize(), multiplyQuaternions(),
-     * slerp() or fromArray() functions are called.
-     * setFromEuler() function is called with its update argument set to true.
-     * By default it is the empty function, however you can change it if needed using onChange( onChangeCallback ).
-     *
-     * @return instance of Quaternion
-     */
-    public native Quaternion onChangeCallback();
+  public static native Quaternion slerpFlat(
+      JsArray<Double> dst,
+      double dstOffset,
+      JsArray<Double> src0,
+      double srcOffset,
+      JsArray<Double> src1,
+      double stcOffset1,
+      double t);
 
-    /**
-     * Pre-multiplies this quaternion by quaternion.
-     *
-     * @param quaternion Quaternion
-     * @return instance of Quaternion
-     */
-    public native Quaternion premultiply(Quaternion quaternion);
+  @JsOverlay
+  public static final Quaternion slerpFlat(
+      double[] dst,
+      double dstOffset,
+      double[] src0,
+      double srcOffset,
+      double[] src1,
+      double stcOffset1,
+      double t) {
+    return slerpFlat(
+        Js.<JsArray<Double>>uncheckedCast(dst),
+        dstOffset,
+        Js.<JsArray<Double>>uncheckedCast(src0),
+        srcOffset,
+        Js.<JsArray<Double>>uncheckedCast(src1),
+        stcOffset1,
+        t);
+  }
 
-    /**
-     * Rotates this quaternion by a given angular step to the defined quaternion q. The method ensures that the final
-     * quaternion will not overshoot q.
-     *
-     * @param q    - The target quaternion.
-     * @param step - The angular step in radians.
-     * @return instance of Quaternion
-     */
-    public native Quaternion rotateTowards(Quaternion q, float step);
+  public Quaternion._onChangeCallbackFn0 _onChangeCallback;
+  public boolean isQuaternion;
+  public double w;
+  public double x;
+  public double y;
+  public double z;
 
-    /**
-     * Handles the spherical linear interpolation between quaternions. t represents the amount of rotation between this quaternion (where t is 0) and qb (where t is 1). This quaternion is set to the result. Also see the static version of the slerp below.
-     * // rotate a mesh towards a target quaternion
-     * mesh.quaternion.slerp( endQuaternion, 0.01 );
-     *
-     * @param qb - The other quaternion rotation
-     * @param t  - interpolation factor in the closed interval [0, 1].
-     * @return instance of Quaternion
-     */
-    public native Quaternion slerp(Quaternion qb, float t);
+  public Quaternion() {}
 
-    /**
-     * Sets the x, y and z components of this quaternion.
-     *
-     * @param x components
-     * @param y components
-     * @param z components
-     * @param w components
-     * @return instance of Quaternion
-     */
-    public native Quaternion set(float x, float y, float z, float w);
+  public Quaternion(double x, double y, double z, double w) {}
 
+  public Quaternion(double x, double y, double z) {}
 
-    /**
-     * Sets this quaternion from rotation specified by axis and angle.
-     * Adapted from the method here.
-     * Axis is assumed to be normalized, angle is in radians.
-     *
-     * @param axis  Vector3
-     * @param angle is in radians
-     * @return instance of Quaternion
-     */
-    public native Quaternion setFromAxisAngle(Vector3 axis, float angle);
+  public Quaternion(double x, double y) {}
 
-    /**
-     * Applies euler transform to this vector by converting the Euler object to a Quaternion and applying.
-     *
-     * @param euler source Euler
-     * @return instance of Quaternion
-     */
-    public native Quaternion setFromEuler(Euler euler);
+  public Quaternion(double x) {}
 
-    /**
-     * Sets this quaternion from rotation component of m.
-     * Adapted from the method here.
-     *
-     * @param m source Matrix4
-     * @return instance of Quaternion
-     */
-    public native Quaternion setFromRotationMatrix(Matrix4 m);
+  public native Quaternion _onChange(Quaternion._onChangeCallbackFn callback);
 
-    /**
-     * Sets this quaternion to the rotation required to rotate direction vector vFrom to direction vector vTo.
-     * Adapted from the method here.
-     * vFrom and vTo are assumed to be normalized.
-     *
-     * @param vFrom Vector3
-     * @param vTo   Vector3
-     * @return instance of Quaternion
-     */
-    public native Quaternion setFromUnitVectors(Vector3 vFrom, Vector3 vTo);
+  public native double angleTo(Quaternion q);
 
-    /**
-     * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
-     *
-     * @return float[]
-     */
-    public native float[] toArray();
+  @JsMethod(name = "clone")
+  public native Quaternion clone_();
 
-    /**
-     * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
-     *
-     * @param array - An array to store the quaternion. If not specified, a new array will be created.
-     * @return float[]
-     */
-    public native float[] toArray(float[] array);
+  public native Quaternion conjugate();
 
-    /**
-     * Returns the numerical elements of this quaternion in an array of format [x, y, z, w].
-     *
-     * @param array  - An array to store the quaternion. If not specified, a new array will be created.
-     * @param offset - offset into the array.
-     * @return float[]
-     */
-    public native float[] toArray(float[] array, int offset);
+  public native Quaternion copy(Quaternion q);
 
-    /**
-     * Unlike the normal method, the static version of slerp sets a target quaternion to the result of the slerp operation.
-     * // Code setup
-     * var startQuaternion = new Quaternion().set( 0, 0, 0, 1 ).normalize();
-     * var endQuaternion = new Quaternion().set( 1, 1, 1, 1 ).normalize();
-     * var t = 0;
-     * <p>
-     * // Update a mesh's rotation in the loop
-     * t = ( t + 0.01 ) % 1; // constant angular momentum
-     * Quaternion.slerp( startQuaternion, endQuaternion, mesh.quaternion, t );
-     *
-     * @param qStart  - The starting quaternion (where t is 0)
-     * @param qEnd    - The ending quaternion (where t is 1)
-     * @param qTarget - The target quaternion that gets set with the result
-     * @param t       - interpolation factor in the closed interval [0, 1].
-     * @return instance of Quaternion
-     */
-    public native Quaternion slerp(Quaternion qStart, Quaternion qEnd, Quaternion qTarget, float t);
+  public native double dot(Quaternion v);
 
-    /**
-     * Like the static slerp method above, but operates directly on flat arrays of numbers.
-     *
-     * @param dst        - The output array.
-     * @param dstOffset  - An offset into the output array.
-     * @param src0       - The source array of the starting quaternion.
-     * @param srcOffset0 - An offset into the array src0.
-     * @param src1       - The source array of the target quatnerion.
-     * @param srcOffset1 - An offset into the array src1.
-     * @param t          - Normalized interpolation factor (between 0 and 1).
-     */
-    public native void slerpFlat(float[] dst, int dstOffset, float[] src0, int srcOffset0, float[] src1, int srcOffset1, float t);
+  public native boolean equals(Quaternion v);
 
+  public native Quaternion fromArray(Quaternion.FromArrayArrayUnionType array, double offset);
 
+  public native Quaternion fromArray(Quaternion.FromArrayArrayUnionType array);
+
+  @JsOverlay
+  public final Quaternion fromArray(JsArray<Double> array, double offset) {
+    return fromArray(Js.<Quaternion.FromArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Quaternion fromArray(JsArray<Double> array) {
+    return fromArray(Js.<Quaternion.FromArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final Quaternion fromArray(Object array, double offset) {
+    return fromArray(Js.<Quaternion.FromArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Quaternion fromArray(Object array) {
+    return fromArray(Js.<Quaternion.FromArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final Quaternion fromArray(double[] array, double offset) {
+    return fromArray(Js.<JsArray<Double>>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Quaternion fromArray(double[] array) {
+    return fromArray(Js.<JsArray<Double>>uncheckedCast(array));
+  }
+
+  public native Quaternion identity();
+
+  @Deprecated
+  public native Quaternion inverse();
+
+  public native Quaternion invert();
+
+  public native double length();
+
+  public native double lengthSq();
+
+  public native Quaternion multiply(Quaternion q);
+
+  public native Quaternion multiplyQuaternions(Quaternion a, Quaternion b);
+
+  @Deprecated
+  public native double multiplyVector3(double v);
+
+  public native Quaternion normalize();
+
+  public native Quaternion premultiply(Quaternion q);
+
+  public native Quaternion random();
+
+  public native Quaternion rotateTowards(Quaternion q, double step);
+
+  public native Quaternion set(double x, double y, double z, double w);
+
+  public native Quaternion setFromAxisAngle(Vector3 axis, double angle);
+
+  public native Quaternion setFromEuler(Euler euler, boolean update);
+
+  public native Quaternion setFromEuler(Euler euler);
+
+  public native Quaternion setFromRotationMatrix(Matrix4 m);
+
+  public native Quaternion setFromUnitVectors(Vector3 vFrom, Vector3 vTo);
+
+  public native Quaternion slerp(Quaternion qb, double t);
+
+  public native Quaternion slerpQuaternions(Quaternion qa, Quaternion qb, double t);
+
+  public native Quaternion.ToArrayUnionType toArray();
+
+  @JsOverlay
+  public final Quaternion.ToArrayUnionType toArray(JsArray<Double> array, double offset) {
+    return toArray(Js.<Quaternion.ToArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Quaternion.ToArrayUnionType toArray(JsArray<Double> array) {
+    return toArray(Js.<Quaternion.ToArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  @JsOverlay
+  public final Quaternion.ToArrayUnionType toArray(Object array, double offset) {
+    return toArray(Js.<Quaternion.ToArrayArrayUnionType>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Quaternion.ToArrayUnionType toArray(Object array) {
+    return toArray(Js.<Quaternion.ToArrayArrayUnionType>uncheckedCast(array));
+  }
+
+  public native Quaternion.ToArrayUnionType toArray(
+      Quaternion.ToArrayArrayUnionType array, double offset);
+
+  public native Quaternion.ToArrayUnionType toArray(Quaternion.ToArrayArrayUnionType array);
+
+  @JsOverlay
+  public final Quaternion.ToArrayUnionType toArray(double[] array, double offset) {
+    return toArray(Js.<JsArray<Double>>uncheckedCast(array), offset);
+  }
+
+  @JsOverlay
+  public final Quaternion.ToArrayUnionType toArray(double[] array) {
+    return toArray(Js.<JsArray<Double>>uncheckedCast(array));
+  }
 }

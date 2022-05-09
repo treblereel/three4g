@@ -1,25 +1,137 @@
 package org.treblereel.gwt.three4g.textures;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-/**
- * Creates a texture from a canvas element.
- * <p>
- * This is almost the same as the base Texture class, except that it sets needsUpdate to true immediately.
- * <p>
- * Creates a cube texture made up of six images.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/1/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.CubeTexture", namespace = JsPackage.GLOBAL)
 public class CubeTexture extends Texture {
+  public boolean flipY;
+  public double images;
+  public boolean isCubeTexture;
 
-    @JsConstructor
-    public CubeTexture(Object[] images, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy ){
+  public CubeTexture() {}
 
-    }
+  public CubeTexture(
+      JsArray<JsObject> images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy,
+      double encoding) {}
 
+  public CubeTexture(
+      JsArray<JsObject> images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy) {}
 
+  public CubeTexture(
+      JsArray<JsObject> images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type) {}
+
+  public CubeTexture(
+      JsArray<JsObject> images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format) {}
+
+  public CubeTexture(
+      JsArray<JsObject> images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter) {}
+
+  public CubeTexture(
+      JsArray<JsObject> images, double mapping, double wrapS, double wrapT, double magFilter) {}
+
+  public CubeTexture(JsArray<JsObject> images, double mapping, double wrapS, double wrapT) {}
+
+  public CubeTexture(JsArray<JsObject> images, double mapping, double wrapS) {}
+
+  public CubeTexture(JsArray<JsObject> images, double mapping) {}
+
+  public CubeTexture(JsArray<JsObject> images) {}
+
+  public CubeTexture(
+      JsObject[] images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy,
+      double encoding) {}
+
+  public CubeTexture(
+      JsObject[] images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy) {}
+
+  public CubeTexture(
+      JsObject[] images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type) {}
+
+  public CubeTexture(
+      JsObject[] images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format) {}
+
+  public CubeTexture(
+      JsObject[] images,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter) {}
+
+  public CubeTexture(
+      JsObject[] images, double mapping, double wrapS, double wrapT, double magFilter) {}
+
+  public CubeTexture(JsObject[] images, double mapping, double wrapS, double wrapT) {}
+
+  public CubeTexture(JsObject[] images, double mapping, double wrapS) {}
+
+  public CubeTexture(JsObject[] images, double mapping) {}
+
+  public CubeTexture(JsObject[] images) {}
 }

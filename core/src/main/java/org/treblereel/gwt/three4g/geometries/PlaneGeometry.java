@@ -1,60 +1,64 @@
 package org.treblereel.gwt.three4g.geometries;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/9/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class PlaneGeometry extends Geometry {
-
-    /**
-     * Width along the X axis. Default is 1
-     */
-    public int width;
-
-    /**
-     * Height along the Y axis. Default is 1.
-     */
-    public int  height;
-
-    /**
-     * Default is 1.
-     */
-    public int  widthSegments;
-
-    /**
-     * Default is 1.
-     */
-    public int  heightSegments;
-
-    /**
-     * @param width  — Width along the X axis. Default is 1.
-     * @param height — Height along the Y axis. Default is 1.
-     */
-    @JsConstructor
-    public PlaneGeometry(int width, int height) {
+@JsType(isNative = true, name = "THREE.PlaneGeometry", namespace = JsPackage.GLOBAL)
+public class PlaneGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static PlaneGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param width  — Width along the X axis. Default is 1.
-     * @param height — Height along the Y axis. Default is 1.
-     * @param widthSegments — Default is 1.
-     */
-    @JsConstructor
-    public PlaneGeometry(int width, int height, int widthSegments) {
-    }
+    @JsProperty
+    double getHeight();
 
-    /**
-     * @param width  — Width along the X axis. Default is 1.
-     * @param height — Height along the Y axis. Default is 1.
-     * @param widthSegments — Default is 1.
-     * @param heightSegments — Default is 1.
-     */
-    @JsConstructor
-    public PlaneGeometry(int width, int height, int widthSegments, int heightSegments) {
-    }
+    @JsProperty
+    double getHeightSegments();
+
+    @JsProperty
+    double getWidth();
+
+    @JsProperty
+    double getWidthSegments();
+
+    @JsProperty
+    void setHeight(double height);
+
+    @JsProperty
+    void setHeightSegments(double heightSegments);
+
+    @JsProperty
+    void setWidth(double width);
+
+    @JsProperty
+    void setWidthSegments(double widthSegments);
+  }
+
+  public static native PlaneGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final PlaneGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public PlaneGeometry.ParametersFieldType parameters;
+  public String type;
+
+  public PlaneGeometry() {}
+
+  public PlaneGeometry(double width, double height, double widthSegments, double heightSegments) {}
+
+  public PlaneGeometry(double width, double height, double widthSegments) {}
+
+  public PlaneGeometry(double width, double height) {}
+
+  public PlaneGeometry(double width) {}
 }

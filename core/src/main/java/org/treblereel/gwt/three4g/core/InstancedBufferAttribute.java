@@ -1,38 +1,25 @@
 package org.treblereel.gwt.three4g.core;
 
-import elemental2.core.TypedArray;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-/**
- * An instanced version of BufferAttribute.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/30/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class InstancedBufferAttribute extends BufferAttribute<Number, InstancedBufferAttribute> {
+@JsType(isNative = true, name = "THREE.InstancedBufferAttribute", namespace = JsPackage.GLOBAL)
+public class InstancedBufferAttribute extends BufferAttribute {
+  public double meshPerAttribute;
 
-    /**
-     * Default is 1.
-     */
-    public int meshPerAttribute;
+  public InstancedBufferAttribute(
+      Object array, double itemSize, boolean normalized, double meshPerAttribute) {
+    // This super call is here only for the code to compile; it is never executed.
+    super((Object) null, 0, false);
+  }
 
-    /**
-     * Default is true.
-     */
-    public boolean isInstancedBufferAttribute;
+  public InstancedBufferAttribute(Object array, double itemSize, boolean normalized) {
+    // This super call is here only for the code to compile; it is never executed.
+    super((Object) null, 0, false);
+  }
 
-    public InstancedBufferAttribute(TypedArray array, int itemSize) {
-
-    }
-
-    public InstancedBufferAttribute(TypedArray array, int itemSize, boolean normalized) {
-
-    }
-
-    public InstancedBufferAttribute(TypedArray array, int itemSize, boolean normalized, int meshPerAttribute) {
-
-    }
-
-
+  public InstancedBufferAttribute(Object array, double itemSize) {
+    // This super call is here only for the code to compile; it is never executed.
+    super((Object) null, 0, false);
+  }
 }

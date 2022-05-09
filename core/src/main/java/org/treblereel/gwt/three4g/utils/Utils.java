@@ -1,16 +1,50 @@
 package org.treblereel.gwt.three4g.utils;
 
-import com.google.gwt.core.client.ScriptInjector;
-import com.google.gwt.resources.client.TextResource;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 10/1/18.
- */
+@JsType(isNative = true, name = "THREE.utils", namespace = JsPackage.GLOBAL)
 public class Utils {
-
-    public static void injectJavaScript(TextResource textResource) {
-        ScriptInjector.fromString(textResource.getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ColorRepresentationUnionType {
+    @JsOverlay
+    static Utils.ColorRepresentationUnionType of(Object o) {
+      return Js.cast(o);
     }
+
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public static Utils.ColorRepresentationUnionType ColorRepresentation;
 }

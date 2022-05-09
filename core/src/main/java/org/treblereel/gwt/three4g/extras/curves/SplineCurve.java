@@ -1,34 +1,19 @@
 package org.treblereel.gwt.three4g.extras.curves;
 
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.extras.core.Curve;
 import org.treblereel.gwt.three4g.math.Vector2;
 
-/**
- * Create a smooth 2d spline curve from a series of points. Internally this uses Interpolations.CatmullRom to create the curve.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.SplineCurve", namespace = JsPackage.GLOBAL)
 public class SplineCurve extends Curve {
+  public JsArray<Vector2> points;
+  public String type;
 
-    /**
-     * Used to check whether this or derived classes are SplineCurves. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isSplineCurve;
+  public SplineCurve() {}
 
-    /**
-     * The array of Vector2 points that define the curve.
-     */
-    public Vector2[] points;
+  public SplineCurve(JsArray<Vector2> points) {}
 
-    /**
-     * @param points – An array of Vector2 points that define the curve.
-     */
-    public SplineCurve(Vector2[] points) {
-
-    }
+  public SplineCurve(Vector2[] points) {}
 }

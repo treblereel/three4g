@@ -1,69 +1,74 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
-/**
- * A class for generating torus geometries
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class TorusGeometry extends Geometry {
-
-    public float radius;
-    public float tube;
-    public int radialSegments;
-    public int tubularSegments;
-    public float arc;
-
-    public TorusGeometry() {
-
+@JsType(isNative = true, name = "THREE.TorusGeometry", namespace = JsPackage.GLOBAL)
+public class TorusGeometry extends BufferGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static TorusGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param radius - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
-     */
-    public TorusGeometry(float radius) {
+    @JsProperty
+    double getArc();
 
-    }
+    @JsProperty
+    double getRadialSegments();
 
-    /**
-     * @param radius - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
-     * @param tube   — Radius of the tube. Default is 0.4.
-     */
-    public TorusGeometry(float radius, float tube) {
+    @JsProperty
+    double getRadius();
 
-    }
+    @JsProperty
+    double getTube();
 
-    /**
-     * @param radius         - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
-     * @param tube           — Radius of the tube. Default is 0.4.
-     * @param radialSegments — Default is 8
-     */
-    public TorusGeometry(float radius, float tube, int radialSegments) {
+    @JsProperty
+    double getTubularSegments();
 
-    }
+    @JsProperty
+    void setArc(double arc);
 
-    /**
-     * @param radius          - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
-     * @param tube            — Radius of the tube. Default is 0.4.
-     * @param radialSegments  — Default is 8
-     * @param tubularSegments — Default is 6.
-     */
-    public TorusGeometry(float radius, float tube, int radialSegments, int tubularSegments) {
+    @JsProperty
+    void setRadialSegments(double radialSegments);
 
-    }
+    @JsProperty
+    void setRadius(double radius);
 
-    /**
-     * @param radius          - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
-     * @param tube            — Radius of the tube. Default is 0.4.
-     * @param radialSegments  — Default is 8
-     * @param tubularSegments — Default is 6.
-     * @param arc             — Central angle. Default is Math.PI * 2.
-     */
-    public TorusGeometry(float radius, float tube, int radialSegments, int tubularSegments, float arc) {
+    @JsProperty
+    void setTube(double tube);
 
-    }
+    @JsProperty
+    void setTubularSegments(double tubularSegments);
+  }
+
+  public static native TorusGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final TorusGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public TorusGeometry.ParametersFieldType parameters;
+  public String type;
+
+  public TorusGeometry() {}
+
+  public TorusGeometry(
+      double radius, double tube, double radialSegments, double tubularSegments, double arc) {}
+
+  public TorusGeometry(double radius, double tube, double radialSegments, double tubularSegments) {}
+
+  public TorusGeometry(double radius, double tube, double radialSegments) {}
+
+  public TorusGeometry(double radius, double tube) {}
+
+  public TorusGeometry(double radius) {}
 }

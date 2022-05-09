@@ -1,38 +1,102 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsError;
+import elemental2.dom.ErrorEvent;
+import elemental2.dom.EventTarget;
+import elemental2.dom.ProgressEvent;
+import elemental2.promise.Promise;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
-import org.treblereel.gwt.three4g.materials.Material;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.textures.Texture;
+import org.treblereel.gwt.three4g.materials.Material;
 
-/**
- * A loader for loading a Material in JSON format. This uses the FileLoader internally for loading files.
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/26/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class MaterialLoader extends Loader<MaterialLoader, Material> {
+@JsType(isNative = true, name = "THREE.MaterialLoader", namespace = JsPackage.GLOBAL)
+public class MaterialLoader extends Loader {
+  @JsFunction
+  public interface LoadAsyncOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
 
-    /**
-     * Object holding any textures used by the material. See .setTextures.
-     */
-    public Texture[] texture; //TODO check it
+  @JsFunction
+  public interface LoadOnErrorFn {
+    @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+    public interface P0UnionType {
+      @JsOverlay
+      static MaterialLoader.LoadOnErrorFn.P0UnionType of(Object o) {
+        return Js.cast(o);
+      }
 
-    @JsConstructor
-    public MaterialLoader() {
+      @JsOverlay
+      default ErrorEvent asErrorEvent() {
+        return Js.cast(this);
+      }
 
+      @JsOverlay
+      default JsError asJsError() {
+        return Js.cast(this);
+      }
+
+      @JsOverlay
+      default boolean isErrorEvent() {
+        return (Object) this instanceof ErrorEvent;
+      }
+
+      @JsOverlay
+      default boolean isJsError() {
+        return (Object) this instanceof JsError;
+      }
     }
 
-    @JsConstructor
-    public MaterialLoader(LoadingManager loadingManager) {
-
+    @JsOverlay
+    default void onInvoke(ErrorEvent p0) {
+      onInvoke(Js.<MaterialLoader.LoadOnErrorFn.P0UnionType>uncheckedCast(p0));
     }
 
-    /**
-     * @param textures — object containing any textures used by the material.
-     * @return instance of MaterialLoader
-     */
-    public native MaterialLoader setTextures(Texture[] textures);
+    @JsOverlay
+    default void onInvoke(JsError p0) {
+      onInvoke(Js.<MaterialLoader.LoadOnErrorFn.P0UnionType>uncheckedCast(p0));
+    }
 
+    void onInvoke(MaterialLoader.LoadOnErrorFn.P0UnionType p0);
+  }
+
+  @JsFunction
+  public interface LoadOnLoadFn {
+    void onInvoke(Material p0);
+  }
+
+  @JsFunction
+  public interface LoadOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
+
+  public JsPropertyMap<Texture> textures;
+
+  public MaterialLoader() {}
+
+  public MaterialLoader(LoadingManager manager) {}
+
+  public native void load(
+      String url,
+      MaterialLoader.LoadOnLoadFn onLoad,
+      MaterialLoader.LoadOnProgressFn onProgress,
+      MaterialLoader.LoadOnErrorFn onError);
+
+  public native void load(
+      String url, MaterialLoader.LoadOnLoadFn onLoad, MaterialLoader.LoadOnProgressFn onProgress);
+
+  public native void load(String url, MaterialLoader.LoadOnLoadFn onLoad);
+
+  public native Promise<Material> loadAsync(
+      String url, MaterialLoader.LoadAsyncOnProgressFn onProgress);
+
+  public native Promise<Material> loadAsync(String url);
+
+  public native Material parse(double json);
+
+  public native MaterialLoader setTextures(JsPropertyMap<Texture> textures);
 }

@@ -1,90 +1,71 @@
 package org.treblereel.gwt.three4g.lights;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * Abstract base class for lights - all other light types inherit the properties and methods described here.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/16/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Light", namespace = JsPackage.GLOBAL)
 public class Light extends Object3D {
-
-    /**
-     * Used to check whether this or derived classes are lights. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isLight;
-
-    /**
-     * hexadecimal color of the light. Default is 0xffffff (white)
-     */
-    public Color color;
-
-    /**
-     * numeric value of the light's strength/intensity. Default is 1.
-     */
-    public float intensity;
-
-
-    /**
-     * Creates a new Light. Note that this is not intended to be called directly (use one of derived classes instead).
-     */
-    @JsConstructor
-    public Light() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorHexUnionType {
+    @JsOverlay
+    static Light.ConstructorHexUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * Creates a new Light. Note that this is not intended to be called directly (use one of derived classes instead).
-     *
-     * @param color - hexadecimal color of the light. Default is 0xffffff (white).
-     */
-    @JsConstructor
-    public Light(int color) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * Creates a new Light. Note that this is not intended to be called directly (use one of derived classes instead).
-     *
-     * @param intensity - numeric value of the light's strength/intensity. Default is 1.
-     */
-    @JsConstructor
-    public Light(float intensity) {
-
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
     }
 
-    /**
-     * Creates a new Light. Note that this is not intended to be called directly (use one of derived classes instead).
-     *
-     * @param color     - hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - numeric value of the light's strength/intensity. Default is 1.
-     */
-    @JsConstructor
-    public Light(int color, float intensity) {
-
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
     }
 
-    /**
-     * Copies the value of color and intensity from the source light into this one.
-     *
-     * @param source Light
-     * @return Light
-     */
-    public native Light copy(Light source);
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
 
-    /**
-     * Return Light data in JSON format.
-     *
-     * @return JSON
-     */
-    public native String toJSON();
+  public Color color;
+  public double intensity;
+  public boolean isLight;
+  public LightShadow shadow;
+  public double shadowBias;
+  public double shadowCameraBottom;
+  public double shadowCameraFar;
+  public double shadowCameraFov;
+  public double shadowCameraLeft;
+  public double shadowCameraNear;
+  public double shadowCameraRight;
+  public double shadowCameraTop;
+  public double shadowMapHeight;
+  public double shadowMapWidth;
+  public String type;
 
+  public Light() {}
 
+  public Light(Light.ConstructorHexUnionType hex, double intensity) {}
+
+  public Light(Light.ConstructorHexUnionType hex) {}
+
+  public Light(String hex, double intensity) {}
+
+  public Light(String hex) {}
+
+  public Light(double hex, double intensity) {}
+
+  public Light(double hex) {}
+
+  public native void dispose();
 }

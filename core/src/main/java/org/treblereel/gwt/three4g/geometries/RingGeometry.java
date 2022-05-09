@@ -1,60 +1,93 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
-import org.treblereel.gwt.three4g.geometries.parameters.RingGeometryParameters;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
-/**
- * A class for generating a two-dimensional ring geometry.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class RingGeometry extends Geometry {
-
-    public RingGeometryParameters parameters; //TODO CHECK if empty
-
-    /**
-     * @param innerRadius   — Default is 0.5.
-     * @param outerRadius   — Default is 1.
-     * @param thetaSegments — Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.
-     */
-    public RingGeometry(float innerRadius, float outerRadius, int thetaSegments) {
-
+@JsType(isNative = true, name = "THREE.RingGeometry", namespace = JsPackage.GLOBAL)
+public class RingGeometry extends BufferGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static RingGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param innerRadius   — Default is 0.5.
-     * @param outerRadius   — Default is 1.
-     * @param thetaSegments — Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.
-     * @param phiSegments   — Minimum is 1. Default is 1.
-     */
-    public RingGeometry(float innerRadius, float outerRadius, int thetaSegments, int phiSegments) {
+    @JsProperty
+    double getInnerRadius();
 
-    }
+    @JsProperty
+    double getOuterRadius();
 
-    /**
-     * @param innerRadius   — Default is 0.5.
-     * @param outerRadius   — Default is 1.
-     * @param thetaSegments — Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.
-     * @param phiSegments   — Minimum is 1. Default is 1.
-     * @param thetaStart    — Starting angle. Default is 0.
-     */
-    public RingGeometry(float innerRadius, float outerRadius, int thetaSegments, int phiSegments, float thetaStart) {
+    @JsProperty
+    double getPhiSegments();
 
-    }
+    @JsProperty
+    double getThetaLength();
 
-    /**
-     * @param innerRadius   — Default is 0.5.
-     * @param outerRadius   — Default is 1.
-     * @param thetaSegments — Number of segments. A higher number means the ring will be more round. Minimum is 3. Default is 8.
-     * @param phiSegments   — Minimum is 1. Default is 1.
-     * @param thetaStart    — Starting angle. Default is 0.
-     * @param thetaLength   — Central angle. Default is Math.PI * 2.
-     */
-    public RingGeometry(float innerRadius, float outerRadius, int thetaSegments, int phiSegments, float thetaStart, float thetaLength) {
+    @JsProperty
+    double getThetaSegments();
 
-    }
+    @JsProperty
+    double getThetaStart();
+
+    @JsProperty
+    void setInnerRadius(double innerRadius);
+
+    @JsProperty
+    void setOuterRadius(double outerRadius);
+
+    @JsProperty
+    void setPhiSegments(double phiSegments);
+
+    @JsProperty
+    void setThetaLength(double thetaLength);
+
+    @JsProperty
+    void setThetaSegments(double thetaSegments);
+
+    @JsProperty
+    void setThetaStart(double thetaStart);
+  }
+
+  public static native RingGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final RingGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public RingGeometry.ParametersFieldType parameters;
+  public String type;
+
+  public RingGeometry() {}
+
+  public RingGeometry(
+      double innerRadius,
+      double outerRadius,
+      double thetaSegments,
+      double phiSegments,
+      double thetaStart,
+      double thetaLength) {}
+
+  public RingGeometry(
+      double innerRadius,
+      double outerRadius,
+      double thetaSegments,
+      double phiSegments,
+      double thetaStart) {}
+
+  public RingGeometry(
+      double innerRadius, double outerRadius, double thetaSegments, double phiSegments) {}
+
+  public RingGeometry(double innerRadius, double outerRadius, double thetaSegments) {}
+
+  public RingGeometry(double innerRadius, double outerRadius) {}
+
+  public RingGeometry(double innerRadius) {}
 }
-

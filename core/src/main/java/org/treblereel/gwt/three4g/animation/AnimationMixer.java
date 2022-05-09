@@ -1,147 +1,271 @@
 package org.treblereel.gwt.three4g.animation;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.core.EventDispatcher;
 import org.treblereel.gwt.three4g.core.Object3D;
-import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 
-/**
- * The AnimationMixer is a player for animations on a particular object in the scene. When multiple objects in the scene
- * are animated independently, one AnimationMixer may be used for each object.
- * <p>
- * For an overview of the different elements of the three.js animation system see the "Animation System" article in the
- * "Next Steps" section of the manual.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/12/18.
- */
-@JsType(namespace = "THREE", isNative = true)
+@JsType(isNative = true, name = "THREE.AnimationMixer", namespace = JsPackage.GLOBAL)
 public class AnimationMixer extends EventDispatcher {
-
-    /**
-     * The global mixer time (in seconds; starting with 0 on the mixer's creation).
-     */
-    public int time;
-
-    /**
-     * A scaling factor for the global mixer time.
-     * <p>
-     * Note: Setting the mixer's timeScale to 0 and later back to 1 is a possibility to pause/unpause all actions that are controlled by this mixer.
-     */
-    public int timeScale; //TODO
-
-
-    /**
-     * @param rootObject - the object whose animations shall be played by this mixer.
-     */
-    public AnimationMixer(Object3D rootObject) {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ClipActionRootUnionType {
+    @JsOverlay
+    static AnimationMixer.ClipActionRootUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * @param animationObjectGroup - all objects of this animation group share a common animation state
-     */
-    public AnimationMixer(AnimationObjectGroup animationObjectGroup) {
-
+    @JsOverlay
+    default AnimationObjectGroup asAnimationObjectGroup() {
+      return Js.cast(this);
     }
 
-    /**
-     * Returns an AnimationAction for the passed clip, optionally using a root object different from the mixer's default root. The first parameter can be either an AnimationClip object or the name of an AnimationClip.
-     * <p>
-     * If an action fitting these parameters doesn't yet exist, it will be created by this method.
-     * <p>
-     * Note: Calling this method several times with the same parameters returns always the same clip instance.
-     *
-     * @param clip instance of AnimationClip
-     * @return instance of AnimationAction
-     */
-    public native AnimationAction clipAction(AnimationClip clip);
+    @JsOverlay
+    default Object3D asObject3D() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Returns an AnimationAction for the passed clip, optionally using a root object different from the mixer's default root. The first parameter can be either an AnimationClip object or the name of an AnimationClip.
-     * <p>
-     * If an action fitting these parameters doesn't yet exist, it will be created by this method.
-     * <p>
-     * Note: Calling this method several times with the same parameters returns always the same clip instance.
-     *
-     * @param clip         instance of AnimationAction
-     * @param optionalRoot ia a root
-     * @return instance of AnimationAction
-     */
-    public native AnimationAction clipAction(AnimationClip clip, Object3D optionalRoot);
+    @JsOverlay
+    default boolean isAnimationObjectGroup() {
+      return (Object) this instanceof AnimationObjectGroup;
+    }
 
-    /**
-     * Returns an existing AnimationAction for the passed clip, optionally using a root object different from the mixer's default root.
-     * <p>
-     * The first parameter can be either an AnimationClip object or the name of an AnimationClip.
-     *
-     * @param clip instance of AnimationAction
-     * @return instance of AnimationAction
-     */
-    public native AnimationAction existingAction(AnimationClip clip);
+    @JsOverlay
+    default boolean isObject3D() {
+      return (Object) this instanceof Object3D;
+    }
+  }
 
-    /**
-     * Returns an existing AnimationAction for the passed clip, optionally using a root object different from the mixer's default root.
-     * <p>
-     * The first parameter can be either an AnimationClip object or the name of an AnimationClip.
-     *
-     * @param clip         instance of AnimationClip
-     * @param optionalRoot is a root
-     * @return instance of AnimationAction
-     */
-    public native AnimationAction existingAction(AnimationClip clip, Object3D optionalRoot);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorRootUnionType {
+    @JsOverlay
+    static AnimationMixer.ConstructorRootUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Returns this mixer's root object.
-     *
-     * @return instance of Object3D
-     */
-    public native Object3D getRoot();
+    @JsOverlay
+    default AnimationObjectGroup asAnimationObjectGroup() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Deactivates all previously scheduled actions on this mixer.
-     *
-     * @return instance of AnimationMixer
-     */
-    public native AnimationMixer stopAllAction();
+    @JsOverlay
+    default Object3D asObject3D() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Advances the global mixer time and updates the animation.
-     * <p>
-     * This is usually done in the render loop, passing clock.getDelta scaled by the mixer's timeScale).
-     *
-     * @param deltaTimeInSeconds is the time
-     * @return instance of AnimationMixer
-     */
-    public native AnimationMixer update(double deltaTimeInSeconds);
+    @JsOverlay
+    default boolean isAnimationObjectGroup() {
+      return (Object) this instanceof AnimationObjectGroup;
+    }
 
-    /**
-     * Deallocates all memory resources for a clip.
-     *
-     * @param clip instance of AnimationClip
-     */
-    public native void update(AnimationClip clip);
+    @JsOverlay
+    default boolean isObject3D() {
+      return (Object) this instanceof Object3D;
+    }
+  }
 
-    /**
-     * Deallocates all memory resources for a root object.
-     *
-     * @param root instance of Object3D as root
-     */
-    public native void uncacheRoot(Object3D root);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ExistingActionRootUnionType {
+    @JsOverlay
+    static AnimationMixer.ExistingActionRootUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Deallocates all memory resources for an action.
-     *
-     * @param clip instance of AnimationClip
-     */
-    public native void uncacheAction(AnimationClip clip);
+    @JsOverlay
+    default AnimationObjectGroup asAnimationObjectGroup() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Deallocates all memory resources for an action.
-     *
-     * @param clip instance of AnimationClip
-     * @param root instance of Object3D as root
-     */
-    public native void uncacheAction(AnimationClip clip, Object3D root);
+    @JsOverlay
+    default Object3D asObject3D() {
+      return Js.cast(this);
+    }
 
+    @JsOverlay
+    default boolean isAnimationObjectGroup() {
+      return (Object) this instanceof AnimationObjectGroup;
+    }
+
+    @JsOverlay
+    default boolean isObject3D() {
+      return (Object) this instanceof Object3D;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface GetRootUnionType {
+    @JsOverlay
+    static AnimationMixer.GetRootUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default AnimationObjectGroup asAnimationObjectGroup() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default Object3D asObject3D() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isAnimationObjectGroup() {
+      return (Object) this instanceof AnimationObjectGroup;
+    }
+
+    @JsOverlay
+    default boolean isObject3D() {
+      return (Object) this instanceof Object3D;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface UncacheActionRootUnionType {
+    @JsOverlay
+    static AnimationMixer.UncacheActionRootUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default AnimationObjectGroup asAnimationObjectGroup() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default Object3D asObject3D() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isAnimationObjectGroup() {
+      return (Object) this instanceof AnimationObjectGroup;
+    }
+
+    @JsOverlay
+    default boolean isObject3D() {
+      return (Object) this instanceof Object3D;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface UncacheRootRootUnionType {
+    @JsOverlay
+    static AnimationMixer.UncacheRootRootUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default AnimationObjectGroup asAnimationObjectGroup() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default Object3D asObject3D() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isAnimationObjectGroup() {
+      return (Object) this instanceof AnimationObjectGroup;
+    }
+
+    @JsOverlay
+    default boolean isObject3D() {
+      return (Object) this instanceof Object3D;
+    }
+  }
+
+  public double time;
+  public double timeScale;
+
+  public AnimationMixer(AnimationObjectGroup root) {}
+
+  public AnimationMixer(AnimationMixer.ConstructorRootUnionType root) {}
+
+  public AnimationMixer(Object3D root) {}
+
+  @JsOverlay
+  public final AnimationAction clipAction(
+      AnimationClip clip, AnimationObjectGroup root, double blendMode) {
+    return clipAction(
+        clip, Js.<AnimationMixer.ClipActionRootUnionType>uncheckedCast(root), blendMode);
+  }
+
+  @JsOverlay
+  public final AnimationAction clipAction(AnimationClip clip, AnimationObjectGroup root) {
+    return clipAction(clip, Js.<AnimationMixer.ClipActionRootUnionType>uncheckedCast(root));
+  }
+
+  public native AnimationAction clipAction(
+      AnimationClip clip, AnimationMixer.ClipActionRootUnionType root, double blendMode);
+
+  public native AnimationAction clipAction(
+      AnimationClip clip, AnimationMixer.ClipActionRootUnionType root);
+
+  @JsOverlay
+  public final AnimationAction clipAction(AnimationClip clip, Object3D root, double blendMode) {
+    return clipAction(
+        clip, Js.<AnimationMixer.ClipActionRootUnionType>uncheckedCast(root), blendMode);
+  }
+
+  @JsOverlay
+  public final AnimationAction clipAction(AnimationClip clip, Object3D root) {
+    return clipAction(clip, Js.<AnimationMixer.ClipActionRootUnionType>uncheckedCast(root));
+  }
+
+  public native AnimationAction clipAction(AnimationClip clip);
+
+  @JsOverlay
+  public final AnimationAction existingAction(AnimationClip clip, AnimationObjectGroup root) {
+    return existingAction(clip, Js.<AnimationMixer.ExistingActionRootUnionType>uncheckedCast(root));
+  }
+
+  public native AnimationAction existingAction(
+      AnimationClip clip, AnimationMixer.ExistingActionRootUnionType root);
+
+  @JsOverlay
+  public final AnimationAction existingAction(AnimationClip clip, Object3D root) {
+    return existingAction(clip, Js.<AnimationMixer.ExistingActionRootUnionType>uncheckedCast(root));
+  }
+
+  public native AnimationAction existingAction(AnimationClip clip);
+
+  public native AnimationMixer.GetRootUnionType getRoot();
+
+  public native AnimationMixer setTime(double timeInSeconds);
+
+  public native AnimationMixer stopAllAction();
+
+  @JsOverlay
+  public final void uncacheAction(AnimationClip clip, AnimationObjectGroup root) {
+    uncacheAction(clip, Js.<AnimationMixer.UncacheActionRootUnionType>uncheckedCast(root));
+  }
+
+  @JsOverlay
+  public final void uncacheAction(AnimationClip clip, Object3D root) {
+    uncacheAction(clip, Js.<AnimationMixer.UncacheActionRootUnionType>uncheckedCast(root));
+  }
+
+  public native void uncacheAction(
+      AnimationClip clip, AnimationMixer.UncacheActionRootUnionType root);
+
+  public native void uncacheAction(AnimationClip clip);
+
+  public native void uncacheClip(AnimationClip clip);
+
+  @JsOverlay
+  public final void uncacheRoot(AnimationObjectGroup root) {
+    uncacheRoot(Js.<AnimationMixer.UncacheRootRootUnionType>uncheckedCast(root));
+  }
+
+  @JsOverlay
+  public final void uncacheRoot(Object3D root) {
+    uncacheRoot(Js.<AnimationMixer.UncacheRootRootUnionType>uncheckedCast(root));
+  }
+
+  public native void uncacheRoot(AnimationMixer.UncacheRootRootUnionType root);
+
+  public native AnimationMixer update(double deltaTime);
 }

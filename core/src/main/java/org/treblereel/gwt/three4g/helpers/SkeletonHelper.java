@@ -1,33 +1,25 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.objects.Bone;
 import org.treblereel.gwt.three4g.objects.LineSegments;
 
-/**
- * A helper object to assist with visualizing a Skeleton. The helper is renderered using a LineBasicMaterial.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.SkeletonHelper", namespace = JsPackage.GLOBAL)
 public class SkeletonHelper extends LineSegments {
+  public JsArray<Bone> bones;
+  public boolean isSkeletonHelper;
+  public Matrix4 matrix;
+  public boolean matrixAutoUpdate;
+  public Object3D root;
+  public String type;
 
-    /**
-     * The list of bones that the helper renders as Lines.
-     */
-    public Bone[] bones;
+  public SkeletonHelper(Object3D object) {}
 
-    /**
-     * The object passed in the constructor.
-     */
-    public Object root;
+  public native JsArray<Bone> getBoneList(Object3D object);
 
-    /**
-     * @param object -- can be any object that has an array of Bones as a sub object.
-     *               For example, a Skeleton or a SkinnedMesh.
-     */
-    public SkeletonHelper(Object object) {
-
-    }
+  public native void update();
 }

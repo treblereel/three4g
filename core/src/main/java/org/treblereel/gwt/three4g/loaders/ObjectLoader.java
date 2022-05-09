@@ -1,206 +1,149 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import elemental2.core.JsError;
+import elemental2.core.JsObject;
+import elemental2.dom.ErrorEvent;
+import elemental2.dom.EventTarget;
+import elemental2.dom.HTMLImageElement;
+import elemental2.dom.ProgressEvent;
+import elemental2.promise.Promise;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Object3D;
-import org.treblereel.gwt.three4g.core.PropertyHolder;
-import org.treblereel.gwt.three4g.loaders.managers.LoadingManager;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.textures.Texture;
+import org.treblereel.gwt.three4g.animation.AnimationClip;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
+import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.materials.Material;
 
-/**
- * A loader for loading a JSON resource. Unlike the JSONLoader, this one make use of the .type attributes of objects to map them to their original classes.
- * <p>
- * Note that this loader can't load Geometries. Use JSONLoader instead for that.
- * <p>
- * This uses the FileLoader internally for loading files.
- * <p>
- * var loader = new THREE.ObjectLoader();
- * <p>
- * loader.load(
- * // resource URL
- * "models/json/example.json",
- * <p>
- * // onLoad callback
- * // Here the loaded data is assumed to be an object
- * function ( obj ) {
- * // Add the loaded object to the scene
- * scene.add( obj );
- * },
- * <p>
- * // onProgress callback
- * function ( xhr ) {
- * console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
- * },
- * <p>
- * // onError callback
- * function ( err ) {
- * console.error( 'An error happened' );
- * }
- * );
- * <p>
- * // Alternatively, to parse a previously loaded JSON structure
- * var object = loader.parse( a_json_object );
- * <p>
- * scene.add( object );
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/12/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class ObjectLoader {
+@JsType(isNative = true, name = "THREE.ObjectLoader", namespace = JsPackage.GLOBAL)
+public class ObjectLoader extends Loader {
+  @JsFunction
+  public interface LoadOnErrorFn {
+    @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+    public interface P0UnionType {
+      @JsOverlay
+      static ObjectLoader.LoadOnErrorFn.P0UnionType of(Object o) {
+        return Js.cast(o);
+      }
 
-    /**
-     * If set, assigns the crossOrigin attribute of the image to the value of crossOrigin, prior to starting the load. Default is undefined.
-     */
-    public String crossOrigin;
+      @JsOverlay
+      default ErrorEvent asErrorEvent() {
+        return Js.cast(this);
+      }
 
-    /**
-     * The loadingManager the loader is using. Default is DefaultLoadingManager.
-     */
-    public LoadingManager manager;
+      @JsOverlay
+      default JsError asJsError() {
+        return Js.cast(this);
+      }
 
-    /**
-     * The base path or URL from which additional resources like textuures will be loaded. See .setResourcePath. Default is the empty string.
-     */
-    public String resourcePath;
+      @JsOverlay
+      default boolean isErrorEvent() {
+        return (Object) this instanceof ErrorEvent;
+      }
 
-    @JsConstructor
-    public ObjectLoader() {
-
+      @JsOverlay
+      default boolean isJsError() {
+        return (Object) this instanceof JsError;
+      }
     }
 
-    /**
-     * Creates a new ObjectLoader.
-     *
-     * @param manager — The loadingManager for the loader to use. Default is THREE.DefaultLoadingManager.
-     */
-    @JsConstructor
-    public ObjectLoader(LoadingManager manager) {
-
+    @JsOverlay
+    default void onInvoke(ErrorEvent p0) {
+      onInvoke(Js.<ObjectLoader.LoadOnErrorFn.P0UnionType>uncheckedCast(p0));
     }
 
-    /**
-     * Begin loading from url and call onLoad with the parsed response content.
-     *
-     * @param url    — the path or URL to the file. This can also be a Data URI.
-     * @param onLoad — Will be called when load completes. The argument will be the loaded object.
-     * @return instance of Texture
-     */
-    public native Texture load(String url, OnLoadCallback<? extends PropertyHolder> onLoad);
+    @JsOverlay
+    default void onInvoke(JsError p0) {
+      onInvoke(Js.<ObjectLoader.LoadOnErrorFn.P0UnionType>uncheckedCast(p0));
+    }
 
-    /**
-     * Begin loading from url and call onLoad with the parsed response content.
-     *
-     * @param url        — the path or URL to the file. This can also be a Data URI.
-     * @param onLoad     — Will be called when load completes. The argument will be the loaded object.
-     * @param onProgress — Will be called while load progresses. The argument will be the XMLHttpRequest instance, which contains .total and .loaded bytes.
-     * @param onError    — Will be called when load errors.
-     * @return instance of Texture
-     */
-    public native Texture load(String url, OnLoadCallback<? extends PropertyHolder> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+    void onInvoke(ObjectLoader.LoadOnErrorFn.P0UnionType p0);
+  }
 
-    /**
-     * @param json — required. The JSON source to parse.
-     *             Parse a JSON structure and return a threejs object. This is used internally by .load, but can also be used directly
-     *             to parse a previously loaded JSON structure.
-     * @return Object3D
-     */
-    public native Object3D parse(Object json);
+  @JsFunction
+  public interface LoadOnLoadFn {
+    void onInvoke(JsObject p0);
 
-    /**
-     * @param json   — required. The JSON source to parse.
-     * @param onLoad — Will be called when parsed completes. The argument will be the parsed object.
-     *               Parse a JSON structure and return a threejs object. This is used internally by .load, but can also be used directly
-     *               to parse a previously loaded JSON structure.
-     * @return Object3D
-     */
-    public native Object3D parse(Object json, OnLoadCallback<? extends PropertyHolder> onLoad);
+    @JsOverlay
+    default void onInvoke(Object p0) {
+      onInvoke(Js.<JsObject>uncheckedCast(p0));
+    }
+  }
 
-    /**
-     * This is used .parse to parse any geometries or buffer geometries in the JSON structure. Internally it uses JSONLoader
-     * for geometries and BufferGeometryLoader for buffer geometries.
-     *
-     * @param json — required. The JSON source to parse.
-     * @return instance of Object3D
-     */
-    public native Object3D parseGeometries(Object json);
+  @JsFunction
+  public interface LoadOnProgressFn {
+    void onInvoke(ProgressEvent<EventTarget> p0);
+  }
 
-    /**
-     * This is used .parse to parse any materials in the JSON structure using MaterialLoader.
-     *
-     * @param json — required. The JSON source to parse.
-     * @return instance of Object3D
-     */
-    public native Object3D parseMaterials(Object json);
+  @JsFunction
+  public interface ParseImagesOnLoadFn {
+    void onInvoke();
+  }
 
-    /**
-     * This is used .parse to parse any animations in the JSON structure, using AnimationClip.parse.
-     *
-     * @param json — required. The JSON source to parse.
-     * @return instance of Object3D
-     */
-    public native Object3D parseAnimations(Object json);
+  @JsFunction
+  public interface ParseOnLoadFn {
+    void onInvoke(Object3D p0);
+  }
 
-    /**
-     * This is used .parse to parse any images in the JSON structure, using ImageLoader.
-     *
-     * @param json — required. The JSON source to parse.
-     * @return instance of Object3D
-     */
-    public native Object3D parseImages(Object json);
+  public ObjectLoader() {}
 
-    /**
-     * This is used .parse to parse any textures in the JSON structure.
-     *
-     * @param json — required. The JSON source to parse.
-     * @return instance of Object3D
-     */
-    public native Object3D parseTextures(Object json);
+  public ObjectLoader(LoadingManager manager) {}
 
-    /**
-     * This is used .parse to parse any objects in the JSON structure. Objects can be of the following types:
-     * Scene
-     * PerspectiveCamera
-     * OrthographicCamera
-     * AmbientLight
-     * DirectionalLight
-     * PointLight
-     * SpotLight
-     * HemisphereLight
-     * Mesh
-     * LOD
-     * Line
-     * LineSegments
-     * Points
-     * Sprite
-     * Group
-     * Object3D
-     *
-     * @param json — required. The JSON source to parse.
-     * @return instance of Object3D
-     */
-    public native Object3D parseObject(Object json);
+  public native void load(
+      String url,
+      ObjectLoader.LoadOnLoadFn onLoad,
+      ObjectLoader.LoadOnProgressFn onProgress,
+      ObjectLoader.LoadOnErrorFn onError);
 
-    /**
-     * @param value — The crossOrigin string to implement CORS for loading the url from a different domain that allows CORS.
-     * @return instance of ObjectLoader
-     */
-    public native ObjectLoader setCrossOrigin(String value);
+  public native void load(
+      String url, ObjectLoader.LoadOnLoadFn onLoad, ObjectLoader.LoadOnProgressFn onProgress);
 
-    /**
-     * Set the base path for the original file.
-     *
-     * @param path — Base path of the file to load.
-     * @return instance of MaterialLoader
-     */
-    public native ObjectLoader setPath(String path);
+  public native void load(String url, ObjectLoader.LoadOnLoadFn onLoad);
 
-    /**
-     * Set the base path for dependent resources like textures.
-     *
-     * @param value — The base path or URL from which resources will be loaded.
-     * @return instance of ObjectLoader
-     */
-    public native ObjectLoader setResourcePath(String value);
+  public native void load(String url);
 
+  public native <T> T parse(double json, ObjectLoader.ParseOnLoadFn onLoad);
+
+  public native <T> T parse(double json);
+
+  public native JsArray<AnimationClip> parseAnimations(double json);
+
+  public native <T> Promise<T> parseAsync(double json);
+
+  public native JsPropertyMap<BufferGeometry> parseGeometries(double json);
+
+  public native JsPropertyMap<HTMLImageElement> parseImages(
+      double json, ObjectLoader.ParseImagesOnLoadFn onLoad);
+
+  public native Promise<JsPropertyMap<HTMLImageElement>> parseImagesAsync(double json);
+
+  public native JsArray<Material> parseMaterials(double json, JsArray<Texture> textures);
+
+  @JsOverlay
+  public final JsArray<Material> parseMaterials(double json, Texture[] textures) {
+    return parseMaterials(json, Js.<JsArray<Texture>>uncheckedCast(textures));
+  }
+
+  public native <T> T parseObject(
+      double data,
+      JsArray<JsObject> geometries,
+      JsArray<Material> materials,
+      JsArray<AnimationClip> animations);
+
+  @JsOverlay
+  public final <T> T parseObject(
+      double data, JsObject[] geometries, Material[] materials, AnimationClip[] animations) {
+    return parseObject(
+        data,
+        Js.<JsArray<JsObject>>uncheckedCast(geometries),
+        Js.<JsArray<Material>>uncheckedCast(materials),
+        Js.<JsArray<AnimationClip>>uncheckedCast(animations));
+  }
+
+  public native JsArray<Texture> parseTextures(double json, double images);
 }

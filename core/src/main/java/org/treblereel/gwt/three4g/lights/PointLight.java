@@ -1,114 +1,94 @@
 package org.treblereel.gwt.three4g.lights;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.lights.shadows.LightShadow;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/16/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.PointLight", namespace = JsPackage.GLOBAL)
 public class PointLight extends Light {
-
-
-    /**
-     * Used to check whether this or derived classes are PointLight. Default is true.
-     */
-    public boolean isPointLightt;
-
-    /**
-     * The amount the light dims along the distance of the light. Default is 1. For physically correct lighting, set this to 2.
-     */
-    public float decay;
-
-    /**
-     * Default mode — When distance is zero, light does not attenuate. When distance is non-zero, light will attenuate
-     * linearly from maximum intensity at the light's position down to zero at this distance from the light.
-     * <p>
-     * Physically correct mode — When distance is zero, light will attenuate according to inverse-square law to infinite distance. When distance is non-zero, light will attenuate according to inverse-square law until near the distance cutoff, where it will then attenuate quickly and smoothly to 0. Inherently, cutoffs are not physically correct.
-     * <p>
-     * Default is 0.0.
-     */
-    public float distance;
-
-    /**
-     * A LightShadow used to calculate shadows for this light.
-     * <p>
-     * The lightShadow's camera is set to a PerspectiveCamera with fov of 90, aspect of 1, near clipping plane at 0.5 and	far clipping plane at 500.
-     */
-    public LightShadow shadow;
-
-    /**
-     * The light's power.
-     * In physically correct mode, the luminous power of the light measured in lumens. Default is 4Math.PI.
-     * <p>
-     * This is directly related to the intensity in the ratio
-     * power = intensity * 4π and changing this will also change the intensity.
-     */
-    public float power;
-
-    /**
-     * Creates a new PointLight.
-     */
-    @JsConstructor
-    public PointLight() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static PointLight.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * Creates a new PointLight.
-     *
-     * @param color - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     */
-    @JsConstructor
-    public PointLight(int color) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * Creates a new PointLight.
-     *
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     */
-    @JsConstructor
-    public PointLight(int color, float intensity) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * Creates a new PointLight.
-     *
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - Maximum range of the light. Default is 0 (no limit).
-     */
-    @JsConstructor
-    public PointLight(int color, float intensity, float distance) {
-
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
     }
 
-    /**
-     * Creates a new PointLight.
-     *
-     * @param color     - (optional) hexadecimal color of the light. Default is 0xffffff (white).
-     * @param intensity - (optional) numeric value of the light's strength/intensity. Default is 1.
-     * @param distance  - Maximum range of the light. Default is 0 (no limit).
-     * @param decay     - The amount the light dims along the distance of the light. Default is 1. For physically correct lighting, set this to 2.
-     */
-    @JsConstructor
-    public PointLight(int color, float intensity, float distance, float decay) {
-
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
     }
 
-    /**
-     * Copies the value of color and intensity from the source light into this one.
-     *
-     * @param source instance of PointLight
-     * @return instance of PointLight
-     */
-    public native PointLight copy(PointLight source);
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
 
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
 
+  public double decay;
+  public double distance;
+  public double intensity;
+  public double power;
+  public PointLightShadow shadow;
+  public String type;
+
+  public PointLight() {}
+
+  public PointLight(Color color, double intensity, double distance, double decay) {}
+
+  public PointLight(Color color, double intensity, double distance) {}
+
+  public PointLight(Color color, double intensity) {}
+
+  public PointLight(Color color) {}
+
+  public PointLight(
+      PointLight.ConstructorColorUnionType color,
+      double intensity,
+      double distance,
+      double decay) {}
+
+  public PointLight(
+      PointLight.ConstructorColorUnionType color, double intensity, double distance) {}
+
+  public PointLight(PointLight.ConstructorColorUnionType color, double intensity) {}
+
+  public PointLight(PointLight.ConstructorColorUnionType color) {}
+
+  public PointLight(String color, double intensity, double distance, double decay) {}
+
+  public PointLight(String color, double intensity, double distance) {}
+
+  public PointLight(String color, double intensity) {}
+
+  public PointLight(String color) {}
+
+  public PointLight(double color, double intensity, double distance, double decay) {}
+
+  public PointLight(double color, double intensity, double distance) {}
+
+  public PointLight(double color, double intensity) {}
+
+  public PointLight(double color) {}
 }

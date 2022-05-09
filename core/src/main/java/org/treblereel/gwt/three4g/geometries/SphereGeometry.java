@@ -1,174 +1,108 @@
 package org.treblereel.gwt.three4g.geometries;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
-/**
- * A class for generating sphere geometries
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/19/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class SphereGeometry extends Geometry {
-
-    /**
-     * sphere radius. Default is 1.
-     */
-    public float radius;
-
-    /**
-     * number of horizontal segments. Minimum value is 3, and the default is 8.
-     */
-    public int widthSegments;
-
-    /**
-     * number of vertical segments. Minimum value is 2, and the default is 6.
-     */
-    public int heightSegments;
-
-    /**
-     * specify horizontal starting angle. Default is 0.
-     */
-    public float phiStart;
-
-    /**
-     * specify horizontal sweep angle size. Default is Math.PI * 2.
-     */
-    public float phiLength;
-
-    /**
-     * specify vertical starting angle. Default is 0.
-     */
-    public float thetaStart;
-
-    /**
-     * specify vertical sweep angle size. Default is Math.PI.
-     */
-    public float thetaLength;
-
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     */
-    @JsConstructor
-    public SphereGeometry() {
-
+@JsType(isNative = true, name = "THREE.SphereGeometry", namespace = JsPackage.GLOBAL)
+public class SphereGeometry extends BufferGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static SphereGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     *
-     * @param radius         — sphere radius. Default is 1.
-     */
-    @JsConstructor
-    public SphereGeometry(float radius) {
+    @JsProperty
+    double getHeightSegments();
 
-    }
+    @JsProperty
+    double getPhiLength();
 
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     *
-     * @param radius         — sphere radius. Default is 1.
-     * @param widthSegments  — number of horizontal segments. Minimum value is 3, and the default is 8.
-     */
-    @JsConstructor
-    public SphereGeometry(float radius, int widthSegments) {
+    @JsProperty
+    double getPhiStart();
 
-    }
+    @JsProperty
+    double getRadius();
 
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     *
-     * @param radius         — sphere radius. Default is 1.
-     * @param widthSegments  — number of horizontal segments. Minimum value is 3, and the default is 8.
-     * @param heightSegments — number of vertical segments. Minimum value is 2, and the default is 6.
-     */
-    @JsConstructor
-    public SphereGeometry(float radius, int widthSegments, int heightSegments) {
+    @JsProperty
+    double getThetaLength();
 
-    }
+    @JsProperty
+    double getThetaStart();
 
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     *
-     * @param radius         — sphere radius. Default is 1.
-     * @param widthSegments  — number of horizontal segments. Minimum value is 3, and the default is 8.
-     * @param heightSegments — number of vertical segments. Minimum value is 2, and the default is 6.
-     * @param phiStart       — specify horizontal starting angle. Default is 0.
-     */
-    @JsConstructor
-    public SphereGeometry(float radius, int widthSegments, int heightSegments, float phiStart) {
+    @JsProperty
+    double getWidthSegments();
 
-    }
+    @JsProperty
+    void setHeightSegments(double heightSegments);
 
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     *
-     * @param radius         — sphere radius. Default is 1.
-     * @param widthSegments  — number of horizontal segments. Minimum value is 3, and the default is 8.
-     * @param heightSegments — number of vertical segments. Minimum value is 2, and the default is 6.
-     * @param phiStart       — specify horizontal starting angle. Default is 0.
-     * @param phiLength      — specify horizontal sweep angle size. Default is Math.PI * 2.
-     */
-    @JsConstructor
-    public SphereGeometry(float radius, int widthSegments, int heightSegments, float phiStart, float phiLength) {
+    @JsProperty
+    void setPhiLength(double phiLength);
 
-    }
+    @JsProperty
+    void setPhiStart(double phiStart);
 
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     *
-     * @param radius         — sphere radius. Default is 1.
-     * @param widthSegments  — number of horizontal segments. Minimum value is 3, and the default is 8.
-     * @param heightSegments — number of vertical segments. Minimum value is 2, and the default is 6.
-     * @param phiStart       — specify horizontal starting angle. Default is 0.
-     * @param phiLength      — specify horizontal sweep angle size. Default is Math.PI * 2.
-     * @param thetaStart     — specify vertical starting angle. Default is 0.
-     */
-    @JsConstructor
-    public SphereGeometry(float radius, int widthSegments, int heightSegments, float phiStart, float phiLength, float thetaStart) {
+    @JsProperty
+    void setRadius(double radius);
 
-    }
+    @JsProperty
+    void setThetaLength(double thetaLength);
 
-    /**
-     * The geometry is created by sweeping and calculating vertexes around the Y axis (horizontal sweep) and the Z axis
-     * (vertical sweep). Thus, incomplete spheres (akin to 'sphere slices') can be created through the use of different
-     * values of phiStart, phiLength, thetaStart and thetaLength, in order to define the points in which we start (or end)
-     * calculating those vertices.
-     *
-     * @param radius         — sphere radius. Default is 1.
-     * @param widthSegments  — number of horizontal segments. Minimum value is 3, and the default is 8.
-     * @param heightSegments — number of vertical segments. Minimum value is 2, and the default is 6.
-     * @param phiStart       — specify horizontal starting angle. Default is 0.
-     * @param phiLength      — specify horizontal sweep angle size. Default is Math.PI * 2.
-     * @param thetaStart     — specify vertical starting angle. Default is 0.
-     * @param thetaLength    — specify vertical sweep angle size. Default is Math.PI.
-     */
-    @JsConstructor
-    public SphereGeometry(float radius, int widthSegments, int heightSegments, float phiStart, float phiLength, float thetaStart, float thetaLength) {
+    @JsProperty
+    void setThetaStart(double thetaStart);
 
-    }
+    @JsProperty
+    void setWidthSegments(double widthSegments);
+  }
 
+  public static native SphereGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final SphereGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public SphereGeometry.ParametersFieldType parameters;
+  public String type;
+
+  public SphereGeometry() {}
+
+  public SphereGeometry(
+      double radius,
+      double widthSegments,
+      double heightSegments,
+      double phiStart,
+      double phiLength,
+      double thetaStart,
+      double thetaLength) {}
+
+  public SphereGeometry(
+      double radius,
+      double widthSegments,
+      double heightSegments,
+      double phiStart,
+      double phiLength,
+      double thetaStart) {}
+
+  public SphereGeometry(
+      double radius,
+      double widthSegments,
+      double heightSegments,
+      double phiStart,
+      double phiLength) {}
+
+  public SphereGeometry(
+      double radius, double widthSegments, double heightSegments, double phiStart) {}
+
+  public SphereGeometry(double radius, double widthSegments, double heightSegments) {}
+
+  public SphereGeometry(double radius, double widthSegments) {}
+
+  public SphereGeometry(double radius) {}
 }

@@ -1,126 +1,135 @@
 package org.treblereel.gwt.three4g.math;
 
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.core.BufferAttribute;
+import org.treblereel.gwt.three4g.core.InterleavedBufferAttribute;
 
-/**
- * A geometric triangle as defined by three Vector3s representing its three corners.
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/30/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class Triangle {
-
-    /**
-     * The first corner of the triangle. Default is a Vector3 at (0, 0, 0).
-     */
-    public Vector3 a;
-
-    /**
-     * The second corner of the triangle. Default is a Vector3 at (0, 0, 0).
-     */
-
-    public Vector3 b;
-    /**
-     * the final corner of the triangle. Default is a Vector3 at (0, 0, 0)
-     */
-    public Vector3 c;
-
-    /**
-     * Creates a new Triangle.
-     * @param a - the first corner of the triangle. Default is a Vector3 at (0, 0, 0).
-     * @param b - the second corner of the triangle. Default is a Vector3 at (0, 0, 0).
-     * @param c - the final corner of the triangle. Default is a Vector3 at (0, 0, 0).
-     */
-    public Triangle(Vector3 a, Vector3 b, Vector3 c) {
-
+@JsType(isNative = true, name = "THREE.Triangle", namespace = JsPackage.GLOBAL)
+public class Triangle implements Vector {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface SetFromAttributeAndIndicesAttributeUnionType {
+    @JsOverlay
+    static Triangle.SetFromAttributeAndIndicesAttributeUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    public native static boolean isFrontFacing(Vector3 a, Vector3 b, Vector3 c, Vector3 direction);
+    @JsOverlay
+    default BufferAttribute asBufferAttribute() {
+      return Js.cast(this);
+    }
 
-    /**
-     * @return Returns a new triangle with the same a, b and c properties as this one.
-     */
-    public native Triangle clone();
+    @JsOverlay
+    default InterleavedBufferAttribute asInterleavedBufferAttribute() {
+      return Js.cast(this);
+    }
 
-    /**
-     * @param point - Vector3
-     * @param target — the result will be copied into this Vector3.
-     * @return Returns the closest point on the triangle to point.
-     */
-    public native Vector3 closestPointToPoint(Vector3 point, Vector3 target);
+    @JsOverlay
+    default boolean isBufferAttribute() {
+      return (Object) this instanceof BufferAttribute;
+    }
 
-    /**
-     * @param point - Vector3 to check.
-     * @return Returns true if the passed point, when projected onto the plane of the triangle, lies within the triangle.
-     */
-    public native boolean containsPoint(Vector3 point);
+    @JsOverlay
+    default boolean isInterleavedBufferAttribute() {
+      return (Object) this instanceof InterleavedBufferAttribute;
+    }
+  }
 
-    /**
-     * Copies the values of the passed triangles's a, b and c properties to this triangle.
-     * @param triangle instance of Triangle
-     * @return instance of Triangle
-     */
-    public native Triangle copy(Triangle triangle);
+  public static native boolean containsPoint(Vector3 point, Vector3 a, Vector3 b, Vector3 c);
 
-    /**
-     * @param triangle - Triangle to compare with this one.
-     * @return Returns true if the two triangles have identical a, b and c properties.
-     */
-    public native boolean equals(Triangle triangle);
+  public static native Vector3 getBarycoord(
+      Vector3 point, Vector3 a, Vector3 b, Vector3 c, Vector3 target);
 
-    /**
-     * @return Return the area of the triangle.
-     */
-    public native float getArea();
+  public static native Vector3 getNormal(Vector3 a, Vector3 b, Vector3 c, Vector3 target);
 
-    /**
-     * @param point - Vector3
-     * @param target — the result will be copied into this Vector3.
-     * @return Return a barycentric coordinate from the given vector.
-     */
-    public native Vector3 getBarycoord(Vector3 point, Vector3 target);
+  public static native Vector2 getUV(
+      Vector3 point,
+      Vector3 p1,
+      Vector3 p2,
+      Vector3 p3,
+      Vector2 uv1,
+      Vector2 uv2,
+      Vector2 uv3,
+      Vector2 target);
 
-    /**
-     * @param target — the result will be copied into this Vector3.
-     * @return Calculate the midpoint of the triangle.
-     */
-    public native Vector3 getMidpoint(Vector3 target);
+  public static native boolean isFrontFacing(Vector3 a, Vector3 b, Vector3 c, Vector3 direction);
 
-    /**
-     * @param target — the result will be copied into this Vector3.
-     * @return Calculate the normal vector of the triangle.
-     */
-    public native Vector3 getNormal(Vector3 target);
+  public Vector3 a;
+  public Vector3 b;
+  public Vector3 c;
 
-    /**
-     * @param target — the result will be copied into this Plane.
-     * @return Calculate a plane based on the triangle. .
-     */
-    public native Plane getPlane(Plane target);
+  public Triangle() {}
 
-    /**
-     * @param box - Box to check for intersection against.
-     * @return Determines whether or not this triangle intersects box.
-     */
-    public native boolean intersectsBox(Box3 box);
+  public Triangle(Vector3 a, Vector3 b, Vector3 c) {}
 
-    /**
-     * @param a corner of the triangle
-     * @param b corner of the triangle
-     * @param c corner of the triangle
-     * @return instance of Triangle
-     */
-    public native Triangle set(Vector3 a, Vector3 b, Vector3 c);
+  public Triangle(Vector3 a, Vector3 b) {}
 
-    /**
-     * Sets the triangle's vectors to the vectors in the array.
-     * @param points - Array of Vector3s
-     * @param i0 - Integer index
-     * @param i1 - Integer index
-     * @param i2 - Integer index
-     * @return instance of Triangle
-     */
-    public native Triangle setFromPointsAndIndices(Vector3[] points, int i0, int i1, int i2);
+  public Triangle(Vector3 a) {}
 
-    public native boolean isFrontFacing(Vector3 direction);
+  @JsMethod(name = "clone")
+  public native Triangle clone_();
+
+  public native Vector3 closestPointToPoint(Vector3 point, Vector3 target);
+
+  public native boolean containsPoint(Vector3 point);
+
+  public native Triangle copy(Triangle triangle);
+
+  public native boolean equals(Triangle triangle);
+
+  public native double getArea();
+
+  public native Vector3 getBarycoord(Vector3 point, Vector3 target);
+
+  public native Vector3 getMidpoint(Vector3 target);
+
+  public native Vector3 getNormal(Vector3 target);
+
+  public native Plane getPlane(Plane target);
+
+  public native Vector2 getUV(Vector3 point, Vector2 uv1, Vector2 uv2, Vector2 uv3, Vector2 target);
+
+  public native boolean intersectsBox(Box3 box);
+
+  public native boolean isFrontFacing(Vector3 direction);
+
+  public native Triangle set(Vector3 a, Vector3 b, Vector3 c);
+
+  @JsOverlay
+  public final Triangle setFromAttributeAndIndices(
+      BufferAttribute attribute, double i0, double i1, double i2) {
+    return setFromAttributeAndIndices(
+        Js.<Triangle.SetFromAttributeAndIndicesAttributeUnionType>uncheckedCast(attribute),
+        i0,
+        i1,
+        i2);
+  }
+
+  @JsOverlay
+  public final Triangle setFromAttributeAndIndices(
+      InterleavedBufferAttribute attribute, double i0, double i1, double i2) {
+    return setFromAttributeAndIndices(
+        Js.<Triangle.SetFromAttributeAndIndicesAttributeUnionType>uncheckedCast(attribute),
+        i0,
+        i1,
+        i2);
+  }
+
+  public native Triangle setFromAttributeAndIndices(
+      Triangle.SetFromAttributeAndIndicesAttributeUnionType attribute,
+      double i0,
+      double i1,
+      double i2);
+
+  public native Triangle setFromPointsAndIndices(
+      JsArray<Vector3> points, double i0, double i1, double i2);
+
+  @JsOverlay
+  public final Triangle setFromPointsAndIndices(Vector3[] points, double i0, double i1, double i2) {
+    return setFromPointsAndIndices(Js.<JsArray<Vector3>>uncheckedCast(points), i0, i1, i2);
+  }
 }

@@ -1,154 +1,88 @@
 package org.treblereel.gwt.three4g.extras.core;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.math.Vector2;
 
-/**
- * A 2D path representation. The class provides methods for creating paths and contours of 2D shapes similar to the 2D Canvas API.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/27/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Path", namespace = JsPackage.GLOBAL)
 public class Path extends CurvePath {
+  public Vector2 currentPoint;
+  public String type;
 
-    public Vector2 currentPoint; //TODO check this
+  public Path() {}
 
-    @JsConstructor
-    public Path() {
+  public Path(JsArray<Vector2> points) {}
 
-    }
+  public Path(Vector2[] points) {}
 
-    @JsConstructor
-    public Path(Vector2[] points) {
+  public native Path absarc(
+      double aX,
+      double aY,
+      double aRadius,
+      double aStartAngle,
+      double aEndAngle,
+      boolean aClockwise);
 
-    }
+  public native Path absellipse(
+      double aX,
+      double aY,
+      double xRadius,
+      double yRadius,
+      double aStartAngle,
+      double aEndAngle,
+      boolean aClockwise,
+      double aRotation);
 
-    /**
-     * Adds an absolutely positioned EllipseCurve to the path.
-     *
-     * @param x          -- The absolute center of the arc.
-     * @param y          -- The absolute center of the arc.
-     * @param radius     -- The radius of the arc.
-     * @param startAngle -- The start angle in radians.
-     * @param endAngle   -- The end angle in radians.
-     * @param clockwise  -- Sweep the arc clockwise. Defaults to false.
-     */
-    public native void absarc(float x, float y, float radius, float startAngle, float endAngle, boolean clockwise);
+  public native Path arc(
+      double aX,
+      double aY,
+      double aRadius,
+      double aStartAngle,
+      double aEndAngle,
+      boolean aClockwise);
 
-    /**
-     * Adds an absolutely positioned EllipseCurve to the path.
-     *
-     * @param x          -- The absolute center of the ellipse.
-     * @param y          -- The absolute center of the ellipse.
-     * @param xRadius    -- The radius of the ellipse in the x axis.
-     * @param yRadius    -- The radius of the ellipse in the y axis.
-     * @param startAngle -- The start angle in radians.
-     * @param endAngle   -- The end angle in radians.
-     * @param clockwise  -- Sweep the ellipse clockwise. Defaults to false.
-     */
-    public native void absellipse(float x, float y, float xRadius, float yRadius, float startAngle, float endAngle, boolean clockwise);
+  public native Path bezierCurveTo(
+      double aCP1x, double aCP1y, double aCP2x, double aCP2y, double aX, double aY);
 
-    /**
-     * Adds an absolutely positioned EllipseCurve to the path.
-     *
-     * @param x          -- The absolute center of the ellipse.
-     * @param y          -- The absolute center of the ellipse.
-     * @param xRadius    -- The radius of the ellipse in the x axis.
-     * @param yRadius    -- The radius of the ellipse in the y axis.
-     * @param startAngle -- The start angle in radians.
-     * @param endAngle   -- The end angle in radians.
-     * @param clockwise  -- Sweep the ellipse clockwise. Defaults to false.
-     * @param rotation   -- The rotation angle of the ellipse in radians, counterclockwise from the positive X axis.
-     */
-    public native void absellipse(float x, float y, float xRadius, float yRadius, float startAngle, float endAngle, boolean clockwise, float rotation);
+  public native Path ellipse(
+      double aX,
+      double aY,
+      double xRadius,
+      double yRadius,
+      double aStartAngle,
+      double aEndAngle,
+      boolean aClockwise,
+      double aRotation);
 
-    /**
-     * Adds an EllipseCurve to the path, positioned relative to .currentPoint.
-     *
-     * @param x          -- The center of the arc offset from the last call.
-     * @param y          -- The center of the arc offset from the last call.
-     * @param radius     -- The radius of the arc.
-     * @param startAngle -- The start angle in radians.
-     * @param endAngle   -- The end angle in radians.
-     * @param clockwise  -- Sweep the arc clockwise. Defaults to false.
-     */
-    public native void arc(float x, float y, float radius, float startAngle, float endAngle, boolean clockwise);
+  @Deprecated
+  public native Path fromPoints(JsArray<Vector2> vectors);
 
-    /**
-     * This creates a bezier curve from .currentPoint with (cp1X, cp1Y) and (cp2X, cp2Y) as control points and updates .currentPoint to x and y.
-     *
-     * @param cp1X as float value
-     * @param cp1Y as float value
-     * @param cp2X as float value
-     * @param cp2Y as float value
-     * @param x as float value
-     * @param y as float value
-     */
-    public native void bezierCurveTo(float cp1X, float cp1Y, float cp2X, float cp2Y, float x, float y);
+  @JsOverlay
+  @Deprecated
+  public final Path fromPoints(Vector2[] vectors) {
+    return fromPoints(Js.<JsArray<Vector2>>uncheckedCast(vectors));
+  }
 
-    /**
-     * @param x          -- The center of the ellipse offset from the last call.
-     * @param y          -- The center of the ellipse offset from the last call.
-     * @param xRadius    -- The radius of the ellipse in the x axis.
-     * @param yRadius    -- The radius of the ellipse in the y axis.
-     * @param startAngle -- The start angle in radians.
-     * @param endAngle   -- The end angle in radians.
-     * @param clockwise  -- Sweep the ellipse clockwise. Defaults to false.
-     */
-    public native void ellipse(float x, float y, float xRadius, float yRadius, float startAngle, float endAngle, boolean clockwise);
+  public native Path lineTo(double x, double y);
 
-    /**
-     * @param x          -- The center of the ellipse offset from the last call.
-     * @param y          -- The center of the ellipse offset from the last call.
-     * @param xRadius    -- The radius of the ellipse in the x axis.
-     * @param yRadius    -- The radius of the ellipse in the y axis.
-     * @param startAngle -- The start angle in radians.
-     * @param endAngle   -- The end angle in radians.
-     * @param clockwise  -- Sweep the ellipse clockwise. Defaults to false.
-     * @param rotation   -- The rotation angle of the ellipse in radians, counterclockwise from the positive X axis.
-     */
-    public native void ellipse(float x, float y, float xRadius, float yRadius, float startAngle, float endAngle, boolean clockwise, float rotation);
+  public native Path moveTo(double x, double y);
 
-    /**
-     * connects a LineCurve from .currentPoint to x, y onto the path.
-     *
-     * @param x as float value
-     * @param y as float value
-     */
-    public native void lineTo(float x, float y);
+  public native Path quadraticCurveTo(double aCPx, double aCPy, double aX, double aY);
 
-    /**
-     * Move the .currentPoint to x, y.
-     * @param x as float value
-     * @param y as float value
-     */
-    public native void moveTo(float x, float y);
+  public native Path setFromPoints(JsArray<Vector2> vectors);
 
-    /**
-     * Creates a quadratic curve from .currentPoint with cpX and cpY as control point and updates .currentPoint to x and y.
-     *
-     * @param cpX as float value
-     * @param cpY as float value
-     * @param x as float value
-     * @param y as float value
-     */
-    public native void quadraticCurveTo(float cpX, float cpY, float x, float y);
+  @JsOverlay
+  public final Path setFromPoints(Vector2[] vectors) {
+    return setFromPoints(Js.<JsArray<Vector2>>uncheckedCast(vectors));
+  }
 
-    /**
-     * Points are added to the curves array as LineCurves.
-     *
-     * @param points -- array of Vector2s.
-     */
-    public native void setFromPoints(Vector2[] points);
+  public native Path splineThru(JsArray<Vector2> pts);
 
-    /**
-     * Connects a new SplineCurve onto the path.
-     *
-     * @param points - An array of Vector2s
-     */
-    public native void splineThru(Vector2[] points);
-
-
+  @JsOverlay
+  public final Path splineThru(Vector2[] pts) {
+    return splineThru(Js.<JsArray<Vector2>>uncheckedCast(pts));
+  }
 }

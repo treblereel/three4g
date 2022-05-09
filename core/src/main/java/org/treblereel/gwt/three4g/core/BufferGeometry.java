@@ -1,251 +1,680 @@
 package org.treblereel.gwt.three4g.core;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsArrayLike;
-import org.treblereel.gwt.three4g.math.Box3;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.math.Quaternion;
 import org.treblereel.gwt.three4g.math.Sphere;
 import org.treblereel.gwt.three4g.math.Vector3;
+import org.treblereel.gwt.three4g.math.Box3;
+import org.treblereel.gwt.three4g.math.Matrix4;
 
-import java.util.HashMap;
-
-/**
- * This class is an efficient alternative to Geometry, because it stores all data, including vertex positions, face indices,
- * normals, colors, UVs, and custom attributes within buffers; this reduces the cost of passing all this data to the GPU.
- * This also makes BufferGeometry harder to work with than Geometry; rather than accessing position data as Vector3 objects,
- * color data as Color objects, and so on, you have to access the raw data from the appropriate attribute buffer. This makes
- * BufferGeometry best-suited for static objects where you don't need to manipulate the geometry much after instantiating it.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/21/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class BufferGeometry<T extends BufferGeometry> extends AbstractGeometry<T> {
-
-    @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
-    public static class Attributes extends PropertyHolder {
-
-        public BufferAttribute position;
-        public BufferAttribute normal;
-        public BufferAttribute color;
-        public BufferAttribute uv;
-        public BufferAttribute uv2;
-        public BufferAttribute size;
-        public BufferAttribute lineDistance;
-
-        Attributes() {
-
-        }
-
+@JsType(isNative = true, name = "THREE.BufferGeometry", namespace = JsPackage.GLOBAL)
+public class BufferGeometry extends EventDispatcher {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface AddAttributeNameUnionType {
+    @JsOverlay
+    static BufferGeometry.AddAttributeNameUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * This hashmap has as id the name of the attribute to be set and as value the buffer to set it to. Rather than accessing this property directly, use .addAttribute and .getAttribute to access attributes of this geometry.
-     */
-    public Attributes attributes;
-
-
-    /**
-     * Bounding box for the bufferGeometry, which can be calculated with .computeBoundingBox(). Default is null.
-     */
-    public Box3 boundingBox;
-
-    /**
-     * Bounding sphere for the bufferGeometry, which can be calculated with .computeBoundingSphere(). Default is null.
-     */
-    public Sphere boundingSphere;
-
-    /**
-     * Used to determine what part of the geometry should be rendered. This should not be set directly, instead use .setDrawRange.
-     * Default is
-     * { start: 0, count: Infinity }
-     */
-    public DrawRange drawRange;
-
-    /**
-     * Split the geometry into groups, each of which will be rendered in a separate WebGL draw call. This allows an array of materials to be used with the bufferGeometry.
-     * <p>
-     * Each group is an object of the form:
-     * { start: Integer, count: Integer, materialIndex: Integer } where start specifies the first element in this draw call – the first vertex for non-indexed geometry, otherwise the first triangle index. Count specifies how many vertices (or indices) are included, and materialIndex specifies the material array index to use.
-     * <p>
-     * Use .addGroup to add groups, rather than modifying this array directly.
-     */
-    public Groups groups;
-
-    @JsType(namespace = JsPackage.GLOBAL, isNative = true, name = "Object")
-    public static class Groups extends PropertyHolder {
-        public int start, count, materialIndex;
+    @JsOverlay
+    default JsObject asJsObject() {
+      return Js.cast(this);
     }
 
-
-    /**
-     * Allows for vertices to be re-used across multiple triangles; this is called using "indexed triangles" and works
-     * much the same as it does in Geometry: each triangle is associated with the indices of three vertices. This attribute
-     * therefore stores the index of each vertex for each triangular face. If this attribute is not set, the renderer assumes
-     * that each three contiguous positions represent a single triangle. Default is null.
-     */
-    public BufferAttribute index;
-
-    /**
-     * Used to check whether this or derived classes are BufferGeometries. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isBufferGeometry;
-
-    /**
-     * Hashmap of BufferAttributes holding details of the geometry's morphTargets.
-     */
-    public HashMap<String, BufferAttribute> morphAttributes;
-
-    /**
-     * An object that can be used to store custom data about the BufferGeometry. It should not hold references to functions as these will not be cloned.
-     */
-    public PropertyHolder userData;
-
-    /**
-     * This creates a new BufferGeometry. It also sets several properties to a default value.
-     */
-    @JsConstructor
-    public BufferGeometry() {
-
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
     }
 
-    /**
-     * Adds an attribute to this geometry. Use this rather than the attributes property, because an internal hashmap of
-     * attributes is maintained to speed up iterating over a
-     *
-     * @param name      of the attribute
-     * @param attribute instance of BufferAttribute
-     */
-    public native void addAttribute(String name, BufferAttribute attribute);
+    @JsOverlay
+    default boolean isJsObject() {
+      return (Object) this instanceof JsObject;
+    }
 
-    /**
-     * Adds a group to this geometry; see the groups property for details.
-     *
-     * @param start         as int value
-     * @param count         as int value
-     * @param materialIndex as int value
-     */
-    public native void addGroup(int start, int count, int materialIndex);
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
 
-    /**
-     * Clears all groups
-     */
-    public native void clearGroups();
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface AttributesJsPropertyMapTypeParameterUnionType {
+    @JsOverlay
+    static BufferGeometry.AttributesJsPropertyMapTypeParameterUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Creates a new clone of the BufferGeometry.
-     * <p>
-     * This method copies only vertices, faces and uvs. It does not copy any other properties of the geometry.
-     *
-     * @return extends AbstractGeometry
-     */
-    public native T clone();
+    @JsOverlay
+    default BufferAttribute asBufferAttribute() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Convert a Geometry to a BufferGeometry.
-     *
-     * @param geometry instance of Geometry
-     * @return instance of BufferGeometry
-     */
-    public native BufferGeometry fromDirectGeometry(Geometry geometry);
+    @JsOverlay
+    default InterleavedBufferAttribute asInterleavedBufferAttribute() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Populates this BufferGeometry with data from a Geometry object.
-     *
-     * @param geometry instance of Geometry
-     * @return instance of BufferGeometry
-     */
-    public native BufferGeometry fromGeometry(Geometry geometry);
+    @JsOverlay
+    default boolean isBufferAttribute() {
+      return (Object) this instanceof BufferAttribute;
+    }
 
-    /**
-     * Returns the attribute with the specified name.
-     *
-     * @param name of attribute
-     * @return instance of BufferGeometry
-     */
-    public native BufferAttribute getAttribute(String name);
+    @JsOverlay
+    default boolean isInterleavedBufferAttribute() {
+      return (Object) this instanceof InterleavedBufferAttribute;
+    }
+  }
 
-    /**
-     * Return the .index buffer
-     *
-     * @return instance of BufferGeometry
-     */
-    public native BufferAttribute getIndex();
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface DeleteAttributeNameUnionType {
+    @JsOverlay
+    static BufferGeometry.DeleteAttributeNameUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Merge in another BufferGeometry with an optional offset of where to start merging in.
-     *
-     * @param bufferGeometry instance of BufferGeometry
-     * @param offset         as int value
-     */
-    public native void merge(BufferGeometry bufferGeometry, int offset);
+    @JsOverlay
+    default JsObject asJsObject() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Every normal vector in a geometry will have a magnitude of 1. This will correct lighting on the geometry surfaces.
-     */
-    public native void normalizeNormals();
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
 
-    /**
-     * Removes the attribute with the specified name.
-     *
-     * @param name of the attribute
-     * @return instance of BufferGeometry
-     */
-    public native BufferAttribute removeAttribute(String name);
+    @JsOverlay
+    default boolean isJsObject() {
+      return (Object) this instanceof JsObject;
+    }
 
-    /**
-     * Set the .index buffer.
-     *
-     * @param index instance of BufferGeometry
-     */
-    public native void setIndex(JsArrayLike index);
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
 
-    /**
-     * Set the .index buffer.
-     *
-     * @param index instance of BufferGeometry
-     */
-    public native void setIndex(BufferAttribute index);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface DrawRangeFieldType {
+    @JsOverlay
+    static BufferGeometry.DrawRangeFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
+    }
 
-    /**
-     * Set the .drawRange buffer. See that property for details.
-     *
-     * @param start int value
-     * @param count int value
-     */
-    public native void setDrawRange(int start, int count);
+    @JsProperty
+    double getCount();
 
-    /**
-     * Sets the attributes for this BufferGeometry from an Object3D.
-     *
-     * @param object instance of Object3D
-     * @return instance of BufferGeometry
-     */
-    public native T setFromObject(Object3D object);
+    @JsProperty
+    double getStart();
 
-    /**
-     * Sets the vertices for this Geometry from an array of points.
-     *
-     * @param points array of points
-     * @return extends AbstractGeometry
-     */
-    public native T setFromPoints(Vector3[] points);
+    @JsProperty
+    void setCount(double count);
 
-    /**
-     * Return a non-index version of an indexed BufferGeometry.
-     *
-     * @return instance of BufferGeometry
-     */
-    public native BufferGeometry toNonIndexed();
+    @JsProperty
+    void setStart(double start);
+  }
 
-    /**
-     * Updates the attributes for this BufferGeometry from an Object3D.
-     *
-     * @param object instance of Object3D
-     * @return instance of BufferGeometry
-     */
-    public native BufferGeometry updateFromObject(Object3D object);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface GetAttributeNameUnionType {
+    @JsOverlay
+    static BufferGeometry.GetAttributeNameUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default JsObject asJsObject() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isJsObject() {
+      return (Object) this instanceof JsObject;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface GetAttributeUnionType {
+    @JsOverlay
+    static BufferGeometry.GetAttributeUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default BufferAttribute asBufferAttribute() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default InterleavedBufferAttribute asInterleavedBufferAttribute() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isBufferAttribute() {
+      return (Object) this instanceof BufferAttribute;
+    }
+
+    @JsOverlay
+    default boolean isInterleavedBufferAttribute() {
+      return (Object) this instanceof InterleavedBufferAttribute;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface GroupsFieldType {
+    @JsOverlay
+    static BufferGeometry.GroupsFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
+    }
+
+    @JsProperty
+    double getCount();
+
+    @JsProperty
+    double getMaterialIndex();
+
+    @JsProperty
+    double getStart();
+
+    @JsProperty
+    void setCount(double count);
+
+    @JsProperty
+    void setMaterialIndex(double materialIndex);
+
+    @JsProperty
+    void setStart(double start);
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface HasAttributeNameUnionType {
+    @JsOverlay
+    static BufferGeometry.HasAttributeNameUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default JsObject asJsObject() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isJsObject() {
+      return (Object) this instanceof JsObject;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface MorphAttributesJsPropertyMapTypeParameterArrayUnionType {
+    @JsOverlay
+    static BufferGeometry.MorphAttributesJsPropertyMapTypeParameterArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default BufferAttribute asBufferAttribute() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default InterleavedBufferAttribute asInterleavedBufferAttribute() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isBufferAttribute() {
+      return (Object) this instanceof BufferAttribute;
+    }
+
+    @JsOverlay
+    default boolean isInterleavedBufferAttribute() {
+      return (Object) this instanceof InterleavedBufferAttribute;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface SetAttributeAttributeUnionType {
+    @JsOverlay
+    static BufferGeometry.SetAttributeAttributeUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default BufferAttribute asBufferAttribute() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default InterleavedBufferAttribute asInterleavedBufferAttribute() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isBufferAttribute() {
+      return (Object) this instanceof BufferAttribute;
+    }
+
+    @JsOverlay
+    default boolean isInterleavedBufferAttribute() {
+      return (Object) this instanceof InterleavedBufferAttribute;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface SetAttributeNameUnionType {
+    @JsOverlay
+    static BufferGeometry.SetAttributeNameUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default JsObject asJsObject() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isJsObject() {
+      return (Object) this instanceof JsObject;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface SetIndexIndexUnionType {
+    @JsOverlay
+    static BufferGeometry.SetIndexIndexUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default BufferAttribute asBufferAttribute() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default JsArray<Double> asJsArray() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isBufferAttribute() {
+      return (Object) this instanceof BufferAttribute;
+    }
+
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
+  }
+
+  public static double MaxIndex;
+  public JsPropertyMap<BufferGeometry.AttributesJsPropertyMapTypeParameterUnionType> attributes;
+  public Box3 boundingBox;
+  public Sphere boundingSphere;
+  public BufferGeometry.DrawRangeFieldType drawRange;
+  public double drawcalls;
+  public JsArray<BufferGeometry.GroupsFieldType> groups;
+  public double id;
+  public BufferAttribute index;
+  public boolean isBufferGeometry;
+  public JsPropertyMap<
+          JsArray<BufferGeometry.MorphAttributesJsPropertyMapTypeParameterArrayUnionType>>
+      morphAttributes;
+  public boolean morphTargetsRelative;
+  public String name;
+  public double offsets;
+  public String type;
+  public JsPropertyMap<JsObject> userData;
+  public String uuid;
+
+  @Deprecated
+  public native JsObject addAttribute(
+      BufferGeometry.AddAttributeNameUnionType name,
+      JsObject attribute_or_array,
+      JsObject itemSize);
+
+  @Deprecated
+  public native JsObject addAttribute(
+      BufferGeometry.AddAttributeNameUnionType name, JsObject attribute_or_array);
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(
+      BufferGeometry.AddAttributeNameUnionType name, Object attribute_or_array, Object itemSize) {
+    return addAttribute(
+        name, Js.<JsObject>uncheckedCast(attribute_or_array), Js.<JsObject>uncheckedCast(itemSize));
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(
+      BufferGeometry.AddAttributeNameUnionType name, Object attribute_or_array) {
+    return addAttribute(name, Js.<JsObject>uncheckedCast(attribute_or_array));
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(
+      JsObject name, JsObject attribute_or_array, JsObject itemSize) {
+    return addAttribute(
+        Js.<BufferGeometry.AddAttributeNameUnionType>uncheckedCast(name),
+        attribute_or_array,
+        itemSize);
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(JsObject name, JsObject attribute_or_array) {
+    return addAttribute(
+        Js.<BufferGeometry.AddAttributeNameUnionType>uncheckedCast(name), attribute_or_array);
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(Object name, Object attribute_or_array, Object itemSize) {
+    return addAttribute(
+        Js.<JsObject>uncheckedCast(name),
+        Js.<JsObject>uncheckedCast(attribute_or_array),
+        Js.<JsObject>uncheckedCast(itemSize));
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(Object name, Object attribute_or_array) {
+    return addAttribute(
+        Js.<JsObject>uncheckedCast(name), Js.<JsObject>uncheckedCast(attribute_or_array));
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(String name, JsObject attribute_or_array, JsObject itemSize) {
+    return addAttribute(
+        Js.<BufferGeometry.AddAttributeNameUnionType>uncheckedCast(name),
+        attribute_or_array,
+        itemSize);
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(String name, JsObject attribute_or_array) {
+    return addAttribute(
+        Js.<BufferGeometry.AddAttributeNameUnionType>uncheckedCast(name), attribute_or_array);
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(String name, Object attribute_or_array, Object itemSize) {
+    return addAttribute(
+        name, Js.<JsObject>uncheckedCast(attribute_or_array), Js.<JsObject>uncheckedCast(itemSize));
+  }
+
+  @JsOverlay
+  @Deprecated
+  public final JsObject addAttribute(String name, Object attribute_or_array) {
+    return addAttribute(name, Js.<JsObject>uncheckedCast(attribute_or_array));
+  }
+
+  @Deprecated
+  public native void addDrawCall(double start, double count, JsObject indexOffset);
+
+  @JsOverlay
+  @Deprecated
+  public final void addDrawCall(double start, double count, Object indexOffset) {
+    addDrawCall(start, count, Js.<JsObject>uncheckedCast(indexOffset));
+  }
+
+  @Deprecated
+  public native void addDrawCall(double start, double count);
+
+  public native void addGroup(double start, double count, double materialIndex);
+
+  public native void addGroup(double start, double count);
+
+  @Deprecated
+  public native void addIndex(double index);
+
+  public native BufferGeometry applyMatrix4(Matrix4 matrix);
+
+  public native BufferGeometry applyQuaternion(Quaternion q);
+
+  public native BufferGeometry center();
+
+  @Deprecated
+  public native void clearDrawCalls();
+
+  public native void clearGroups();
+
+  @JsMethod(name = "clone")
+  public native BufferGeometry clone_();
+
+  public native void computeBoundingBox();
+
+  public native void computeBoundingSphere();
+
+  public native void computeTangents();
+
+  public native void computeVertexNormals();
+
+  public native BufferGeometry copy(BufferGeometry source);
+
+  public native BufferGeometry deleteAttribute(BufferGeometry.DeleteAttributeNameUnionType name);
+
+  @JsOverlay
+  public final BufferGeometry deleteAttribute(JsObject name) {
+    return deleteAttribute(Js.<BufferGeometry.DeleteAttributeNameUnionType>uncheckedCast(name));
+  }
+
+  @JsOverlay
+  public final BufferGeometry deleteAttribute(Object name) {
+    return deleteAttribute(Js.<JsObject>uncheckedCast(name));
+  }
+
+  @JsOverlay
+  public final BufferGeometry deleteAttribute(String name) {
+    return deleteAttribute(Js.<BufferGeometry.DeleteAttributeNameUnionType>uncheckedCast(name));
+  }
+
+  public native void dispose();
+
+  public native BufferGeometry.GetAttributeUnionType getAttribute(
+      BufferGeometry.GetAttributeNameUnionType name);
+
+  @JsOverlay
+  public final BufferGeometry.GetAttributeUnionType getAttribute(JsObject name) {
+    return getAttribute(Js.<BufferGeometry.GetAttributeNameUnionType>uncheckedCast(name));
+  }
+
+  @JsOverlay
+  public final BufferGeometry.GetAttributeUnionType getAttribute(Object name) {
+    return getAttribute(Js.<JsObject>uncheckedCast(name));
+  }
+
+  @JsOverlay
+  public final BufferGeometry.GetAttributeUnionType getAttribute(String name) {
+    return getAttribute(Js.<BufferGeometry.GetAttributeNameUnionType>uncheckedCast(name));
+  }
+
+  public native BufferAttribute getIndex();
+
+  public native boolean hasAttribute(BufferGeometry.HasAttributeNameUnionType name);
+
+  @JsOverlay
+  public final boolean hasAttribute(JsObject name) {
+    return hasAttribute(Js.<BufferGeometry.HasAttributeNameUnionType>uncheckedCast(name));
+  }
+
+  @JsOverlay
+  public final boolean hasAttribute(Object name) {
+    return hasAttribute(Js.<JsObject>uncheckedCast(name));
+  }
+
+  @JsOverlay
+  public final boolean hasAttribute(String name) {
+    return hasAttribute(Js.<BufferGeometry.HasAttributeNameUnionType>uncheckedCast(name));
+  }
+
+  public native void lookAt(Vector3 v);
+
+  public native BufferGeometry merge(BufferGeometry geometry, double offset);
+
+  public native BufferGeometry merge(BufferGeometry geometry);
+
+  public native void normalizeNormals();
+
+  @Deprecated
+  public native BufferGeometry removeAttribute(String name);
+
+  public native BufferGeometry rotateX(double angle);
+
+  public native BufferGeometry rotateY(double angle);
+
+  public native BufferGeometry rotateZ(double angle);
+
+  public native BufferGeometry scale(double x, double y, double z);
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(JsObject name, BufferAttribute attribute) {
+    return setAttribute(
+        Js.<BufferGeometry.SetAttributeNameUnionType>uncheckedCast(name),
+        Js.<BufferGeometry.SetAttributeAttributeUnionType>uncheckedCast(attribute));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(JsObject name, InterleavedBufferAttribute attribute) {
+    return setAttribute(
+        Js.<BufferGeometry.SetAttributeNameUnionType>uncheckedCast(name),
+        Js.<BufferGeometry.SetAttributeAttributeUnionType>uncheckedCast(attribute));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(
+      JsObject name, BufferGeometry.SetAttributeAttributeUnionType attribute) {
+    return setAttribute(
+        Js.<BufferGeometry.SetAttributeNameUnionType>uncheckedCast(name), attribute);
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(Object name, BufferAttribute attribute) {
+    return setAttribute(Js.<JsObject>uncheckedCast(name), attribute);
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(Object name, InterleavedBufferAttribute attribute) {
+    return setAttribute(Js.<JsObject>uncheckedCast(name), attribute);
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(
+      Object name, BufferGeometry.SetAttributeAttributeUnionType attribute) {
+    return setAttribute(Js.<JsObject>uncheckedCast(name), attribute);
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(
+      BufferGeometry.SetAttributeNameUnionType name, BufferAttribute attribute) {
+    return setAttribute(
+        name, Js.<BufferGeometry.SetAttributeAttributeUnionType>uncheckedCast(attribute));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(
+      BufferGeometry.SetAttributeNameUnionType name, InterleavedBufferAttribute attribute) {
+    return setAttribute(
+        name, Js.<BufferGeometry.SetAttributeAttributeUnionType>uncheckedCast(attribute));
+  }
+
+  public native BufferGeometry setAttribute(
+      BufferGeometry.SetAttributeNameUnionType name,
+      BufferGeometry.SetAttributeAttributeUnionType attribute);
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(String name, BufferAttribute attribute) {
+    return setAttribute(
+        Js.<BufferGeometry.SetAttributeNameUnionType>uncheckedCast(name),
+        Js.<BufferGeometry.SetAttributeAttributeUnionType>uncheckedCast(attribute));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(String name, InterleavedBufferAttribute attribute) {
+    return setAttribute(
+        Js.<BufferGeometry.SetAttributeNameUnionType>uncheckedCast(name),
+        Js.<BufferGeometry.SetAttributeAttributeUnionType>uncheckedCast(attribute));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setAttribute(
+      String name, BufferGeometry.SetAttributeAttributeUnionType attribute) {
+    return setAttribute(
+        Js.<BufferGeometry.SetAttributeNameUnionType>uncheckedCast(name), attribute);
+  }
+
+  public native void setDrawRange(double start, double count);
+
+  public native BufferGeometry setFromPoints(JsArray<Object> points);
+
+  @JsOverlay
+  public final BufferGeometry setFromPoints(Object[] points) {
+    return setFromPoints(Js.<JsArray<Object>>uncheckedCast(points));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setIndex(BufferAttribute index) {
+    return setIndex(Js.<BufferGeometry.SetIndexIndexUnionType>uncheckedCast(index));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setIndex(JsArray<Double> index) {
+    return setIndex(Js.<BufferGeometry.SetIndexIndexUnionType>uncheckedCast(index));
+  }
+
+  public native BufferGeometry setIndex(BufferGeometry.SetIndexIndexUnionType index);
+
+  @JsOverlay
+  public final BufferGeometry setIndex(double[] index) {
+    return setIndex(Js.<JsArray<Double>>uncheckedCast(index));
+  }
+
+  public native Object toJSON();
+
+  public native Object toJSON(String key);
+
+  public native BufferGeometry toNonIndexed();
+
+  public native BufferGeometry translate(double x, double y, double z);
 }

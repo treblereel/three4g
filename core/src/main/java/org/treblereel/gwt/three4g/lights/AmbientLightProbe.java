@@ -1,23 +1,68 @@
 package org.treblereel.gwt.three4g.lights;
 
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.math.Color;
 
-/**
- *  Light probes are an alternative way of adding light to a 3D scene. AmbientLightProbe is the light estimation data of a single ambient light in the scene. For more information about light probes, go to LightProbe.
- * @author Dmitrii Tikhomirov
- * Created by treblereel 6/28/20
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.AmbientLightProbe", namespace = JsPackage.GLOBAL)
 public class AmbientLightProbe extends LightProbe {
-
-    /**
-     * Creates a new AmbientLightProbe.
-     * @param color - (optional) An instance of Color, string representing a color or a number representing a color.
-     * @param intensity - (optional) Numeric value of the light probe's intensity. Default is 1.
-     */
-    public AmbientLightProbe(Color color, float intensity) {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static AmbientLightProbe.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public boolean isAmbientLightProbe;
+
+  public AmbientLightProbe() {}
+
+  public AmbientLightProbe(Color color, double intensity) {}
+
+  public AmbientLightProbe(Color color) {}
+
+  public AmbientLightProbe(AmbientLightProbe.ConstructorColorUnionType color, double intensity) {}
+
+  public AmbientLightProbe(AmbientLightProbe.ConstructorColorUnionType color) {}
+
+  public AmbientLightProbe(String color, double intensity) {}
+
+  public AmbientLightProbe(String color) {}
+
+  public AmbientLightProbe(double color, double intensity) {}
+
+  public AmbientLightProbe(double color) {}
 }

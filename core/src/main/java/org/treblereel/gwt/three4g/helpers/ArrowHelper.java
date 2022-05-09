@@ -1,78 +1,212 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Object3D;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.math.Vector3;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
+import org.treblereel.gwt.three4g.core.Object3D;
+import org.treblereel.gwt.three4g.materials.Material;
+import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.objects.Line;
 import org.treblereel.gwt.three4g.objects.Mesh;
 
-/**
- * An 3D arrow object for visualizing directions.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.ArrowHelper", namespace = JsPackage.GLOBAL)
 public class ArrowHelper extends Object3D {
-
-    /**
-     * Contains the line part of the arrowHelper.
-     */
-    public Line line;
-
-    /**
-     * Contains the cone part of the arrowHelper.
-     */
-    public Mesh cone;
-
-    /**
-     * @param dir        -- direction from origin. Must be a unit vector.
-     * @param origin     -- Point at which the arrow starts.
-     * @param length     -- length of the arrow. Default is 1.
-     * @param hex        -- hexadecimal value to define color. Default is 0xffff00.
-     * @param headLength -- The length of the head of the arrow. Default is 0.2 * length.
-     * @param headWidth  -- The length of the width of the arrow. Default is 0.2 * headLength.
-     */
-    public ArrowHelper(Vector3 dir, Vector3 origin, Number length, Number hex, Number headLength, Number headWidth) {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConeMeshTypeParameter1UnionType {
+    @JsOverlay
+    static ArrowHelper.ConeMeshTypeParameter1UnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * Return a copy of this ArrowHelper.
-     *
-     * @param source instance of ArrowHelper
-     * @return instance of ArrowHelper
-     */
-    public native ArrowHelper copy(ArrowHelper source);
+    @JsOverlay
+    default JsArray<Material> asJsArray() {
+      return Js.cast(this);
+    }
 
-    /**
-     * Return a copy of this ArrowHelper.
-     *
-     * @return instance of ArrowHelper
-     */
-    public native ArrowHelper clone();
+    @JsOverlay
+    default Material asMaterial() {
+      return Js.cast(this);
+    }
 
-    /**
-     * @param hex -- The hexadecimal value of the color.
-     *            Sets the color of the arrowHelper.
-     */
-    public native void setColor(Number hex);
+    @JsOverlay
+    default boolean isJsArray() {
+      return (Object) this instanceof JsArray;
+    }
 
+    @JsOverlay
+    default boolean isMaterial() {
+      return (Object) this instanceof Material;
+    }
+  }
 
-    /**
-     * Sets the length of the arrowhelper.
-     *
-     * @param length     -- The desired length.
-     * @param headLength -- The length of the head of the arrow.
-     * @param headWidth  -- The length of the width of the arrow.
-     */
-    public native void setLength(Number length, Number headLength, Number headWidth);
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static ArrowHelper.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
+    }
 
-    /**
-     * Sets the direction of the arrowhelper.
-     *
-     * @param dir -- The desired direction. Must be a unit vector.
-     */
-    public native void setDirection(Vector3 dir);
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
 
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface SetColorColorUnionType {
+    @JsOverlay
+    static ArrowHelper.SetColorColorUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public Mesh<BufferGeometry, ConeMeshTypeParameter1UnionType> cone;
+  public Line line;
+  public String type;
+
+  public ArrowHelper() {}
+
+  public ArrowHelper(
+      Vector3 dir,
+      Vector3 origin,
+      double length,
+      Color color,
+      double headLength,
+      double headWidth) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin, double length, Color color, double headLength) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin, double length, Color color) {}
+
+  public ArrowHelper(
+      Vector3 dir,
+      Vector3 origin,
+      double length,
+      ArrowHelper.ConstructorColorUnionType color,
+      double headLength,
+      double headWidth) {}
+
+  public ArrowHelper(
+      Vector3 dir,
+      Vector3 origin,
+      double length,
+      ArrowHelper.ConstructorColorUnionType color,
+      double headLength) {}
+
+  public ArrowHelper(
+      Vector3 dir, Vector3 origin, double length, ArrowHelper.ConstructorColorUnionType color) {}
+
+  public ArrowHelper(
+      Vector3 dir,
+      Vector3 origin,
+      double length,
+      String color,
+      double headLength,
+      double headWidth) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin, double length, String color, double headLength) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin, double length, String color) {}
+
+  public ArrowHelper(
+      Vector3 dir,
+      Vector3 origin,
+      double length,
+      double color,
+      double headLength,
+      double headWidth) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin, double length, double color, double headLength) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin, double length, double color) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin, double length) {}
+
+  public ArrowHelper(Vector3 dir, Vector3 origin) {}
+
+  public ArrowHelper(Vector3 dir) {}
+
+  @JsOverlay
+  public final void setColor(Color color) {
+    setColor(Js.<ArrowHelper.SetColorColorUnionType>uncheckedCast(color));
+  }
+
+  public native void setColor(ArrowHelper.SetColorColorUnionType color);
+
+  @JsOverlay
+  public final void setColor(String color) {
+    setColor(Js.<ArrowHelper.SetColorColorUnionType>uncheckedCast(color));
+  }
+
+  @JsOverlay
+  public final void setColor(double color) {
+    setColor(Js.<ArrowHelper.SetColorColorUnionType>uncheckedCast(color));
+  }
+
+  public native void setDirection(Vector3 dir);
+
+  public native void setLength(double length, double headLength, double headWidth);
+
+  public native void setLength(double length, double headLength);
+
+  public native void setLength(double length);
 }

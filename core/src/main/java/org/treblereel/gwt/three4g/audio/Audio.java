@@ -1,261 +1,94 @@
 package org.treblereel.gwt.three4g.audio;
 
+import elemental2.core.JsArray;
 import elemental2.dom.HTMLMediaElement;
-import elemental2.media.AudioBuffer;
-import elemental2.media.AudioNode;
-import elemental2.media.BiquadFilterNode;
-import elemental2.media.GainNode;
+import elemental2.dom.MediaStream;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.Object3D;
 
-/**
- * Create a non-positional ( global ) audio object.
- * <p>
- * This uses the Web Audio API.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Audio", namespace = JsPackage.GLOBAL)
 public class Audio extends Object3D {
+  public boolean autoplay;
+  public Object buffer;
+  public Object context;
+  public double detune;
+  public double duration;
+  public JsArray<Object> filters;
+  public Object gain;
+  public boolean hasPlaybackControl;
+  public boolean isPlaying;
+  public AudioListener listener;
+  public boolean loop;
+  public double loopEnd;
+  public double loopStart;
+  public double offset;
+  public double playbackRate;
+  public Object source;
+  public String sourceType;
+  public String type;
 
-    /**
-     * Whether to start playback automatically. Default is false.
-     */
-    public boolean autoplay;
+  public Audio(AudioListener listener) {}
 
-    /**
-     * The AudioContext of the listener given in the constructor.
-     */
-    public AudioContext context;
+  public native Audio connect();
 
-    /**
-     * Modify pitch, measured in cents. +/- 100 is a semitone. +/- 1200 is an octave. Default is 0.
-     */
-    public float detune;
+  public native Audio disconnect();
 
-    /**
-     * Represents an array of BiquadFilterNodes. Can be used to apply a variety of low-order filters to create more complex sound effects. Filters are set via Audio.setFilter or Audio.setFilters.
-     */
-    public BiquadFilterNode[] filters;
+  public native double getDetune();
 
+  public native Object getFilter();
 
-    /**
-     * A GainNode created using AudioContext.createGain().
-     */
-    public GainNode gain;
+  public native JsArray<Object> getFilters();
 
-    /**
-     * Whether playback can be controlled using the play(), pause() etc. methods. Default is true.
-     */
-    public boolean hasPlaybackControl;
+  public native boolean getLoop();
 
-    /**
-     * Whether the audio is currently playing.
-     */
-    public boolean isPlaying;
+  public native Object getOutput();
 
-    /**
-     * A reference to the listener object of this audio.
-     */
-    public AudioListener listener;
+  public native double getPlaybackRate();
 
-    /**
-     * Speed of playback. Default is 1.
-     */
-    public float playbackRate;
+  public native double getVolume();
 
-    /**
-     * The time at which the sound should begin to play. Same as the when paramter of AudioBufferSourceNode.start(). Default is 0.
-     */
-    public float startTime;
+  @Deprecated
+  public native Audio load(String file);
 
-    /**
-     * An offset to the time within the audio buffer that playback should begin. Same as the offset paramter of AudioBufferSourceNode.start(). Default is 0.
-     */
-    public float offset;
+  public native void onEnded();
 
-    /**
-     * An AudioBufferSourceNode created using AudioContext.createBufferSource().
-     */
-    public String source;
+  public native Audio pause();
 
-    /**
-     * Type of the audio source. Default is string 'empty'.
-     */
-    public String sourceType;
+  public native Audio play();
 
-    /**
-     * String denoting the type, set to 'Audio'.
-     */
-    public String type;
+  public native Audio play(double delay);
 
-    protected Audio() {
+  public native Audio setBuffer(Object audioBuffer);
 
-    }
+  public native Audio setDetune(double value);
 
-    /**
-     * @param listener — AudioListener instance.
-     */
-    public Audio(AudioListener listener) {
+  public native Audio setFilter(Object filter);
 
-    }
+  public native Audio setFilters(JsArray<Object> value);
 
-    /**
-     * Connect to the Audio.source. This is used internally on initialisation and when setting / removing filters.
-     *
-     * @return instance of Audio
-     */
-    public native Audio connect();
+  @JsOverlay
+  public final Audio setFilters(Object[] value) {
+    return setFilters(Js.<JsArray<Object>>uncheckedCast(value));
+  }
 
-    /**
-     * Disconnect from the Audio.source. This is used internally when setting / removing filters.
-     *
-     * @return instance of Audio
-     */
-    public native Audio disconnect();
+  public native Audio setLoop(boolean value);
 
-    /**
-     * Returns the first element of the filters array.
-     *
-     * @return BiquadFilterNode
-     */
-    public native BiquadFilterNode getFilter();
+  public native Audio setLoopEnd(double value);
 
-    /**
-     * Applies a single BiquadFilterNode to the audio.
-     *
-     * @param filter BiquadFilterNode
-     * @return instance of Audio
-     */
-    public native Audio setFilter(BiquadFilterNode filter);
+  public native Audio setLoopStart(double value);
 
-    /**
-     * Returns the filters array.
-     *
-     * @return array of BiquadFilterNode
-     */
-    public native BiquadFilterNode[] getFilters();
+  public native Audio setMediaElementSource(HTMLMediaElement mediaElement);
 
-    /**
-     * Applies an array of BiquadFilterNodes to the audio.
-     *
-     * @param value - arrays of filters.
-     * @return this Audio instance
-     */
-    public native Audio setFilters(BiquadFilterNode[] value);
+  public native Audio setMediaStreamSource(MediaStream mediaStream);
 
-    /**
-     * Return the value of source.loop (whether playback should loop).
-     *
-     * @return isLoop
-     */
-    public native boolean getLoop();
+  public native Audio setNodeSource(Object audioNode);
 
-    /**
-     * Set source.loop to value (whether playback should loop).
-     *
-     * @param value boolean
-     * @return this Audio instance
-     */
-    public native Audio setLoop(boolean value);
+  public native Audio setPlaybackRate(double value);
 
-    /**
-     * Return the gainNode.
-     *
-     * @return GainNode
-     */
-    public native AudioNode getOutput();
+  public native Audio setVolume(double value);
 
-    /**
-     * Return the value of playbackRate.
-     *
-     * @return playback rate
-     */
-    public native float getPlaybackRate();
-
-    /**
-     * If hasPlaybackControl is enabled, set the playbackRate to value.
-     *
-     * @param value playback rate
-     * @return instance of Audio
-     */
-    public native Audio setPlaybackRate(float value);
-
-    /**
-     * Return the current volume.
-     *
-     * @return current volume
-     */
-    public native float getVolume();
-
-    /**
-     * Set the volume.
-     *
-     * @param value volume rate
-     * @return instance of Audio
-     */
-    public native Audio setVolume(float value);
-
-    /**
-     * If hasPlaybackControl is true, starts playback.
-     *
-     * @return instance of Audio
-     */
-    public native Audio play();
-
-    /**
-     * If hasPlaybackControl is true, pauses playback.
-     */
-    public native void pause();
-
-    /**
-     * Setup the source to the audioBuffer, and sets sourceType to 'buffer'.
-     * If autoplay, also starts playback.
-     *
-     * @param audioBuffer source to the audioBuffer
-     * @return insatnce of Audio
-     */
-    public native Audio setBuffer(AudioBuffer audioBuffer);
-
-    /**
-     * Applies the given object of type HTMLMediaElement as the source of this audio.
-     * Also sets hasPlaybackControl to false.
-     *
-     * @param mediaElement of type HTMLMediaElement
-     * @return instance of Audio
-     */
-    public native Audio setMediaElementSource(HTMLMediaElement mediaElement);
-
-    /**
-     * Setup the source to the audioBuffer, and sets sourceType to 'audioNode'.
-     * Also sets hasPlaybackControl to false.
-     *
-     * @param audioNode AudioNode
-     * @return instance of Audio
-     */
-    public native Audio setNodeSource(AudioNode audioNode);
-
-    /**
-     * If hasPlaybackControl is enabled, stops playback, resets startTime to 0 and sets isPlaying to false.
-     *
-     * @return instance of Audio
-     */
-    public native Audio stop();
-
-    /**
-     * Return the detune.
-     *
-     * @return as float value
-     */
-    public native float getDetune();
-
-    /**
-     * Set the detune.
-     *
-     * @param value detune rate
-     * @return instance of Audio
-     */
-    public native Audio setDetune(float value);
-
+  public native Audio stop();
 }

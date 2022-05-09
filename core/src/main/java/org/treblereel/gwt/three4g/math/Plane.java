@@ -1,208 +1,65 @@
 package org.treblereel.gwt.three4g.math;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.objects.Line3;
 
-/**
- * A two dimensional surface that extends infinitely in 3d space, represented in Hessian normal form by a unit
- * length normal vector and a constant.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/1/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.Plane", namespace = JsPackage.GLOBAL)
 public class Plane {
+  public double constant;
+  public boolean isPlane;
+  public Vector3 normal;
 
-    /**
-     * a unit length Vector3 defining the normal of the plane. Default is (1, 0, 0).
-     */
-    public Vector3 normal;
+  public Plane() {}
 
-    /**
-     * the signed distance from the origin to the plane. Default is 0.
-     */
-    public float constant;
+  public Plane(Vector3 normal, double constant) {}
 
-    @JsConstructor
-    public Plane() {
+  public Plane(Vector3 normal) {}
 
-    }
+  public native Plane applyMatrix4(Matrix4 matrix, Matrix3 optionalNormalMatrix);
 
-    @JsConstructor
-    public Plane(Vector3 vector3, float constant) {
+  public native Plane applyMatrix4(Matrix4 matrix);
 
-    }
+  @JsMethod(name = "clone")
+  public native Plane clone_();
 
-    /**
-     * Apply a Matrix4 to the plane. The matrix must be an affine, homogeneous transform.
-     *
-     * @param matrix - the Matrix4 to apply.
-     * @return instance of Place
-     */
+  public native Vector3 coplanarPoint(Vector3 target);
 
-    public native Plane applyMatrix4(Matrix4 matrix);
+  public native Plane copy(Plane plane);
 
-    /**
-     * Apply a Matrix4 to the plane. The matrix must be an affine, homogeneous transform.
-     * If supplying an optionalNormalMatrix, it can be created like so:
-     * Matrix3 optionalNormalMatrix = new Matrix3().getNormalMatrix( matrix );
-     *
-     * @param matrix               - the Matrix4 to apply.
-     * @param optionalNormalMatrix - pre-computed normal Matrix3 of the Matrix4 being applied.
-     * @return instance of Place
-     */
-    public native Plane applyMatrix4(Matrix4 matrix, Matrix3 optionalNormalMatrix);
+  public native double distanceToPoint(Vector3 point);
 
-    /**
-     * Returns a new plane with the same normal and constant as this one.
-     *
-     * @return instance of Place
-     */
-    public native Plane clone();
+  public native double distanceToSphere(Sphere sphere);
 
-    /**
-     * Returns a Vector3 coplanar to the plane, by calculating the projection of the normal vector at the origin onto the plane.
-     *
-     * @param target Vector3
-     * @return instance of Place
-     */
-    public native Vector3 coplanarPoint(Vector3 target);
+  public native boolean equals(Plane plane);
 
-    /**
-     * Copies the values of the passed plane's normal and constant properties to this plane.
-     *
-     * @param plane source Plane
-     * @return instance of Place
-     */
-    public native Plane clone(Plane plane);
+  public native Vector3 intersectLine(Line3 line, Vector3 target);
 
-    /**
-     * Returns the signed distance from the point to the plane.
-     *
-     * @param point target Place
-     * @return float distance
-     */
-    public native float distanceToPoint(Vector3 point);
+  public native boolean intersectsBox(Box3 box);
 
-    /**
-     * Returns the signed distance from the sphere to the plane.
-     *
-     * @param sphere target Sphere
-     * @return float distance
-     */
-    public native float distanceToPoint(Sphere sphere);
+  public native boolean intersectsLine(Line3 line);
 
-    /**
-     * Checks to see if two planes are equal (their normal and constant properties match).
-     *
-     * @param plane target Plane
-     * @return boolean is equal
-     */
-    public native boolean equals(Plane plane);
+  public native boolean intersectsSphere(Sphere sphere);
 
-    /**
-     * Returns the intersection point of the passed line and the plane. Returns undefined if the line does not intersect. Returns the
-     * line's starting point if the line is coplanar with the plane.
-     *
-     * @param line           - the Line3 to check for intersection.
-     * @param target - the result will be copied into this Vector3, otherwise a new Vector3 will be created.
-     * @return Vector3
-     */
-    public native Vector3 intersectLine(Line3 line, Vector3 target);
+  @Deprecated
+  public native double isIntersectionLine(double l);
 
-    /**
-     * Determines whether or not this plane intersects box.
-     *
-     * @param box - the Box3 to check for intersection.
-     * @return boolean
-     */
-    public native boolean intersectsBox(Box3 box);
+  public native Plane negate();
 
-    /**
-     * Tests whether a line segment intersects with (passes through) the plane.
-     *
-     * @param line - the Line3 to check for intersection.
-     * @return is intersects
-     */
-    public native boolean intersectsLine(Line3 line);
+  public native Plane normalize();
 
-    /**
-     * Tests whether a line segment intersects with (passes through) the Sphere.
-     *
-     * @param sphere - the Sphere to check for intersection.
-     * @return is intersects
-     */
-    public native boolean intersectsSphere(Sphere sphere);
+  public native Vector3 orthoPoint(Vector3 point, Vector3 target);
 
-    /**
-     * Negates both the normal vector and the constant.
-     *
-     * @return Plane
-     */
-    public native Plane negate();
+  public native Vector3 projectPoint(Vector3 point, Vector3 target);
 
-    /**
-     * Normalizes the normal vector, and adjusts the constant value accordingly.
-     *
-     * @return Plane
-     */
-    public native Plane normalize();
+  public native Plane set(Vector3 normal, double constant);
 
-    /**
-     * Projects a point onto the plane.
-     *
-     * @param point          - the Vector3 to project onto the plane.
-     * @param target - the result will be copied into this Vector3, otherwise a new Vector3 will be created.
-     * @return Vector3
-     */
-    public native Vector3 projectPoint(Vector3 point, Vector3 target);
+  public native Plane setComponents(double x, double y, double z, double w);
 
-    /**
-     * Sets the plane's normal and constant properties.
-     *
-     * @param normal   - a unit length Vector3 defining the normal of the plane.
-     * @param constant - the signed distance from the origin to the plane. Default is 0.
-     * @return Plane
-     */
-    public native Plane set(Vector3 normal, float constant);
+  public native Plane setFromCoplanarPoints(Vector3 a, Vector3 b, Vector3 c);
 
-    /**
-     * Set the individual components that define the plane.
-     *
-     * @param x - x value of the unit length normal vector.
-     * @param y - y value of the unit length normal vector.
-     * @param z - z value of the unit length normal vector.
-     * @param w - w value of the unit length normal vector.
-     * @return Plane
-     */
-    public native Plane setComponents(float x, float y, float z, float w);
+  public native Plane setFromNormalAndCoplanarPoint(Vector3 normal, Vector3 point);
 
-    /**
-     * Defines the plane based on the 3 provided points. The winding order is assumed to be counter-clockwise, and determines the direction of the normal.
-     *
-     * @param a - first point on the plane.
-     * @param b - second point on the plane.
-     * @param c - third point on the plane.
-     * @return Plane
-     */
-    public native Plane setFromCoplanarPoints(Vector3 a, Vector3 b, Vector3 c);
-
-    /**
-     * Sets the plane's properties as defined by a normal and an arbitrary coplanar point.
-     *
-     * @param normal - a unit length Vector3 defining the normal of the plane.
-     * @param point  - Vector3
-     * @return Plane
-     */
-    public native Plane setFromNormalAndCoplanarPoint(Vector3 normal, Vector3 point);
-
-    /**
-     * Translates the plane by the distance defined by the offset vector. Note that this only affects the plane constant
-     * and will not affect the normal vector.
-     *
-     * @param offset - the amount to move the plane by.
-     * @return Plane
-     */
-    public native Plane translate(Vector3 offset);
+  public native Plane translate(Vector3 offset);
 }
-

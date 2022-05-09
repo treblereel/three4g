@@ -1,72 +1,112 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.lights.PointLight;
+import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Matrix4;
-import org.treblereel.gwt.three4g.objects.Mesh;
 
-/**
- * This displays a helper object consisting of a spherical Mesh for visualizing a PointLight.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class PointLightHelper extends Mesh {
-
-    /**
-     * The PointLight that is being visualized.
-     */
-    public PointLight light;
-
-    /**
-     * Reference to the pointLight's matrixWorld.
-     */
-    public Matrix4 matrix;
-
-    /**
-     * See Object3D.matrixAutoUpdate. Set to false here as the helper is using the pointLight's matrixWorld.
-     */
-    public boolean matrixAutoUpdate;
-
-    /**
-     * The color parameter passed in the constructor. Default is undefined. If this is changed, the helper's color will update the next time update is called.
-     */
-    public Color color;
-
-    /**
-     * @param light -- The light to be visualized.
-     */
-    public PointLightHelper(PointLight light) {
-
+@JsType(isNative = true, name = "THREE.PointLightHelper", namespace = JsPackage.GLOBAL)
+public class PointLightHelper extends Object3D {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ColorUnionType {
+    @JsOverlay
+    static PointLightHelper.ColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * @param light      -- The light to be visualized.
-     * @param sphereSize -- The size of the sphere helper. Default is 1.
-     */
-    public PointLightHelper(PointLight light, float sphereSize) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * @param light      -- The light to be visualized.
-     * @param sphereSize -- The size of the sphere helper. Default is 1.
-     * @param color      -- if this is not the set the helper will take the color of the light.
-     */
-    public PointLightHelper(PointLight light, float sphereSize, Color color) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * Dispose of the PointLightHelper.
-     */
-    public native void dispose();
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
 
-    /**
-     * Updates the helper to match the position and direction of the PointLightHelper being visualized.
-     */
-    public native void update();
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
 
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static PointLightHelper.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public PointLightHelper.ColorUnionType color;
+  public PointLight light;
+  public Matrix4 matrix;
+  public boolean matrixAutoUpdate;
+  public String type;
+
+  public PointLightHelper(PointLight light, double sphereSize, Color color) {}
+
+  public PointLightHelper(
+      PointLight light, double sphereSize, PointLightHelper.ConstructorColorUnionType color) {}
+
+  public PointLightHelper(PointLight light, double sphereSize, String color) {}
+
+  public PointLightHelper(PointLight light, double sphereSize, double color) {}
+
+  public PointLightHelper(PointLight light, double sphereSize) {}
+
+  public PointLightHelper(PointLight light) {}
+
+  public native void dispose();
+
+  public native void update();
 }

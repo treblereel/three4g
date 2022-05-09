@@ -1,47 +1,30 @@
 package org.treblereel.gwt.three4g.renderers.webgl;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import elemental2.webgl.WebGLShader;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.PropertyHolder;
-import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
-import org.treblereel.gwt.three4g.renderers.parameters.WebGLRendererParameters;
 
-/**
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/12/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.WebGLProgram", namespace = JsPackage.GLOBAL)
 public class WebGLProgram {
+  public double attributes;
+  public String cacheKey;
+  public WebGLShader fragmentShader;
+  public double id;
+  public String name;
+  public double program;
+  public double uniforms;
+  public double usedTimes;
+  public WebGLShader vertexShader;
 
-    public String id;
+  public WebGLProgram(WebGLRenderer renderer, String cacheKey, JsObject parameters) {}
 
-    public String code;
+  public WebGLProgram(WebGLRenderer renderer, String cacheKey, Object parameters) {}
 
-    public int usedTimes;
+  public native void destroy();
 
-    public Object program;
+  public native double getAttributes();
 
-    public WebGLShader vertexShader;
-
-    public WebGLShader fragmentShader;
-
-    @JsConstructor
-    public WebGLProgram(WebGLRenderer renderer, Object code, Material material, WebGLRendererParameters parameters) {
-
-    }
-
-    /**
-     * Returns a name-value mapping of all active uniform locations.
-     *
-     * @return JsPropertyMap
-     */
-    public native PropertyHolder getUniforms();
-
-    /**
-     * Returns a name-value mapping of all active vertex attribute locations.
-     *
-     * @return get all attrs
-     */
-    public native PropertyHolder getAttributes();
+  public native WebGLUniforms getUniforms();
 }

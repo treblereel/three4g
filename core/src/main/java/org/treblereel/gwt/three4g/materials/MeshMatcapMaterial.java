@@ -1,46 +1,34 @@
 package org.treblereel.gwt.three4g.materials;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.materials.parameters.MeshMatcapMaterialParameters;
-import org.treblereel.gwt.three4g.math.Color;
-import org.treblereel.gwt.three4g.math.Vector2;
+import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.textures.Texture;
+import org.treblereel.gwt.three4g.math.Vector2;
+import org.treblereel.gwt.three4g.math.Color;
 
-/** @author Dmitrii Tikhomirov Created by treblereel 12/14/18 */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.MeshMatcapMaterial", namespace = JsPackage.GLOBAL)
 public class MeshMatcapMaterial extends Material {
-
   public Texture alphaMap;
-
-  public Texture matcap;
-
-  public Color color;
-
-  public Texture map;
-
   public Texture bumpMap;
-
-  public float bumpScale;
-
-  public Texture normalMap;
-
-  public int normalMapType; // could be THREE.TangentSpaceNormalMap
-
-  public Vector2 normalScale;
-
+  public double bumpScale;
+  public Color color;
+  public JsPropertyMap<JsObject> defines;
+  public double displacementBias;
   public Texture displacementMap;
-
-  public float displacementScalee;
-
-  public float displacementBias;
-
-  public boolean skinning;
-
-  public boolean morphTargets;
-
-  public boolean morphNormals;
+  public double displacementScale;
+  public boolean flatShading;
+  public Texture map;
+  public Texture matcap;
+  public Texture normalMap;
+  public double normalMapType;
+  public Vector2 normalScale;
+  public String type;
 
   public MeshMatcapMaterial() {}
 
   public MeshMatcapMaterial(MeshMatcapMaterialParameters parameters) {}
+
+  public native void setValues(MeshMatcapMaterialParameters parameters);
 }

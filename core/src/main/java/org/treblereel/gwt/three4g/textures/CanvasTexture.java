@@ -1,51 +1,312 @@
 package org.treblereel.gwt.three4g.textures;
 
-import elemental2.dom.HTMLElement;
-import jsinterop.annotations.JsConstructor;
+import elemental2.dom.HTMLCanvasElement;
+import elemental2.dom.HTMLImageElement;
+import elemental2.dom.HTMLVideoElement;
+import elemental2.dom.ImageBitmap;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 
-/**
- * @author Dmitrii Bocharov
- * @author Dmitrii Tikhomirov
- * Creates a texture from a canvas element.
- * <p>
- * This is almost the same as the base Texture class, except that it sets needsUpdate to true immediately.
- * <p>
- * Created by treblereel on 4/30/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.CanvasTexture", namespace = JsPackage.GLOBAL)
 public class CanvasTexture extends Texture {
-
-    /**
-     * Used to check whether this or derived classes are CanvasTexture. Default is true.
-     * <p>
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isCanvasTexture;
-
-    /**
-     * True by default. This is required so that the canvas data is loaded.
-     */
-    public boolean needsUpdate;
-
-    @JsConstructor
-    public CanvasTexture(HTMLElement canvas) {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorCanvasUnionType {
+    @JsOverlay
+    static CanvasTexture.ConstructorCanvasUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * @param canvas     -- The HTML canvas element from which to load the texture.
-     * @param mapping    -- How the image is applied to the object. An object type of THREE.UVMapping. See mapping constants for other choices.
-     * @param wrapS      -- The default is THREE.ClampToEdgeWrapping. See wrap mode constants for other choices.
-     * @param wrapT      -- The default is THREE.ClampToEdgeWrapping. See wrap mode constants for other choices.
-     * @param magFilter  -- How the texture is sampled when a texel covers more than one pixel. The default is THREE.LinearFilter. See magnification filter constants for other choices.
-     * @param minFilter  -- How the texture is sampled when a texel covers less than one pixel. The default is THREE.LinearMipmapLinearFilter. See minification filter constants for other choices.
-     * @param format     -- The format used in the texture. See format constants for other choices.
-     * @param anisotropy -- The number of samples taken along the axis through the pixel that has the highest density of texels. By default, this value is 1. A higher value gives a less blurry result than a basic mipmap, at the cost of more texture samples being used. Use renderer.getMaxAnisotropy() to find the maximum valid anisotropy value for the GPU; this value is usually a power of 2.
-     * @param type       -- Default is THREE.UnsignedByteType. See type constants for other choices.
-     */
-    @JsConstructor
-    public CanvasTexture(HTMLElement canvas, int mapping, int wrapS, int wrapT, int magFilter, int minFilter, int format, int type, int anisotropy) {
-
+    @JsOverlay
+    default HTMLCanvasElement asHTMLCanvasElement() {
+      return Js.cast(this);
     }
+
+    @JsOverlay
+    default HTMLImageElement asHTMLImageElement() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default HTMLVideoElement asHTMLVideoElement() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default ImageBitmap asImageBitmap() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isHTMLCanvasElement() {
+      return (Object) this instanceof HTMLCanvasElement;
+    }
+
+    @JsOverlay
+    default boolean isHTMLImageElement() {
+      return (Object) this instanceof HTMLImageElement;
+    }
+
+    @JsOverlay
+    default boolean isHTMLVideoElement() {
+      return (Object) this instanceof HTMLVideoElement;
+    }
+  }
+
+  public boolean isCanvasTexture;
+
+  public CanvasTexture(
+      CanvasTexture.ConstructorCanvasUnionType canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy) {}
+
+  public CanvasTexture(
+      CanvasTexture.ConstructorCanvasUnionType canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type) {}
+
+  public CanvasTexture(
+      CanvasTexture.ConstructorCanvasUnionType canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format) {}
+
+  public CanvasTexture(
+      CanvasTexture.ConstructorCanvasUnionType canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter) {}
+
+  public CanvasTexture(
+      CanvasTexture.ConstructorCanvasUnionType canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter) {}
+
+  public CanvasTexture(
+      CanvasTexture.ConstructorCanvasUnionType canvas,
+      double mapping,
+      double wrapS,
+      double wrapT) {}
+
+  public CanvasTexture(
+      CanvasTexture.ConstructorCanvasUnionType canvas, double mapping, double wrapS) {}
+
+  public CanvasTexture(CanvasTexture.ConstructorCanvasUnionType canvas, double mapping) {}
+
+  public CanvasTexture(CanvasTexture.ConstructorCanvasUnionType canvas) {}
+
+  public CanvasTexture(
+      HTMLCanvasElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy) {}
+
+  public CanvasTexture(
+      HTMLCanvasElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type) {}
+
+  public CanvasTexture(
+      HTMLCanvasElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format) {}
+
+  public CanvasTexture(
+      HTMLCanvasElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter) {}
+
+  public CanvasTexture(
+      HTMLCanvasElement canvas, double mapping, double wrapS, double wrapT, double magFilter) {}
+
+  public CanvasTexture(HTMLCanvasElement canvas, double mapping, double wrapS, double wrapT) {}
+
+  public CanvasTexture(HTMLCanvasElement canvas, double mapping, double wrapS) {}
+
+  public CanvasTexture(HTMLCanvasElement canvas, double mapping) {}
+
+  public CanvasTexture(HTMLCanvasElement canvas) {}
+
+  public CanvasTexture(
+      HTMLImageElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy) {}
+
+  public CanvasTexture(
+      HTMLImageElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type) {}
+
+  public CanvasTexture(
+      HTMLImageElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format) {}
+
+  public CanvasTexture(
+      HTMLImageElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter) {}
+
+  public CanvasTexture(
+      HTMLImageElement canvas, double mapping, double wrapS, double wrapT, double magFilter) {}
+
+  public CanvasTexture(HTMLImageElement canvas, double mapping, double wrapS, double wrapT) {}
+
+  public CanvasTexture(HTMLImageElement canvas, double mapping, double wrapS) {}
+
+  public CanvasTexture(HTMLImageElement canvas, double mapping) {}
+
+  public CanvasTexture(HTMLImageElement canvas) {}
+
+  public CanvasTexture(
+      HTMLVideoElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy) {}
+
+  public CanvasTexture(
+      HTMLVideoElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type) {}
+
+  public CanvasTexture(
+      HTMLVideoElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format) {}
+
+  public CanvasTexture(
+      HTMLVideoElement canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter) {}
+
+  public CanvasTexture(
+      HTMLVideoElement canvas, double mapping, double wrapS, double wrapT, double magFilter) {}
+
+  public CanvasTexture(HTMLVideoElement canvas, double mapping, double wrapS, double wrapT) {}
+
+  public CanvasTexture(HTMLVideoElement canvas, double mapping, double wrapS) {}
+
+  public CanvasTexture(HTMLVideoElement canvas, double mapping) {}
+
+  public CanvasTexture(HTMLVideoElement canvas) {}
+
+  public CanvasTexture(
+      ImageBitmap canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type,
+      double anisotropy) {}
+
+  public CanvasTexture(
+      ImageBitmap canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format,
+      double type) {}
+
+  public CanvasTexture(
+      ImageBitmap canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter,
+      double format) {}
+
+  public CanvasTexture(
+      ImageBitmap canvas,
+      double mapping,
+      double wrapS,
+      double wrapT,
+      double magFilter,
+      double minFilter) {}
+
+  public CanvasTexture(
+      ImageBitmap canvas, double mapping, double wrapS, double wrapT, double magFilter) {}
+
+  public CanvasTexture(ImageBitmap canvas, double mapping, double wrapS, double wrapT) {}
+
+  public CanvasTexture(ImageBitmap canvas, double mapping, double wrapS) {}
+
+  public CanvasTexture(ImageBitmap canvas, double mapping) {}
+
+  public CanvasTexture(ImageBitmap canvas) {}
 }

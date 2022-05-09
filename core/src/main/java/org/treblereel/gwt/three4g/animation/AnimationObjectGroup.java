@@ -1,58 +1,81 @@
 package org.treblereel.gwt.three4g.animation;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Object3D;
-import org.treblereel.gwt.three4g.core.PropertyHolder;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 
-/**
- * A group of objects that receives a shared animation state.
- * <p>
- * For an overview of the different elements of the three.js animation system see the "Animation System" article in the "Next Steps" section of the manual.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/2/18.
- */
-@JsType(namespace = "THREE", isNative = true)
+@JsType(isNative = true, name = "THREE.AnimationObjectGroup", namespace = JsPackage.GLOBAL)
 public class AnimationObjectGroup {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface StatsFieldType {
+    @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+    public interface ObjectsFieldType {
+      @JsOverlay
+      static AnimationObjectGroup.StatsFieldType.ObjectsFieldType create() {
+        return Js.uncheckedCast(JsPropertyMap.of());
+      }
 
-    /**
-     * An object that contains some informations of this AnimationObjectGroup (total number, number in use, number of bindings per object)
-     */
-    public PropertyHolder stats;
+      @JsProperty
+      double getInUse();
 
-    /**
-     * The UUID of this AnimationObjectGroup. It gets automatically assigned and shouldn't be edited.
-     */
-    public String uuid;
+      @JsProperty
+      double getTotal();
 
-    /**
-     * @param objs - an abitrary number of meshes that share the same animation state.
-     */
-    @JsConstructor
-    public AnimationObjectGroup(Object3D... objs) {
+      @JsProperty
+      void setInUse(double inUse);
 
+      @JsProperty
+      void setTotal(double total);
     }
 
-    /**
-     * Adds an arbitrary number of objects to this AnimationObjectGroup.
-     *
-     * @param objs array of Object3Ds
-     */
-    public native void add(Object3D... objs);
+    @JsOverlay
+    static AnimationObjectGroup.StatsFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
+    }
 
-    /**
-     * Removes an arbitrary number of objects from this AnimationObjectGroup.
-     *
-     * @param objs array of Object3Ds
-     */
-    public native void remove(Object3D... objs);
+    @JsProperty
+    double getBindingsPerObject();
 
-    /**
-     * Deallocates all memory resources for the passed objects of this AnimationObjectGroup.
-     *
-     * @param objs array of Object3Ds
-     */
-    public native void uncache(Object3D... objs);
+    @JsProperty
+    AnimationObjectGroup.StatsFieldType.ObjectsFieldType getObjects();
 
+    @JsProperty
+    void setBindingsPerObject(double bindingsPerObject);
+
+    @JsProperty
+    void setObjects(AnimationObjectGroup.StatsFieldType.ObjectsFieldType objects);
+  }
+
+  public boolean isAnimationObjectGroup;
+  public AnimationObjectGroup.StatsFieldType stats;
+  public String uuid;
+
+  public AnimationObjectGroup(JsObject... args) {}
+
+  public AnimationObjectGroup(Object... args) {}
+
+  public native void add(JsObject... args);
+
+  @JsOverlay
+  public final void add(Object... args) {
+    add(Js.<JsObject[]>uncheckedCast(args));
+  }
+
+  public native void remove(JsObject... args);
+
+  @JsOverlay
+  public final void remove(Object... args) {
+    remove(Js.<JsObject[]>uncheckedCast(args));
+  }
+
+  public native void uncache(JsObject... args);
+
+  @JsOverlay
+  public final void uncache(Object... args) {
+    uncache(Js.<JsObject[]>uncheckedCast(args));
+  }
 }

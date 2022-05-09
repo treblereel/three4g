@@ -1,82 +1,193 @@
 package org.treblereel.gwt.three4g.lights;
 
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.math.Color;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.math.Vector3;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * A light source positioned directly above the scene, with color fading from the sky color to the ground color.
- * <p>
- * This light cannot be used to cast shadows.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/25/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.HemisphereLight", namespace = JsPackage.GLOBAL)
 public class HemisphereLight extends Light {
-
-    /**
-     * This is set to undefined in the constructor as hemisphere lights cannot cast shadows.
-     */
-    public boolean castShadow;
-
-    /**
-     * The light's sky color, as passed in the constructor. Default is a new Color set to white (0xffffff).
-     */
-    public Color color;
-
-    /**
-     * The light's ground color, as passed in the constructor. Default is a new Color set to white (0xffffff).
-     */
-    public Color groundColor;
-
-    /**
-     * Used to check whether this or derived classes are hemisphere lights. Default is true.
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isHemisphereLight;
-
-    /**
-     * This is set equal to Object3D.DefaultUp (0, 1, 0), so that the light shines from the top down.
-     */
-    public Vector3 position;
-
-    /**
-     * Creates a new HemisphereLight.
-     */
-    public HemisphereLight() {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorGroundColorUnionType {
+    @JsOverlay
+    static HemisphereLight.ConstructorGroundColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-    /**
-     * @param skyColor - hexadecimal color of the sky. Default is 0xffffff.
-     */
-    public HemisphereLight(int skyColor) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * @param skyColor    - hexadecimal color of the sky. Default is 0xffffff.
-     * @param groundColor - hexadecimal color of the ground. Default is 0xffffff.
-     */
-    public HemisphereLight(int skyColor, float groundColor) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * @param skyColor    - hexadecimal color of the sky. Default is 0xffffff.
-     * @param groundColor - hexadecimal color of the ground. Default is 0xffffff.
-     * @param intensity   - numeric value of the light's strength/intensity. Default is 1.
-     */
-    public HemisphereLight(int skyColor, int groundColor, float intensity) {
-
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
     }
 
-    /**
-     * Copies the value of color, intensity and groundColor from the source light into this one.
-     *
-     * @param source instance of HemisphereLight
-     * @return instance of HemisphereLight
-     */
-    public native HemisphereLight copy(HemisphereLight source);
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorSkyColorUnionType {
+    @JsOverlay
+    static HemisphereLight.ConstructorSkyColorUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public Color groundColor;
+  public boolean isHemisphereLight;
+  public Vector3 position;
+  public String type;
+
+  public HemisphereLight() {}
+
+  public HemisphereLight(Color skyColor, Color groundColor, double intensity) {}
+
+  public HemisphereLight(Color skyColor, Color groundColor) {}
+
+  public HemisphereLight(
+      Color skyColor,
+      HemisphereLight.ConstructorGroundColorUnionType groundColor,
+      double intensity) {}
+
+  public HemisphereLight(
+      Color skyColor, HemisphereLight.ConstructorGroundColorUnionType groundColor) {}
+
+  public HemisphereLight(Color skyColor, String groundColor, double intensity) {}
+
+  public HemisphereLight(Color skyColor, String groundColor) {}
+
+  public HemisphereLight(Color skyColor, double groundColor, double intensity) {}
+
+  public HemisphereLight(Color skyColor, double groundColor) {}
+
+  public HemisphereLight(Color skyColor) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor, Color groundColor, double intensity) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor, Color groundColor) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor,
+      HemisphereLight.ConstructorGroundColorUnionType groundColor,
+      double intensity) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor,
+      HemisphereLight.ConstructorGroundColorUnionType groundColor) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor,
+      String groundColor,
+      double intensity) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor, String groundColor) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor,
+      double groundColor,
+      double intensity) {}
+
+  public HemisphereLight(
+      HemisphereLight.ConstructorSkyColorUnionType skyColor, double groundColor) {}
+
+  public HemisphereLight(HemisphereLight.ConstructorSkyColorUnionType skyColor) {}
+
+  public HemisphereLight(String skyColor, Color groundColor, double intensity) {}
+
+  public HemisphereLight(String skyColor, Color groundColor) {}
+
+  public HemisphereLight(
+      String skyColor,
+      HemisphereLight.ConstructorGroundColorUnionType groundColor,
+      double intensity) {}
+
+  public HemisphereLight(
+      String skyColor, HemisphereLight.ConstructorGroundColorUnionType groundColor) {}
+
+  public HemisphereLight(String skyColor, String groundColor, double intensity) {}
+
+  public HemisphereLight(String skyColor, String groundColor) {}
+
+  public HemisphereLight(String skyColor, double groundColor, double intensity) {}
+
+  public HemisphereLight(String skyColor, double groundColor) {}
+
+  public HemisphereLight(String skyColor) {}
+
+  public HemisphereLight(double skyColor, Color groundColor, double intensity) {}
+
+  public HemisphereLight(double skyColor, Color groundColor) {}
+
+  public HemisphereLight(
+      double skyColor,
+      HemisphereLight.ConstructorGroundColorUnionType groundColor,
+      double intensity) {}
+
+  public HemisphereLight(
+      double skyColor, HemisphereLight.ConstructorGroundColorUnionType groundColor) {}
+
+  public HemisphereLight(double skyColor, String groundColor, double intensity) {}
+
+  public HemisphereLight(double skyColor, String groundColor) {}
+
+  public HemisphereLight(double skyColor, double groundColor, double intensity) {}
+
+  public HemisphereLight(double skyColor, double groundColor) {}
+
+  public HemisphereLight(double skyColor) {}
 }

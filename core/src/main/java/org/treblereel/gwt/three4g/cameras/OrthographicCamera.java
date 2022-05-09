@@ -1,112 +1,95 @@
 package org.treblereel.gwt.three4g.cameras;
 
-import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 
-/**
- * Camera that uses orthographic projection.
- * <p>
- * In this projection mode, an object's size in the rendered image stays constant regardless of its distance from the camera.
- * <p>
- * This can be useful for rendering 2D scenes and UI elements, amongst other things.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/18/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.OrthographicCamera", namespace = JsPackage.GLOBAL)
 public class OrthographicCamera extends Camera {
-
-
-    /**
-     * Camera frustum bottom plane.
-     */
-    public float bottom;
-
-    /**
-     * Camera frustum far plane. Default is 2000.
-     */
-    public float far;
-
-    /**
-     * The valid range is between the current value of the near plane and infinity.
-     * Used to test whether this or derived classes are OrthographicCameras. Default is true.
-     * <p>
-     * This should not be changed as it is used internally by the renderer for optimisation.
-     */
-    public boolean isOrthographicCamera;
-
-    /**
-     * Camera frustum left plane.
-     */
-    public float left;
-
-    /**
-     * Camera frustum near plane. Default is 0.1.
-     * <p>
-     * The valid range is between 0 and the current value of the far plane. Note that, unlike for the PerspectiveCamera, 0 is a valid value for an OrthographicCamera's near plane.
-     */
-    public float near;
-
-    /**
-     * Camera frustum right plane.
-     */
-    public float right;
-
-    /**
-     * Camera frustum top plane.
-     */
-    public float top;
-
-    /**
-     * Set by setViewOffset. Default is null.
-     */
-    public float view;
-
-    /**
-     * Gets or sets the zoom factor of the camera. Default is 1.
-     */
-    public float zoom;
-
-    /**
-     * Together these define the camera's viewing frustum.
-     *
-     * @param left   — Camera frustum left plane.
-     * @param right  — Camera frustum right plane.
-     * @param top    — Camera frustum top plane.
-     * @param bottom — Camera frustum bottom plane.
-     * @param near   — Camera frustum near plane.
-     * @param far    — Camera frustum far plane.
-     */
-    @JsConstructor
-    public OrthographicCamera(float left, float right, float top, float bottom, float near, float far) {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ViewFieldType {
+    @JsOverlay
+    static OrthographicCamera.ViewFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * Sets an offset in a larger viewing frustum. This is useful for multi-window or multi-monitor/multi-machine setups. For an example on how to use it see PerspectiveCamera.
-     *
-     * @param fullWidth  — full width of multiview setup
-     * @param fullHeight — full height of multiview setup
-     * @param x          — horizontal offset of subcamera
-     * @param y          — vertical offset of subcamera
-     * @param width      — width of subcamera
-     * @param height     — height of subcamera
-     */
-    public native void setViewOffset(float fullWidth, float fullHeight, float x, float y, float width, float height);
+    @JsProperty
+    double getFullHeight();
 
-    /**
-     * Removes any offset set by the .setViewOffset method.
-     */
-    public native void clearViewOffset();
+    @JsProperty
+    double getFullWidth();
 
-    /**
-     * Updates the camera projection matrix. Must be called after any change of parameters.
-     */
-    public native void updateProjectionMatrix();
+    @JsProperty
+    double getHeight();
 
-    /**
-     * @return the camera's data in JSON format.
-     */
-    public native String toJSON();
+    @JsProperty
+    double getOffsetX();
 
+    @JsProperty
+    double getOffsetY();
+
+    @JsProperty
+    double getWidth();
+
+    @JsProperty
+    boolean isEnabled();
+
+    @JsProperty
+    void setEnabled(boolean enabled);
+
+    @JsProperty
+    void setFullHeight(double fullHeight);
+
+    @JsProperty
+    void setFullWidth(double fullWidth);
+
+    @JsProperty
+    void setHeight(double height);
+
+    @JsProperty
+    void setOffsetX(double offsetX);
+
+    @JsProperty
+    void setOffsetY(double offsetY);
+
+    @JsProperty
+    void setWidth(double width);
+  }
+
+  public double bottom;
+  public double far;
+  public boolean isOrthographicCamera;
+  public double left;
+  public double near;
+  public double right;
+  public double top;
+  public String type;
+  public OrthographicCamera.ViewFieldType view;
+  public double zoom;
+
+  public OrthographicCamera(
+      double left, double right, double top, double bottom, double near, double far) {}
+
+  public OrthographicCamera(double left, double right, double top, double bottom, double near) {}
+
+  public OrthographicCamera(double left, double right, double top, double bottom) {}
+
+  public native void clearViewOffset();
+
+  public native void setViewOffset(
+      double fullWidth,
+      double fullHeight,
+      double offsetX,
+      double offsetY,
+      double width,
+      double height);
+
+  public native Object toJSON();
+
+  public native Object toJSON(String key);
+
+  public native void updateProjectionMatrix();
 }

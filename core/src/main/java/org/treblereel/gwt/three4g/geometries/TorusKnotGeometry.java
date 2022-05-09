@@ -1,84 +1,88 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 
-/**
- * Creates a torus knot, the particular shape of which is defined by a pair of coprime integers, p and q. If p and q are
- * not coprime, the result will be a torus link.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class TorusKnotGeometry extends Geometry {
-
-    public float radius;
-    public float tube;
-    public int tubularSegments;
-    public int radialSegments;
-    public int p;
-    public int q;
-
-    public TorusKnotGeometry() {
-
+@JsType(isNative = true, name = "THREE.TorusKnotGeometry", namespace = JsPackage.GLOBAL)
+public class TorusKnotGeometry {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ParametersFieldType {
+    @JsOverlay
+    static TorusKnotGeometry.ParametersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
     }
 
-    /**
-     * @param radius - Radius of the torus. Default is 1.
-     */
-    public TorusKnotGeometry(float radius) {
+    @JsProperty
+    double getP();
 
-    }
+    @JsProperty
+    double getQ();
 
-    /**
-     * @param radius - Radius of the torus. Default is 1.
-     * @param tube   — Radius of the tube. Default is 0.4.
-     */
-    public TorusKnotGeometry(float radius, float tube) {
+    @JsProperty
+    double getRadialSegments();
 
-    }
+    @JsProperty
+    double getRadius();
 
-    /**
-     * @param radius          - Radius of the torus. Default is 1.
-     * @param tube            — Radius of the tube. Default is 0.4.
-     * @param tubularSegments — Default is 64.
-     */
-    public TorusKnotGeometry(float radius, float tube, int tubularSegments) {
+    @JsProperty
+    double getTube();
 
-    }
+    @JsProperty
+    double getTubularSegments();
 
-    /**
-     * @param radius          - Radius of the torus. Default is 1.
-     * @param tube            — Radius of the tube. Default is 0.4.
-     * @param tubularSegments — Default is 64.
-     * @param radialSegments  — Default is 8.
-     */
-    public TorusKnotGeometry(float radius, float tube, int tubularSegments, int radialSegments) {
+    @JsProperty
+    void setP(double p);
 
-    }
+    @JsProperty
+    void setQ(double q);
 
-    /**
-     * @param radius          - Radius of the torus. Default is 1.
-     * @param tube            — Radius of the tube. Default is 0.4.
-     * @param tubularSegments — Default is 64.
-     * @param radialSegments  — Default is 8.
-     * @param p               — This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.
-     */
-    public TorusKnotGeometry(float radius, float tube, int tubularSegments, int radialSegments, int p) {
+    @JsProperty
+    void setRadialSegments(double radialSegments);
 
-    }
+    @JsProperty
+    void setRadius(double radius);
 
-    /**
-     * @param radius          - Radius of the torus. Default is 1.
-     * @param tube            — Radius of the tube. Default is 0.4.
-     * @param tubularSegments — Default is 64.
-     * @param radialSegments  — Default is 8.
-     * @param p               — This value determines, how many times the geometry winds around its axis of rotational symmetry. Default is 2.
-     * @param q               — This value determines, how many times the geometry winds around a circle in the interior of the torus. Default is 3.
-     */
-    public TorusKnotGeometry(float radius, float tube, int tubularSegments, int radialSegments, int p, int q) {
+    @JsProperty
+    void setTube(double tube);
 
-    }
+    @JsProperty
+    void setTubularSegments(double tubularSegments);
+  }
 
+  public static native TorusKnotGeometry fromJSON(JsObject data);
+
+  @JsOverlay
+  public static final TorusKnotGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
+
+  public TorusKnotGeometry.ParametersFieldType parameters;
+  public String type;
+
+  public TorusKnotGeometry() {}
+
+  public TorusKnotGeometry(
+      double radius,
+      double tube,
+      double tubularSegments,
+      double radialSegments,
+      double p,
+      double q) {}
+
+  public TorusKnotGeometry(
+      double radius, double tube, double tubularSegments, double radialSegments, double p) {}
+
+  public TorusKnotGeometry(
+      double radius, double tube, double tubularSegments, double radialSegments) {}
+
+  public TorusKnotGeometry(double radius, double tube, double tubularSegments) {}
+
+  public TorusKnotGeometry(double radius, double tube) {}
+
+  public TorusKnotGeometry(double radius) {}
 }

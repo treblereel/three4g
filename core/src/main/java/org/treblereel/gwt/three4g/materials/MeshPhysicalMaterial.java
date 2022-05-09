@@ -1,60 +1,42 @@
 package org.treblereel.gwt.three4g.materials;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.materials.parameters.MeshPhysicalMaterialParameters;
+import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.textures.Texture;
+import org.treblereel.gwt.three4g.math.Vector2;
+import org.treblereel.gwt.three4g.math.Color;
 
-/**
- * An extension of the MeshStandardMaterial that allows for greater control over reflectivity.
- * <p>
- * Note that for best results you should always specify an environment map when using this material.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.MeshPhysicalMaterial", namespace = JsPackage.GLOBAL)
 public class MeshPhysicalMaterial extends MeshStandardMaterial {
+  public Color attenuationColor;
+  public double attenuationDistance;
+  public double clearcoat;
+  public Texture clearcoatMap;
+  public Texture clearcoatNormalMap;
+  public Vector2 clearcoatNormalScale;
+  public double clearcoatRoughness;
+  public Texture clearcoatRoughnessMap;
+  public JsPropertyMap<JsObject> defines;
+  public double ior;
+  public double reflectivity;
+  public double sheen;
+  public Color sheenColor;
+  public Texture sheenColorMap;
+  public double sheenRoughness;
+  public Texture sheenRoughnessMap;
+  public Color specularColor;
+  public Texture specularColorMap;
+  public double specularIntensity;
+  public Texture specularIntensityMap;
+  public double thickness;
+  public Texture thicknessMap;
+  public double transmission;
+  public Texture transmissionMap;
+  public String type;
 
-    /**
-     * ClearCoat level, from 0.0 to 1.0. Default is 0.0.
-     */
-    public float clearcoat;
+  public MeshPhysicalMaterial() {}
 
-    /**
-     * How rough the clearCoat appears, from 0.0 to 1.0. Default is 0.0.
-     */
-    public float clearcoatRoughness;
-
-    /**
-     * Used to check whether this or derived classes are mesh physical materials. Default is true.
-     * You should not change this, as it used internally for optimisation.
-     */
-    public boolean isMeshPhysicalMaterial;
-
-    /**
-     * An object of the form:
-     * { 'PHYSICAL': '' };
-     * This is used by the WebGLRenderer for selecting shaders.
-     */
-    public Object defines;
-
-    /**
-     * Degree of reflectivity, from 0.0 to 1.0. Default is 0.5.
-     * This models the reflectivity of non-metallic materials. It has no effect when metalness is 1.0
-     */
-    public float reflectivity;
-
-
-    public MeshPhysicalMaterial() {
-
-    }
-
-    /**
-     * @param parameters - (optional) an object with one or more properties defining the material's appearance. Any property
-     *                   of the material (including any property inherited from Material and MeshStandardMaterial) can be passed in here.
-     *                   <p>
-     *                   The exception is the property color, which can be passed in as a hexadecimal string and is 0xffffff (white) by default. Color.set( color ) is called internally.
-     */
-    public MeshPhysicalMaterial(MeshPhysicalMaterialParameters parameters) {
-
-    }
+  public MeshPhysicalMaterial(MeshPhysicalMaterialParameters parameters) {}
 }

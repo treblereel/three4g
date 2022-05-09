@@ -1,111 +1,51 @@
 package org.treblereel.gwt.three4g.renderers;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Vector4;
-import org.treblereel.gwt.three4g.renderers.parameters.WebGLRenderTargetParameters;
+import org.treblereel.gwt.three4g.textures.DepthTexture;
 import org.treblereel.gwt.three4g.textures.Texture;
 
-/**
- * A render target is a buffer where the video card draws pixels for a scene that	is being rendered in the background. It is used in different effects, such as applying postprocessing to a rendered image before displaying it on the screen.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 3/1/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class WebGLRenderTarget extends RenderTarget {
+@JsType(isNative = true, name = "THREE.WebGLRenderTarget", namespace = JsPackage.GLOBAL)
+public class WebGLRenderTarget {
+  public double anisotropy;
+  public double depth;
+  public boolean depthBuffer;
+  public DepthTexture depthTexture;
+  public double format;
+  public double generateMipmaps;
+  public double height;
+  public boolean isWebGLRenderTarget;
+  public double magFilter;
+  public double minFilter;
+  public double offset;
+  public double repeat;
+  public Vector4 scissor;
+  public boolean scissorTest;
+  public boolean stencilBuffer;
+  public Texture texture;
+  public double type;
+  public String uuid;
+  public Vector4 viewport;
+  public double width;
+  public double wrapS;
+  public double wrapT;
 
-    /**
-     * The width of the render target.
-     */
-    public double width;
+  public WebGLRenderTarget(double width, double height, WebGLRenderTargetOptions options) {}
 
-    /**
-     * The height of the render target.
-     */
-    public double height;
+  public WebGLRenderTarget(double width, double height) {}
 
-    /**
-     * A rectangular area inside the render target's viewport. Fragments that are outside the area will be discarded.
-     */
-    public Vector4 scissor;
+  @JsMethod(name = "clone")
+  public native WebGLRenderTarget clone_();
 
-    /**
-     * Indicates whether the scissor test is active or not.
-     */
-    public boolean scissorTest;
+  public native WebGLRenderTarget copy(WebGLRenderTarget source);
 
-    /**
-     * The viewport of this render target.
-     */
-    public Vector4 viewport;
+  public native void dispose();
 
-    /**
-     * This texture instance holds the rendered pixels. Use it as input for further processing.
-     */
-    public Texture texture;
+  public native void setSize(double width, double height, double depth);
 
-    /**
-     * Renders to the depth buffer. Default is true.
-     */
-    public boolean depthBuffer;
+  public native void setSize(double width, double height);
 
-    /**
-     * Renders to the stencil buffer. Default is true.
-     */
-    public boolean stencilBuffer;
-
-    /**
-     * If set, the scene depth will be rendered to this texture. Default is null.
-     */
-    public Texture depthTexture;
-
-
-    public WebGLRenderTarget() {
-
-    }
-
-    /**
-     * @param width  - The width of the renderTarget.
-     * @param height - The height of the renderTarget.
-     */
-    public WebGLRenderTarget(double width, double height) {
-
-    }
-
-    /**
-     * @param width  - The width of the renderTarget.
-     * @param height - The height of the renderTarget.
-     * @param webGLRenderTargetParameters options, instance of WebGLRenderTargetParameters
-     */
-    public WebGLRenderTarget(Number width, Number height, WebGLRenderTargetParameters webGLRenderTargetParameters) {
-
-    }
-
-    /**
-     * Sets the size of the render target.
-     *
-     * @param width  as double
-     * @param height as double
-     */
-    public native void setSize(double width, double height);
-
-    /**
-     * Creates a copy of this render target.
-     *
-     * @return instance of WebGLRenderTarget
-     */
-    public native WebGLRenderTarget clone();
-
-    /**
-     * Adopts the settings of the given render target.
-     *
-     * @param source instance of WebGLRenderTarget
-     * @return instance of WebGLRenderTarget
-     */
-    public native WebGLRenderTarget copy(WebGLRenderTarget source);
-
-    /**
-     * Dispatches a dispose event.
-     */
-    public native void dispose();
+  public native void setTexture(Texture texture);
 }

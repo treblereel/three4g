@@ -1,78 +1,116 @@
 package org.treblereel.gwt.three4g.helpers;
 
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.lights.DirectionalLight;
+import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Matrix4;
 import org.treblereel.gwt.three4g.objects.Line;
 
-/**
- * Helper object to assist with visualizing a DirectionalLight's effect on the scene. This consists of plane and a line
- * representing the light's position and direction.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.DirectionalLightHelper", namespace = JsPackage.GLOBAL)
 public class DirectionalLightHelper extends Object3D {
-
-    /**
-     * Contains the line mesh showing the location of the directional light.
-     */
-    public Line lightPlane;
-
-    /**
-     * Reference to the directionalLight being visualized.
-     */
-    public DirectionalLight light;
-
-    /**
-     * Reference to the light's matrixWorld.
-     */
-    public Matrix4 matrix;
-
-    /**
-     * See Object3D.matrixAutoUpdate. Set to false here as the helper is using the light's matrixWorld.
-     */
-    public boolean matrixAutoUpdate;
-
-    /**
-     * The color parameter passed in the constructor. Default is undefined. If this is changed, the helper's color will update the next time update is called.
-     */
-    public Number color;
-
-    /**
-     * @param light-- The light to be visualized.
-     */
-    public DirectionalLightHelper(DirectionalLight light) {
-
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ColorUnionType {
+    @JsOverlay
+    static DirectionalLightHelper.ColorUnionType of(Object o) {
+      return Js.cast(o);
     }
 
-
-    /**
-     * @param light-- The light to be visualized.
-     * @param size    -- (optional) dimensions of the plane. Default is 1.
-     */
-    public DirectionalLightHelper(DirectionalLight light, int size) {
-
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
     }
 
-    /**
-     * @param light-- The light to be visualized.
-     * @param size    -- (optional) dimensions of the plane. Default is 1.
-     * @param color   -- (optional) if this is not the set the helper will take the color of the light.
-     */
-    public DirectionalLightHelper(DirectionalLight light, int size, Number color) {
-
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
     }
 
-    /**
-     * Dispose of the directionalLightHelper.
-     */
-    public native void dispose();
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
 
-    /**
-     * Updates the helper to match the position and direction of the directionalLight being visualized.
-     */
-    public native void update();
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorColorUnionType {
+    @JsOverlay
+    static DirectionalLightHelper.ConstructorColorUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default Color asColor() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isColor() {
+      return (Object) this instanceof Color;
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public DirectionalLightHelper.ColorUnionType color;
+  public DirectionalLight light;
+  public Line lightPlane;
+  public Matrix4 matrix;
+  public boolean matrixAutoUpdate;
+  public Line targetLine;
+
+  public DirectionalLightHelper(DirectionalLight light, double size, Color color) {}
+
+  public DirectionalLightHelper(
+      DirectionalLight light,
+      double size,
+      DirectionalLightHelper.ConstructorColorUnionType color) {}
+
+  public DirectionalLightHelper(DirectionalLight light, double size, String color) {}
+
+  public DirectionalLightHelper(DirectionalLight light, double size, double color) {}
+
+  public DirectionalLightHelper(DirectionalLight light, double size) {}
+
+  public DirectionalLightHelper(DirectionalLight light) {}
+
+  public native void dispose();
+
+  public native void update();
 }

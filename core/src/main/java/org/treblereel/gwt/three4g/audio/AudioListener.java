@@ -1,81 +1,30 @@
 package org.treblereel.gwt.three4g.audio;
 
-import elemental2.media.AudioNode;
-import elemental2.media.GainNode;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 
-/**
- * The AudioListener represents a virtual listener of the all positional and non-positional audio effects in the scene.
- * A three.js application usually creates a single instance of AudioListener. It is a mandatory construtor parameter for audios entities like Audio and PositionalAudio.
- * In most cases, the listener object is a child of the camera. So the 3D transformation of the camera represents the 3D transformation of the listener.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/4/18.
- */
-@JsType(isNative = true, namespace = "THREE")
+@JsType(isNative = true, name = "THREE.AudioListener", namespace = JsPackage.GLOBAL)
 public class AudioListener extends Object3D {
+  public Object context;
+  public double filter;
+  public Object gain;
+  public double timeDelta;
+  public String type;
 
-    /**
-     * The AudioContext of the listener given in the constructor.
-     */
-    public AudioContext context;
+  public native double getFilter();
 
-    /**
-     * A GainNode created using AudioContext.createGain().
-     */
-    public GainNode gain;
+  public native Object getInput();
 
-    /**
-     * Default is null.
-     */
-    public AudioNode filter;
+  public native double getMasterVolume();
 
-    /**
-     * Time delta value for audio entities. Use in context of AudioParam.linearRampToValueAtTimeDefault(). Default is 0.
-     */
-    public float timeDelta;
+  public native AudioListener removeFilter();
 
-    /**
-     * Create a new AudioListener.
-     */
-    public AudioListener() {
+  public native AudioListener setFilter(double value);
 
-    }
+  public native AudioListener setMasterVolume(double value);
 
-    /**
-     * @return the gainNode.
-     */
-    public native GainNode getInput();
+  public native void updateMatrixWorld();
 
-    /**
-     * Set the filter property to null.
-     *
-     * @return instance of AudioListener
-     */
-    public native AudioListener removeFilter();
-
-    /**
-     * @return the value of the filter property.
-     */
-    public native AudioNode getFilter();
-
-    /**
-     * Set the filter property to value.
-     *
-     * @param value - filter
-     * @return instance of AudioListener
-     */
-    public native AudioListener setFilter(AudioNode value);
-
-    /**
-     * @return the volume.
-     */
-    public native float getMasterVolume();
-
-    /**
-     * @param value Set the volume.
-     * @return instance of AudioListener
-     */
-    public native AudioListener setMasterVolume(float value);
+  public native void updateMatrixWorld(boolean force);
 }

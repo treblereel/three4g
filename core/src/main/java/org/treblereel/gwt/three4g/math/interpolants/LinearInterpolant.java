@@ -1,32 +1,18 @@
 package org.treblereel.gwt.three4g.math.interpolants;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.math.Interpolant;
 
-/**
- * LinearInterpolant
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/13/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class LinearInterpolant extends Interpolant {
-    /**
-     * @param parameterPositions -- array of positions
-     * @param sampleValues       -- array of samples
-     * @param sampleSize         -- number of samples
-     * @param resultBuffer       -- buffer to store the interpolation results.
-     */
-    public LinearInterpolant(float[] parameterPositions, float[] sampleValues, int sampleSize, float[] resultBuffer) {
+@JsType(isNative = true, name = "THREE.LinearInterpolant", namespace = JsPackage.GLOBAL)
+public class LinearInterpolant {
+  public LinearInterpolant(
+      double parameterPositions, double samplesValues, double sampleSize, JsObject resultBuffer) {}
 
-    }
+  public LinearInterpolant(
+      double parameterPositions, double samplesValues, double sampleSize, Object resultBuffer) {}
 
-    /**
-     * @param parameterPositions -- array of positions
-     * @param sampleValues       -- array of samples
-     * @param sampleSize         -- number of samples
-     * @param resultBuffer       -- buffer to store the interpolation results.
-     */
-    public LinearInterpolant(Float[] parameterPositions, Float[] sampleValues, int sampleSize, Float[] resultBuffer) {
+  public LinearInterpolant(double parameterPositions, double samplesValues, double sampleSize) {}
 
-    }
+  public native double interpolate_(double i1, double t0, double t, double t1);
 }

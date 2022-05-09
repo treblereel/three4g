@@ -5,8 +5,7 @@
     <parent>
         <groupId>org.treblereel.gwt</groupId>
         <artifactId>three4g-parent</artifactId>
-        <version>0.109-SNAPSHOT</version>
-        <relativePath>..</relativePath>
+        <version>0.135-SNAPSHOT</version>
     </parent>
 
     <artifactId>three4g</artifactId>
@@ -20,7 +19,7 @@
         <developer>
             <id>treblereel</id>
             <name>Dmitrii Tikhomirov</name>
-            <email>chani@me.com</email>
+            <email>chani.liet@gmail.com</email>
         </developer>
     </developers>
 
@@ -41,7 +40,6 @@
         <url>https://github.com/treblereel/three4g</url>
         <developerConnection>scm:git:git@github.com:treblereel/three4g.git</developerConnection>
         <connection>scm:git:git://github.com/treblereel/three4g.git</connection>
-        <tag>three4g-parent-0.102</tag>
     </scm>
 
     <build>
@@ -50,6 +48,7 @@
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.java</include>
+                    <include>**/*.js</include>
                 </includes>
             </resource>
             <resource>
@@ -90,51 +89,16 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
-            <version>${com.google.elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-media</artifactId>
-            <version>${com.google.elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-webgl</artifactId>
-            <version>${com.google.elemental2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>elemental2-vr</artifactId>
-            <version>${org.treblereel.gwt.elemental2.vr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>elemental2-gamepad</artifactId>
-            <version>${org.treblereel.gwt.elemental2.gamepad.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>three4g-annotations</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.treblereel.gwt</groupId>
-            <artifactId>three4g-processor</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

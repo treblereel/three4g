@@ -1,25 +1,25 @@
 package org.treblereel.gwt.three4g.geometries;
 
+import elemental2.core.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.treblereel.gwt.three4g.core.Geometry;
-import org.treblereel.gwt.three4g.geometries.parameters.TetrahedronGeometryParameters;
+import jsinterop.base.Js;
 
-/**
- * A class for generating a tetrahedron geometries.
- *
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 5/3/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public class TetrahedronGeometry extends Geometry {
+@JsType(isNative = true, name = "THREE.TetrahedronGeometry", namespace = JsPackage.GLOBAL)
+public class TetrahedronGeometry extends PolyhedronGeometry {
+  public static native TetrahedronGeometry fromJSON(JsObject data);
 
-    public TetrahedronGeometryParameters parameters;
+  @JsOverlay
+  public static final TetrahedronGeometry fromJSON(Object data) {
+    return fromJSON(Js.<JsObject>uncheckedCast(data));
+  }
 
-    /**
-     * @param radius — Radius of the tetrahedron. Default is 1.
-     * @param detail — Default is 0. Setting this to a value greater than 0 adds vertices making it no longer a tetrahedron.
-     */
-    public TetrahedronGeometry(float radius, int detail) {
+  public String type;
 
-    }
+  public TetrahedronGeometry() {}
+
+  public TetrahedronGeometry(double radius, double detail) {}
+
+  public TetrahedronGeometry(double radius) {}
 }

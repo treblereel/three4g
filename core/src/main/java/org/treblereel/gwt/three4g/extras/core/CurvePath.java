@@ -1,46 +1,18 @@
 package org.treblereel.gwt.three4g.extras.core;
 
-import jsinterop.annotations.JsConstructor;
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-/**
- * An abstract base class extending Curve. A CurvePath is simply an array of connected curves, but retains the api of a curve.
- * @author Dmitrii Tikhomirov
- * Created by treblereel on 4/11/18.
- */
-@JsType(isNative = true, namespace = "THREE")
-public abstract class CurvePath extends Curve {
+@JsType(isNative = true, name = "THREE.CurvePath", namespace = JsPackage.GLOBAL)
+public class CurvePath extends Curve {
+  public boolean autoClose;
+  public JsArray<Curve> curves;
+  public String type;
 
-    /**
-     * The array of Curves.
-     */
-    public Curve[] curves;
+  public native void add(Curve curve);
 
-    /**
-     *  Whether or not to automatically close the path.
-     */
-    public boolean autoClose;
+  public native void closePath();
 
-    @JsConstructor
-    public CurvePath(){
-
-    }
-
-    /**
-     * Add a curve to the .curves array
-     * @param curve instance of Curve
-     */
-    public native void add(Curve curve);
-
-    /**
-     * Adds a lineCurve to close the path
-     */
-    public native void closePath();
-
-    /**
-     * Adds together the lengths of the curves in the .curves array.
-     * @return curve length as float value
-     */
-    public native float getCurveLengths();
-
+  public native JsArray<Double> getCurveLengths();
 }
