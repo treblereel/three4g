@@ -46,6 +46,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <javapoet.version>1.11.1</javapoet.version>
         <elemental2.version>1.1.0</elemental2.version>
+        <resources.api.version>0.2</resources.api.version>
     </properties>
 
     <modules>
@@ -74,6 +75,16 @@
                 <groupId>com.google.elemental2</groupId>
                 <artifactId>elemental2-webgl</artifactId>
                 <version>${elemental2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.treblereel.gwt.resources</groupId>
+                <artifactId>resources-api</artifactId>
+                <version>${resources.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.treblereel.gwt.resources</groupId>
+                <artifactId>resources-processor</artifactId>
+                <version>${resources.api.version}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>

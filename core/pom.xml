@@ -70,6 +70,28 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/target/generated-sources/annotations</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -85,6 +107,15 @@
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-webgl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.treblereel.gwt.resources</groupId>
+            <artifactId>resources-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.treblereel.gwt.resources</groupId>
+            <artifactId>resources-processor</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

@@ -1,6 +1,7 @@
 package org.treblereel.j2cl.demo.helloworld;
 
 import elemental2.dom.DomGlobal;
+import org.treblereel.gwt.three4g.ThreeBootstrap;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
 import org.treblereel.gwt.three4g.geometries.BoxGeometry;
 import org.treblereel.gwt.three4g.loaders.TextureLoader;
@@ -11,6 +12,7 @@ import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 import org.treblereel.gwt.three4g.renderers.WebGLRendererParameters;
 import org.treblereel.gwt.three4g.scenes.Scene;
 import org.treblereel.gwt.three4g.textures.Texture;
+import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
 public class Demo {
 
@@ -19,7 +21,7 @@ public class Demo {
     private Mesh mesh;
     private WebGLRenderer renderer;
 
-    Demo() {
+    private void startApp() {
         camera = new PerspectiveCamera( 70, DomGlobal.window.innerWidth / DomGlobal.window.innerHeight, 1, 1000 );
         camera.position.z = 400;
         scene = new Scene();
@@ -45,6 +47,13 @@ public class Demo {
         DomGlobal.window.addEventListener("resize", evt -> onWindowResize(), false);
 
         animate();
+    }
+
+    @GWT3EntryPoint
+    public void onLoad() {
+        ThreeBootstrap.inject(() -> {
+            startApp();
+        });
     }
 
     private void  onWindowResize() {
