@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.treblereel.gwt.demo</groupId>
+  <artifactId>demo</artifactId>
+  <version>0.135-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <webappdir>${project.build.directory}/webapp</webappdir>
+    <webapp.libdir>${webappdir}/WEB-INF/lib</webapp.libdir>
+    <elemental2.version>1.1.0</elemental2.version>
+    <j2cl.maven.plugin.version>0.19</j2cl.maven.plugin.version>
+    <maven.jetty.plugin.version>9.4.31.v20200723</maven.jetty.plugin.version>
+    <maven.tomcat.plugin.version>2.2</maven.tomcat.plugin.version>
+    <maven.properties.plugin>1.0.0</maven.properties.plugin>
+    <org.treblereel.j2cl.processors.version>0.3</org.treblereel.j2cl.processors.version>
+    <crysknife.version>0.4-SNAPSHOT</crysknife.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.treblereel.j2cl.processors</groupId>
+      <artifactId>processors</artifactId>
+      <version>0.3</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.j2cl.processors</groupId>
+      <artifactId>annotations</artifactId>
+      <version>0.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.gwt</groupId>
+      <artifactId>three4g</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>crysknife-processor</artifactId>
+      <version>${crysknife.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife</groupId>
+      <artifactId>crysknife-core</artifactId>
+      <version>${crysknife.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife.ui</groupId>
+      <artifactId>elemental2-generator</artifactId>
+      <version>${crysknife.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife.ui.templates</groupId>
+      <artifactId>api</artifactId>
+      <version>${crysknife.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife.ui.templates</groupId>
+      <artifactId>generator</artifactId>
+      <version>${crysknife.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.crysknife.legacy.ui.navigation</groupId>
+      <artifactId>api</artifactId>
+      <version>${crysknife.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.crysknife.legacy.ui.navigation</groupId>
+      <artifactId>generator</artifactId>
+      <version>${crysknife.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.html</include>
+          <include>**/*.css</include>
+          <include>**/*.less</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+            <packagingExcludes>WEB-INF/classes/**</packagingExcludes>
+          </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.vertispan.j2cl</groupId>
+        <artifactId>j2cl-maven-plugin</artifactId>
+        <version>${j2cl.maven.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>build-js</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <webappDirectory>${project.build.directory}/gwt/launcherDir/${project.artifactId}/</webappDirectory>
+          <compilationLevel>ADVANCED</compilationLevel>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>${maven.tomcat.plugin.version}</version>
+        <configuration>
+          <contextFile>tomcatconf/context.xml</contextFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>snapshots-repo</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+  </repositories>
+</project>

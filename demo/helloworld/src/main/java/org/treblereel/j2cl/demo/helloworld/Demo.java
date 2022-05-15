@@ -57,10 +57,8 @@ public class Demo {
     }
 
     private void  onWindowResize() {
-
         camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
         camera.updateProjectionMatrix();
-
         renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
 
     }
