@@ -97,8 +97,6 @@ public class Cube implements IsElement<HTMLDivElement> {
     }
 
     private void animate() {
-        DomGlobal.console.log("animate " + run);
-
         if(!run) {
             return;
         }
@@ -112,16 +110,11 @@ public class Cube implements IsElement<HTMLDivElement> {
 
     @PageHiding
     private void onHide() {
-        DomGlobal.console.log("onHide " + run);
-
         run = false;
     }
 
     @PageShown
     private void onShow() {
-
-        DomGlobal.console.log("onShow " + run + " " + root.offsetWidth + " " + root.offsetHeight);
-
         run = true;
         animate();
 

@@ -20,6 +20,8 @@ import javax.inject.Inject;
 import elemental2.dom.DomGlobal;
 import io.crysknife.annotation.Application;
 import org.treblereel.gwt.three4g.ThreeBootstrap;
+import org.treblereel.gwt.three4g.ThreeExtrasBootstrap;
+import org.treblereel.gwt.three4g.environments.RoomEnvironment;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
 @Application
@@ -29,8 +31,11 @@ public class App {
 
     @GWT3EntryPoint
     public void onModuleLoad() {
+
         ThreeBootstrap.inject(() -> {
-            new AppBootstrap(this).initialize();
+            new ThreeExtrasBootstrap().injectAll(() -> {
+                new AppBootstrap(this).initialize();
+            });
         });
     }
 

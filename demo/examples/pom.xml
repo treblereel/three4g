@@ -18,6 +18,7 @@
     <maven.properties.plugin>1.0.0</maven.properties.plugin>
     <org.treblereel.j2cl.processors.version>0.3</org.treblereel.j2cl.processors.version>
     <crysknife.version>0.4-SNAPSHOT</crysknife.version>
+    <resources.api.version>0.2</resources.api.version>
   </properties>
 
   <dependencies>
@@ -35,8 +36,14 @@
     </dependency>
 
     <dependency>
-      <groupId>org.treblereel.gwt</groupId>
-      <artifactId>three4g</artifactId>
+      <groupId>org.treblereel.gwt.three4g</groupId>
+      <artifactId>core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.gwt.three4g</groupId>
+      <artifactId>extras</artifactId>
       <version>${project.version}</version>
     </dependency>
 
@@ -78,10 +85,18 @@
       <artifactId>api</artifactId>
       <version>${crysknife.version}</version>
     </dependency>
+
     <dependency>
       <groupId>io.crysknife.legacy.ui.navigation</groupId>
       <artifactId>generator</artifactId>
       <version>${crysknife.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.gwt.resources</groupId>
+      <artifactId>resources-processor</artifactId>
+      <version>${resources.api.version}</version>
       <scope>provided</scope>
     </dependency>
 
