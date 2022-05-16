@@ -13,26 +13,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 
 @JsType(isNative = true, name = "THREE.ImageBitmapLoader", namespace = JsPackage.GLOBAL)
-public class ImageBitmapLoader extends Loader {
-  @JsFunction
-  public interface LoadAsyncOnProgressFn {
-    void onInvoke(ProgressEvent<EventTarget> p0);
-  }
-
-  @JsFunction
-  public interface LoadOnErrorFn {
-    void onInvoke(ErrorEvent p0);
-  }
-
-  @JsFunction
-  public interface LoadOnLoadFn {
-    void onInvoke(ImageBitmap p0);
-  }
-
-  @JsFunction
-  public interface LoadOnProgressFn {
-    void onInvoke(ProgressEvent<EventTarget> p0);
-  }
+public class ImageBitmapLoader extends Loader<ImageBitmapLoader, ImageBitmap> {
 
   public boolean isImageBitmapLoader;
   public JsObject options;
@@ -40,24 +21,6 @@ public class ImageBitmapLoader extends Loader {
   public ImageBitmapLoader() {}
 
   public ImageBitmapLoader(LoadingManager manager) {}
-
-  public native double load(
-      String url,
-      ImageBitmapLoader.LoadOnLoadFn onLoad,
-      ImageBitmapLoader.LoadOnProgressFn onProgress,
-      ImageBitmapLoader.LoadOnErrorFn onError);
-
-  public native double load(
-      String url,
-      ImageBitmapLoader.LoadOnLoadFn onLoad,
-      ImageBitmapLoader.LoadOnProgressFn onProgress);
-
-  public native double load(String url, ImageBitmapLoader.LoadOnLoadFn onLoad);
-
-  public native double load(String url);
-
-  public native Promise<ImageBitmap> loadAsync(
-      String url, ImageBitmapLoader.LoadAsyncOnProgressFn onProgress);
 
   public native Promise<ImageBitmap> loadAsync(String url);
 

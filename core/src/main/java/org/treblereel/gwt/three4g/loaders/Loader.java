@@ -1,19 +1,12 @@
 package org.treblereel.gwt.three4g.loaders;
 
-import elemental2.dom.EventTarget;
-import elemental2.dom.ProgressEvent;
 import elemental2.promise.Promise;
-import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, name = "THREE.Loader", namespace = JsPackage.GLOBAL)
-public class Loader {
-  @JsFunction
-  public interface LoadAsyncOnProgressFn {
-    void onInvoke(ProgressEvent<EventTarget> p0);
-  }
+public class Loader<L, V> {
 
   public String crossOrigin;
   public LoadingManager manager;
@@ -26,7 +19,20 @@ public class Loader {
 
   public Loader(LoadingManager manager) {}
 
-  public native Promise loadAsync(String url, Loader.LoadAsyncOnProgressFn onProgress);
+
+  public native V load(
+          String url);
+
+  public native V load(
+          String url, OnLoadCallback<V> onLoad);
+
+  public native V load(
+          String url, OnLoadCallback<V> onLoad, OnProgressCallback onProgress);
+
+  public native V load(
+          String url, OnLoadCallback<V> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
+
+  public native Promise loadAsync(String url, OnProgressCallback onProgress);
 
   public native Promise loadAsync(String url);
 

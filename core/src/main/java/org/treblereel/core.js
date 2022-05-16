@@ -12393,7 +12393,7 @@ THREE.AnimationLoader = function(manager) {};
 
 /**
  * @param {string} url
- * @param {function(!Array<!THREE.AnimationClip>): void} onLoad
+ * @param {function(!Array<*>): void} onLoad
  * @param {(undefined|function(!ProgressEvent<!EventTarget>): void)=} onProgress
  * @param {(undefined|function(!ErrorEvent): void)=} onError
  * @return {void}
@@ -12586,7 +12586,7 @@ THREE.ObjectLoader = function(manager) {};
 
 /**
  * @param {string} url
- * @param {(undefined|function(Object): void)=} onLoad
+ * @param {(undefined|function(THREE.Object3D): void)=} onLoad
  * @param {(undefined|function(!ProgressEvent<!EventTarget>): void)=} onProgress
  * @param {(undefined|function((!ErrorEvent|!Error)): void)=} onError
  * @return {void}
@@ -12595,7 +12595,7 @@ THREE.ObjectLoader.prototype.load = function(url, onLoad, onProgress, onError) {
 
 /**
  * @template T
- * @param {number} json
+ * @param {*} json
  * @param {(undefined|function(!THREE.Object3D<!THREE.EventDispatcher.Event>): void)=} onLoad
  * @return {T}
  */
@@ -12603,60 +12603,59 @@ THREE.ObjectLoader.prototype.parse = function(json, onLoad) {};
 
 /**
  * @template T
- * @param {number} json
+ * @param {*} json
  * @return {!Promise<T>}
  */
 THREE.ObjectLoader.prototype.parseAsync = function(json) {};
 
 /**
- * @param {number} json
+ * @param {*} json
  * @return {!Object<string,(!THREE.BufferGeometry|!THREE.InstancedBufferGeometry)>}
  */
 THREE.ObjectLoader.prototype.parseGeometries = function(json) {};
 
 /**
- * @param {number} json
+ * @param {*} json
  * @param {!Array<!THREE.Texture>} textures
  * @return {!Array<!THREE.Material>}
  */
 THREE.ObjectLoader.prototype.parseMaterials = function(json, textures) {};
 
 /**
- * @param {number} json
+ * @param {*} json
  * @return {!Array<!THREE.AnimationClip>}
  */
 THREE.ObjectLoader.prototype.parseAnimations = function(json) {};
 
 /**
- * @param {number} json
+ * @param {*} json
  * @param {function(): void} onLoad
  * @return {!Object<string,!HTMLImageElement>}
  */
 THREE.ObjectLoader.prototype.parseImages = function(json, onLoad) {};
 
 /**
- * @param {number} json
+ * @param {*} json
  * @return {!Promise<!Object<string,!HTMLImageElement>>}
  */
 THREE.ObjectLoader.prototype.parseImagesAsync = function(json) {};
 
 /**
- * @param {number} json
- * @param {number} images
+ * @param {*} json
+ * @param {*} images
  * @return {!Array<!THREE.Texture>}
  */
 THREE.ObjectLoader.prototype.parseTextures = function(json, images) {};
 
 /**
  * @template T
- * @param {number} data
- * @param {!Array<Object>} geometries
+ * @param {*} data
+ * @param {!Array<THREE.Object3D>} geometries
  * @param {!Array<!THREE.Material>} materials
  * @param {!Array<!THREE.AnimationClip>} animations
  * @return {T}
  */
 THREE.ObjectLoader.prototype.parseObject = function(data, geometries, materials, animations) {};
-// externs from src/src/loaders/MaterialLoader.d.ts:
 
 /**
  * @extends {THREE.Loader}

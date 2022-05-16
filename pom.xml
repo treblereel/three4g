@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.treblereel.gwt</groupId>
-    <artifactId>three4g-parent</artifactId>
+    <groupId>org.treblereel.gwt.three4g</groupId>
+    <artifactId>parent</artifactId>
     <version>0.135-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>three4g-parent</name>
+    <name>parent</name>
     <description>Three.js JsInterop based library for J2CL</description>
     <url>https://github.com/treblereel</url>
 
@@ -51,6 +51,7 @@
 
     <modules>
         <module>core</module>
+        <module>extras</module>
     </modules>
 
     <dependencyManagement>

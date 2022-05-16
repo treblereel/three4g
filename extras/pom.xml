@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.treblereel.gwt.three4g</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.135-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>extras</artifactId>
+    <packaging>jar</packaging>
+
+    <name>three4g-extras</name>
+    <description>Three.js JsInterop based library for GWT</description>
+    <url>https://github.com/treblereel</url>
+
+    <developers>
+        <developer>
+            <id>treblereel</id>
+            <name>Dmitrii Tikhomirov</name>
+            <email>chani.liet@gmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Treblereel</name>
+        <url>https://github.com/treblereel</url>
+    </organization>
+
+    <scm>
+        <url>https://github.com/treblereel/three4g</url>
+        <developerConnection>scm:git:git@github.com:treblereel/three4g.git</developerConnection>
+        <connection>scm:git:git://github.com/treblereel/three4g.git</connection>
+    </scm>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.java</include>
+                    <include>**/extras.extends.js</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/js/**/*.js</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/target/generated-sources/annotations</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.treblereel.gwt.three4g</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.treblereel.gwt.resources</groupId>
+            <artifactId>resources-processor</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

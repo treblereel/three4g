@@ -21,7 +21,7 @@ import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.materials.Material;
 
 @JsType(isNative = true, name = "THREE.ObjectLoader", namespace = JsPackage.GLOBAL)
-public class ObjectLoader extends Loader {
+public class ObjectLoader extends Loader<ObjectLoader, Object3D> {
   @JsFunction
   public interface LoadOnErrorFn {
     @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
@@ -75,10 +75,6 @@ public class ObjectLoader extends Loader {
     }
   }
 
-  @JsFunction
-  public interface LoadOnProgressFn {
-    void onInvoke(ProgressEvent<EventTarget> p0);
-  }
 
   @JsFunction
   public interface ParseImagesOnLoadFn {
@@ -94,56 +90,43 @@ public class ObjectLoader extends Loader {
 
   public ObjectLoader(LoadingManager manager) {}
 
-  public native void load(
-      String url,
-      ObjectLoader.LoadOnLoadFn onLoad,
-      ObjectLoader.LoadOnProgressFn onProgress,
-      ObjectLoader.LoadOnErrorFn onError);
+  public native <T> T parse(Object json, ObjectLoader.ParseOnLoadFn onLoad);
 
-  public native void load(
-      String url, ObjectLoader.LoadOnLoadFn onLoad, ObjectLoader.LoadOnProgressFn onProgress);
+  public native <T> T parse(Object json);
 
-  public native void load(String url, ObjectLoader.LoadOnLoadFn onLoad);
+  public native JsArray<AnimationClip> parseAnimations(Object json);
 
-  public native void load(String url);
+  public native <T> Promise<T> parseAsync(Object json);
 
-  public native <T> T parse(double json, ObjectLoader.ParseOnLoadFn onLoad);
-
-  public native <T> T parse(double json);
-
-  public native JsArray<AnimationClip> parseAnimations(double json);
-
-  public native <T> Promise<T> parseAsync(double json);
-
-  public native JsPropertyMap<BufferGeometry> parseGeometries(double json);
+  public native JsPropertyMap<BufferGeometry> parseGeometries(Object json);
 
   public native JsPropertyMap<HTMLImageElement> parseImages(
       double json, ObjectLoader.ParseImagesOnLoadFn onLoad);
 
-  public native Promise<JsPropertyMap<HTMLImageElement>> parseImagesAsync(double json);
+  public native Promise<JsPropertyMap<HTMLImageElement>> parseImagesAsync(Object json);
 
-  public native JsArray<Material> parseMaterials(double json, JsArray<Texture> textures);
+  public native JsArray<Material> parseMaterials(Object json, JsArray<Texture> textures);
 
   @JsOverlay
-  public final JsArray<Material> parseMaterials(double json, Texture[] textures) {
+  public final JsArray<Material> parseMaterials(Object json, Texture[] textures) {
     return parseMaterials(json, Js.<JsArray<Texture>>uncheckedCast(textures));
   }
 
   public native <T> T parseObject(
-      double data,
+          Object data,
       JsArray<JsObject> geometries,
       JsArray<Material> materials,
       JsArray<AnimationClip> animations);
 
   @JsOverlay
   public final <T> T parseObject(
-      double data, JsObject[] geometries, Material[] materials, AnimationClip[] animations) {
+          Object data, Object3D[] geometries, Material[] materials, AnimationClip[] animations) {
     return parseObject(
         data,
-        Js.<JsArray<JsObject>>uncheckedCast(geometries),
-        Js.<JsArray<Material>>uncheckedCast(materials),
+        Js.uncheckedCast(geometries),
+        Js.uncheckedCast(materials),
         Js.<JsArray<AnimationClip>>uncheckedCast(animations));
   }
 
-  public native JsArray<Texture> parseTextures(double json, double images);
+  public native JsArray<Texture> parseTextures(Object json, double images);
 }
