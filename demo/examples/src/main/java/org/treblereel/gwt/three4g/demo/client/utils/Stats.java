@@ -15,7 +15,6 @@
 package org.treblereel.gwt.three4g.demo.client.utils;
 
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 

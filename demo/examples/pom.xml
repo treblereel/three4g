@@ -100,6 +100,12 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.treblereel.gwt</groupId>
+      <artifactId>lil-gui</artifactId>
+      <version>0.16.1.1</version>
+    </dependency>
+
   </dependencies>
 
   <build>

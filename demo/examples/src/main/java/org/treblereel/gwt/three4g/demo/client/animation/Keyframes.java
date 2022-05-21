@@ -14,15 +14,12 @@
 
 package org.treblereel.gwt.three4g.demo.client.animation;
 
-import elemental2.core.Global;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLLabelElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.navigation.client.local.Page;
 import io.crysknife.ui.navigation.client.local.PageHiding;
 import io.crysknife.ui.navigation.client.local.PageShown;
-import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.THREE;
 import org.treblereel.gwt.three4g.animation.AnimationClip;
 import org.treblereel.gwt.three4g.animation.AnimationMixer;
@@ -34,19 +31,13 @@ import org.treblereel.gwt.three4g.core.PropertyHolder;
 import org.treblereel.gwt.three4g.demo.client.utils.Stats;
 import org.treblereel.gwt.three4g.environments.RoomEnvironment;
 import org.treblereel.gwt.three4g.extras.PMREMGenerator;
-import org.treblereel.gwt.three4g.geometries.BoxGeometry;
 import org.treblereel.gwt.three4g.loaders.DRACOLoader;
 import org.treblereel.gwt.three4g.loaders.GLTFLoader;
 import org.treblereel.gwt.three4g.loaders.OnLoadCallback;
-import org.treblereel.gwt.three4g.loaders.TextureLoader;
-import org.treblereel.gwt.three4g.materials.MeshBasicMaterial;
-import org.treblereel.gwt.three4g.materials.MeshBasicMaterialParameters;
 import org.treblereel.gwt.three4g.math.Color;
-import org.treblereel.gwt.three4g.objects.Mesh;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 import org.treblereel.gwt.three4g.renderers.WebGLRendererParameters;
 import org.treblereel.gwt.three4g.scenes.Scene;
-import org.treblereel.gwt.three4g.textures.Texture;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -91,7 +82,7 @@ public class Keyframes implements IsElement<HTMLDivElement> {
 
         scene = new Scene();
         scene.setBackground(new Color( 0xbfe3dd ));
-        scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
+        scene.setEnvironment(pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture);
 
         camera = new PerspectiveCamera( 40, DomGlobal.window.innerWidth * 0.8 / DomGlobal.window.innerHeight * 0.8, 1, 100 );
         camera.position.set( 5, 2, 8 );
@@ -152,10 +143,20 @@ public class Keyframes implements IsElement<HTMLDivElement> {
     @PageHiding
     private void onHide() {
         run = false;
+        HTMLDivElement info = (HTMLDivElement) DomGlobal.document.getElementById("info");
+        while (info.firstChild != null) {
+            info.removeChild(info.firstChild);
+        }
     }
 
     @PageShown
     private void onShow() {
+        HTMLDivElement info = (HTMLDivElement) DomGlobal.document.getElementById("info");
+
+        info.innerHTML = "<a href=\"https://threejs.org\" target=\"_blank\" rel=\"noopener\">three.js</a> webgl - animation - keyframes<br/>\n" +
+                "\t\t\tModel: <a href=\"https://artstation.com/artwork/1AGwX\" target=\"_blank\" rel=\"noopener\">Littlest Tokyo</a> by\n" +
+                "\t\t\t<a href=\"https://artstation.com/glenatron\" target=\"_blank\" rel=\"noopener\">Glen Fox</a>, CC Attribution.";
+
         run = true;
         animate();
     }

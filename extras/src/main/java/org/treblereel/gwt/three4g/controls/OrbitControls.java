@@ -18,7 +18,7 @@ import elemental2.dom.HTMLCanvasElement;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
-import org.treblereel.gwt.three4g.core.EventDispatcher;
+import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.math.Vector3;
 
 @JsType(isNative = true, name = "THREE.OrbitControls", namespace = JsPackage.GLOBAL)
@@ -27,6 +27,7 @@ public class OrbitControls extends EventDispatcher {
     public Vector3 target;
     public boolean enablePan;
     public boolean enableDamping;
+    public boolean enableZoom;
 
     public OrbitControls(PerspectiveCamera camera, HTMLCanvasElement domElement) {
         super();

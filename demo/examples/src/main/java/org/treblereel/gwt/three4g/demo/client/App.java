@@ -19,6 +19,7 @@ import javax.inject.Inject;
 
 import elemental2.dom.DomGlobal;
 import io.crysknife.annotation.Application;
+import org.treblereel.gwt.lilgui4g.LilGuiBootstrap;
 import org.treblereel.gwt.three4g.ThreeBootstrap;
 import org.treblereel.gwt.three4g.ThreeExtrasBootstrap;
 import org.treblereel.gwt.three4g.environments.RoomEnvironment;
@@ -32,12 +33,13 @@ public class App {
     @GWT3EntryPoint
     public void onModuleLoad() {
 
-        ThreeBootstrap.inject(() -> {
-            new ThreeExtrasBootstrap().injectAll(() -> {
-                new AppBootstrap(this).initialize();
-            });
-        });
+        ThreeBootstrap.inject(() -> new ThreeExtrasBootstrap().injectAll(() -> LilGuiBootstrap.inject(() -> onReady())));
     }
+
+    private void onReady() {
+        new AppBootstrap(this).initialize();
+    }
+
 
     @PostConstruct
     public void init() {
