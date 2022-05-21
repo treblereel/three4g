@@ -4,7 +4,7 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
-import org.treblereel.gwt.three4g.core.EventDispatcher;
+import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.core.Object3D;
 
 @JsType(isNative = true, name = "THREE.AnimationMixer", namespace = JsPackage.GLOBAL)

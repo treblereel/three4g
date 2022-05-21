@@ -7,7 +7,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
-import org.treblereel.gwt.three4g.core.EventDispatcher;
+import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 
 @JsType(isNative = true, name = "THREE.Material", namespace = JsPackage.GLOBAL)

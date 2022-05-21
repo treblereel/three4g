@@ -9,6 +9,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.events.EventDispatcher;
 import org.treblereel.gwt.three4g.math.Quaternion;
 import org.treblereel.gwt.three4g.math.Sphere;
 import org.treblereel.gwt.three4g.math.Vector3;

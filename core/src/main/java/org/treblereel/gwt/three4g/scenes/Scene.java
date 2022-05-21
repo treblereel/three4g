@@ -59,15 +59,80 @@ public class Scene extends Object3D {
     }
   }
 
-  public boolean autoUpdate;
+  private boolean autoUpdate;
   private Scene.BackgroundUnionType background;
-  public Texture environment;
-  public FogBase fog;
-  public boolean isScene;
-  public Scene.OnAfterRenderFn onAfterRender;
-  public Scene.OnBeforeRenderFn onBeforeRender;
-  public Material overrideMaterial;
+  private Texture environment;
+  private FogBase fog;
+  private boolean isScene;
+  private Scene.OnAfterRenderFn onAfterRender;
+  private Scene.OnBeforeRenderFn onBeforeRender;
+  private Material overrideMaterial;
   public String type;
+
+  @JsOverlay
+  public final boolean isAutoUpdate() {
+    return autoUpdate;
+  }
+
+  @JsOverlay
+  public final void setAutoUpdate(boolean autoUpdate) {
+    this.autoUpdate = autoUpdate;
+  }
+
+  @JsOverlay
+  public final Texture getEnvironment() {
+    return environment;
+  }
+
+  @JsOverlay
+  public final void setEnvironment(Texture environment) {
+    this.environment = environment;
+  }
+
+  @JsOverlay
+  public final FogBase getFog() {
+    return fog;
+  }
+
+  @JsOverlay
+  public final void setFog(FogBase fog) {
+    this.fog = fog;
+  }
+
+  @JsOverlay
+  public final boolean isScene() {
+    return isScene;
+  }
+
+  @JsOverlay
+  public final OnAfterRenderFn getOnAfterRender() {
+    return onAfterRender;
+  }
+
+  @JsOverlay
+  public final void setOnAfterRender(OnAfterRenderFn onAfterRender) {
+    this.onAfterRender = onAfterRender;
+  }
+
+  @JsOverlay
+  public final OnBeforeRenderFn getOnBeforeRender() {
+    return onBeforeRender;
+  }
+
+  @JsOverlay
+  public final void setOnBeforeRender(OnBeforeRenderFn onBeforeRender) {
+    this.onBeforeRender = onBeforeRender;
+  }
+
+  @JsOverlay
+  public final Material getOverrideMaterial() {
+    return overrideMaterial;
+  }
+
+  @JsOverlay
+  public final void setOverrideMaterial(Material overrideMaterial) {
+    this.overrideMaterial = overrideMaterial;
+  }
 
   @JsOverlay
   public final BackgroundUnionType getBackground() {

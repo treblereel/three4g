@@ -18,12 +18,8 @@ public class AnimationAction {
   public boolean zeroSlopeAtEnd;
   public boolean zeroSlopeAtStart;
 
-  public AnimationAction(
-          AnimationMixer mixer, AnimationClip clip, Object3D localRoot, double blendMode) {}
-
-  public AnimationAction(AnimationMixer mixer, AnimationClip clip, Object3D localRoot) {}
-
-  public AnimationAction(AnimationMixer mixer, AnimationClip clip) {}
+  private AnimationAction(){
+  }
 
   public native AnimationAction crossFadeFrom(
       AnimationAction fadeOutAction, double duration, boolean warp);
