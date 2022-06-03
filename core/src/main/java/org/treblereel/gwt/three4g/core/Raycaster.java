@@ -8,6 +8,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.cameras.Camera;
+import org.treblereel.gwt.three4g.math.Vector2;
 import org.treblereel.gwt.three4g.raycaster.Intersection;
 import org.treblereel.gwt.three4g.raycaster.RaycasterParameters;
 import org.treblereel.gwt.three4g.math.Vector3;
@@ -101,5 +102,5 @@ public class Raycaster {
 
   public native void set(Vector3 origin, Vector3 direction);
 
-  public native void setFromCamera(Raycaster.SetFromCameraCoordsType coords, Camera camera);
+  public native void setFromCamera(Vector2 coords, Camera camera);
 }

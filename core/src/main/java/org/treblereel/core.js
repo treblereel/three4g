@@ -2444,9 +2444,6 @@ THREE.ShaderLib.Shader.prototype.uniforms;
 THREE.ShaderLib.Shader.prototype.vertexShader;
 /** @type {string} */
 THREE.ShaderLib.Shader.prototype.fragmentShader;
-/** @type {number} */
-THREE.ShaderLib;
-// externs from src/src/textures/Texture.d.ts:
 
 /**
  * @extends {THREE.EventDispatcher}
@@ -5608,7 +5605,7 @@ THREE.Raycaster.prototype.set = function(origin, direction) {};
 
 /**
  * Updates the ray with a new origin and direction.
- * @param {{x: number, y: number}} coords 2D coordinates of the mouse, in normalized device coordinates (NDC)---X and Y components should be between -1 and 1.
+ * @param {THREE.Vector2} coords 2D coordinates of the mouse, in normalized device coordinates (NDC)---X and Y components should be between -1 and 1.
  * @param {THREE.Camera} camera camera from which the ray should originate
  * @return {void}
  */
@@ -7936,165 +7933,156 @@ THREE.BufferAttribute.prototype.toJSON = function(opt_key) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Int8Attribute = function(array, itemSize) {};
+THREE.Int8Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Uint8Attribute = function(array, itemSize) {};
+THREE.Uint8Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Uint8ClampedAttribute = function(array, itemSize) {};
+THREE.Uint8ClampedAttribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Int16Attribute = function(array, itemSize) {};
+THREE.Int16Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Uint16Attribute = function(array, itemSize) {};
+THREE.Uint16Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Int32Attribute = function(array, itemSize) {};
+THREE.Int32Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Uint32Attribute = function(array, itemSize) {};
+THREE.Uint32Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Float32Attribute = function(array, itemSize) {};
+THREE.Float32Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
  * @param {number} array
  * @param {number} itemSize
  */
-THREE.BufferAttribute.Float64Attribute = function(array, itemSize) {};
+THREE.Float64Attribute = function(array, itemSize) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Int8BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Int8BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Uint8BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Uint8BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Uint8ClampedBufferAttribute = function(array, itemSize, normalized) {};
+THREE.Uint8ClampedBufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Int16BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Int16BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Uint16BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Uint16BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Int32BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Int32BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Uint32BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Uint32BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Float16BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Float16BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Float32BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Float32BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferAttribute}
  * @param {(number|Array<number>|ArrayBuffer|Iterable<number>)} array
  * @param {number} itemSize
  * @param {(undefined|boolean)=} normalized
  */
-THREE.BufferAttribute.Float64BufferAttribute = function(array, itemSize, normalized) {};
+THREE.Float64BufferAttribute = function(array, itemSize, normalized) {};
 
 /**
  * @record
@@ -8758,10 +8746,9 @@ THREE.AnimationObjectGroup.prototype.uncache = function(args) {};
 // externs from src/src/animation/AnimationAction.d.ts:
 
 /**
- * @constructor
- * @private
+ * @record
  */
-THREE.AnimationAction = function() {};
+THREE.AnimationAction;
 /** @type {number} */
 THREE.AnimationAction.prototype.blendMode;
 /** @type {number} */
@@ -9438,6 +9425,8 @@ THREE.PerspectiveCamera.prototype.view;
 THREE.PerspectiveCamera.prototype.filmGauge;
 /** @type {number} */
 THREE.PerspectiveCamera.prototype.filmOffset;
+/** @type {THREE.Vector4} */
+THREE.PerspectiveCamera.prototype.viewport;
 
 /**
  * @param {number} focalLength
@@ -9524,8 +9513,8 @@ THREE.PerspectiveCamera.prototype.toJSON = function(opt_key) {};
 
 /**
  * @deprecated Use {\@link PerspectiveCamera#setFocalLength .setFocalLength()} and {\@link PerspectiveCamera#filmGauge .filmGauge} instead.
- * @param {number} focalLength
- * @param {(undefined|number)=} frameHeight
+ * @param {Number} focalLength
+ * @param {(undefined|Number)=} frameHeight
  * @return {void}
  */
 THREE.PerspectiveCamera.prototype.setLens = function(focalLength, frameHeight) {};
@@ -10107,13 +10096,7 @@ THREE.EllipseCurve.prototype.aRotation;
 THREE.ArcCurve = function(aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise) {};
 /** @type {string} */
 THREE.ArcCurve.prototype.type;
-// externs from src/src/extras/curves/CatmullRomCurve3.d.ts:
-/** 
- * @extends {THREE.Curve<Vector3>}
- * @const 
- * 
-*/
-THREE.CatmullRomCurve3 = function() {};
+
 /** @const */
 THREE.CatmullRomCurve3.CurveUtils = function() {};
 
@@ -10793,7 +10776,7 @@ THREE.ConeGeometry.prototype.type;
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferGeometry}
  * @param {(undefined|Array<number>)=} vertices
  * @param {(undefined|Array<number>)=} indices
  * @param {(undefined|number)=} radius
@@ -10925,7 +10908,7 @@ THREE.IcosahedronGeometry.fromJSON = function(data) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferGeometry}
  * @param {(undefined|Array<THREE.Vector2>)=} points
  * @param {(undefined|number)=} segments
  * @param {(undefined|number)=} phiStart
@@ -10947,7 +10930,7 @@ THREE.LatheGeometry.fromJSON = function(data) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.PolyhedronGeometry}
  * @param {(undefined|number)=} radius
  * @param {(undefined|number)=} detail
  */
@@ -10965,7 +10948,7 @@ THREE.OctahedronGeometry.fromJSON = function(data) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BoxGeometry}
  * @param {(undefined|number)=} width
  * @param {(undefined|number)=} height
  * @param {(undefined|number)=} widthSegments
@@ -11100,7 +11083,7 @@ THREE.TorusGeometry.fromJSON = function(data) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.BufferGeometry}
  * @param {(undefined|number)=} radius
  * @param {(undefined|number)=} tube
  * @param {(undefined|number)=} tubularSegments
@@ -11748,15 +11731,14 @@ THREE.ArrowHelper.prototype.setColor = function(color) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.LineSegments}
  * @param {(undefined|number)=} size
  */
 THREE.AxesHelper = function(size) {};
-/** @type {string} */
+/** @const {string} */
 THREE.AxesHelper.prototype.type;
 
 /**
- * @extends {THREE.LineSegments}
  * @template THIS
  * @this {THIS}
  * @param {THREE.Color} xAxisColor
@@ -11770,7 +11752,6 @@ THREE.AxesHelper.prototype.setColors = function(xAxisColor, yAxisColor, zAxisCol
  * @return {void}
  */
 THREE.AxesHelper.prototype.dispose = function() {};
-// externs from src/src/lights/SpotLightShadow.d.ts:
 
 /**
  * @extends {THREE.LightShadow}
@@ -12632,9 +12613,7 @@ THREE.LoaderUtils.prototype.extractUrlBase = function(url) {};
  * @return {string}
  */
 THREE.LoaderUtils.prototype.resolveURL = function(url, path) {};
-/** @type {number} */
-THREE.LoaderUtils;
-// externs from src/src/loaders/Cache.d.ts:
+
 /** @constructor */
 THREE.Cache = function() {};
 /** @type {boolean} */
@@ -14627,9 +14606,6 @@ THREE.UniformsUtils = function() {};
 // externs from src/src/renderers/shaders/ShaderChunk.d.ts:
 /** @constructor */
 THREE.ShaderChunk = function() {};
-/** @type {number} */
-THREE.ShaderChunk;
-// externs from src/src/renderers/webgl/WebGLBufferRenderer.d.ts:
 
 /**
  * @constructor

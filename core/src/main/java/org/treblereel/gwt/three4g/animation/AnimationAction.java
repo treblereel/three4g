@@ -4,7 +4,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.core.Object3D;
 
-@JsType(isNative = true, name = "THREE.AnimationAction", namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, name = "Object", namespace = JsPackage.GLOBAL)
 public class AnimationAction {
   public double blendMode;
   public boolean clampWhenFinished;

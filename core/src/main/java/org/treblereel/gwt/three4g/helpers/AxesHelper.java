@@ -3,9 +3,11 @@ package org.treblereel.gwt.three4g.helpers;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.math.Color;
+import org.treblereel.gwt.three4g.objects.LineSegments;
 
 @JsType(isNative = true, name = "THREE.AxesHelper", namespace = JsPackage.GLOBAL)
-public class AxesHelper {
+public class AxesHelper extends LineSegments {
+
   public String type;
 
   public AxesHelper() {}

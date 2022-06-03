@@ -23,4 +23,8 @@ public class Stats {
     public HTMLElement dom;
 
     public native void update();
+
+    public native void begin();
+
+    public native void end();
 }

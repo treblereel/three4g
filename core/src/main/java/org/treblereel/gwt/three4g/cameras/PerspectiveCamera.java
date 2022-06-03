@@ -6,6 +6,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.math.Vector4;
 
 @JsType(isNative = true, name = "THREE.PerspectiveCamera", namespace = JsPackage.GLOBAL)
 public class PerspectiveCamera extends Camera {
@@ -70,6 +71,7 @@ public class PerspectiveCamera extends Camera {
   public String type;
   public PerspectiveCamera.ViewFieldType view;
   public double zoom;
+  public Vector4 viewport;
 
   public PerspectiveCamera() {}
 
@@ -94,10 +96,10 @@ public class PerspectiveCamera extends Camera {
   public native void setFocalLength(double focalLength);
 
   @Deprecated
-  public native void setLens(double focalLength, double frameHeight);
+  public native void setLens(double focalLength);
 
   @Deprecated
-  public native void setLens(double focalLength);
+  public native void setLens(double focalLength, double frameHeight);
 
   public native void setViewOffset(
       double fullWidth, double fullHeight, double x, double y, double width, double height);

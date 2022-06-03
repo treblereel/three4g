@@ -7,9 +7,10 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
 @JsType(isNative = true, name = "THREE.TorusKnotGeometry", namespace = JsPackage.GLOBAL)
-public class TorusKnotGeometry {
+public class TorusKnotGeometry extends BufferGeometry {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ParametersFieldType {
     @JsOverlay

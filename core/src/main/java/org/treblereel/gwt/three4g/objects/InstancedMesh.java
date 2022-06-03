@@ -2,12 +2,14 @@ package org.treblereel.gwt.three4g.objects;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 import org.treblereel.gwt.three4g.core.InstancedBufferAttribute;
+import org.treblereel.gwt.three4g.materials.Material;
 import org.treblereel.gwt.three4g.math.Color;
 import org.treblereel.gwt.three4g.math.Matrix4;
 
 @JsType(isNative = true, name = "THREE.InstancedMesh", namespace = JsPackage.GLOBAL)
-public class InstancedMesh<TGeometry, TMaterial> extends Mesh<TGeometry, TMaterial> {
+public class InstancedMesh<TGeometry extends BufferGeometry, TMaterial extends Material> extends Mesh<TGeometry, TMaterial> {
   public double count;
   public InstancedBufferAttribute instanceColor;
   public InstancedBufferAttribute instanceMatrix;

@@ -128,7 +128,7 @@ public class Object3D extends EventDispatcher<Object> {
 
   public native Object3D getObjectById(double id);
 
-  public native Object3D getObjectByName(String name);
+  public native <T extends Object3D> T getObjectByName(String name);
 
   public native Object3D getObjectByProperty(String name, String value);
 

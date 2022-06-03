@@ -207,3 +207,45 @@ a.article, a.article:hover {
     pointer-events: none;
     z-index: 1; /* TODO Solve this in HTML */
 }
+
+body{
+    touch-action: none;
+}
+.renderer_label {
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    color: white;
+    z-index: 10;
+    display: block;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+}
+
+#container_normal {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+#container_logzbuf {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+#renderer_border {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    bottom: 0;
+    width: 2px;
+    z-index: 10;
+    opacity: .8;
+    background: #ccc;
+    border: 1px inset #ccc;
+    cursor: col-resize;
+}

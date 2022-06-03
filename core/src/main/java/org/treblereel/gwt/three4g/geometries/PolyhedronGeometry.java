@@ -7,9 +7,10 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
+import org.treblereel.gwt.three4g.core.BufferGeometry;
 
 @JsType(isNative = true, name = "THREE.PolyhedronGeometry", namespace = JsPackage.GLOBAL)
-public class PolyhedronGeometry {
+public class PolyhedronGeometry extends BufferGeometry {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ParametersFieldType {
     @JsOverlay

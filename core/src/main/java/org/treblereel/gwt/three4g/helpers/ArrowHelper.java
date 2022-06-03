@@ -119,7 +119,7 @@ public class ArrowHelper extends Object3D {
     }
   }
 
-  public Mesh<BufferGeometry, ConeMeshTypeParameter1UnionType> cone;
+  public Mesh<BufferGeometry, Material> cone;
   public Line line;
   public String type;
 

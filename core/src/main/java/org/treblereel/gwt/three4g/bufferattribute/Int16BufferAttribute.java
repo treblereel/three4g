@@ -6,12 +6,13 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
+import org.treblereel.gwt.three4g.core.BufferAttribute;
 
 @JsType(
     isNative = true,
     name = "THREE.BufferAttribute.Int16BufferAttribute",
     namespace = JsPackage.GLOBAL)
-public class Int16BufferAttribute {
+public class Int16BufferAttribute extends BufferAttribute {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ConstructorArrayUnionType {
     @JsOverlay
@@ -55,25 +56,45 @@ public class Int16BufferAttribute {
     }
   }
 
-  public Int16BufferAttribute(ArrayBuffer array, double itemSize, boolean normalized) {}
+  public Int16BufferAttribute(ArrayBuffer array, double itemSize, boolean normalized) {
+    super(null, -1);
+  }
 
-  public Int16BufferAttribute(ArrayBuffer array, double itemSize) {}
+  public Int16BufferAttribute(ArrayBuffer array, double itemSize) {
+    super(null, -1);
+  }
 
   public Int16BufferAttribute(
-      Int16BufferAttribute.ConstructorArrayUnionType array, double itemSize, boolean normalized) {}
+      Int16BufferAttribute.ConstructorArrayUnionType array, double itemSize, boolean normalized) {
+    super(null, -1);
+  }
 
   public Int16BufferAttribute(
-      Int16BufferAttribute.ConstructorArrayUnionType array, double itemSize) {}
+      Int16BufferAttribute.ConstructorArrayUnionType array, double itemSize) {
+    super(null, -1);
+  }
 
-  public Int16BufferAttribute(JsIterable<Double> array, double itemSize, boolean normalized) {}
+  public Int16BufferAttribute(JsIterable<Double> array, double itemSize, boolean normalized) {
+    super(null, -1);
+  }
 
-  public Int16BufferAttribute(JsIterable<Double> array, double itemSize) {}
+  public Int16BufferAttribute(JsIterable<Double> array, double itemSize) {
+    super(null, -1);
+  }
 
-  public Int16BufferAttribute(Object array, double itemSize, boolean normalized) {}
+  public Int16BufferAttribute(Object array, double itemSize, boolean normalized) {
+    super(null, -1);
+  }
 
-  public Int16BufferAttribute(Object array, double itemSize) {}
+  public Int16BufferAttribute(Object array, double itemSize) {
+    super(null, -1);
+  }
 
-  public Int16BufferAttribute(double array, double itemSize, boolean normalized) {}
+  public Int16BufferAttribute(double array, double itemSize, boolean normalized) {
+    super(null, -1);
+  }
 
-  public Int16BufferAttribute(double array, double itemSize) {}
+  public Int16BufferAttribute(double array, double itemSize) {
+    super(null, -1);
+  }
 }

@@ -15,3 +15,7 @@ var Stats = function () {};
 Stats.prototype.dom;
 
 Stats.prototype.update = function () {};
+
+Stats.prototype.begin = function () {};
+
+Stats.prototype.end = function () {};

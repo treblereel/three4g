@@ -251,3 +251,362 @@ THREE.GLTFLoader.prototype.load = function(url, onLoad, onProgress, onError) {};
  * @return {THREE.GLTFLoader}
  */
 THREE.GLTFLoader.prototype.setDRACOLoader = function (dracoLoader) {};
+
+
+/**
+ * @record
+ */
+THREE.SkeletonUtils = function() {};
+
+/**
+ * @param {THREE.Object3D|THREE.Skeleton} target
+ * @param {THREE.Object3D|THREE.Skeleton} source
+ * @param {*} options
+ */
+THREE.SkeletonUtils.retarget = function(target, source, options) {};
+
+/**
+ * @param {THREE.Object3D|THREE.Skeleton} target
+ * @param {THREE.Object3D|THREE.Skeleton} source
+ * @param {THREE.AnimationClip} clip
+ * @param {*} options
+ * @return {THREE.AnimationClip}
+ */
+THREE.SkeletonUtils.retargetClip = function(target, source, clip, options) {};
+
+/**
+ * @param {THREE.Skeleton} skeleton
+ * @return {THREE.SkeletonHelper}
+ */
+THREE.SkeletonUtils.getHelperFromSkeleton = function(skeleton) {};
+
+
+/**
+ * @param {THREE.Object3D|THREE.Skeleton} target
+ * @param {THREE.Object3D|THREE.Skeleton} source
+ * @param {*} options
+ * @return {Array<THREE.Matrix4>}
+ */
+THREE.SkeletonUtils.getSkeletonOffsets = function(target, source, options) {};
+
+/**
+ * @param {THREE.Skeleton} skeleton
+ * @param {*} names
+ * @return {*}
+ */
+THREE.SkeletonUtils.renameBones = function(skeleton, names) {};
+
+/**
+ * @param {THREE.Skeleton|Array<THREE.Bone>} skeleton
+ * @return {Array<THREE.Bone>}
+ */
+THREE.SkeletonUtils.getBones = function(skeleton) {};
+
+/**
+ * @param {String} name
+ * @param {THREE.Skeleton} skeleton
+ * @return {THREE.Bone}
+ */
+THREE.SkeletonUtils.getBoneByName = function(name, skeleton) {};
+
+/**
+ * @param {THREE.Bone} bone
+ * @param {*} names
+ * @return {THREE.Bone}
+ */
+THREE.SkeletonUtils.getNearestBone = function(bone, names) {};
+
+/**
+ * @param {THREE.Bone} bone
+ * @param {Array} tracks
+ * @return {*}
+ */
+THREE.SkeletonUtils.findBoneTrackData = function(bone, tracks) {};
+
+/**
+ * @param {THREE.Skeleton} skeleton
+ * @param {THREE.Skeleton} targetSkeleton
+ * @return {Array<String>}
+ */
+THREE.SkeletonUtils.getEqualsBonesNames = function(skeleton, targetSkeleton) {};
+
+/**
+ * @param {THREE.Object3D} source
+ * @return {THREE.Object3D}
+ */
+THREE.SkeletonUtils.clone = function(source) {};
+
+/**
+ * @param {(undefined|number)=} fov
+ * @param {(undefined|number)=} aspect
+ * @param {(undefined|number)=} near
+ * @param {(undefined|number)=} far
+ * @extends {THREE.PerspectiveCamera}
+ * @constructor
+ */
+THREE.CinematicCamera = function (fov, aspect, near, far) {}
+
+/**
+ * @typedef {{
+ *     enabled: (boolean|undefined),
+ *     scene: (THREE.Scene|undefined),
+ *     camera: (THREE.OrthographicCamera|undefined),
+ *     rtTextureDepth: (THREE.WebGLRenderTarget|undefined),
+ *     rtTextureColor: (THREE.WebGLRenderTarget|undefined),
+ *     bokeh_uniforms: (BokehShaderUniforms),
+ * }}
+ */
+var postprocessing;
+
+/**
+ * @type {postprocessing}
+ */
+THREE.CinematicCamera.prototype.postprocessing;
+
+/**
+ * @typedef {{
+ *     rings: (Number|undefined),
+ *     samples: (Number|undefined),
+ * }}
+ */
+var shaderSettings;
+
+/**
+ * @type {shaderSettings}
+ */
+THREE.CinematicCamera.prototype.shaderSettings;
+
+/**
+ * @type {THREE.ShaderMaterial}
+ */
+THREE.CinematicCamera.prototype.materialDepth;
+
+/**
+ * @type {(undefined|number)}
+ */
+THREE.CinematicCamera.prototype.coc;
+
+/**
+ * @type {(undefined|number)}
+ */
+THREE.CinematicCamera.prototype.aperture;
+
+/**
+ * @type {(undefined|number)}
+ */
+THREE.CinematicCamera.prototype.fNumber;
+
+/**
+ * @type {(undefined|number)}
+ */
+THREE.CinematicCamera.prototype.hyperFocal;
+
+/**
+ * @type {(undefined|number)}
+ */
+THREE.CinematicCamera.prototype.filmGauge;
+
+
+/**
+ * @return {(undefined|number)}
+ * @param {(undefined|number)=} depth
+ */
+THREE.CinematicCamera.prototype.linearize = function (depth) {};
+
+/**
+ * @return {(undefined|number)}
+ * @param {(undefined|number)=} depth
+ * @param {(undefined|number)=} near
+ * @param {(undefined|number)=} far
+ */
+THREE.CinematicCamera.prototype.smoothstep = function (near, far, depth) {};
+
+/**
+ * @return {(undefined|number)}
+ * @param {(undefined|number)=} x
+ */
+THREE.CinematicCamera.prototype.saturate = function (x) {};
+
+THREE.CinematicCamera.prototype.initPostProcessing = function () {};
+
+/**
+ * @return {(undefined|number)}
+ * @param {THREE.Scene} scene
+ * @param {THREE.WebGLRenderer} renderer
+ */
+THREE.CinematicCamera.prototype.renderCinematic = function (scene, renderer) {};
+
+/**
+ * @deprecated Use {\@link PerspectiveCamera#setFocalLength .setFocalLength()} and {\@link PerspectiveCamera#filmGauge .filmGauge} instead.
+ * @param {number} focalLength
+ * @param {(undefined|number)=} frameHeight
+ * @param {(undefined|number)=} fNumber
+ * @param {(undefined|number)=} coc
+ * @return {void}
+ */
+THREE.CinematicCamera.prototype.setLens = function(focalLength, frameHeight, fNumber, coc) {};
+
+/**
+ * @param {(undefined|number)=} focusDistance
+ */
+THREE.CinematicCamera.prototype.focusAt = function (focusDistance) {};
+
+
+
+/**
+ * @typedef {{
+ *     textureWidth: (Uniform|undefined),
+ *     textureHeight: (Uniform|undefined),
+ *     focalDepth: (Uniform|undefined),
+ *     focalLength: (Uniform|undefined),
+ *     fstop: (Uniform|undefined),
+ *     tColor: (Uniform|undefined),
+ *     tDepth: (Uniform|undefined),
+ *     maxblur: (Uniform|undefined),
+ *     showFocus: (Uniform|undefined),
+ *     manualdof: (Uniform|undefined),
+ *     vignetting: (Uniform|undefined),
+ *     depthblur: (Uniform|undefined),
+ *     threshold: (Uniform|undefined),
+ *     gain: (Uniform|undefined),
+ *     bias: (Uniform|undefined),
+ *     fringe: (Uniform|undefined),
+ *     znear: (Uniform|undefined),
+ *     zfar: (Uniform|undefined),
+ *     noise: (Uniform|undefined),
+ *     dithering: (Uniform|undefined),
+ *     pentagon: (Uniform|undefined),
+ *     shaderFocus: (Uniform|undefined),
+ *     focusCoords: (Uniform|undefined),
+ * }}
+ */
+var BokehShaderUniforms;
+
+
+/**
+ * @constructor
+ */
+THREE.BokehShader = function () {};
+
+/**
+ * @type {BokehShaderUniforms}
+ */
+THREE.BokehShader.prototype.uniforms;
+
+/**
+ * @type {string}
+ */
+THREE.BokehShader.prototype.vertexShader;
+
+/**
+ * @type {string}
+ */
+THREE.BokehShader.prototype.fragmentShader;
+
+/**
+ * @constructor
+ */
+THREE.BokehDepthShader = function () {};
+
+/**
+ * @typedef {{
+ *    mNear: (Uniform|undefined),
+ *    mFar: (Uniform|undefined),
+ * }}
+ */
+THREE.BokehDepthShader.prototype.uniforms;
+
+/**
+ * @type {string}
+ */
+THREE.BokehDepthShader.prototype.vertexShader;
+
+/**
+ * @type {string}
+ */
+THREE.BokehDepthShader.prototype.fragmentShader;
+
+/**
+ * @param {THREE.LoadingManager=} manager
+ * @extends {THREE.Loader}
+ * @constructor
+ */
+THREE.FontLoader = function (manager) {}
+
+
+/**
+ * @param {string} url
+ * @param {function(!Font): void} onLoad
+ * @param {(undefined|function(!ProgressEvent<!EventTarget>): void)=} onProgress
+ * @param {(undefined|function(!ErrorEvent): void)=} onError
+ * @return {void}
+ */
+THREE.FontLoader.prototype.load = function(url, onLoad, onProgress, onError) {};
+
+/**
+ * @constructor
+ */
+THREE.Font = function () {}
+
+/**
+ * @const {String}
+ */
+THREE.Font.prototype.type;
+
+/**
+ * @const {String}
+ */
+THREE.Font.prototype.data;
+
+/**
+ * @param {String} text
+ * @param {number} number
+ * @return {Array<THREE.Shape>}
+ */
+THREE.Font.prototype.generateShapes = function (text, number) {};
+
+/**
+ * @extends {THREE.ExtrudeGeometry}
+ * @param {string} text
+ * @param {THREE.TextGeometryParameters} parameters
+ * @constructor
+ */
+THREE.TextGeometry = function (text, parameters) {};
+
+/**
+ * @const {String}
+ */
+THREE.TextGeometry.prototype.type;
+
+/**
+ * @record
+ */
+THREE.TextGeometryParameters = function() {};
+
+/** @type {THREE.Font} */
+THREE.TextGeometryParameters.prototype.font;
+
+/** @type {number} */
+THREE.TextGeometryParameters.prototype.size;
+
+/** @type {number} */
+THREE.TextGeometryParameters.prototype.height;
+
+/** @type {number} */
+THREE.TextGeometryParameters.prototype.curveSegments;
+
+/** @type {boolean} */
+THREE.TextGeometryParameters.prototype.bevelEnabled;
+
+/** @type {number} */
+THREE.TextGeometryParameters.prototype.bevelThickness;
+
+/** @type {number} */
+THREE.TextGeometryParameters.prototype.bevelSize;
+
+/** @type {number} */
+THREE.TextGeometryParameters.prototype.bevelOffset;
+
+/** @type {number} */
+THREE.TextGeometryParameters.prototype.bevelSegments;
+

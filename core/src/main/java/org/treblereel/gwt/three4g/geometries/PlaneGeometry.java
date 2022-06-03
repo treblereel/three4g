@@ -9,7 +9,7 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, name = "THREE.PlaneGeometry", namespace = JsPackage.GLOBAL)
-public class PlaneGeometry {
+public class PlaneGeometry extends BoxGeometry {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ParametersFieldType {
     @JsOverlay
@@ -43,11 +43,6 @@ public class PlaneGeometry {
   }
 
   public static native PlaneGeometry fromJSON(JsObject data);
-
-  @JsOverlay
-  public static final PlaneGeometry fromJSON(Object data) {
-    return fromJSON(Js.<JsObject>uncheckedCast(data));
-  }
 
   public PlaneGeometry.ParametersFieldType parameters;
   public String type;

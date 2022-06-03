@@ -35,6 +35,12 @@ public class ThreeExtrasBootstrap {
         holder.put("GLTFLoader", new Bucket(resource.GLTFLoader()));
         holder.put("DRACOLoader", new Bucket(resource.DRACOLoader()));
         holder.put("OrbitControls", new Bucket(resource.OrbitControls()));
+        holder.put("SkeletonUtils", new Bucket(resource.SkeletonUtils()));
+        //holder.put("BokehShader", new Bucket(resource.BokehShader()));
+        holder.put("BokehShader2", new Bucket(resource.BokehShader2()));
+        holder.put("CinematicCamera", new Bucket(resource.CinematicCamera()));
+        holder.put("FontLoader", new Bucket(resource.FontLoader()));
+        holder.put("TextGeometry", new Bucket(resource.TextGeometry()));
     }
 
 
@@ -77,6 +83,22 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/controls/OrbitControls.js")
         TextResource OrbitControls();
+
+        @ClientBundle.Source("js/utils/SkeletonUtils.js")
+        TextResource SkeletonUtils();
+        @ClientBundle.Source("js/cameras/CinematicCamera.js")
+        TextResource CinematicCamera();
+
+        @ClientBundle.Source("js/shaders/BokehShader.js")
+        TextResource BokehShader();
+        @ClientBundle.Source("js/shaders/BokehShader2.js")
+        TextResource BokehShader2();
+
+        @ClientBundle.Source("js/loaders/FontLoader.js")
+        TextResource FontLoader();
+
+        @ClientBundle.Source("js/geometries/TextGeometry.js")
+        TextResource TextGeometry();
     }
 
     private static class Bucket {
