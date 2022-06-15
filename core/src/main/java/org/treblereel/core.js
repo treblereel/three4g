@@ -3950,8 +3950,8 @@ THREE.WebGLObjects.prototype.dispose = function() {};
  * @extends {THREE.Texture}
  * @constructor
  * 
- * @param {number} width
- * @param {number} height
+ * @param {(undefined|number)=} width
+ * @param {(undefined|number)=} height
  * @param {(undefined|number)=} type
  * @param {(undefined|number)=} mapping
  * @param {(undefined|number)=} wrapS

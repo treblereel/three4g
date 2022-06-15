@@ -74,4 +74,5 @@ public class DepthTexture extends Texture {
   public DepthTexture(double width, double height, double type) {}
 
   public DepthTexture(double width, double height) {}
+  public DepthTexture() {}
 }

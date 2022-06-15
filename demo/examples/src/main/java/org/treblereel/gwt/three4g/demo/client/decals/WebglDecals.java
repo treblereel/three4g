@@ -41,8 +41,10 @@ import org.treblereel.gwt.three4g.scenes.Scene;
 import org.treblereel.gwt.three4g.textures.Texture;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+@ApplicationScoped
 @Page(path = "webgl_decals")
 public class WebglDecals implements IsElement<HTMLDivElement> {
 
@@ -328,7 +330,7 @@ public class WebglDecals implements IsElement<HTMLDivElement> {
     private void onShow() {
         HTMLDivElement info = (HTMLDivElement) DomGlobal.document.getElementById("info");
 
-        info.innerHTML = "<a href=\"https://threejs.org\" target=\"_blank\" rel=\"noopener\">js</a> - decal splatter<br/>\n" +
+        info.innerHTML = "<a href=\"https://threejs.org\" target=\"_blank\" rel=\"noopener\">threejs</a> - decal splatter<br/>\n" +
                 "\t\t\tclick to shoot";
 
         run = true;
