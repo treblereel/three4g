@@ -176,6 +176,8 @@ public class WebglClipping implements IsElement<HTMLDivElement> {
         });
         folderGlobal.addNumber( propsGlobal, "Plane", - 0.4, 3 ).onChange(result -> globalPlane.constant = result.doubleValue());
 
+        root.appendChild(gui.getDomElement());
+
         ready = true;
     }
 

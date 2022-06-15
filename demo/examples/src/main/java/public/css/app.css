@@ -138,8 +138,7 @@ a.article, a.article:hover {
 }
 
 #content {
-    padding: 20px;
-    min-height: 100vh;
+    position: relative;
     width: 100%;
     transition: all 0.3s;
 }

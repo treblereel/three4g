@@ -28,6 +28,8 @@ public class OrbitControls extends EventDispatcher {
     public boolean enablePan;
     public boolean enableDamping;
     public boolean enableZoom;
+    public double minDistance;
+    public double maxDistance;
 
     public OrbitControls(PerspectiveCamera camera, HTMLCanvasElement domElement) {
         super();

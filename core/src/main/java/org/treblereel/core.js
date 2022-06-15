@@ -2683,7 +2683,7 @@ THREE.Material.prototype.blendSrc;
 THREE.Material.prototype.blendSrcAlpha;
 /** @type {boolean} */
 THREE.Material.prototype.clipIntersection;
-/** @type {number} */
+/** @type {Array<THREE.Plane>} */
 THREE.Material.prototype.clippingPlanes;
 /** @type {boolean} */
 THREE.Material.prototype.clipShadows;
@@ -7703,8 +7703,9 @@ THREE.BufferAttribute.prototype.version;
 THREE.BufferAttribute.prototype.normalized;
 /** @type {number} */
 THREE.BufferAttribute.prototype.count;
+/** @type {boolean} */
+THREE.BufferAttribute.prototype.needsUpdate;
 
-/* TODO: SetAccessor: THREE.BufferAttribute.needsUpdate */
 /** @type {boolean} */
 THREE.BufferAttribute.prototype.isBufferAttribute;
 /** @type {function(): void} */
@@ -12681,6 +12682,7 @@ THREE.ShadowMaterialParameters.prototype.color;
 
 /**
  * @constructor
+ * @extends {THREE.Material}
  * 
  * @param {(undefined|THREE.ShadowMaterialParameters)=} parameters
  */

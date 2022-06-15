@@ -28,6 +28,16 @@ THREE.OrbitControls.prototype.domElement;
 THREE.OrbitControls.prototype.enabled;
 
 /**
+ * @type {number}
+ */
+THREE.OrbitControls.prototype.minDistance;
+
+/**
+ * @type {number}
+ */
+THREE.OrbitControls.prototype.maxDistance;
+
+/**
  * @type {THREE.Vector3}
  */
 THREE.OrbitControls.prototype.target;
@@ -610,3 +620,19 @@ THREE.TextGeometryParameters.prototype.bevelOffset;
 /** @type {number} */
 THREE.TextGeometryParameters.prototype.bevelSegments;
 
+/**
+ * @extends {THREE.BufferGeometry}
+ * @param {THREE.Mesh} mesh
+ * @param {THREE.Vector3} position
+ * @param {THREE.Euler} orientation
+ * @param {THREE.Vector3} size
+ * @constructor
+ */
+THREE.DecalGeometry = function (mesh, position, orientation, size) {};
+
+/**
+ * @param {THREE.Vector3} position
+ * @param {THREE.Vector3} normal
+ * @constructor
+ */
+THREE.DecalVertex = function (position,  normal) {};

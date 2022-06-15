@@ -41,6 +41,7 @@ public class ThreeExtrasBootstrap {
         holder.put("CinematicCamera", new Bucket(resource.CinematicCamera()));
         holder.put("FontLoader", new Bucket(resource.FontLoader()));
         holder.put("TextGeometry", new Bucket(resource.TextGeometry()));
+        holder.put("DecalGeometry", new Bucket(resource.DecalGeometry()));
     }
 
 
@@ -99,6 +100,10 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/geometries/TextGeometry.js")
         TextResource TextGeometry();
+
+        @ClientBundle.Source("js/geometries/DecalGeometry.js")
+        TextResource DecalGeometry();
+
     }
 
     private static class Bucket {

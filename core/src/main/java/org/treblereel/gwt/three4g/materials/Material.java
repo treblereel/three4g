@@ -8,6 +8,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.core.events.EventDispatcher;
+import org.treblereel.gwt.three4g.math.Plane;
 import org.treblereel.gwt.three4g.renderers.WebGLRenderer;
 
 @JsType(isNative = true, name = "THREE.Material", namespace = JsPackage.GLOBAL)
@@ -23,7 +24,7 @@ public class Material extends EventDispatcher {
   public double blending;
   public boolean clipIntersection;
   public boolean clipShadows;
-  public double clippingPlanes;
+  public Plane[] clippingPlanes;
   public boolean colorWrite;
   public JsPropertyMap<JsObject> defines;
   public double depthFunc;
@@ -62,9 +63,9 @@ public class Material extends EventDispatcher {
   public boolean visible;
 
   @JsMethod(name = "clone")
-  public native Material clone_();
+  public native <T extends Material> T clone_();
 
-  public native Material copy(Material material);
+  public native <T extends Material> T copy(Material material);
 
   public native String customProgramCacheKey();
 

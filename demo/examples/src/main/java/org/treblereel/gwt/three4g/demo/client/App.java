@@ -14,16 +14,17 @@
 
 package org.treblereel.gwt.three4g.demo.client;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-
+import elemental2.dom.CSSProperties;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
 import io.crysknife.annotation.Application;
 import org.treblereel.gwt.lilgui4g.LilGuiBootstrap;
 import org.treblereel.gwt.three4g.ThreeBootstrap;
 import org.treblereel.gwt.three4g.ThreeExtrasBootstrap;
-import org.treblereel.gwt.three4g.environments.RoomEnvironment;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 @Application
 public class App {
@@ -32,7 +33,6 @@ public class App {
 
     @GWT3EntryPoint
     public void onModuleLoad() {
-
         ThreeBootstrap.inject(() -> new ThreeExtrasBootstrap().injectAll(() -> LilGuiBootstrap.inject(() -> onReady())));
     }
 
@@ -44,5 +44,14 @@ public class App {
     @PostConstruct
     public void init() {
         DomGlobal.document.body.appendChild(main.getElement());
+        resizeSideBar();
+        DomGlobal.window.addEventListener("resize", evt -> resizeSideBar());
+    }
+
+
+    private void resizeSideBar() {
+        HTMLElement sidebar = (HTMLElement) DomGlobal.document.getElementsByClassName("active").item(0);
+        double size = DomGlobal.document.body.clientHeight;
+        sidebar.style.height = CSSProperties.HeightUnionType.of(size * 0.6 + "px");
     }
 }

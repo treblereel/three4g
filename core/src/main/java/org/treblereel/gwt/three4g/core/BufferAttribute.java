@@ -187,6 +187,7 @@ public class BufferAttribute {
   public BufferAttribute.UpdateRangeFieldType updateRange;
   public double usage;
   public double version;
+  public boolean needsUpdate;
 
   public BufferAttribute(Object array, double itemSize, boolean normalized) {}
 
