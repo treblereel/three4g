@@ -42,6 +42,7 @@ public class ThreeExtrasBootstrap {
         holder.put("FontLoader", new Bucket(resource.FontLoader()));
         holder.put("TextGeometry", new Bucket(resource.TextGeometry()));
         holder.put("DecalGeometry", new Bucket(resource.DecalGeometry()));
+        holder.put("AnaglyphEffect", new Bucket(resource.AnaglyphEffect()));
     }
 
 
@@ -104,6 +105,8 @@ public class ThreeExtrasBootstrap {
         @ClientBundle.Source("js/geometries/DecalGeometry.js")
         TextResource DecalGeometry();
 
+        @ClientBundle.Source("js/effects/AnaglyphEffect.js")
+        TextResource AnaglyphEffect();
     }
 
     private static class Bucket {

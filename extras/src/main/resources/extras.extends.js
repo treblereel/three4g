@@ -636,3 +636,39 @@ THREE.DecalGeometry = function (mesh, position, orientation, size) {};
  * @constructor
  */
 THREE.DecalVertex = function (position,  normal) {};
+
+/**
+ * @param {THREE.WebGLRenderer} position
+ * @param {(undefined|number)} width
+ * @param {(undefined|number)} height
+ * @constructor
+ */
+THREE.AnaglyphEffect = function (renderer,  width, height) {};
+
+/**
+ * @type {THREE.Matrix3}
+ */
+THREE.AnaglyphEffect.prototype.colorMatrixLeft;
+
+/**
+ * @type {THREE.Matrix3}
+ */
+THREE.AnaglyphEffect.prototype.colorMatrixRight;
+
+
+THREE.AnaglyphEffect.prototype.dispose = function() {};
+
+/**
+ *
+ * @param {THREE.Scene} scene
+ * @param {THREE.Camera} camera
+ */
+THREE.AnaglyphEffect.prototype.render = function(scene, camera){};
+
+/**
+ *
+ * @param {(undefined|number)} width
+ * @param {(undefined|number)} height
+ */
+THREE.AnaglyphEffect.prototype.setSize = function(width, height) {};
+
