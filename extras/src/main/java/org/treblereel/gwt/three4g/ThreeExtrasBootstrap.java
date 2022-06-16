@@ -43,6 +43,8 @@ public class ThreeExtrasBootstrap {
         holder.put("TextGeometry", new Bucket(resource.TextGeometry()));
         holder.put("DecalGeometry", new Bucket(resource.DecalGeometry()));
         holder.put("AnaglyphEffect", new Bucket(resource.AnaglyphEffect()));
+        holder.put("AsciiEffect", new Bucket(resource.AsciiEffect()));
+        holder.put("TrackballControls", new Bucket(resource.TrackballControls()));
     }
 
 
@@ -107,6 +109,12 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/effects/AnaglyphEffect.js")
         TextResource AnaglyphEffect();
+
+        @ClientBundle.Source("js/effects/AsciiEffect.js")
+        TextResource AsciiEffect();
+
+        @ClientBundle.Source("js/controls/TrackballControls.js")
+        TextResource TrackballControls();
     }
 
     private static class Bucket {

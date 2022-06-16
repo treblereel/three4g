@@ -24,10 +24,12 @@ import org.treblereel.gwt.three4g.scenes.Scene;
 import org.treblereel.gwt.three4g.textures.CubeTexture;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 
+@ApplicationScoped
 @Page(path = "webgl_effects_anaglyph")
 public class WebglEffectsAnaglyph implements IsElement<HTMLDivElement> {
 

@@ -638,9 +638,9 @@ THREE.DecalGeometry = function (mesh, position, orientation, size) {};
 THREE.DecalVertex = function (position,  normal) {};
 
 /**
- * @param {THREE.WebGLRenderer} position
- * @param {(undefined|number)} width
- * @param {(undefined|number)} height
+ * @param {THREE.WebGLRenderer} renderer
+ * @param {(undefined|number)=} width
+ * @param {(undefined|number)=} height
  * @constructor
  */
 THREE.AnaglyphEffect = function (renderer,  width, height) {};
@@ -672,3 +672,118 @@ THREE.AnaglyphEffect.prototype.render = function(scene, camera){};
  */
 THREE.AnaglyphEffect.prototype.setSize = function(width, height) {};
 
+
+/**
+ * @typedef {{
+ *     resolution: (number|undefined),
+ *     scale: (number|undefined),
+ *     color: (boolean|undefined),
+ *     alpha: (boolean|undefined),
+ *     block: (boolean|undefined),
+ *     invert: (boolean|undefined),
+ * }}
+ */
+var AsciiEffectOptions;
+
+/**
+ * @param {THREE.WebGLRenderer} renderer
+ * @param {(undefined|string)} charSet
+ * @param {(undefined|AsciiEffectOptions)} options
+ * @constructor
+ */
+THREE.AsciiEffect = function (renderer,  charSet, options) {};
+
+/**
+ * @type {HTMLElement}
+ */
+THREE.AsciiEffect.prototype.domElement;
+
+/**
+ *
+ * @param {THREE.Scene} scene
+ * @param {THREE.Camera} camera
+ */
+THREE.AsciiEffect.prototype.render = function(scene, camera){};
+
+/**
+ *
+ * @param {(undefined|number)} width
+ * @param {(undefined|number)} height
+ */
+THREE.AsciiEffect.prototype.setSize = function(width, height) {};
+
+/**
+ * @param {THREE.Camera} object
+ * @param {HTMLElement=} domElement
+ * @extends {THREE.EventDispatcher}
+ * @constructor
+ */
+THREE.TrackballControls = function (object,  domElement) {};
+
+/** @type {THREE.Camera} */
+THREE.TrackballControls.prototype.object;
+/** @type {HTMLElement} */
+THREE.TrackballControls.prototype.domElement;
+/** @type {boolean} */
+THREE.TrackballControls.prototype.enabled;
+
+/**
+ * @typedef {{
+ *     left: (number|undefined),
+ *     top: (number|undefined),
+ *     width: (number|undefined),
+ *     height: (number|undefined),
+ * }}
+ */
+THREE.TrackballControls.prototype.screen;
+/** @type {number} */
+THREE.TrackballControls.prototype.rotateSpeed;
+/** @type {number} */
+THREE.TrackballControls.prototype.zoomSpeed;
+/** @type {number} */
+THREE.TrackballControls.prototype.panSpeed;
+/** @type {boolean} */
+THREE.TrackballControls.prototype.noRotate;
+/** @type {boolean} */
+THREE.TrackballControls.prototype.noZoom;
+/** @type {boolean} */
+THREE.TrackballControls.prototype.noPan;
+/** @type {boolean} */
+THREE.TrackballControls.prototype.noRoll;
+/** @type {boolean} */
+THREE.TrackballControls.prototype.staticMoving;
+/** @type {number} */
+THREE.TrackballControls.prototype.dynamicDampingFactor;
+/** @type {number} */
+THREE.TrackballControls.prototype.minDistance;
+/** @type {number} */
+THREE.TrackballControls.prototype.maxDistance;
+/** @type {Array<String>} */
+THREE.TrackballControls.prototype.keys;
+
+/**
+ * @typedef {{
+ *     LEFT: (THREE.MOUSE),
+ *     MIDDLE: (THREE.MOUSE),
+ *     RIGHT: (THREE.MOUSE),
+ * }}
+ */
+THREE.TrackballControls.prototype.mouseButtons
+
+/** @type {THREE.Vector3} */
+THREE.TrackballControls.prototype.target;
+/** @type {THREE.Vector3} */
+THREE.TrackballControls.prototype.position0;
+/** @type {THREE.Vector3} */
+THREE.TrackballControls.prototype.target0;
+/** @type {THREE.Vector3} */
+THREE.TrackballControls.prototype.up0;
+
+THREE.TrackballControls.prototype.update = function () {};
+THREE.TrackballControls.prototype.reset = function () {};
+THREE.TrackballControls.prototype.dispose = function () {};
+THREE.TrackballControls.prototype.checkDistances = function () {};
+THREE.TrackballControls.prototype.zoomCamera = function () {};
+THREE.TrackballControls.prototype.panCamera = function () {};
+THREE.TrackballControls.prototype.rotateCamera = function () {};
+THREE.TrackballControls.prototype.handleResize = function () {};
