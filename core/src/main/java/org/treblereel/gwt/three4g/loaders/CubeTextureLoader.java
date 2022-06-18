@@ -13,7 +13,7 @@ import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.textures.CubeTexture;
 
 @JsType(isNative = true, name = "THREE.CubeTextureLoader", namespace = JsPackage.GLOBAL)
-public class CubeTextureLoader extends Loader {
+public class CubeTextureLoader extends Loader<CubeTextureLoader, CubeTexture> {
   @JsFunction
   public interface LoadAsyncOnProgressFn {
     void onInvoke(ProgressEvent<EventTarget> p0);

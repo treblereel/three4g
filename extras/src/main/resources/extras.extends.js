@@ -835,3 +835,90 @@ THREE.PeppersGhostEffect.prototype.render = function(scene, camera) {};
  * @param {number}  height
  */
 THREE.PeppersGhostEffect.prototype.setSize = function(width, height) {};
+
+/**
+ * @param {THREE.WebGLRenderer} renderer
+ * @constructor
+ */
+THREE.StereoEffect = function (renderer) {};
+
+/**
+ *  @param {number} eyeSep
+ *
+ */
+THREE.StereoEffect.prototype.setEyeSeparation = function (eyeSep) {};
+
+/**
+ *
+ * @param {THREE.Scene} scene
+ * @param {THREE.Camera} camera
+ */
+THREE.StereoEffect.prototype.render = function(scene, camera) {};
+
+/**
+ *
+ * @param {number} width
+ * @param {number}  height
+ */
+THREE.StereoEffect.prototype.setSize = function(width, height) {};
+
+
+/**
+ * @param {THREE.WebGLRenderer} renderer
+ * @constructor
+ */
+THREE.StereoEffect = function (renderer) {};
+
+
+/** @const */
+THREE.GeometryUtils = {};
+
+/**
+ * @param {(THREE.Vector3|undefined)=} center
+ * @param {(number|undefined)=} size
+ * @param {(number|undefined)=} iterations
+ * @param {(number|undefined)=} v0
+ * @param {(number|undefined)=} v1
+ * @param {(number|undefined)=} v2
+ * @param {(number|undefined)=} v3
+ * @return {Array<THREE.Vector3>}
+ */
+THREE.GeometryUtils.hilbert2D = function (
+    center,
+    size,
+    iterations,
+    v0,
+    v1,
+    v2,
+    v3,
+) {};
+
+/**
+ * @param {(THREE.Vector3|undefined)=} center
+ * @param {(number|undefined)=} size
+ * @param {(number|undefined)=} iterations
+ * @param {(number|undefined)=} v0
+ * @param {(number|undefined)=} v1
+ * @param {(number|undefined)=} v2
+ * @param {(number|undefined)=} v3
+ * @param {(number|undefined)=} v4
+ * @param {(number|undefined)=} v5
+ * @param {(number|undefined)=} v6
+ * @param {(number|undefined)=} v7
+ * @return {Array<THREE.Vector3>}
+ */
+THREE.GeometryUtils.hilbert3D = function (
+    center,
+    size,
+    iterations,
+    v0,
+    v1,
+    v2,
+    v3,
+) {};
+
+/**
+ * @param {(number|undefined)=} size
+ * @return {Array<number>}
+ */
+THREE.GeometryUtils.gosper = function(size) {};

@@ -9,6 +9,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
+import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.math.Matrix3;
 import org.treblereel.gwt.three4g.math.Matrix4;
@@ -177,7 +178,7 @@ public class BufferAttribute {
     void setOffset(double offset);
   }
 
-  public Object array;
+  public JsArray<Double> array;
   public double count;
   public boolean isBufferAttribute;
   public double itemSize;
@@ -189,9 +190,9 @@ public class BufferAttribute {
   public double version;
   public boolean needsUpdate;
 
-  public BufferAttribute(Object array, double itemSize, boolean normalized) {}
+  public BufferAttribute(JsArrayLike<Double> array, double itemSize, boolean normalized) {}
 
-  public BufferAttribute(Object array, double itemSize) {}
+  public BufferAttribute(JsArrayLike<Double> array, double itemSize) {}
 
   public native BufferAttribute applyMatrix3(Matrix3 m);
 

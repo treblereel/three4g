@@ -32,17 +32,17 @@ public class Loader<L, V> {
   public native V load(
           String url, OnLoadCallback<V> onLoad, OnProgressCallback onProgress, OnErrorCallback onError);
 
-  public native Promise loadAsync(String url, OnProgressCallback onProgress);
+  public native Promise<V> loadAsync(String url, OnProgressCallback onProgress);
 
-  public native Promise loadAsync(String url);
+  public native Promise<V> loadAsync(String url);
 
-  public native Loader setCrossOrigin(String crossOrigin);
+  public native <L> L setCrossOrigin(String crossOrigin);
 
-  public native Loader setPath(String path);
+  public native <L> L setPath(String path);
 
-  public native Loader setRequestHeader(JsPropertyMap<String> requestHeader);
+  public native <L> L setRequestHeader(JsPropertyMap<String> requestHeader);
 
-  public native Loader setResourcePath(String resourcePath);
+  public native <L> L setResourcePath(String resourcePath);
 
-  public native Loader setWithCredentials(boolean value);
+  public native <L> L setWithCredentials(boolean value);
 }

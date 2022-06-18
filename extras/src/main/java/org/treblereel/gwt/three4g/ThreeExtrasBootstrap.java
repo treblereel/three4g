@@ -47,6 +47,8 @@ public class ThreeExtrasBootstrap {
         holder.put("TrackballControls", new Bucket(resource.TrackballControls()));
         holder.put("ParallaxBarrierEffect", new Bucket(resource.ParallaxBarrierEffect()));
         holder.put("PeppersGhostEffect", new Bucket(resource.PeppersGhostEffect()));
+        holder.put("StereoEffect", new Bucket(resource.StereoEffect()));
+        holder.put("GeometryUtils", new Bucket(resource.GeometryUtils()));
     }
 
 
@@ -123,6 +125,12 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/effects/PeppersGhostEffect.js")
         TextResource PeppersGhostEffect();
+
+        @ClientBundle.Source("js/effects/StereoEffect.js")
+        TextResource StereoEffect();
+
+        @ClientBundle.Source("js/utils/GeometryUtils.js")
+        TextResource GeometryUtils();
     }
 
     private static class Bucket {
