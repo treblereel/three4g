@@ -45,6 +45,8 @@ public class ThreeExtrasBootstrap {
         holder.put("AnaglyphEffect", new Bucket(resource.AnaglyphEffect()));
         holder.put("AsciiEffect", new Bucket(resource.AsciiEffect()));
         holder.put("TrackballControls", new Bucket(resource.TrackballControls()));
+        holder.put("ParallaxBarrierEffect", new Bucket(resource.ParallaxBarrierEffect()));
+        holder.put("PeppersGhostEffect", new Bucket(resource.PeppersGhostEffect()));
     }
 
 
@@ -115,6 +117,12 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/controls/TrackballControls.js")
         TextResource TrackballControls();
+
+        @ClientBundle.Source("js/effects/ParallaxBarrierEffect.js")
+        TextResource ParallaxBarrierEffect();
+
+        @ClientBundle.Source("js/effects/PeppersGhostEffect.js")
+        TextResource PeppersGhostEffect();
     }
 
     private static class Bucket {

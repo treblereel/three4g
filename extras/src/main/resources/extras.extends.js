@@ -787,3 +787,51 @@ THREE.TrackballControls.prototype.zoomCamera = function () {};
 THREE.TrackballControls.prototype.panCamera = function () {};
 THREE.TrackballControls.prototype.rotateCamera = function () {};
 THREE.TrackballControls.prototype.handleResize = function () {};
+
+
+/**
+ * @param {THREE.WebGLRenderer} renderer
+ * @constructor
+ */
+THREE.ParallaxBarrierEffect = function (renderer) {};
+
+/**
+ *
+ * @param {THREE.Scene} scene
+ * @param {THREE.Camera} camera
+ */
+THREE.ParallaxBarrierEffect.prototype.render = function(scene, camera) {};
+
+
+/**
+ *
+ * @param {number} width
+ * @param {number}  height
+ */
+THREE.ParallaxBarrierEffect.prototype.setSize = function(width, height) {};
+
+/**
+ * @param {THREE.WebGLRenderer} renderer
+ * @constructor
+ */
+THREE.PeppersGhostEffect = function (renderer) {};
+
+/** @type {number} */
+THREE.PeppersGhostEffect.prototype.cameraDistance;
+
+/** @type {boolean} */
+THREE.PeppersGhostEffect.prototype.reflectFromAbove;
+
+/**
+ *
+ * @param {THREE.Scene} scene
+ * @param {THREE.Camera} camera
+ */
+THREE.PeppersGhostEffect.prototype.render = function(scene, camera) {};
+
+/**
+ *
+ * @param {number} width
+ * @param {number}  height
+ */
+THREE.PeppersGhostEffect.prototype.setSize = function(width, height) {};
