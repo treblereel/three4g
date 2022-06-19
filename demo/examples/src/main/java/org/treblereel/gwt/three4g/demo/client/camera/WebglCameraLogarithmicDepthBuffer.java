@@ -12,7 +12,6 @@ import io.crysknife.client.IsElement;
 import io.crysknife.ui.navigation.client.local.Page;
 import io.crysknife.ui.navigation.client.local.PageHiding;
 import io.crysknife.ui.navigation.client.local.PageShown;
-import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.cameras.PerspectiveCamera;
 import org.treblereel.gwt.three4g.demo.client.utils.Stats;
 import org.treblereel.gwt.three4g.geometries.SphereGeometry;

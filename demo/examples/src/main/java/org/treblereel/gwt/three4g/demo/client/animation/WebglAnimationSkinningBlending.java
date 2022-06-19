@@ -1,7 +1,6 @@
 package org.treblereel.gwt.three4g.demo.client.animation;
 
 import elemental2.core.JsArray;
-import elemental2.core.JsObject;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
 import io.crysknife.client.IsElement;

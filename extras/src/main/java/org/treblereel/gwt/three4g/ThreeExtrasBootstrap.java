@@ -49,6 +49,9 @@ public class ThreeExtrasBootstrap {
         holder.put("PeppersGhostEffect", new Bucket(resource.PeppersGhostEffect()));
         holder.put("StereoEffect", new Bucket(resource.StereoEffect()));
         holder.put("GeometryUtils", new Bucket(resource.GeometryUtils()));
+        holder.put("CurveExtras", new Bucket(resource.CurveExtras()));
+        holder.put("ParametricGeometry", new Bucket(resource.ParametricGeometry()));
+        holder.put("ParametricGeometries", new Bucket(resource.ParametricGeometries()));
     }
 
 
@@ -131,6 +134,15 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/utils/GeometryUtils.js")
         TextResource GeometryUtils();
+
+        @ClientBundle.Source("js/curves/CurveExtras.js")
+        TextResource CurveExtras();
+
+        @ClientBundle.Source("js/geometries/ParametricGeometry.js")
+        TextResource ParametricGeometry();
+
+        @ClientBundle.Source("js/geometries/ParametricGeometries.js")
+        TextResource ParametricGeometries();
     }
 
     private static class Bucket {

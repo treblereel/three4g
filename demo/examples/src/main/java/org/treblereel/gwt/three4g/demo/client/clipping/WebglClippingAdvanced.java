@@ -2,7 +2,6 @@ package org.treblereel.gwt.three4g.demo.client.clipping;
 
 import elemental2.core.JsArray;
 import elemental2.core.JsMath;
-import elemental2.core.JsNumber;
 import elemental2.core.JsObject;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
@@ -20,7 +19,6 @@ import org.treblereel.gwt.three4g.core.Object3D;
 import org.treblereel.gwt.three4g.demo.client.utils.Stats;
 import org.treblereel.gwt.three4g.geometries.BoxGeometry;
 import org.treblereel.gwt.three4g.geometries.PlaneGeometry;
-import org.treblereel.gwt.three4g.geometries.TorusKnotGeometry;
 import org.treblereel.gwt.three4g.lights.AmbientLight;
 import org.treblereel.gwt.three4g.lights.DirectionalLight;
 import org.treblereel.gwt.three4g.lights.SpotLight;

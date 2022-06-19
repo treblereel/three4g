@@ -922,3 +922,233 @@ THREE.GeometryUtils.hilbert3D = function (
  * @return {Array<number>}
  */
 THREE.GeometryUtils.gosper = function(size) {};
+
+/**
+ *
+ * @const
+ */
+THREE.Curves = {}
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ */
+THREE.Curves.GrannyKnot = function () {}
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.HeartCurve = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.HeartCurve.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.VivianiCurve = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.VivianiCurve.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ */
+THREE.Curves.KnotCurve = function () {}
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ */
+THREE.Curves.HelixCurve = function () {}
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.TrefoilKnot = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.TrefoilKnot.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.TorusKnot = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.TorusKnot.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.CinquefoilKnot = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.CinquefoilKnot.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.TrefoilPolynomialKnot = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.TrefoilPolynomialKnot.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.FigureEightPolynomialKnot = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.FigureEightPolynomialKnot.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.DecoratedTorusKnot4a = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.DecoratedTorusKnot4a.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.DecoratedTorusKnot4b = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.DecoratedTorusKnot4b.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.DecoratedTorusKnot5a = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.DecoratedTorusKnot5a.prototype.scale;
+
+/**
+ * @extends {THREE.Curve}
+ * @constructor
+ * @param {number} scale
+ */
+THREE.Curves.DecoratedTorusKnot5c = function (scale) {}
+
+/** @type {number} */
+THREE.Curves.DecoratedTorusKnot5c.prototype.scale;
+
+
+/**
+ * @typedef {{
+ *     slices: (undefined|number),
+ *     stacks: (undefined|number),
+ *     func: function(number, number, THREE.Vector3),
+ * }}
+ */
+var ParametricGeometryParam
+
+/**
+ * @extends {THREE.BufferGeometry}
+ * @constructor
+ *
+ * @param {function(number, number, THREE.Vector3)} func
+ * @param {(undefined|number)=} slices
+ * @param {(undefined|number)=} stacks
+ */
+THREE.ParametricGeometry = function (func, slices, stacks) {};
+
+/**
+ * @type {ParametricGeometryParam}
+ */
+THREE.ParametricGeometry.prototype.parameters;
+
+/**
+ *
+ * @const
+ */
+THREE.ParametricGeometries  = {}
+
+/**
+ * @type {function(number, number, THREE.Vector3): THREE.Vector3}
+ */
+THREE.ParametricGeometries.klein;
+
+/**
+ * @type {function(number, number, THREE.Vector3) : THREE.Vector3}
+ */
+THREE.ParametricGeometries.mobius;
+
+/**
+ * @type {function(number, number, THREE.Vector3) : THREE.Vector3}
+ */
+THREE.ParametricGeometries.mobius3d;
+
+/**
+ *
+ * @param {number} width
+ * @param {number} height
+ * @return {function(number, number, THREE.Vector3) : THREE.Vector3}
+ */
+THREE.ParametricGeometries.plane = function(width, height) {};
+
+/**
+ * @extends {THREE.ParametricGeometry}
+ * @constructor
+ * @param {THREE.Curve} path
+ * @param {(undefined|number)=} segments
+ * @param {(undefined|number)=} radius
+ * @param {(undefined|number)=} segmentsRadius
+ * @param {boolean=} closed
+ */
+THREE.ParametricGeometries.TubeGeometry = function (path, segments, radius, segmentsRadius, closed) {}
+
+/**
+ * @extends {THREE.ParametricGeometries.TubeGeometry}
+ * @constructor
+ * @param {(undefined|number)=} radius
+ * @param {(undefined|number)=} tube
+ * @param {(undefined|number)=} segmentsT
+ * @param {(undefined|number)=} segmentsR
+ * @param {(undefined|number)=} p
+ * @param {(undefined|number)=} q
+ */
+THREE.ParametricGeometries.TorusKnotGeometry = function (radius, tube, segmentsT, segmentsR, p, q){}
+
+/**
+ * @extends {THREE.ParametricGeometry}
+ * @constructor
+ * @param {(undefined|number)=} size
+ * @param {(undefined|number)=} u
+ * @param {(undefined|number)=} v
+ */
+THREE.ParametricGeometries.SphereGeometry = function (size, u, v){}
+
+/**
+ * @extends {THREE.ParametricGeometry}
+ * @constructor
+ * @param {(undefined|number)=} width
+ * @param {(undefined|number)=} depth
+ * @param {(undefined|number)=} segmentsWidth
+ * @param {(undefined|number)=} segmentsDepth
+ */
+THREE.ParametricGeometries.PlaneGeometry = function (width, depth, segmentsWidth, segmentsDepth){}

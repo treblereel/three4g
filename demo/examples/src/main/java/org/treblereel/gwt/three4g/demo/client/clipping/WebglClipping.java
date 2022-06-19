@@ -1,11 +1,9 @@
 package org.treblereel.gwt.three4g.demo.client.clipping;
 
-import elemental2.core.Global;
 import elemental2.core.JsArray;
 import elemental2.core.JsObject;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLLabelElement;
 import io.crysknife.client.IsElement;
 import io.crysknife.ui.navigation.client.local.Page;
 import io.crysknife.ui.navigation.client.local.PageHiding;
