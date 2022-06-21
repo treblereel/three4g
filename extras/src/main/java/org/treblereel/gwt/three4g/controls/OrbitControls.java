@@ -14,7 +14,6 @@
 
 package org.treblereel.gwt.three4g.controls;
 
-import elemental2.dom.HTMLCanvasElement;
 import elemental2.dom.HTMLElement;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -31,6 +30,7 @@ public class OrbitControls extends EventDispatcher {
     public boolean enableZoom;
     public double minDistance;
     public double maxDistance;
+    public double maxPolarAngle;
 
     public OrbitControls(PerspectiveCamera camera, HTMLElement domElement) {
         super();

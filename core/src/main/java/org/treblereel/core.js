@@ -2469,7 +2469,7 @@ THREE.Texture.prototype.uuid;
 THREE.Texture.prototype.name;
 /** @type {string} */
 THREE.Texture.prototype.sourceFile;
-/** @type {number} */
+/** @type {(HTMLImageElement|HTMLCanvasElement|HTMLVideoElement)} */
 THREE.Texture.prototype.image;
 /** @type {Array<Object>} */
 THREE.Texture.prototype.mipmaps;
@@ -9756,24 +9756,6 @@ THREE.InstancedInterleavedBuffer = function(array, stride, meshPerAttribute) {};
 /** @type {number} */
 THREE.InstancedInterleavedBuffer.prototype.meshPerAttribute;
 // externs from src/src/core/InstancedBufferAttribute.d.ts:
-
-/**
- * @constructor
- * 
- */
-THREE.BufferGeometryUtils = function() {};
-
-/**
- * @param {Array<THREE.BufferGeometry>} geometries
- * @return {THREE.BufferGeometry}
- */
-THREE.BufferGeometryUtils.mergeBufferGeometries = function(geometries) {};
-
-/**
- * @param {Array<THREE.BufferAttribute>} attributes
- * @return {THREE.BufferAttribute}
- */
-THREE.BufferGeometryUtils.mergeBufferAttributes = function(attributes) {};
 
 /**
  * @extends {THREE.BufferAttribute}

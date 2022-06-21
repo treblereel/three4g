@@ -1152,3 +1152,161 @@ THREE.ParametricGeometries.SphereGeometry = function (size, u, v){}
  * @param {(undefined|number)=} segmentsDepth
  */
 THREE.ParametricGeometries.PlaneGeometry = function (width, depth, segmentsWidth, segmentsDepth){}
+
+/**
+ * @param {String=} colormap
+ * @param {number=} numberofcolors
+ * @constructor
+ */
+THREE.Lut = function (colormap, numberofcolors) {}
+
+/** @type {Array<Color>} */
+THREE.Lut.prototype.lut;
+
+/** @type {Array<Object>} */
+THREE.Lut.prototype.map;
+
+/** @type {number} */
+THREE.Lut.prototype.n;
+
+/** @type {number} */
+THREE.Lut.prototype.minV;
+
+/** @type {number} */
+THREE.Lut.prototype.maxV;
+
+/**
+ * @param {THREE.Lut} value
+ * @return {THREE.Lut}
+ */
+THREE.Lut.prototype.set = function (value) {}
+
+/**
+ * @param {number} min
+ * @return {THREE.Lut}
+ */
+THREE.Lut.prototype.setMin = function (min) {}
+
+/**
+ * @param {number} max
+ * @return {THREE.Lut}
+ */
+THREE.Lut.prototype.setMax = function (max) {}
+
+/**
+ * @param {string} colormap
+ * @param {number=} numberofcolors
+ * @return {THREE.Lut}
+ */
+THREE.Lut.prototype.setColorMap = function (colormap, numberofcolors) {}
+
+/**
+ * @param {THREE.Lut} lut
+ * @return {THREE.Lut}
+ */
+THREE.Lut.prototype.copy = function (lut) {}
+
+/**
+ * @param {number} alpha
+ * @return {THREE.Color}
+ */
+THREE.Lut.prototype.getColor = function(alpha) {}
+
+/**
+ * @param {string} colormapName
+ * @param {Array<Array<number>>} arrayOfColors
+ */
+THREE.Lut.prototype.addColorMap = function(colormapName, arrayOfColors) {}
+
+/**
+ * @return {HTMLCanvasElement}
+ */
+THREE.Lut.prototype.createCanvas = function() {}
+
+/**
+ * @param {(HTMLImageElement|HTMLCanvasElement|HTMLVideoElement)} canvas
+ * @return {HTMLCanvasElement}
+ */
+THREE.Lut.prototype.updateCanvas = function(canvas) {}
+
+/**
+ * @extends {THREE.BufferGeometry}
+ * @param {Array<THREE.Vector3>} colormap
+ * @constructor
+ */
+THREE.ConvexGeometry = function (points) {}
+
+/**
+ * @constructor
+ *
+ */
+THREE.BufferGeometryUtils = function() {};
+
+/**
+ * @param {Array<THREE.BufferGeometry>} geometries
+ * @param {boolean=} useGroups
+ * @return {THREE.BufferGeometry}
+ */
+THREE.BufferGeometryUtils.mergeBufferGeometries = function(geometries, useGroups) {};
+
+/**
+ * @param {Array<THREE.BufferAttribute>} attributes
+ * @return {THREE.BufferAttribute}
+ */
+THREE.BufferGeometryUtils.mergeBufferAttributes = function(attributes) {};
+
+/**
+ * @param {Array<THREE.BufferAttribute>} attributes
+ * @return {THREE.InterleavedBufferAttribute}
+ */
+THREE.BufferGeometryUtils.interleaveAttributes = function(attributes) {};
+
+/**
+ * @param {THREE.BufferGeometry} geometry
+ * @return {number}
+ */
+THREE.BufferGeometryUtils.estimateBytesUsed = function(geometry) {};
+
+/**
+ * @param {THREE.BufferGeometry} geometry
+ * @param {number=} tolerance
+ * @return {THREE.BufferGeometry}
+ */
+THREE.BufferGeometryUtils.mergeVertices = function(geometry, tolerance) {};
+
+/**
+ * @param {THREE.BufferGeometry} geometry
+ * @param {number} drawMode
+ * @return {THREE.BufferGeometry}
+ */
+THREE.BufferGeometryUtils.toTrianglesDrawMode = function(geometry, drawMode) {};
+
+/**
+ * @param {THREE.Mesh|THREE.Line|THREE.Points} geometry
+ * @return {object}
+ */
+THREE.BufferGeometryUtils.computeMorphedAttributes = function(object) {};
+
+/**
+ * @param {THREE.BufferGeometry} geometry
+ * @param {*} MikkTSpace
+ * @param {boolean=} negateSign
+ * @return {THREE.BufferGeometry}
+ */
+THREE.BufferGeometryUtils.computeMikkTSpaceTangents = function(geometry, MikkTSpace, negateSign) {};
+
+/**
+ * @param {THREE.BufferGeometry} geometry
+ * @return {THREE.BufferGeometry}
+ */
+THREE.BufferGeometryUtils.mergeGroups = function(geometry) {};
+
+/**
+ * @param {THREE.BufferGeometry} geometry
+ */
+THREE.BufferGeometryUtils.deinterleaveAttribute = function(geometry) {};
+
+/**
+ * @param {THREE.BufferGeometry} geometry
+ */
+THREE.BufferGeometryUtils.deinterleaveGeometry = function(geometry) {};

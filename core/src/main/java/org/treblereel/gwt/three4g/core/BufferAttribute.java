@@ -179,9 +179,9 @@ public class BufferAttribute {
   }
 
   public JsArray<Double> array;
-  public double count;
+  public int count;
   public boolean isBufferAttribute;
-  public double itemSize;
+  public int itemSize;
   public String name;
   public boolean normalized;
   public BufferAttribute.OnUploadCallbackFn0 onUploadCallback;

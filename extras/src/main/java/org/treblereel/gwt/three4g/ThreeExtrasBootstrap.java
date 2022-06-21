@@ -52,6 +52,10 @@ public class ThreeExtrasBootstrap {
         holder.put("CurveExtras", new Bucket(resource.CurveExtras()));
         holder.put("ParametricGeometry", new Bucket(resource.ParametricGeometry()));
         holder.put("ParametricGeometries", new Bucket(resource.ParametricGeometries()));
+        holder.put("Lut", new Bucket(resource.Lut()));
+        holder.put("ConvexHull", new Bucket(resource.ConvexHull()));
+        holder.put("ConvexGeometry", new Bucket(resource.ConvexGeometry()));
+        holder.put("BufferGeometryUtils", new Bucket(resource.BufferGeometryUtils()));
     }
 
 
@@ -143,6 +147,19 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/geometries/ParametricGeometries.js")
         TextResource ParametricGeometries();
+
+        @ClientBundle.Source("js/math/Lut.js")
+        TextResource Lut();
+
+
+        @ClientBundle.Source("js/geometries/ConvexGeometry.js")
+        TextResource ConvexGeometry();
+
+        @ClientBundle.Source("js/utils/BufferGeometryUtils.js")
+        TextResource BufferGeometryUtils();
+
+        @ClientBundle.Source("js/math/ConvexHull.js")
+        TextResource ConvexHull();
     }
 
     private static class Bucket {

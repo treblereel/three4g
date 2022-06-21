@@ -10,11 +10,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.core.events.EventDispatcher;
-import org.treblereel.gwt.three4g.math.Quaternion;
-import org.treblereel.gwt.three4g.math.Sphere;
-import org.treblereel.gwt.three4g.math.Vector3;
-import org.treblereel.gwt.three4g.math.Box3;
-import org.treblereel.gwt.three4g.math.Matrix4;
+import org.treblereel.gwt.three4g.math.*;
 
 @JsType(isNative = true, name = "THREE.BufferGeometry", namespace = JsPackage.GLOBAL)
 public class BufferGeometry extends EventDispatcher {
@@ -647,11 +643,16 @@ public class BufferGeometry extends EventDispatcher {
 
   public native void setDrawRange(double start, double count);
 
-  public native BufferGeometry setFromPoints(JsArray<Object> points);
+  public native BufferGeometry setFromPoints(JsArray points);
 
   @JsOverlay
-  public final BufferGeometry setFromPoints(Object[] points) {
-    return setFromPoints(Js.<JsArray<Object>>uncheckedCast(points));
+  public final BufferGeometry setFromPoints(Vector2[] points) {
+    return setFromPoints(Js.<JsArray>uncheckedCast(points));
+  }
+
+  @JsOverlay
+  public final BufferGeometry setFromPoints(Vector3[] points) {
+    return setFromPoints(Js.<JsArray>uncheckedCast(points));
   }
 
   @JsOverlay

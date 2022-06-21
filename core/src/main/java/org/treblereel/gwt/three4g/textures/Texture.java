@@ -69,7 +69,7 @@ public class Texture extends EventDispatcher {
   public double format;
   public boolean generateMipmaps;
   public double id;
-  public double image;
+  public HTMLCanvasElement image;
   public String internalFormat;
   public boolean isRenderTargetTexture;
   public boolean isTexture;
