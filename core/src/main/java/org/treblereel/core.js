@@ -10102,7 +10102,7 @@ THREE.CatmullRomCurve3.CurveUtils.interpolate = function(p0, p1, p2, p3, t) {};
 
 /**
  * @constructor
- * 
+ * @extends {THREE.Curve}
  * @param {(undefined|Array<THREE.Vector3>)=} points
  * @param {(undefined|boolean)=} closed
  * @param {(undefined|string)=} curveType
@@ -10111,6 +10111,12 @@ THREE.CatmullRomCurve3.CurveUtils.interpolate = function(p0, p1, p2, p3, t) {};
 THREE.CatmullRomCurve3 = function(points, closed, curveType, tension) {};
 /** @type {string} */
 THREE.CatmullRomCurve3.prototype.type;
+/** @type {string} */
+THREE.CatmullRomCurve3.prototype.curveType;
+/** @type {boolean} */
+THREE.CatmullRomCurve3.prototype.closed;
+/** @type {number} */
+THREE.CatmullRomCurve3.prototype.tension;
 /** @type {Array<THREE.Vector3>} */
 THREE.CatmullRomCurve3.prototype.points;
 // externs from src/src/extras/curves/CubicBezierCurve.d.ts:

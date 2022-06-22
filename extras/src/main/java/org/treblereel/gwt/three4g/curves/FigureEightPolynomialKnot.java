@@ -9,6 +9,10 @@ public class FigureEightPolynomialKnot extends Curve {
 
     public double scale;
 
+
+    public FigureEightPolynomialKnot() {
+
+    }
     public FigureEightPolynomialKnot(double scale) {
 
     }

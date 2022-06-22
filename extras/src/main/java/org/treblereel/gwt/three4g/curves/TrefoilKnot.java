@@ -9,6 +9,9 @@ public class TrefoilKnot extends Curve {
 
     public double scale;
 
+    public TrefoilKnot() {
+
+    }
     public TrefoilKnot(double scale) {
 
     }

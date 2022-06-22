@@ -11,7 +11,7 @@ import org.treblereel.gwt.three4g.core.BufferAttribute;
 import org.treblereel.gwt.three4g.core.InterleavedBufferAttribute;
 
 @JsType(isNative = true, name = "THREE.Vector3", namespace = JsPackage.GLOBAL)
-public class Vector3 {
+public class Vector3 implements Vector {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface FromArrayArrayUnionType {
     @JsOverlay

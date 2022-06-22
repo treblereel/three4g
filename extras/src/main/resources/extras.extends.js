@@ -778,7 +778,6 @@ THREE.TrackballControls.prototype.position0;
 THREE.TrackballControls.prototype.target0;
 /** @type {THREE.Vector3} */
 THREE.TrackballControls.prototype.up0;
-
 THREE.TrackballControls.prototype.update = function () {};
 THREE.TrackballControls.prototype.reset = function () {};
 THREE.TrackballControls.prototype.dispose = function () {};
@@ -970,7 +969,7 @@ THREE.Curves.HelixCurve = function () {}
 /**
  * @extends {THREE.Curve}
  * @constructor
- * @param {number} scale
+ * @param {number=} scale
  */
 THREE.Curves.TrefoilKnot = function (scale) {}
 
@@ -1010,7 +1009,7 @@ THREE.Curves.TrefoilPolynomialKnot.prototype.scale;
 /**
  * @extends {THREE.Curve}
  * @constructor
- * @param {number} scale
+ * @param {number=} scale
  */
 THREE.Curves.FigureEightPolynomialKnot = function (scale) {}
 
@@ -1020,7 +1019,7 @@ THREE.Curves.FigureEightPolynomialKnot.prototype.scale;
 /**
  * @extends {THREE.Curve}
  * @constructor
- * @param {number} scale
+ * @param {number=} scale
  */
 THREE.Curves.DecoratedTorusKnot4a = function (scale) {}
 
@@ -1030,7 +1029,7 @@ THREE.Curves.DecoratedTorusKnot4a.prototype.scale;
 /**
  * @extends {THREE.Curve}
  * @constructor
- * @param {number} scale
+ * @param {number=} scale
  */
 THREE.Curves.DecoratedTorusKnot4b = function (scale) {}
 
@@ -1040,7 +1039,7 @@ THREE.Curves.DecoratedTorusKnot4b.prototype.scale;
 /**
  * @extends {THREE.Curve}
  * @constructor
- * @param {number} scale
+ * @param {number=} scale
  */
 THREE.Curves.DecoratedTorusKnot5a = function (scale) {}
 
@@ -1050,7 +1049,7 @@ THREE.Curves.DecoratedTorusKnot5a.prototype.scale;
 /**
  * @extends {THREE.Curve}
  * @constructor
- * @param {number} scale
+ * @param {number=} scale
  */
 THREE.Curves.DecoratedTorusKnot5c = function (scale) {}
 
@@ -1310,3 +1309,70 @@ THREE.BufferGeometryUtils.deinterleaveAttribute = function(geometry) {};
  * @param {THREE.BufferGeometry} geometry
  */
 THREE.BufferGeometryUtils.deinterleaveGeometry = function(geometry) {};
+
+/**
+ *
+ * @param {THREE.Camera} object
+ * @param {HTMLElement=} domElement
+ * @constructor
+ */
+THREE.FirstPersonControls = function(object, domElement) {};
+
+/** @type {THREE.Camera} */
+THREE.FirstPersonControls.prototype.object;
+
+/** @type {HTMLElement | HTMLDocument} */
+THREE.FirstPersonControls.prototype.domElement;
+
+/** @type {boolean} */
+THREE.FirstPersonControls.prototype.enabled;
+
+/** @type {number} */
+THREE.FirstPersonControls.prototype.movementSpeed;
+
+/** @type {number} */
+THREE.FirstPersonControls.prototype.lookSpeed;
+
+/** @type {boolean} */
+THREE.FirstPersonControls.prototype.lookVertical;
+
+/** @type {boolean} */
+THREE.FirstPersonControls.prototype.autoForward;
+/** @type {boolean} */
+THREE.FirstPersonControls.prototype.activeLook;
+/** @type {boolean} */
+THREE.FirstPersonControls.prototype.heightSpeed;
+/** @type {number} */
+THREE.FirstPersonControls.prototype.heightCoef;
+/** @type {number} */
+THREE.FirstPersonControls.prototype.heightMin;
+/** @type {number} */
+THREE.FirstPersonControls.prototype.heightMax;
+/** @type {boolean} */
+THREE.FirstPersonControls.prototype.constrainVertical;
+/** @type {number} */
+THREE.FirstPersonControls.prototype.verticalMin;
+/** @type {number} */
+THREE.FirstPersonControls.prototype.verticalMax;
+/** @type {boolean} */
+THREE.FirstPersonControls.prototype.mouseDragOn;
+
+THREE.FirstPersonControls.prototype.handleResize = function () {};
+
+/**
+ *
+ * @param {number | Vector3} x
+ * @param number} y
+ * @param {number} z
+ * @return {THREE.FirstPersonControls}
+ */
+THREE.FirstPersonControls.prototype.lookAt = function (x,y,z) {};
+
+/**
+ * @param number} number
+ * @param {number} z
+ * @return {THREE.FirstPersonControls}
+ */
+THREE.FirstPersonControls.prototype.update = function (delta) {};
+
+THREE.FirstPersonControls.prototype.dispose = function () {};

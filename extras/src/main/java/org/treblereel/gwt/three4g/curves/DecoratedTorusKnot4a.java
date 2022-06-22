@@ -9,6 +9,11 @@ public class DecoratedTorusKnot4a extends Curve {
 
     public double scale;
 
+
+    public DecoratedTorusKnot4a() {
+
+    }
+
     public DecoratedTorusKnot4a(double scale) {
 
     }

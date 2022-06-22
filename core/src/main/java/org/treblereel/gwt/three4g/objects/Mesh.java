@@ -21,6 +21,10 @@ public class Mesh<TGeometry extends BufferGeometry, TMaterial extends Material> 
 
   public Mesh(TGeometry geometry, TMaterial material) {}
 
+  public Mesh(TGeometry geometry, TMaterial[] material) {}
+
+  public Mesh(TGeometry geometry, JsArray<TMaterial> material) {}
+
   public Mesh(TGeometry geometry) {}
 
   public native void updateMorphTargets();

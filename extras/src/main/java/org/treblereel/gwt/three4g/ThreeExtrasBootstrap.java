@@ -56,6 +56,7 @@ public class ThreeExtrasBootstrap {
         holder.put("ConvexHull", new Bucket(resource.ConvexHull()));
         holder.put("ConvexGeometry", new Bucket(resource.ConvexGeometry()));
         holder.put("BufferGeometryUtils", new Bucket(resource.BufferGeometryUtils()));
+        holder.put("FirstPersonControls", new Bucket(resource.FirstPersonControls()));
     }
 
 
@@ -151,7 +152,6 @@ public class ThreeExtrasBootstrap {
         @ClientBundle.Source("js/math/Lut.js")
         TextResource Lut();
 
-
         @ClientBundle.Source("js/geometries/ConvexGeometry.js")
         TextResource ConvexGeometry();
 
@@ -160,6 +160,9 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/math/ConvexHull.js")
         TextResource ConvexHull();
+
+        @ClientBundle.Source("js/controls/FirstPersonControls.js")
+        TextResource FirstPersonControls();
     }
 
     private static class Bucket {
