@@ -86,6 +86,8 @@ public class WebglDecals implements IsElement<HTMLDivElement> {
 
     private JsArray<Intersection<Raycaster>> intersects = new JsArray<>();
 
+    private GUI gui;
+
     @PostConstruct
     public void init() {
         textureLoader = new TextureLoader();
@@ -113,7 +115,7 @@ public class WebglDecals implements IsElement<HTMLDivElement> {
         params.set("rotate", true);
         params.set("clear", (Fn) () -> removeDecals());
 
-        GUI gui = new GUI();
+        gui = new GUI();
         gui.addNumber( params, "minScale", 1, 30 );
         gui.addNumber( params, "maxScale", 1, 30 );
         gui.addNumber( params, "rotate" );
@@ -324,6 +326,7 @@ public class WebglDecals implements IsElement<HTMLDivElement> {
         while (info.firstChild != null) {
             info.removeChild(info.firstChild);
         }
+        gui.hide();
     }
 
     @PageShown

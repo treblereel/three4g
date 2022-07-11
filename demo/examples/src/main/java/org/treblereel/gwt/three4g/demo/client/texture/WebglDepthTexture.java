@@ -53,6 +53,8 @@ public class WebglDepthTexture implements IsElement<HTMLDivElement> {
 
     private boolean run, ready;
 
+    private GUI gui;
+
     private String post_vert = "varying vec2 vUv;\n" +
             "\n" +
             "\t\t\tvoid main() {\n" +
@@ -131,7 +133,7 @@ public class WebglDepthTexture implements IsElement<HTMLDivElement> {
         //
         GUIProperty guiProperty = new GUIProperty();
         guiProperty.setWidth(300);
-        GUI gui = new GUI(guiProperty);
+        gui = new GUI(guiProperty);
 
         gui.addOption(params, "format", formats).onChange(e -> setupRenderTarget());
         gui.addOption(params, "type", types).onChange(e -> setupRenderTarget());
@@ -261,6 +263,7 @@ public class WebglDepthTexture implements IsElement<HTMLDivElement> {
         while (info.firstChild != null) {
             info.removeChild(info.firstChild);
         }
+        gui.hide();
     }
 
     @PageShown

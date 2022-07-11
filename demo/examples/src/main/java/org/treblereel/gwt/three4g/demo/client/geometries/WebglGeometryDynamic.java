@@ -102,7 +102,7 @@ public class WebglGeometryDynamic implements IsElement<HTMLDivElement> {
         mesh = new Mesh(geometry, material);
         scene.add(mesh);
 
-        controls = new FirstPersonControls(camera, renderer.domElement);
+        controls = new FirstPersonControls(camera, DomGlobal.document.body);
 
         controls.movementSpeed = 500;
         controls.lookSpeed = 0.1;

@@ -57,6 +57,11 @@ public class ThreeExtrasBootstrap {
         holder.put("ConvexGeometry", new Bucket(resource.ConvexGeometry()));
         holder.put("BufferGeometryUtils", new Bucket(resource.BufferGeometryUtils()));
         holder.put("FirstPersonControls", new Bucket(resource.FirstPersonControls()));
+        holder.put("ImprovedNoise", new Bucket(resource.ImprovedNoise()));
+        holder.put("NURBSCurve", new Bucket(resource.NURBSCurve()));
+        holder.put("NURBSSurface", new Bucket(resource.NURBSSurface()));
+        holder.put("NURBSUtils", new Bucket(resource.NURBSUtils()));
+        holder.put("TransformControls", new Bucket(resource.TransformControls()));
     }
 
 
@@ -163,6 +168,20 @@ public class ThreeExtrasBootstrap {
 
         @ClientBundle.Source("js/controls/FirstPersonControls.js")
         TextResource FirstPersonControls();
+
+        @ClientBundle.Source("js/math/ImprovedNoise.js")
+        TextResource ImprovedNoise();
+
+        @ClientBundle.Source("js/curves/NURBSCurve.js")
+        TextResource NURBSCurve();
+        @ClientBundle.Source("js/curves/NURBSSurface.js")
+        TextResource NURBSSurface();
+
+        @ClientBundle.Source("js/curves/NURBSUtils.js")
+        TextResource NURBSUtils();
+
+        @ClientBundle.Source("js/controls/TransformControls.js")
+        TextResource TransformControls();
     }
 
     private static class Bucket {

@@ -28,8 +28,8 @@ import javax.inject.Singleton;
 @Page(path = "webgl_camera_array")
 public class WebglCameraArray implements IsElement<HTMLDivElement> {
 
-    double SCREEN_WIDTH = DomGlobal.window.innerWidth * 0.8;
-    double SCREEN_HEIGHT = DomGlobal.window.innerHeight * 0.8;
+    double SCREEN_WIDTH = DomGlobal.window.innerWidth;
+    double SCREEN_HEIGHT = DomGlobal.window.innerHeight;
     double aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
 
     int AMOUNT = 6;
@@ -133,9 +133,9 @@ public class WebglCameraArray implements IsElement<HTMLDivElement> {
     private void onWindowResize() {
         if (camera != null && renderer != null) {
 
-            double ASPECT_RATIO = DomGlobal.window.innerWidth * 0.8 / DomGlobal.window.innerHeight * 0.8;
-            double WIDTH = (DomGlobal.window.innerWidth * 0.8 / AMOUNT) * DomGlobal.window.devicePixelRatio;
-            double HEIGHT = (DomGlobal.window.innerHeight * 0.8 / AMOUNT) * DomGlobal.window.devicePixelRatio;
+            double ASPECT_RATIO = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
+            double WIDTH = (DomGlobal.window.innerWidth / AMOUNT) * DomGlobal.window.devicePixelRatio;
+            double HEIGHT = (DomGlobal.window.innerHeight / AMOUNT) * DomGlobal.window.devicePixelRatio;
 
             camera.aspect = ASPECT_RATIO;
             camera.updateProjectionMatrix();
@@ -159,7 +159,7 @@ public class WebglCameraArray implements IsElement<HTMLDivElement> {
 
             }
 
-            renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8);
+            renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
         }
     }
 

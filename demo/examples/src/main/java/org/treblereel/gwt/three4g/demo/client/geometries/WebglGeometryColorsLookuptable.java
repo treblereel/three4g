@@ -64,6 +64,8 @@ public class WebglGeometryColorsLookuptable implements IsElement<HTMLDivElement>
 
     private JsPropertyMap params = JsPropertyMap.of();
 
+    private GUI gui;
+
 
     @PostConstruct
     public void init() {
@@ -123,7 +125,7 @@ public class WebglGeometryColorsLookuptable implements IsElement<HTMLDivElement>
         OrbitControls controls = new OrbitControls(perpCamera, renderer.domElement);
         controls.addEventListener("change", event -> render());
 
-        GUI gui = new GUI();
+        gui = new GUI();
 
         gui.addOption(params, "colorMap", new String[]{"rainbow", "cooltowarm", "blackbody", "grayscale"}).onChange(e -> {
 
@@ -232,6 +234,7 @@ public class WebglGeometryColorsLookuptable implements IsElement<HTMLDivElement>
         while (info.firstChild != null) {
             info.removeChild(info.firstChild);
         }
+        gui.hide();
     }
 
     @PageShown

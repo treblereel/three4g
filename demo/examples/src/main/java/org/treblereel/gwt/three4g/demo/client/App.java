@@ -14,9 +14,7 @@
 
 package org.treblereel.gwt.three4g.demo.client;
 
-import elemental2.dom.CSSProperties;
-import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLElement;
+import elemental2.dom.*;
 import io.crysknife.annotation.Application;
 import org.treblereel.gwt.lilgui4g.LilGuiBootstrap;
 import org.treblereel.gwt.three4g.ThreeBootstrap;
@@ -43,15 +41,8 @@ public class App {
 
     @PostConstruct
     public void init() {
+        DomGlobal.console.log("started");
         DomGlobal.document.body.appendChild(main.getElement());
-        resizeSideBar();
-        DomGlobal.window.addEventListener("resize", evt -> resizeSideBar());
     }
 
-
-    private void resizeSideBar() {
-        HTMLElement sidebar = (HTMLElement) DomGlobal.document.getElementsByClassName("active").item(0);
-        double size = DomGlobal.document.body.clientHeight;
-        sidebar.style.height = CSSProperties.HeightUnionType.of(size * 0.6 + "px");
-    }
 }

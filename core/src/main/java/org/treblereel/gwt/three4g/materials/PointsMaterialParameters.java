@@ -64,7 +64,7 @@ public interface PointsMaterialParameters extends MaterialParameters {
   Texture getMap();
 
   @JsProperty
-  double getSize();
+  int getSize();
 
   @JsProperty
   boolean isSizeAttenuation();
@@ -94,7 +94,7 @@ public interface PointsMaterialParameters extends MaterialParameters {
   void setMap(Texture map);
 
   @JsProperty
-  void setSize(double size);
+  void setSize(int size);
 
   @JsProperty
   void setSizeAttenuation(boolean sizeAttenuation);

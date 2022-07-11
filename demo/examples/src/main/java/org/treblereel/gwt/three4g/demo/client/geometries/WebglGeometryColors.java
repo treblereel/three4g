@@ -50,7 +50,7 @@ public class WebglGeometryColors implements IsElement<HTMLDivElement> {
     public void init() {
 
         camera = new PerspectiveCamera( 20, DomGlobal.window.innerWidth / DomGlobal.window.innerHeight, 1, 10000 );
-        camera.position.z = 1800;
+        camera.position.z = 3200;
 
         scene = new Scene();
         scene.setBackground(new Color( 0xffffff ));
@@ -82,9 +82,7 @@ public class WebglGeometryColors implements IsElement<HTMLDivElement> {
         MeshBasicMaterial shadowMaterial = new MeshBasicMaterial(meshBasicMaterialParameters);
         PlaneGeometry shadowGeo = new PlaneGeometry( 300, 300, 1, 1 );
 
-        Mesh shadowMesh;
-
-        shadowMesh = new Mesh( shadowGeo, shadowMaterial );
+        Mesh shadowMesh = new Mesh( shadowGeo, shadowMaterial );
         shadowMesh.position.y = - 250;
         shadowMesh.rotation.x = - Math.PI / 2;
         scene.add( shadowMesh );
@@ -101,7 +99,7 @@ public class WebglGeometryColors implements IsElement<HTMLDivElement> {
         shadowMesh.rotation.x = - Math.PI / 2;
         scene.add( shadowMesh );
 
-				double radius = 200;
+		double radius = 200;
 
         IcosahedronGeometry geometry1 = new IcosahedronGeometry( radius, 1 );
 

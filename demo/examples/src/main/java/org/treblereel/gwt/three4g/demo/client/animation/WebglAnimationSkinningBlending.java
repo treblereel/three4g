@@ -83,12 +83,12 @@ public class WebglAnimationSkinningBlending implements IsElement<HTMLDivElement>
 
         renderer = new WebGLRenderer(webGLRendererParameters);
         renderer.setPixelRatio(DomGlobal.window.devicePixelRatio);
-        renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8);
+        renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
         renderer.outputEncoding = THREE.sRGBEncoding;
         renderer.shadowMap.enabled = true;
         root.appendChild(renderer.domElement);
 
-        camera = new PerspectiveCamera( 45, DomGlobal.window.innerWidth * 0.8 / DomGlobal.window.innerHeight * 0.8, 1, 1000 );
+        camera = new PerspectiveCamera( 45, DomGlobal.window.innerWidth / DomGlobal.window.innerHeight, 1, 1000 );
 
         camera.position.set( 1, 2, - 3 );
         camera.lookAt( 0, 1, 0 );
@@ -441,7 +441,7 @@ public class WebglAnimationSkinningBlending implements IsElement<HTMLDivElement>
         if(camera != null && renderer != null) {
             camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8);
+            renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
         }
     }
 

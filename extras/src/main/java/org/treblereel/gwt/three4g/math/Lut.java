@@ -1,7 +1,6 @@
 package org.treblereel.gwt.three4g.math;
 
 import elemental2.core.JsArray;
-import elemental2.core.JsMap;
 import elemental2.dom.HTMLCanvasElement;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;

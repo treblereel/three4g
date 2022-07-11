@@ -104,6 +104,8 @@ public class WebglGeometryExtrudeSplines implements IsElement<HTMLDivElement> {
     private Stats stats;
     private HTMLElement splineFolderGeometry;
 
+    private GUI gui;
+
     @PostConstruct
     public void init() {
 
@@ -206,7 +208,7 @@ public class WebglGeometryExtrudeSplines implements IsElement<HTMLDivElement> {
 
         GUIProperty guiProperty = new GUIProperty();
         guiProperty.setWidth(285);
-        GUI gui = new GUI(guiProperty);
+        gui = new GUI(guiProperty);
 
         GUI folderGeometry = gui.addFolder("Geometry");
 
@@ -396,6 +398,8 @@ public class WebglGeometryExtrudeSplines implements IsElement<HTMLDivElement> {
         while (info.firstChild != null) {
             info.removeChild(info.firstChild);
         }
+
+        gui.hide();
     }
 
     @PageShown

@@ -9896,7 +9896,7 @@ THREE.Curve.prototype.getPoint = function(t, optionalTarget) {};
  * Returns a vector for point at relative position in curve according to arc length
  * getPointAt(u: number, optionalTargetObject: T): T;
  * @param {number} u
- * @param {(undefined|THREE.Vector)=} optionalTarget
+ * @param {(undefined|THREE.Vector2|THREE.Vector3|THREE.Vector4)=} optionalTarget
  * @return {THREE.Vector}
  */
 THREE.Curve.prototype.getPointAt = function(u, optionalTarget) {};
@@ -9958,7 +9958,7 @@ THREE.Curve.prototype.getTangent = function(t, optionalTarget) {};
  * Returns tangent at equidistance point u on the curve
  * getTangentAt(u: number, optionalTargetObject: T): T;
  * @param {number} u
- * @param {(undefined|THREE.Vector)=} optionalTarget
+ * @param {(undefined|THREE.Vector2|THREE.Vector3|THREE.Vector4)=} optionalTarget
  * @return {THREE.Vector}
  */
 THREE.Curve.prototype.getTangentAt = function(u, optionalTarget) {};
@@ -10429,7 +10429,7 @@ THREE.Path.prototype.ellipse = function(aX, aY, xRadius, yRadius, aStartAngle, a
  * @param {number} aStartAngle
  * @param {number} aEndAngle
  * @param {boolean} aClockwise
- * @param {number} aRotation
+ * @param {number=} aRotation
  * @return {THIS}
  */
 THREE.Path.prototype.absellipse = function(aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise, aRotation) {};

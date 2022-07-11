@@ -79,7 +79,7 @@ public class Cube implements IsElement<HTMLDivElement> {
 
         renderer = new WebGLRenderer(webGLRendererParameters);
         renderer.setPixelRatio( DomGlobal.window.devicePixelRatio );
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
         root.appendChild(renderer.domElement);
 
         DomGlobal.window.addEventListener("resize", evt -> onWindowResize(), false);
@@ -92,7 +92,7 @@ public class Cube implements IsElement<HTMLDivElement> {
     private void  onWindowResize() {
         camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
 
     }
 

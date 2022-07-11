@@ -1376,3 +1376,203 @@ THREE.FirstPersonControls.prototype.lookAt = function (x,y,z) {};
 THREE.FirstPersonControls.prototype.update = function (delta) {};
 
 THREE.FirstPersonControls.prototype.dispose = function () {};
+
+/**
+ * @constructor
+ */
+THREE.ImprovedNoise = function () {}
+
+/**
+ * @param {number}  x
+ * @param {number}  y
+ * @param {number}  z
+ * @return {number}
+ */
+THREE.ImprovedNoise.prototype.noise = function (x, y, z) {};
+
+/**
+ * @extends {THREE.Curve}
+ * @param {number} degree
+ * @param {Array<number>} knots
+ * @param {Array<THREE.Vector2>|Array<THREE.Vector3>|Array<THREE.Vector4>} controlPoints
+ * @param {number=} startKnot
+ * @param {number=} endKnot
+ * @constructor
+ */
+THREE.NURBSCurve = function (degree,
+    knots,
+    controlPoints,
+    startKnot,
+    endKnot) {}
+
+/** @type {Array} */
+THREE.NURBSCurve.prototype.controlPoints
+
+/**
+ * @param {number} degree1
+ * @param {number} degree2
+ * @param {Array<number>} knots1
+ * @param {Array<number>} knots2
+ * @param {Array<Array<THREE.Vector2>>|Array<Array<THREE.Vector3>>|Array<Array<THREE.Vector4>>} controlPoints
+ * @constructor
+ */
+THREE.NURBSSurface = function (degree1,
+                               degree2,
+                               knots1,
+                               knots2,
+                               controlPoints) {}
+
+/**
+ *  @param {number} t1
+ *  @param {number} t2
+ *  @param {THREE.Vector3} target
+ */
+THREE.NURBSSurface.prototype.getPoint = function (t1, t2, target) {}
+
+/**
+ * @extends {THREE.Object3D}
+ * @param {THREE.Camera} object
+ * @param {HTMLElement=} domElement
+ * @constructor
+ */
+THREE.TransformControls = function (object, domElement) {}
+
+/** @type {HTMLElement} */
+THREE.TransformControls.prototype.domElement;
+
+// API
+/** @type {HTMLElement} */
+THREE.TransformControls.prototype.camera;
+/** @type {THREE.Object3D} */
+THREE.TransformControls.prototype.object;
+/** @type {boolean} */
+THREE.TransformControls.prototype.enabled;
+/** @type {String} */
+THREE.TransformControls.prototype.axis; // 'X' | 'Y' | 'Z' | 'E' | 'XY' | 'YZ' | 'XZ' | 'XYZ' | 'XYZE' | null;
+/** @type {String} */
+THREE.TransformControls.prototype.mode; // 'translate' | 'rotate' | 'scale';
+/** @type {number} */
+THREE.TransformControls.prototype.translationSnap;
+/** @type {number} */
+THREE.TransformControls.prototype.rotationSnap;
+/** @type {String} */
+THREE.TransformControls.prototype.space; // 'world' | 'local';
+/** @type {number} */
+THREE.TransformControls.prototype.size;
+/** @type {boolean} */
+THREE.TransformControls.prototype.dragging;
+/** @type {boolean} */
+THREE.TransformControls.prototype.showX;
+/** @type {boolean} */
+THREE.TransformControls.prototype.showY;
+/** @type {boolean} */
+THREE.TransformControls.prototype.showZ;
+/** @const {boolean} */
+THREE.TransformControls.prototype.isTransformControls;
+/** @type {THREE.MOUSE} */
+THREE.TransformControls.prototype.mouseButtons;
+
+/**
+ * @return {THREE.TransformControls}
+ * @param {THREE.Object3D} object
+ */
+THREE.TransformControls.prototype.attach = function (object) {};
+
+/**
+ * @return {THREE.TransformControls}
+ */
+THREE.TransformControls.prototype.detach = function () {};
+
+/**
+ * @return {String}
+ */
+THREE.TransformControls.prototype.getMode = function () {};
+
+/**
+ * @return {THREE.Raycaster}
+ */
+THREE.TransformControls.prototype.getRaycaster = function (){};
+
+/**
+ * @param {String} mode
+ */
+THREE.TransformControls.prototype.setMode = function (mode) {};
+
+/**
+ * @param {number} translationSnap
+ */
+THREE.TransformControls.prototype.setTranslationSnap = function (translationSnap){};
+
+/**
+ * @param {number} rotationSnap
+ */
+THREE.TransformControls.prototype.setRotationSnap = function (rotationSnap){};
+/**
+ * @param {number} scaleSnap
+ */
+THREE.TransformControls.prototype.setScaleSnap = function (scaleSnap) {};
+
+/**
+ * @param {number} size
+ */
+THREE.TransformControls.prototype.setSize = function (size) {}
+
+/**
+ * @param {String} space
+ */
+THREE.TransformControls.prototype.setSpace = function (space) {};
+THREE.TransformControls.prototype.reset = function () {};
+THREE.TransformControls.prototype.dispose = function () {};
+
+/**
+ * @extends {THREE.Object3D}
+ * @constructor
+ */
+THREE.TransformControlsGizmo = function () {}
+
+/** @type {String} */
+THREE.TransformControlsGizmo.prototype.type;
+
+/** @const {boolean} */
+THREE.TransformControlsGizmo.prototype.isTransformControlsGizmo;
+
+/**
+ * @typedef {{
+ *     translate: (THREE.Object3D),
+ *     rotate: (THREE.Object3D),
+ *     scale: (THREE.Object3D),
+ * }}
+ */
+var TransformControlsGizmoDTO;
+
+/** @type {TransformControlsGizmoDTO} */
+THREE.TransformControlsGizmo.prototype.gizmo;
+
+/** @type {TransformControlsGizmoDTO} */
+THREE.TransformControlsGizmo.prototype.helper;
+
+/** @type {TransformControlsGizmoDTO} */
+THREE.TransformControlsGizmo.prototype.picker;
+
+/**
+ * @extends {THREE.Mesh}
+ * @constructor
+ */
+THREE.TransformControlsPlane = function () {}
+
+/** @const {String} */
+THREE.TransformControlsPlane.prototype.type;
+/** @const {boolean} */
+THREE.TransformControlsPlane.prototype.isTransformControlsPlane;
+/** @type {String} */
+THREE.TransformControlsPlane.prototype.mode;
+/** @type {String} */
+THREE.TransformControlsPlane.prototype.axis;
+/** @type {String} */
+THREE.TransformControlsPlane.prototype.space;
+/** @type {THREE.Vector3} */
+THREE.TransformControlsPlane.prototype.eye;
+/** @type {THREE.Vector3} */
+THREE.TransformControlsPlane.prototype.worldPosition;
+/** @type {THREE.Quaternion} */
+THREE.TransformControlsPlane.prototype.worldQuaternion;

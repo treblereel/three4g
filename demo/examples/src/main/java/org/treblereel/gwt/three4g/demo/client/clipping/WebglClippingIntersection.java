@@ -55,13 +55,15 @@ public class WebglClippingIntersection implements IsElement<HTMLDivElement> {
 
     private JsPropertyMap params = JsPropertyMap.of();
 
+    private GUI gui;
+
     @PostConstruct
     public void init(){
 
         scene = new Scene();
 
         camera = new PerspectiveCamera(
-                40, DomGlobal.window.innerWidth * 0.8/ DomGlobal.window.innerHeight * 0.8, 1, 200 );
+                40, DomGlobal.window.innerWidth/ DomGlobal.window.innerHeight, 1, 200 );
         camera.position.set( - 1.5, 2.5, 3.0 );
 
         params.set("clipIntersection", true);
@@ -72,7 +74,7 @@ public class WebglClippingIntersection implements IsElement<HTMLDivElement> {
 
         renderer = new WebGLRenderer();
         renderer.setPixelRatio( DomGlobal.window.devicePixelRatio );
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
         renderer.localClippingEnabled = true;
 
 
@@ -119,7 +121,7 @@ public class WebglClippingIntersection implements IsElement<HTMLDivElement> {
         props.set("planeConstant", 0);
         props.set("showHelpers", false);
 
-        GUI gui = new GUI();
+        gui = new GUI();
         gui.addBoolean( params, "clipIntersection" ).name( "clip intersection" ).onChange(result -> {
             JsArray<Object3D> children = group.children;
             for ( int i = 0; i < children.length; i ++ ) {
@@ -155,7 +157,7 @@ public class WebglClippingIntersection implements IsElement<HTMLDivElement> {
     private void onWindowResize() {
         camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
         render();
     }
 
@@ -168,6 +170,7 @@ public class WebglClippingIntersection implements IsElement<HTMLDivElement> {
     @PageHiding
     private void onHide() {
         run = false;
+        gui.hide();
     }
 
     @PageShown

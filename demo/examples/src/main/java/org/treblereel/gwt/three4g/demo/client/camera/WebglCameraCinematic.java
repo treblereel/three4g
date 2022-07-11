@@ -56,10 +56,11 @@ public class WebglCameraCinematic implements IsElement<HTMLDivElement> {
 
     private JsPropertyMap effectController;
 
+    private GUI gui;
 
     @PostConstruct
     public void init() {
-        camera = new CinematicCamera( 60, ( ((double) DomGlobal.window.innerWidth * 0.8) / ((double) DomGlobal.window.innerHeight * 0.8)), 1, 1000 );
+        camera = new CinematicCamera( 60, ( ((double) DomGlobal.window.innerWidth) / ((double) DomGlobal.window.innerHeight)), 1, 1000 );
         camera.setLens( 5 );
         camera.position.set( 2, 1, 500 );
 
@@ -95,7 +96,7 @@ public class WebglCameraCinematic implements IsElement<HTMLDivElement> {
         webGLRendererParameters.setAntialias(true);
         renderer = new WebGLRenderer(webGLRendererParameters);
         renderer.setPixelRatio( DomGlobal.window.devicePixelRatio );
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight* 0.8);
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
 
         root.appendChild(renderer.domElement);
 
@@ -107,7 +108,7 @@ public class WebglCameraCinematic implements IsElement<HTMLDivElement> {
 
         //
 
-        GUI gui = new GUI();
+        gui = new GUI();
 
         gui.addNumber( effectController, "focalLength", 1, 135, 0.01 ).onChange(e -> {
             matChanger();
@@ -165,11 +166,10 @@ public class WebglCameraCinematic implements IsElement<HTMLDivElement> {
     private void onDocumentMouseMove(Event e ) {
         MouseEvent event = (MouseEvent) e;
 
-        double windowXFix = (DomGlobal.document.body.clientWidth - root.clientWidth) * 0.8;
         event.preventDefault();
 
-        mouse.x = (( (event.clientX - windowXFix) / (root.offsetWidth)) * 2 - 1);
-        mouse.y = (- ( (event.clientY - root.offsetTop) / (root.offsetHeight) ) * 2 + 1);
+        mouse.x = ( event.clientX / DomGlobal.window.innerWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / DomGlobal.window.innerHeight ) * 2 + 1;
     }
 
     public HTMLDivElement getElement() {
@@ -178,10 +178,10 @@ public class WebglCameraCinematic implements IsElement<HTMLDivElement> {
 
     private void onWindowResize() {
         if(camera != null && renderer != null) {
-            camera.aspect = DomGlobal.window.innerWidth * 0.8 / DomGlobal.window.innerHeight  * 0.8  ;
+            camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
             camera.updateProjectionMatrix();
 
-            renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+            renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
         }
     }
 
@@ -258,6 +258,7 @@ public class WebglCameraCinematic implements IsElement<HTMLDivElement> {
         while (info.firstChild != null) {
             info.removeChild(info.firstChild);
         }
+        gui.hide();
     }
 
     @PageShown

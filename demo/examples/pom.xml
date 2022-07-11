@@ -17,7 +17,7 @@
     <maven.tomcat.plugin.version>2.2</maven.tomcat.plugin.version>
     <maven.properties.plugin>1.0.0</maven.properties.plugin>
     <org.treblereel.j2cl.processors.version>0.3</org.treblereel.j2cl.processors.version>
-    <crysknife.version>0.4-SNAPSHOT</crysknife.version>
+    <crysknife.version>0.5.1-SNAPSHOT</crysknife.version>
     <resources.api.version>0.2</resources.api.version>
   </properties>
 
@@ -81,13 +81,13 @@
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife.legacy.ui.navigation</groupId>
+      <groupId>io.crysknife.ui.navigation</groupId>
       <artifactId>api</artifactId>
       <version>${crysknife.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>io.crysknife.legacy.ui.navigation</groupId>
+      <groupId>io.crysknife.ui.navigation</groupId>
       <artifactId>generator</artifactId>
       <version>${crysknife.version}</version>
       <scope>provided</scope>

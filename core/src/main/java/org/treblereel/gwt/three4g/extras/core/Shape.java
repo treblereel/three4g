@@ -10,7 +10,7 @@ import jsinterop.base.JsPropertyMap;
 import org.treblereel.gwt.three4g.math.Vector2;
 
 @JsType(isNative = true, name = "THREE.Shape", namespace = JsPackage.GLOBAL)
-public class Shape extends Path {
+public class Shape extends Path<Shape> {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ExtractPointsReturnType {
     @JsOverlay

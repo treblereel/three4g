@@ -52,9 +52,11 @@ public class WebglClipping implements IsElement<HTMLDivElement> {
 
     private boolean ready;
 
+    private GUI gui;
+
     @PostConstruct
     public void init(){
-        camera = new PerspectiveCamera( 36, DomGlobal.window.innerWidth * 0.8/ DomGlobal.window.innerHeight* 0.8, 0.25, 16 );
+        camera = new PerspectiveCamera( 36, DomGlobal.window.innerWidth/ DomGlobal.window.innerHeight, 0.25, 16 );
         camera.position.set( 0, 1.3, 3 );
         scene = new Scene();
 
@@ -132,7 +134,7 @@ public class WebglClipping implements IsElement<HTMLDivElement> {
         renderer = new WebGLRenderer();
         renderer.shadowMap.enabled = true;
         renderer.setPixelRatio( DomGlobal.window.devicePixelRatio );
-        renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight  * 0.8);
+        renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
         root.appendChild(renderer.domElement);
 
         // ***** Clipping setup (renderer): *****
@@ -162,7 +164,7 @@ public class WebglClipping implements IsElement<HTMLDivElement> {
         propsGlobal.set("Enabled", true);
         propsGlobal.set("Plane", globalPlane.constant);
 
-        GUI gui = new GUI();
+        gui = new GUI();
         GUI folderLocal = gui.addFolder( "Local Clipping" );
         folderLocal.addBoolean( propsLocal, "Enabled" ).onChange(result -> renderer.localClippingEnabled = result);
         folderLocal.addBoolean( propsLocal, "Shadows" ).onChange(result -> material.clipShadows = result);
@@ -186,7 +188,7 @@ public class WebglClipping implements IsElement<HTMLDivElement> {
     private void  onWindowResize() {
         camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
 
     }
 
@@ -211,6 +213,7 @@ public class WebglClipping implements IsElement<HTMLDivElement> {
     @PageHiding
     private void onHide() {
         run = false;
+        gui.hide();
     }
 
     @PageShown

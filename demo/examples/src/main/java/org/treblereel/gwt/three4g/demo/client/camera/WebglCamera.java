@@ -39,8 +39,8 @@ import javax.inject.Inject;
 @Page(path = "webgl_camera")
 public class WebglCamera implements IsElement<HTMLDivElement> {
 
-    double SCREEN_WIDTH = DomGlobal.window.innerWidth * 0.8;
-    double SCREEN_HEIGHT = DomGlobal.window.innerHeight * 0.8;
+    double SCREEN_WIDTH = DomGlobal.window.innerWidth;
+    double SCREEN_HEIGHT = DomGlobal.window.innerHeight;
     double aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
 
     Group cameraRig;
@@ -186,8 +186,8 @@ public class WebglCamera implements IsElement<HTMLDivElement> {
 
     private void onWindowResize() {
         if(camera != null && renderer != null) {
-            SCREEN_WIDTH = DomGlobal.window.innerWidth * 0.8;
-            SCREEN_HEIGHT = DomGlobal.window.innerHeight * 0.8;
+            SCREEN_WIDTH = DomGlobal.window.innerWidth;
+            SCREEN_HEIGHT = DomGlobal.window.innerHeight;
             aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
 
             renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );

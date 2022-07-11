@@ -77,6 +77,8 @@ public class WebglAnimationSkinningMorph implements IsElement<HTMLDivElement> {
 
     private Map<String, AnimationAction> actions = new HashMap<>();
 
+    private GUI gui;
+
     @PostConstruct
     public void init() {
         api.set("state", "Walking");
@@ -88,7 +90,7 @@ public class WebglAnimationSkinningMorph implements IsElement<HTMLDivElement> {
 
         renderer = new WebGLRenderer(webGLRendererParameters);
         renderer.setPixelRatio(DomGlobal.window.devicePixelRatio);
-        renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8);
+        renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
         renderer.outputEncoding = THREE.sRGBEncoding;
         root.appendChild(renderer.domElement);
 
@@ -96,7 +98,7 @@ public class WebglAnimationSkinningMorph implements IsElement<HTMLDivElement> {
         scene.setBackground(new Color( 0xe0e0e0 ));
         scene.setFog(new Fog( 0xe0e0e0, 20, 100 ));
 
-        camera = new PerspectiveCamera( 45, DomGlobal.window.innerWidth * 0.8 / DomGlobal.window.innerHeight * 0.8, 0.25, 100 );
+        camera = new PerspectiveCamera( 45, DomGlobal.window.innerWidth / DomGlobal.window.innerHeight, 0.25, 100 );
         camera.position.set( - 5, 3, 10 );
         camera.lookAt( new Vector3( 0, 2, 0 ) );
 
@@ -179,7 +181,7 @@ public class WebglAnimationSkinningMorph implements IsElement<HTMLDivElement> {
         emotes = new JsArray<>();
         emotes.push("Jump", "Yes", "No", "Wave", "Punch", "ThumbsUp");
 
-        GUI gui = new GUI();
+        gui = new GUI();
 
         mixer = new AnimationMixer(model);
 
@@ -273,7 +275,7 @@ public class WebglAnimationSkinningMorph implements IsElement<HTMLDivElement> {
         if(camera != null && renderer != null) {
             camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8);
+            renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
         }
     }
 
@@ -296,6 +298,7 @@ public class WebglAnimationSkinningMorph implements IsElement<HTMLDivElement> {
         while (info.firstChild != null) {
             info.removeChild(info.firstChild);
         }
+        gui.hide();
     }
 
     @PageShown

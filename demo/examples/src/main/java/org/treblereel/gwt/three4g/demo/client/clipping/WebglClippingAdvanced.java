@@ -112,10 +112,12 @@ public class WebglClippingAdvanced implements IsElement<HTMLDivElement> {
 
     private Group object, volumeVisualization;
 
+    private GUI gui;
+
     @PostConstruct
     public void init(){
         camera = new PerspectiveCamera(
-                36, DomGlobal.window.innerWidth * 0.8/ DomGlobal.window.innerHeight * 0.8, 0.25, 16 );
+                36, DomGlobal.window.innerWidth/ DomGlobal.window.innerHeight, 0.25, 16 );
 
         camera.position.set( 0, 1.5, 3 );
 
@@ -228,7 +230,7 @@ public class WebglClippingAdvanced implements IsElement<HTMLDivElement> {
         renderer = new WebGLRenderer();
         renderer.shadowMap.enabled = true;
         renderer.setPixelRatio( DomGlobal.window.devicePixelRatio );
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
         DomGlobal.window.addEventListener("resize", evt -> onWindowResize(), false);
 
         root.appendChild( renderer.domElement );
@@ -265,7 +267,7 @@ public class WebglClippingAdvanced implements IsElement<HTMLDivElement> {
         propsGlobal.set("Enabled", false);
 
 
-        GUI gui = new GUI();
+        gui = new GUI();
         GUI folderLocal = gui.addFolder( "Local Clipping" );
         folderLocal.addBoolean( props, "Enabled" ).onChange(v -> {
             renderer.localClippingEnabled = v;
@@ -362,7 +364,7 @@ public class WebglClippingAdvanced implements IsElement<HTMLDivElement> {
     private void onWindowResize() {
         camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8 );
+        renderer.setSize( DomGlobal.window.innerWidth, DomGlobal.window.innerHeight );
 
     }
 
@@ -423,6 +425,7 @@ public class WebglClippingAdvanced implements IsElement<HTMLDivElement> {
     @PageHiding
     private void onHide() {
         run = false;
+        gui.hide();
     }
 
     @PageShown

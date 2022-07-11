@@ -65,13 +65,14 @@ public class WebglClippingStencil implements IsElement<HTMLDivElement> {
 
     private Group object;
 
+    private GUI gui;
 
     @PostConstruct
     public void init() {
         clock = new Clock();
         scene = new Scene();
 
-        camera = new PerspectiveCamera(36, DomGlobal.window.innerWidth * 0.8 / DomGlobal.window.innerHeight * 0.8, 1, 100);
+        camera = new PerspectiveCamera(36, DomGlobal.window.innerWidth / DomGlobal.window.innerHeight, 1, 100);
         camera.position.set(2, 2, 2);
 
         scene.add(new AmbientLight(0xffffff, 0.5));
@@ -192,7 +193,7 @@ public class WebglClippingStencil implements IsElement<HTMLDivElement> {
         renderer = new WebGLRenderer(webGLRendererParameters);
         renderer.shadowMap.enabled = true;
         renderer.setPixelRatio(DomGlobal.window.devicePixelRatio);
-        renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8);
+        renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
         renderer.setClearColor(0x263238);
         DomGlobal.window.addEventListener("resize", e -> onWindowResize());
 
@@ -227,7 +228,7 @@ public class WebglClippingStencil implements IsElement<HTMLDivElement> {
 
 
         // GUI
-        GUI gui = new GUI();
+        gui = new GUI();
         gui.addBoolean(params, "animate");
 
         GUI planeX = gui.addFolder("planeX");
@@ -318,7 +319,7 @@ public class WebglClippingStencil implements IsElement<HTMLDivElement> {
     private void onWindowResize() {
         camera.aspect = DomGlobal.window.innerWidth / DomGlobal.window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize(DomGlobal.window.innerWidth * 0.8, DomGlobal.window.innerHeight * 0.8);
+        renderer.setSize(DomGlobal.window.innerWidth, DomGlobal.window.innerHeight);
 
     }
 
@@ -343,6 +344,7 @@ public class WebglClippingStencil implements IsElement<HTMLDivElement> {
             info.removeChild(info.firstChild);
         }
         run = false;
+        gui.hide();
     }
 
     @PageShown

@@ -51,15 +51,13 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
 }
 
-#sidebar.active {
-    margin-left: -250px;
+#sidebar .active {
+    height: 70vh;
 }
 
 #sidebar .sidebar-header {
@@ -68,7 +66,6 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
     border-bottom: 1px solid #47748b;
 }
 

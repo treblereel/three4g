@@ -30,6 +30,7 @@ public class OrbitControls extends EventDispatcher {
     public boolean enableZoom;
     public double minDistance;
     public double maxDistance;
+    public double dampingFactor;
     public double maxPolarAngle;
 
     public OrbitControls(PerspectiveCamera camera, HTMLElement domElement) {

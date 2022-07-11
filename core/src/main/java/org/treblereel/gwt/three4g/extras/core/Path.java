@@ -8,7 +8,7 @@ import jsinterop.base.Js;
 import org.treblereel.gwt.three4g.math.Vector2;
 
 @JsType(isNative = true, name = "THREE.Path", namespace = JsPackage.GLOBAL)
-public class Path extends CurvePath {
+public class Path<T extends Path> extends CurvePath {
   public Vector2 currentPoint;
   public String type;
 
@@ -18,7 +18,7 @@ public class Path extends CurvePath {
 
   public Path(Vector2[] points) {}
 
-  public native Path absarc(
+  public native T absarc(
       double aX,
       double aY,
       double aRadius,
@@ -26,7 +26,16 @@ public class Path extends CurvePath {
       double aEndAngle,
       boolean aClockwise);
 
-  public native Path absellipse(
+  public native T absellipse(
+          double aX,
+          double aY,
+          double xRadius,
+          double yRadius,
+          double aStartAngle,
+          double aEndAngle,
+          boolean aClockwise);
+
+  public native T absellipse(
       double aX,
       double aY,
       double xRadius,
@@ -36,7 +45,7 @@ public class Path extends CurvePath {
       boolean aClockwise,
       double aRotation);
 
-  public native Path arc(
+  public native T arc(
       double aX,
       double aY,
       double aRadius,
@@ -44,10 +53,10 @@ public class Path extends CurvePath {
       double aEndAngle,
       boolean aClockwise);
 
-  public native Path bezierCurveTo(
+  public native T bezierCurveTo(
       double aCP1x, double aCP1y, double aCP2x, double aCP2y, double aX, double aY);
 
-  public native Path ellipse(
+  public native T ellipse(
       double aX,
       double aY,
       double xRadius,
@@ -58,31 +67,31 @@ public class Path extends CurvePath {
       double aRotation);
 
   @Deprecated
-  public native Path fromPoints(JsArray<Vector2> vectors);
+  public native T fromPoints(JsArray<Vector2> vectors);
 
   @JsOverlay
   @Deprecated
-  public final Path fromPoints(Vector2[] vectors) {
+  public final T fromPoints(Vector2[] vectors) {
     return fromPoints(Js.<JsArray<Vector2>>uncheckedCast(vectors));
   }
 
-  public native Path lineTo(double x, double y);
+  public native T lineTo(double x, double y);
 
-  public native Path moveTo(double x, double y);
+  public native T moveTo(double x, double y);
 
-  public native Path quadraticCurveTo(double aCPx, double aCPy, double aX, double aY);
+  public native T quadraticCurveTo(double aCPx, double aCPy, double aX, double aY);
 
-  public native Path setFromPoints(JsArray<Vector2> vectors);
+  public native T setFromPoints(JsArray<Vector2> vectors);
 
   @JsOverlay
-  public final Path setFromPoints(Vector2[] vectors) {
+  public final T setFromPoints(Vector2[] vectors) {
     return setFromPoints(Js.<JsArray<Vector2>>uncheckedCast(vectors));
   }
 
-  public native Path splineThru(JsArray<Vector2> pts);
+  public native T splineThru(JsArray<Vector2> pts);
 
   @JsOverlay
-  public final Path splineThru(Vector2[] pts) {
+  public final T splineThru(Vector2[] pts) {
     return splineThru(Js.<JsArray<Vector2>>uncheckedCast(pts));
   }
 }

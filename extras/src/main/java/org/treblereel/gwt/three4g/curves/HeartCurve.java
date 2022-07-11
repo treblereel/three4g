@@ -4,7 +4,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import org.treblereel.gwt.three4g.extras.core.Curve;
 
-@JsType(isNative = true, name = "THREE.Curves.GrannyKnot", namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, name = "THREE.Curves.HeartCurve", namespace = JsPackage.GLOBAL)
 public class HeartCurve extends Curve {
 
     public double scale;

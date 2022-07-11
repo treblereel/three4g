@@ -16,15 +16,14 @@ package org.treblereel.gwt.three4g.demo.client;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.inject.Singleton;
 
+import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
 import io.crysknife.client.IsElement;
+import io.crysknife.ui.navigation.client.local.Navigation;
 import io.crysknife.ui.templates.client.annotation.DataField;
 import io.crysknife.ui.templates.client.annotation.Templated;
-import io.crysknife.ui.navigation.client.local.Navigation;
 
 /**
  * @author Dmitrii Tikhomirov
@@ -41,14 +40,12 @@ public class Main implements IsElement<HTMLDivElement> {
     @Inject
     private Navigation navigation;
 
-    @Inject
-    @DataField
-    @Named("span")
-    private HTMLElement span;
-
     @PostConstruct
     public void init() {
         navigation.setNavigationContainer(container);
+        navigation.setWindowObject(DomGlobal.window.parent);
+
+        DomGlobal.console.log("?? " + DomGlobal.window.parent);
     }
 
     @Override
